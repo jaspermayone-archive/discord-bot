@@ -8,17 +8,16 @@ client.on("ready", () => {
 });
 
 // Set the prefix
-let prefix = "!";
+const prefix = "!";
 client.on("message", (message) => {
-  // Exit and stop if the prefix is not there or if user is a bot
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-  if (message.content.startsWith(prefix + "ping")) {
+  if (message.content.startsWith(config.prefix + "ping")) {
     message.channel.send("pong!");
   } else
-  if (message.content.startsWith(prefix + "foo")) {
+  if (message.content.startsWith(config.prefix + "foo")) {
     message.channel.send("bar!");
   }
 });
 
-client.login("NzgzMDczMDk1MDM2MDQzMjc0.X8Vbpg.sI-Z-oqo9AGcIqGffz91Dfm3woM");
+client.login(config.token);
