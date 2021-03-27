@@ -1,5 +1,9 @@
 const Discord = require('discord.js');
+const config = require("./config.json");
+
 const client = new Discord.Client();
+const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
+
  
 const prefix = '!';
  
@@ -13,7 +17,6 @@ for(const file of commandFiles){
  
     client.commands.set(command.name, command);
 }
- 
  
 client.once('ready', () => {
     console.log('Bot is online!');

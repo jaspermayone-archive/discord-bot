@@ -1,0 +1,6 @@
+{
+    "token":"put your discord token here",
+    "announcer-role": "announcer role Id",
+    "webhookToken": "webhook token",
+    "webhookID": "webhook ID"
+  }
