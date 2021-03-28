@@ -3,7 +3,7 @@ module.exports = {
     description: "sends server invite link",
     execute(message, args, Discord){
 
-        if(message.member.roles.cache.has(process.env.ADMIN_ID)){
+        if(message.member.roles.cache.has(process.env.ADMIN_ROLE_ID)){
             message.channel.send('The public server invite link is https://discord.gg/TRDdJ3WNjk');
         
         } else {

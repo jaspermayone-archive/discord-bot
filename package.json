@@ -18,6 +18,7 @@
   "homepage": "https://github.com/j-dogcoder/Nebula_Bot#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "ms": "^2.1.3"
   }
 }
