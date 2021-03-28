@@ -29,10 +29,21 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
  
     if(command === 'ping'){
-        client.commands.get('ping').execute(message, args);
+        client.commands.get('ping').execute(message, args, Discord);
+
     } else if (command == 'github'){
-        client.commands.get('github').execute(message, args);
+        client.commands.get('github').execute(message, args, Discord);
+
+    } else if (command == 'admin'){
+        client.commands.get('admin').execute(message, args, Discord );
+
+    } else if (command == 'clear'){
+        client.commands.get('clear').execute(message, args, Discord );
+
+    } else if (command == 'wipe'){
+        client.commands.get('wipe').execute(message, args, Discord );
     }
+
 });
  
 client.login('NzgzMDczMDk1MDM2MDQzMjc0.X8Vbpg.sI-Z-oqo9AGcIqGffz91Dfm3woM');
