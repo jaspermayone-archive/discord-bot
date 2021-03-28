@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const config = require('dotenv').config();
 
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
 
@@ -20,9 +20,14 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.once('ready', () => {
-    console.log('Bot is online!');
-});
+client.on("error", (e) => console.error(e));
+client.on("warn", (e) => console.warn(e));
+client.on("debug", (e) => console.info(e));
+
+client.on("ready", () => {
+    client.user.setActivity(`Pluto AI Main Bot`);
+    console.log(`Bot is online and ready for use!`);
+  });
 
 client.on('message', (msg) => {
     if (msg.content === 'Hi') msg.reply('Hello!');
@@ -64,6 +69,9 @@ client.on('message', message => {
 
     } else if (command == 'unmute') {
         client.commands.get('unmute').execute(message, args, Discord);
+
+    } else if (command == 'reactionrole') {
+        client.commands.get('reactionrole').execute(message, args, Discord, client);
 
     }
 
