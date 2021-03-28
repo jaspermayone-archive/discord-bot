@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require("./config.json");
+const config = require('dotenv').config();
 
 const client = new Discord.Client();
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
@@ -59,4 +59,4 @@ client.on('message', message =>{
 
 });
  
-client.login('NzgzMDczMDk1MDM2MDQzMjc0.X8Vbpg.sI-Z-oqo9AGcIqGffz91Dfm3woM');
+client.login(process.env.BOT_TOKEN)
