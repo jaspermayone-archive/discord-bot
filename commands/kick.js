@@ -4,7 +4,7 @@ module.exports = {
     execute(message, args, Discord){
         const member = message.mentions.users.first();
         
-        if(message.member.roles.cache.has('825176015562997781')){
+        if(message.member.roles.cache.has(process.env.ADMIN_ID)){
             if(member){
                 const memberTarget = message.guild.members.cache.get(member.id)
                 memberTarget.kick()

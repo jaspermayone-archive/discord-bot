@@ -23,6 +23,11 @@ for(const file of commandFiles){
 client.once('ready', () => {
     console.log('Bot is online!');
 });
+
+client.on('message', (msg) => {
+    if (msg.content === 'Hi') msg.reply('Hello!');
+  });
+  
  
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;

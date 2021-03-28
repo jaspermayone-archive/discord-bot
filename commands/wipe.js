@@ -2,7 +2,7 @@ module.exports = {
     name: 'wipe',
     description: "clear with bigger options",
     async execute(message, args, Discord){
-        if(message.member.roles.cache.has('825176015562997781')){
+        if(message.member.roles.cache.has(process.env.ADMIN_ID)){
             if(!args[0]) return message.reply("Please specify a number of messages to clear.")
             if(isNaN(args[0])) return message.reply("Please enter a number instead of text.")
         
