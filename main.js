@@ -42,7 +42,12 @@ client.on('message', message =>{
 
     } else if (command == 'wipe'){
         client.commands.get('wipe').execute(message, args, Discord );
+
+    } else if (command == 'invite'){
+        client.commands.get('invite').execute(message, args, Discord );
+
     }
+
 
 });
  
