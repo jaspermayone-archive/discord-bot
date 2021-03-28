@@ -10,6 +10,8 @@ const prefix = '!';
 const fs = require('fs');
  
 client.commands = new Discord.Collection();
+
+
  
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
@@ -45,6 +47,12 @@ client.on('message', message =>{
 
     } else if (command == 'invite'){
         client.commands.get('invite').execute(message, args, Discord );
+
+    }  else if (command == 'kick'){
+        client.commands.get('kick').execute(message, args, Discord );
+
+    } else if (command == 'ban'){
+        client.commands.get('ban').execute(message, args, Discord );
 
     }
 
