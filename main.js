@@ -37,9 +37,6 @@ client.on('message', message => {
     if (command === 'ping') {
         client.commands.get('ping').execute(message, args, Discord);
 
-    } else if (command == 'github') {
-        client.commands.get('github').execute(message, args, Discord);
-
     } else if (command == 'admin') {
         client.commands.get('admin').execute(message, args, Discord);
 
