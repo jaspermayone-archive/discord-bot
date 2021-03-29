@@ -1,5 +1,5 @@
 {
-  "name": "nebula_bot",
+  "name": "heptagram",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -8,17 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j-dogcoder/Nebula_Bot.git"
+    "url": "git+https://github.com/Heptagram-Bot/Heptagram.git"
   },
   "author": "J-dogcoder",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/j-dogcoder/Nebula_Bot/issues"
+    "url": "https://github.com/Heptagram-Bot/Heptagram/issues"
   },
-  "homepage": "https://github.com/j-dogcoder/Nebula_Bot#readme",
+  "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
+    "@keyv/mysql": "^1.1.4",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
+    "keyv": "^4.0.3",
     "ms": "^2.1.3"
   }
 }
