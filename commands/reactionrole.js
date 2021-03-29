@@ -3,11 +3,11 @@ module.exports = {
     description: "Sets up a reaction role message!",
     async execute(message, args, Discord, client) {
         const channel = '825873304854331393';
-        const yellowTeamRole = message.guild.roles.cache.find(role => role.name === "YOUR_ROLE");
-        const blueTeamRole = message.guild.roles.cache.find(role => role.name === "YOUR_ROLE");
+        const roleOne = message.guild.roles.cache.find(role => role.name === "role 1");
+        const roleTwo = message.guild.roles.cache.find(role => role.name === "role 2");
  
-        const roleOneEmoji = ':one:';
-        const roleTwoEmoji = ':two:';
+        const roleOneEmoji = '1️⃣';
+        const roleTwoEmoji = '2️⃣';
  
         let embed = new Discord.MessageEmbed()
             .setColor('#e42643')
@@ -28,10 +28,10 @@ module.exports = {
  
             if (reaction.message.channel.id == channel) {
                 if (reaction.emoji.name === roleOneEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(yellowTeamRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(roleOne);
                 }
                 if (reaction.emoji.name === roleTwoEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(blueTeamRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(roleTwo);
                 }
             } else {
                 return;
@@ -39,7 +39,7 @@ module.exports = {
  
         });
  
-        client.on('messageReactionRemove', async (reaction, user) => {
+        client.on('messageReactionRemove', async (reaction, user) => {c
  
             if (reaction.message.partial) await reaction.message.fetch();
             if (reaction.partial) await reaction.fetch();
@@ -49,10 +49,10 @@ module.exports = {
  
             if (reaction.message.channel.id == channel) {
                 if (reaction.emoji.name === roleOneEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(yellowTeamRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(roleOne);
                 }
                 if (reaction.emoji.name === roleTwoEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(blueTeamRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(roleTwo);
                 }
             } else {
                 return;
