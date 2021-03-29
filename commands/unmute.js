@@ -8,8 +8,8 @@ module.exports = {
 
             const target = message.mentions.users.first();
             if(target){
-                let mainRole = message.guild.roles.cache.find(role => role.name === 'User');
-                let muteRole = message.guild.roles.cache.find(role => role.name === 'Muted');
+                let mainRole = message.guild.roles.cache.get(process.env.USER_ROLE_ID);
+                let muteRole = message.guild.roles.cache.get(process.env.MUTED_ROLE_ID);
      
                 let memberTarget= message.guild.members.cache.get(target.id);
      
