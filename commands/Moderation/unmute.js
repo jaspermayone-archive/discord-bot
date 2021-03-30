@@ -7,12 +7,12 @@ module.exports = {
     description: "unmutes user",
     execute(message, args, Discord) {
 
-        if (message.member.roles.cache.has(process.env.ADMIN_ROLE_ID)) {
+        if (message.member.roles.cache.has(ADMIN_ROLE_ID)) {
 
             const target = message.mentions.users.first();
             if (target) {
-                let mainRole = message.guild.roles.cache.get(process.env.USER_ROLE_ID);
-                let muteRole = message.guild.roles.cache.get(process.env.MUTED_ROLE_ID);
+                let mainRole = message.guild.roles.cache.get(USER_ROLE_ID);
+                let muteRole = message.guild.roles.cache.get(MUTED_ROLE_ID);
 
                 let memberTarget = message.guild.members.cache.get(target.id);
 
