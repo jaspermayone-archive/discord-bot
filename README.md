@@ -106,6 +106,7 @@ node main.js
 
 ## Troubleshooting Heptagram
 
-### Heptagram crashes when trying to clear messages.
+Heptagram is still in development and will have some bugs. If you can't sort them yourself, the best thing to do is open a Github issue.
 
-This happens when Heptagram doesn't have the correct administrative permissions to delete messages, a good fix for this is to make a role with those permissions and assign that role to Heptagram, or give the permissions to Heptagram directly.
+### Heptagram crashes when trying to clear messages.
+This happens when Heptagram doesn't have the correct administrative permissions to delete messages, a good fix for this is to make a role with those permissions and assign that role to Heptagram, or give the permissions to Heptagram directly. 
