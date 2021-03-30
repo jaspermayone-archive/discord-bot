@@ -1,5 +1,9 @@
-  
 {
-	"prefix": "!",
-	"token": "your-token-goes-here"
+  "prefix": "!",
+  "token": "your-token-goes-here",
+  "roles": {
+    "admin": "826438768621910000",
+    "users": "826438671993010000",
+    "muted": "826438805686050000"
+  }
 }
