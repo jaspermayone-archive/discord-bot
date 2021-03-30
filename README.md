@@ -106,7 +106,8 @@ node main.js
 
 ## Troubleshooting Heptagram
 
-Heptagram is still in development and will have some bugs. If you can't sort them yourself, the best thing to do is open a Github issue.
+Heptagram is still in active development - bugs and issues are expected. If your experience a bug or issues you could not fix, do not hesitate to open a new [GitHub issue](https://github.com/Heptagram-Bot/Heptagram/issues/new).
 
 ### Heptagram crashes when trying to clear messages.
+
 This happens when Heptagram doesn't have the correct administrative permissions to delete messages, a good fix for this is to make a role with those permissions and assign that role to Heptagram, or give the permissions to Heptagram directly. 
