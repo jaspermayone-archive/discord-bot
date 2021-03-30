@@ -4,7 +4,7 @@
 module.exports = {
     name: 'ban',
     description: "bans users",
-    execute(message, args, Discord) {
+    execute({ message }) {
         const member = message.mentions.users.first();
 
         if (message.member.roles.cache.has(ADMIN_ROLE_ID)) {

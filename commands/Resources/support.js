@@ -3,7 +3,7 @@
 module.exports = {
     name: 'support',
     description: "sends a link for the bot support server",
-    execute(message, args, Discord) {
+    execute({ message }) {
 
         //All code to be exixuted with correct permisions goes inside this if.
         if (message.member.roles.cache.has(ADMIN_ROLE_ID)) {

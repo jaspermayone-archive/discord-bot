@@ -5,14 +5,14 @@ const ms = require('ms');
 module.exports = {
     name: 'unmute',
     description: "unmutes user",
-    execute(message, args, Discord) {
+    execute({ message, roles }) {
 
-        if (message.member.roles.cache.has(ADMIN_ROLE_ID)) {
+        if (message.member.roles.cache.has(roles.admin)) {
 
             const target = message.mentions.users.first();
             if (target) {
-                let mainRole = message.guild.roles.cache.get(USER_ROLE_ID);
-                let muteRole = message.guild.roles.cache.get(MUTED_ROLE_ID);
+                let mainRole = message.guild.roles.cache.get(roles.users);
+                let muteRole = message.guild.roles.cache.get(roles.muted);
 
                 let memberTarget = message.guild.members.cache.get(target.id);
 
