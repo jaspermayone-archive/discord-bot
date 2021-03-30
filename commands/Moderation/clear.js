@@ -6,7 +6,7 @@ module.exports = {
     name: 'clear',
     description: "clears messages",
     async execute(message, args, Discord) {
-        if (message.member.roles.cache.has(process.env.ADMIN_ROLE_ID)) {
+        if (message.member.roles.cache.has(ADMIN_ROLE_ID)) {
             if (!args[0]) return message.reply("Please specify a number of messages to clear.")
             if (isNaN(args[0])) return message.reply("Please enter a number instead of text.")
 
