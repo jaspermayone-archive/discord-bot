@@ -1,3 +1,8 @@
+//This is the mute command. The mute command mutes members. 
+//You can either specify a time or just mute untill an admin unmutes them.
+// This command is admin resticted. To see how to resrict a command go to the admin.js file.
+// ms is the timings module we use
+
 const ms = require('ms');
 module.exports = {
     name: 'mute',
@@ -11,9 +16,9 @@ module.exports = {
 
                 let mainRole = message.guild.roles.cache.get(process.env.USER_ROLE_ID);
                 let muteRole = message.guild.roles.cache.get(process.env.MUTED_ROLE_ID);
-     
+
                 let memberTarget = message.guild.members.cache.get(target.id);
-     
+
                 if (!args[1]) {
                     memberTarget.roles.remove(mainRole.id);
                     memberTarget.roles.add(muteRole.id);
@@ -23,7 +28,7 @@ module.exports = {
                 memberTarget.roles.remove(mainRole.id);
                 memberTarget.roles.add(muteRole.id);
                 message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
-     
+
                 setTimeout(function () {
                     memberTarget.roles.remove(muteRole.id);
                     memberTarget.roles.add(mainRole.id);

@@ -1,6 +1,22 @@
-# Heptagram
+# Heptagram Bot
 
 [![CodeQL](https://github.com/Heptagram-Bot/Heptagram/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/Heptagram-Bot/Heptagram/actions/workflows/codeql-analysis.yml)
+
+# Welcome to Heptagram. 
+The goal is for Heptagram to be the all in one open source discord bot with as many features as possible.
+
+## Contributing
+Contributing is welcomed! We have extensive documentation bellow as well as comments in the code to help you out.
+Please take a look at our GitHub issues for ideas on what to work on.
+
+## Bot Community.
+We are working on setting up a Discord Server for our community. This will serve as Bot Support and a Place for our developers and contributers to talk. This server will be up and running in the very near future. 
+
+# Open Sauced
+Heptagram is proud to work with Open Sauced and the Open Sauced discord server. Open Saucedis a website that helps you track your open source contributions and contribution goals. You can find the website at https://opensauced.pizza/. They also have an amaazing Discord community and I highly recommend you check it out. The link for the discord server is https://discord.gg/PDJNR7u37h. I am in the server and you can feel free to message me there about the Bot until our server is up and running. My username is J-dogcoder#0803.
+
+
+# Documentation
 
 ## Setting Up Discord
 
