@@ -104,7 +104,6 @@ Make sure you are in the correct folder. Run the Heptagram using the following c
 node main.js
 ```
 
-
 ## Troubleshooting Heptagram
 
 ### Heptagram crashes when trying to clear messages.
