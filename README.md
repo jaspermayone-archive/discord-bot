@@ -3,7 +3,7 @@
 [![CodeQL](https://github.com/Heptagram-Bot/Heptagram/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/Heptagram-Bot/Heptagram/actions/workflows/codeql-analysis.yml)
 
 # Welcome to Heptagram. 
-The goal is for Heptagram to be the all in one open source discord bot with as many features as possible.
+The goal is for Heptagram to be the all in one open source discord bot with as many features as possible. Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing an bot invite link as soon as we finish getting our hosting set up.
 
 ## Contributing
 Contributing is welcomed! We have extensive documentation bellow as well as comments in the code to help you out.
