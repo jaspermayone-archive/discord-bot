@@ -49,31 +49,57 @@ Now select your sever, then click authorize.
 That's it! Now you can start your bot.
 
 
-## Install & Dependencies
+## Installing Heptagram
 
 ### Clone repository
 
-git clone https://github.com/Heptagram-Bot/Heptagram.git or git clone git@github.com:Heptagram-Bot/Heptagram.git
-cd Heptagram
-
-Create new file for bot config with the following contents in the directory specified below. You willl have to change our values to maatch yours:
-
-**For Development:** `.env`
-
+```bash
+git clone https://github.com/Heptagram-Bot/Heptagram.git
 ```
+
+Or with GitHub CLI
+
+```bash
+gh repo clone Heptagram-Bot/Heptagram
+```
+
+### Installing dependencies
+
+Make sure you are in the correct folder.
+
+```bash
+npm install
+```
+
+### Connecting Heptagram with Discord
+
+To connect Heptagram with Discord you will need to set your environment variables with your credentials.
+
+#### Setting up your local development
+
+```bash
+cp .env.example .env   # Linux/Mac.
+
+copy .env.example .env # Window.
+```
+
+For local development we recommend copying the `.env.example` file with your own credentials, for production we recommend you refer to your systems preferred way of storing environment variables securely.
+
+Fill out the `.env` will your Discord applications credentials, e.g.
+
+```shell
 BOT_TOKEN=NzgzMDczMDk1MDM2MDQz*******************
 ADMIN_ROLE_ID=825176********
 MUTED_ROLE_ID=825848********
 USER_ROLE_ID=82584********
 ```
 
-## Running Bot
+## Running Heptagram
 
-##### For Development
+### Running Heptagram locally
 
-Make sure you are in the correct folder. Run the bot using 
+Make sure you are in the correct folder. Run the Heptagram using the following command.
 
 ```
 node main.js
 ```
-
