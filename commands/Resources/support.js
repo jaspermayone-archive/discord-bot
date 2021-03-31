@@ -3,10 +3,10 @@
 module.exports = {
     name: 'support',
     description: "sends a link for the bot support server",
-    execute({ message }) {
+    execute({ message, roles }) {
 
         //All code to be exixuted with correct permisions goes inside this if.
-        if (message.member.roles.cache.has(ADMIN_ROLE_ID)) {
+        if (message.member.roles.cache.has(roles.admin)) {
             message.channel.send('Need help with Heptigram? Join our discord server at https://discord.gg/HSupF99kpq');
 
             //The resricted reponse message goes in here.
