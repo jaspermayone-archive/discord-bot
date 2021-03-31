@@ -24,7 +24,7 @@ Heptagram is proud to work with Open Sauced and the Open Sauced discord server. 
 ## Setting Up Discord
 
 ### Setting Up Sandbox Server for testing.
-Create a emty server in Discord.
+Create a empty server in Discord.
 
 Create roles `Mods` , `Users` , and  `Muted`.
 
