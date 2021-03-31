@@ -4,10 +4,10 @@
 module.exports = {
     name: 'ban',
     description: "bans users",
-    execute({ message }) {
+    execute({ message, roles }) {
         const member = message.mentions.users.first();
 
-        if (message.member.roles.cache.has(ADMIN_ROLE_ID)) {
+        if (message.member.roles.cache.has(roles.admin)) {
             if (member) {
                 const memberTarget = message.guild.members.cache.get(member.id)
                 memberTarget.ban()
