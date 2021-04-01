@@ -13,10 +13,10 @@ Please take a look at our GitHub issues for ideas on what to work on. Our one re
 All work should be done on a fork. PR's should be to the Heptagram-Staged branch. 
 
 ## Bot Community.
-We are working on setting up a Discord Server for our community. This will serve as Bot Support and a place for our developers and contributers to talk. This server will be up and running in the very near future. 
+You can join our discord at https://discord.gg/HSupF99kpq. This server is still iorning out some details, so please be patient. :)
 
 # Open Sauced
-Heptagram is proud to work with Open Sauced and the Open Sauced discord server. Open Saucedis a website that helps you track your open source contributions and contribution goals. You can find the website at https://opensauced.pizza/. They also have an amaazing Discord community and I highly recommend you check it out. The link for the discord server is https://discord.gg/PDJNR7u37h. I am in the server and you can feel free to message me there about the Bot until our server is up and running. My username is J-dogcoder#0803.
+Heptagram is proud to work with Open Sauced and the Open Sauced discord server. Open Sauced is a website that helps you track your open source contributions and contribution goals. You can find the website at https://opensauced.pizza/. They also have an amaazing Discord community and I highly recommend you check it out. The link for the discord server is https://discord.gg/PDJNR7u37h. I am an admin in the server and you can feel free to message me there. My username is J-dogcoder#0803.
 
 
 # Documentation
@@ -24,7 +24,7 @@ Heptagram is proud to work with Open Sauced and the Open Sauced discord server. 
 ## Setting Up Discord
 
 ### Setting Up Sandbox Server for testing.
-Create a emty server in Discord.
+Create a empty server in Discord.
 
 Create roles `Mods` , `Users` , and  `Muted`.
 

@@ -11,7 +11,7 @@ module.exports = {
             if (isNaN(args[0])) return message.reply("Please enter a number instead of text.")
 
             if (args[0] > 100) return message.reply("Slow down! This command resticts to 100 messages per command for safety.")
-            if (args[0] < 2) return message.reply("You must delete at least 2 messages.")
+            if (args[0] < 11) return message.reply("You must delete at least 11 messages. Please use clear for smaller jobs.")
 
             await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
                 message.channel.bulkDelete(messages);
