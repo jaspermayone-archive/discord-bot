@@ -7,21 +7,3 @@
   "contributorsSortAlphabetically": false,
   "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
   "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /><sub><b><%= contributor.name %></b></sub></a>",
-  "skipCi": true,
-  "contributors": [
-    {
-      "login": "thinkverse",
-      "name": "Kim Hallberg",
-      "avatar_url": "https://avatars.githubusercontent.com/u/2221746?v=4",
-      "profile": "https://thinkverse.dev",
-      "contributions": [
-        "bug",
-        "doc"
-      ]
-    }
-  ],
-  "projectName": "Heptagram",
-  "projectOwner": "Heptagram-Bot",
-  "repoType": "github",
-  "repoHost": "https://github.com"
-}
