@@ -4,15 +4,19 @@
 
 const fs = require('fs');
 const Discord = require('discord.js');
+const db = require('quick.db');
 
 const config = require('dotenv').config();
-const { prefix, token, roles } = require('./config.json');
+const { token, roles } = require('./config.json');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
 client.commands = new Discord.Collection();
 client.description = new Discord.Collection();
+
+const prefix = db.get(`guild_${message.guild.id}_prefix`) || "DEFAULT_PREFIX";
+client.prefix = prefix;
 
 const commandFolders = fs.readdirSync('./commands');
 
