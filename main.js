@@ -39,7 +39,7 @@ client.on('message', message => {
 		client.commands.get(command).execute({ message, args, Discord, client, roles });
 	} catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to execute that command! Please contact a developer in our support server.');
+		message.reply('There was an error trying to execute that command! Please contact a developer in our support server.');
 	}
 });
 
