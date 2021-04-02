@@ -7,7 +7,7 @@ The goal is for Heptagram to be the all in one open source discord bot with as m
 
 ## Contributing
 Contributing is welcomed! We have extensive documentation bellow as well as comments in the code to help you out.
-Please take a look at our GitHub issues for ideas on what to work on. Our one request is that you keep our comments in the code. You are welcome to remove them and then add them back, but please have them in whatever code you submit. To contibute, please do all your work on a fork and then open a PR.
+Please take a look at our GitHub issues for ideas on what to work on. Our Github issues are labeled by prioritys. 1 being the highest, and 3 being the lowest. Brownie points if you finish something from our [Initial Release Features Milestone](https://github.com/Heptagram-Bot/Heptagram/milestone/1) Our one request is that you keep our comments in the code. You are welcome to remove them and then add them back, but please have them in whatever code you submit. To contibute, please do all your work on a fork and then open a PR.
 
 ### Workflow
 
