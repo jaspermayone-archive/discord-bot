@@ -12,6 +12,7 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
 client.commands = new Discord.Collection();
+client.description = new Discord.Collection();
 
 const commandFolders = fs.readdirSync('./commands');
 
@@ -20,6 +21,7 @@ for (const folder of commandFolders) {
 	for (const file of commandFiles) {
 		const command = require(`./commands/${folder}/${file}`);
 		client.commands.set(command.name, command);
+		client.description.set(command.description, command);
 	}
 }
 
