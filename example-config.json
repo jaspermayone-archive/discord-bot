@@ -1,5 +1,5 @@
 {
-  //SET DEFAULT PREFIX IN MAIN.JS OR DO SETPREFIX TO GET CUSTOM PREFIX FOR THAT GUILD
+  "prefix": "!",
   "token": "your-token-goes-here",
   "roles": {
     "admin": "826438768621910000",

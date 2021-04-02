@@ -4,19 +4,14 @@
 
 const fs = require('fs');
 const Discord = require('discord.js');
-const db = require('quick.db');
 
 const config = require('dotenv').config();
-const { token, roles } = require('./config.json');
+const { prefix, token, roles } = require('./config.json');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
 client.commands = new Discord.Collection();
-client.description = new Discord.Collection();
-
-const prefix = db.get(`guild_${message.guild.id}_prefix`) || "DEFAULT_PREFIX";
-client.prefix = prefix;
 
 const commandFolders = fs.readdirSync('./commands');
 
@@ -25,7 +20,6 @@ for (const folder of commandFolders) {
 	for (const file of commandFiles) {
 		const command = require(`./commands/${folder}/${file}`);
 		client.commands.set(command.name, command);
-		client.description.set(command.description, command);
 	}
 }
 
@@ -45,7 +39,7 @@ client.on('message', message => {
 		client.commands.get(command).execute({ message, args, Discord, client, roles });
 	} catch (error) {
 		console.error(error);
-		message.reply('There was an error trying to execute that command! Please contact a developer in our support server.');
+		message.reply('there was an error trying to execute that command! Please contact a developer in our support server.');
 	}
 });
 
