@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
+    "djs-ticketsystem": "^2.1.0",
     "dotenv": "^8.2.0",
     "ms": "^2.1.3",
     "node-fetch": "^2.6.1"
