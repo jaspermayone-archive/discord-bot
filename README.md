@@ -1,6 +1,13 @@
 # Heptagram Bot
 
-[![CodeQL](https://github.com/Heptagram-Bot/Heptagram/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/Heptagram-Bot/Heptagram/actions/workflows/codeql-analysis.yml)
+<p align="center">
+  <a href="https://github.com/Heptagram-Bot/Heptagram/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/Heptagram-Bot/Heptagram?color=0088ff&style=for-the-badge&logo=github" />
+  </a>
+  <a href="https://github.com/Heptagram-Bot/Heptagram/pulls">
+    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Heptagram-Bot/Heptagram?color=0088ff&style=for-the-badge&logo=github" />
+  </a>
+</p>
 
 # Welcome to Heptagram. 
 The goal is for Heptagram to be the all in one open source discord bot with as many features as possible. Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing an bot invite link as soon as we finish getting our hosting set up.
