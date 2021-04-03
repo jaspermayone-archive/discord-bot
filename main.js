@@ -2,8 +2,10 @@
 // main.js is basicly what makes the bot run. There are more comments throughout that help descripe some elements.
 //
 
-const fs = require('fs');
 const Discord = require('discord.js');
+
+const fs = require('fs');
+const ticketSystem = require('djs-ticketsystem');
 
 const config = require('dotenv').config();
 const { prefix, token, roles } = require('./config.json');
@@ -23,9 +25,16 @@ for (const folder of commandFolders) {
 	}
 }
 
-client.once('ready', () => {
-	console.log('Bot Ready and Online!');
-});
+// client.on('ready', () => {
+//	console.log('Bot Ready and Online!');
+//});
+client.on("ready", async () => {
+	console.log(`${client.user.username} is online in ${client.guilds.cache.size} servers!`);
+	client.user.setStatus('online');
+	client.user.setActivity('!support', { type: 'PLAYING' })
+  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+  .catch(console.error);
+})
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
