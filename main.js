@@ -24,6 +24,10 @@ for (const folder of commandFolders) {
 		client.commands.set(command.name, command);
 	}
 }
+client.on("disconnect", () => client.logger.warn("Bot is disconnecting..."))
+  .on("reconnecting", () => client.logger.log("Bot reconnecting..."))
+  .on("error", e => client.logger.error(e))
+  .on("warn", info => client.logger.warn(info))
 
 client.on("ready", async () => {
 	console.log(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
