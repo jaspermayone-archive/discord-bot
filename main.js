@@ -29,7 +29,7 @@ for (const folder of commandFolders) {
 //	console.log('Bot Ready and Online!');
 //});
 client.on("ready", async () => {
-	console.log(`${client.user.username} is online in ${client.guilds.cache.size} servers!`);
+	console.log(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
 	client.user.setStatus('online');
 	client.user.setActivity('!support', { type: 'PLAYING' })
   .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
