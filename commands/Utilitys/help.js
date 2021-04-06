@@ -6,21 +6,8 @@ module.exports = {
     aliases: ['commands'],
     usage: ['command-name'],
     cooldown: 5,
-<<<<<<< HEAD
-    execute( {message, args} ) {
-=======
+
     execute( {message, args, roles} ) {
->>>>>>> master
-        const data = [];
-        const { commands } = message.client;
-        if (!args) {
-            return message.reply('no arguments present!');
-        }        
-        if (!args.length) {
-<<<<<<< HEAD
-            data.push('Here\'s a list of all my commands:');
-            data.push(commands.map(command => command.name).join(', '));
-=======
             data.push('Here\'s a list of all my commands:');            
             var commandNames = commands.map(command => command.name);
             // filter out admin commands if not an admin
@@ -32,7 +19,6 @@ module.exports = {
                 });                
             }
             data.push(commandNames.join(', '));
->>>>>>> master
             data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
             return message.author.send(data, { split: true })
