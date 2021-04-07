@@ -6,7 +6,7 @@
 const ms = require('ms');
 module.exports = {
     name: 'mute',
-    description: "mutes user",
+    description: "mutes user",    
     execute({ message, args, roles }) {
 
         if (message.member.roles.cache.has(roles.admin)) {
