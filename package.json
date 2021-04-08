@@ -22,7 +22,6 @@
     "djs-ticketsystem": "^2.1.0",
     "dotenv": "^8.2.0",
     "enmap": "^5.8.4",
-    "kurasuta": "^2.2.3",
     "mongoose": "^5.12.3",
     "ms": "^2.1.3",
     "node-fetch": "^2.6.1"

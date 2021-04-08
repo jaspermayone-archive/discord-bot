@@ -48,7 +48,6 @@ module.exports = {
 
 					// display covid stats for one country
 					const filterTerm = args.join(' ');
-					console.log(filterTerm);
 					const stats = countryStats(filterTerm, data);
 
 					if (!stats) {
