@@ -4,7 +4,9 @@
 module.exports = {
     name: 'ping',
     description: "this is a ping command!",
-    execute({ message, roles }) {
+    execute({ discord, client, message, roles }) {
         message.channel.send('pong!');
+        message.channel.send(`Websocket heartbeat: ${client.ws.ping}ms.`);
+
     }
 }
