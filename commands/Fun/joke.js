@@ -11,7 +11,7 @@ let blocked = false;
 
 module.exports = {
 	name: "joke",
-	description: "Display a joke",
+	description: "Displays a joke",
 	execute({ message, args, roles }) {
 		// To prevent user spamming the same command
 		if (blocked) {
