@@ -11,8 +11,8 @@ const manager = new ShardingManager('./bot.js', {
 	token: (token),
 })
 
-manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));
 manager.spawn();
+manager.on('launch', shard => console.log("Sharding Manager ➜".bold.brightYellow, `Launched shard ${shard.id}`.bold.brightCyan));
 
 manager.on('message', (shard, message) => {
 	console.log(`Shard[${shard.id}] : ${message._eval} : ${message._result}`);

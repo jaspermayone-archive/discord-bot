@@ -30,4 +30,4 @@ mongoose.connect((MongoDB), {
 	console.log(err);
 });
 
-client.login(token);
+//client.login(token);
