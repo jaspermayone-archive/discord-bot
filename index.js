@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const manager = new ShardingManager('./bot.js', {
 	execArgv: ['--trace-warnings'],
 	shardArgs: ['--ansi', '--color'],
+	totalShards: 'auto',
 	token: (token),
 })
 
