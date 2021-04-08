@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
+    "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "enmap": "^5.8.4",
+    "ffmpeg-static": "^4.3.0",
     "fs": "*",
     "http": "*",
     "mongoose": "^5.12.3",
