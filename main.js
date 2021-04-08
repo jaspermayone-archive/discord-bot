@@ -3,12 +3,13 @@
 //
 
 const Discord = require('discord.js');
+const mongoose = require('mongoose');
 
 const fs = require('fs');
 const ticketSystem = require('djs-ticketsystem');
 
 const config = require('dotenv').config();
-const { prefix, token, roles } = require('./config.json');
+const { prefix, token, roles, MongoDB } = require('./config.json');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
@@ -24,18 +25,29 @@ for (const folder of commandFolders) {
 		client.commands.set(command.name, command);
 	}
 }
+
+mongoose.connect((MongoDB), {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false
+}).then(() => {
+	console.log('Connected to Heptagram MongoDB database!')
+}).catch((err) => {
+	console.log(err);
+});
+
 client.on("disconnect", () => client.logger.warn("Bot is disconnecting..."))
-  .on("reconnecting", () => client.logger.log("Bot reconnecting..."))
-  .on("error", e => client.logger.error(e))
-  .on("warn", info => client.logger.warn(info))
+	.on("reconnecting", () => client.logger.log("Bot reconnecting..."))
+	.on("error", e => client.logger.error(e))
+	.on("warn", info => client.logger.warn(info))
 
 client.on("ready", async () => {
 	console.log("Starting Heptagram\nNode version: " + process.version + "\nDiscord.js version: " + Discord.version);
 	console.log(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
 	client.user.setStatus('online');
 	client.user.setActivity('!support', { type: 'PLAYING' })
-  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-  .catch(console.error);
+		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+		.catch(console.error);
 })
 
 client.on('message', message => {
@@ -55,4 +67,3 @@ client.on('message', message => {
 });
 
 client.login(token);
- 
