@@ -3,6 +3,7 @@
 module.exports = {
     name: 'admin',
     description: "admin example",
+    guildOnly: true,
     execute({ message, roles }) {
 
         //All code to be exixuted with correct permisions goes inside this if.
