@@ -6,7 +6,6 @@ const Discord = require('discord.js');
 const mongoose = require('mongoose');
 
 const fs = require('fs');
-const ticketSystem = require('djs-ticketsystem');
 
 const config = require('dotenv').config();
 const { prefix, token, roles, MongoDB } = require('./config.json');
