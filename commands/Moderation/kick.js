@@ -4,6 +4,7 @@
 module.exports = {
     name: 'kick',
     description: "kicks users",
+    guildOnly: true,
     execute({ message, roles }) {
         const member = message.mentions.users.first();
 

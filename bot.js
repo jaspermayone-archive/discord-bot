@@ -2,8 +2,10 @@
 // main.js is basicly what makes the bot run. There are more comments throughout that help descripe some elements.
 //
 const Discord = require('discord.js');
-const mongoose = require('mongoose');
-// const fs = require('fs');
+
+const mongoose = require('mongoose'); 
+const fs = require('fs');
+
 const config = require('dotenv').config();
 const { prefix, token, roles, MongoDB } = require('./config.json');
 
@@ -18,16 +20,6 @@ client.events = new Discord.Collection();
 
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
-// const commandFolders = fs.readdirSync('./commands');
-
-// for (const folder of commandFolders) {
-// 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
-// 	for (const file of commandFiles) {
-// 		const command = require(`./commands/${folder}/${file}`);
-// 		client.commands.set(command.name, command);
-// 	}
-// }
-
 mongoose.connect((MongoDB), {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
@@ -37,35 +29,5 @@ mongoose.connect((MongoDB), {
 }).catch((err) => {
 	console.log(err);
 });
-
-// client.on("disconnect", () => client.logger.warn("Bot is disconnecting..."))
-// 	.on("reconnecting", () => client.logger.log("Bot reconnecting..."))
-// 	.on("error", e => client.logger.error(e))
-// 	.on("warn", info => client.logger.warn(info))
-
-// client.on("ready", async () => {
-// 	console.log("Starting Heptagram\nNode version: " + process.version + "\nDiscord.js version: " + Discord.version);
-// 	console.log(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
-// 	client.user.setStatus('online');
-// 	client.user.setActivity('!support', { type: 'PLAYING' })
-// 		.then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-// 		.catch(console.error);
-// })
-
-// client.on('message', message => {
-// 	if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-// 	const args = message.content.slice(prefix.length).trim().split(/ +/);
-// 	const command = args.shift().toLowerCase();
-
-// 	if (!client.commands.has(command)) return;
-
-// 	try {
-// 		client.commands.get(command).execute({ message, args, Discord, client, roles });
-// 	} catch (error) {
-// 		console.error(error);
-// 		message.reply('there was an error trying to execute that command! Please contact a developer in our support server.');
-// 	}
-// });
 
 client.login(token);
