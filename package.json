@@ -2,9 +2,9 @@
   "name": "heptagram",
   "version": "1.0.0",
   "description": "",
-  "shard": "main.js",
+  "shard": "index.js",
   "scripts": {
-    "start": "nodemon main.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
