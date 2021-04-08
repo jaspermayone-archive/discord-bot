@@ -11,7 +11,7 @@ let blocked = false;
 
 module.exports = {
 	name: "joke",
-	description: "fetch joke from API and send",
+	description: "Display a joke",
 	execute({ message, args, roles }) {
 		// To prevent user spamming the same command
 		if (blocked) {
