@@ -2,9 +2,9 @@
   "name": "heptagram",
   "version": "1.0.0",
   "description": "",
-  "shard": "index.js",
+  "shard": "main.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,16 +18,12 @@
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
-    "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "enmap": "^5.8.4",
-    "ffmpeg-static": "^4.3.0",
     "fs": "*",
-    "http": "*",
-    "mongoose": "^5.12.3",
+    "mongoose": "^5.2.9",
     "ms": "^2.1.3",
-    "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.7"
+    "node-fetch": "^2.6.1"
   }
 }
