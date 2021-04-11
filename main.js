@@ -8,6 +8,7 @@ const fs = require('fs');
 
 const config = require('dotenv').config();
 const { prefix, token, roles, MongoDB } = require('./config.json');
+const logger = require('./logger');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
@@ -31,3 +32,5 @@ mongoose.connect((MongoDB), {
 });
 
 client.login(token);
+
+logger.all(client);

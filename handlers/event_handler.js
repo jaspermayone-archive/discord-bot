@@ -1,4 +1,5 @@
 const fs = require("fs");
+const logger = require('../logger');
 
 module.exports = ({ client, Discord }) => {
 	const load_dir = (dirs) => {
@@ -8,6 +9,8 @@ module.exports = ({ client, Discord }) => {
 			const event = require(`../events/${dirs}/${file}`);
 			const event_name = file.split('.')[0];
 			client.on(event_name, event.bind(null, Discord, client));
+			// // log each event in the events directory
+			// logger[event_name](client);
 		}
 	}
 
