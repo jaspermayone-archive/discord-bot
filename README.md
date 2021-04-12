@@ -1,8 +1,21 @@
 # Heptagram Bot
-![Language](https://img.shields.io/github/languages/top/Heptagram-Bot/Heptagram?style=for-the-badge&logo=appveyor?label=healthinesses?)
-![Size](https://img.shields.io/github/languages/code-size/Heptagram-Bot/Heptagram?style=for-the-badge&logo=appveyor?label=healthinesses)
-![Issues](https://img.shields.io/github/issues/Heptagram-Bot/Heptagram?style=for-the-badge&logo=appveyor?label=healthinesses)
-![Stars](https://img.shields.io/github/stars/Heptagram-Bot/Heptagram?style=for-the-badge&logo=appveyor?label=healthinesses)
+<p align="center">
+  <a href="https://github.com/Heptagram-Bot/Heptagram/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/Heptagram-Bot/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
+  </a>
+  <a href="https://github.com/Heptagram-Bot/Heptagram/pulls">
+    <img alt="Pull Requests" src="https://img.shields.io/github/issues-pr/Heptagram-Bot/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
+  </a>
+  <a href="https://github.com/Heptagram-Bot/Heptagram">
+    <img alt="Size" src="https://img.shields.io/github/languages/code-size/Heptagram-Bot/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
+  </a>
+	 <a href="https://github.com/Heptagram-Bot/Heptagram">
+    <img alt="Stars" src="https://img.shields.io/github/stars/Heptagram-Bot/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
+  </a>
+	 <a href="https://github.com/Heptagram-Bot/Heptagram">
+    <img alt="Language" src="https://img.shields.io/github/languages/top/Heptagram-Bot/Heptagram?style=for-the-badge&logo=github?label=healthinesses?" />
+  </a>
+</p>
 
 # NOTE: 
 This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [Join our Discord server to say hi and stay up to date with news.](https://discord.gg/HSupF99kpq)
