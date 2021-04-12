@@ -19,6 +19,7 @@ let blocked = false;
 
 module.exports = {
 	name: "covid-stats",
+	guildOnly: false,
 	description: "Display basic COVID stats of a country",
 	execute({ message, args, roles }) {
 		// To prevent user spamming the same command

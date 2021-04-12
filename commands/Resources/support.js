@@ -2,6 +2,7 @@
 
 module.exports = {
     name: 'support',
+    guildOnly: true,
     description: "sends a link for the bot support server",
     execute({ message, roles }) {
 

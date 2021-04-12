@@ -3,6 +3,7 @@
 
 module.exports = {
     name: 'ping',
+    guildOnly: false,
     description: "this is a ping command!",
     execute({ discord, client, message, roles }) {
         message.channel.send('pong!');
