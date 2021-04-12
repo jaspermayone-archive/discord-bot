@@ -2,6 +2,7 @@
 
 module.exports = {
     name: 'repo',
+    guildOnly: false,
     description: "sends the bot repo link",
     execute({ message, roles }) {
         message.channel.send('Heptagram is proud to be open source!');

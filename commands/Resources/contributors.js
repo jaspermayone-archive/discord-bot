@@ -25,6 +25,7 @@ const fetchContributors = new Promise((resolve, reject) => {
 
 module.exports = {
   name: 'contributors',
+  guildOnly: false,
   description: "Show current contributors for Heptagram",
   execute({ message }) {
     fetchContributors.then(contributors => {

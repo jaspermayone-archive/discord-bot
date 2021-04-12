@@ -11,6 +11,7 @@ let blocked = false;
 
 module.exports = {
 	name: "joke",
+	guildOnly: false,
 	description: "Displays a joke",
 	execute({ message, args, roles }) {
 		// To prevent user spamming the same command
