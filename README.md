@@ -27,14 +27,14 @@
   </a>
 </p>
 
-> The open-source multipurpose discord bot with the goal to be the single needed bot for any server.
 
 # NOTE: 
 This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [Join our Discord server to say hi and stay up to date with news.](https://discord.gg/HSupF99kpq)
 
 
 # Welcome to Heptagram. 
-The goal is for Heptagram to be the all in one open source discord bot with as many features as possible. Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing an bot invite link as soon as we finish getting our hosting set up.
+The goal is for Heptagram to be the all in one, open source discord bot to be the single needed bot for any server.
+.Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing an bot invite link as soon as we finish getting our hosting set up.
 
 
 ## 🤝 Contributing
