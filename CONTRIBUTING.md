@@ -69,7 +69,7 @@ gh repo clone Heptagram-Bot/Heptagram
 Make sure you are in the correct folder.
 
 ```bash
-npm install
+yarn install
 ```
 
 ### Connecting Heptagram with Discord
@@ -102,7 +102,7 @@ Fill out the `config.json` will your Discord applications credentials, e.g.
 Make sure you are in the correct folder. Run the Heptagram using the following command.
 
 ```
-node main.js
+yarn start
 ```
 
 ## Troubleshooting Heptagram
