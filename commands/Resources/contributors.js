@@ -29,7 +29,7 @@ module.exports = {
   description: "Show current contributors for Heptagram",
   execute({ message }) {
     fetchContributors.then(contributors => {
-      let listOfContributors = `Heptagram\'s contributors are awesome, here is a list of them!\n\n`;
+      let listOfContributors = `Here is a list of Heptagram\'s contributors!\n\n`;
         
         contributors
           .filter(contributor => ! contributor.login.includes('[bot]') || contributor.type === 'User')
