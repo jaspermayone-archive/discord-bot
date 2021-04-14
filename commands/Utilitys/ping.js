@@ -6,8 +6,9 @@ module.exports = {
     guildOnly: false,
     description: "this is a ping command!",
     execute({ discord, client, message, roles }) {
-        message.channel.send('pong!');
-        message.channel.send(`Websocket heartbeat: ${client.ws.ping}ms.`);
+            //        message.channel.send(new Date().getTime() - message.createdTimestamp + " ms");        
 
-    }
+               let ping = message.createdTimestamp - message.createdTimestamp;
+              message.channel.send(`Bot Latency: \`${ping}\`, API Latency: \`${Math.round(client.ping)}\` Websocket Heartbeat: \`${client.ws.ping}ms.\``);
+            }
 }
