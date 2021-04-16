@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Heptagram 👋</h1>
+<img src="https://socialify.git.ci/Heptagram-Bot/Heptagram/image?description=1&font=Raleway&forks=1&issues=1&language=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark" alt="Heptagram" width="1040" height="320" />
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000&style=for-the-badge&logo=github?label=healthinesses" />
   <a href="https://github.com/Heptagram-Bot/Heptagram#readme" target="_blank">
@@ -27,6 +27,7 @@
   </a>
 </p>
 
+<h1 align="center">Welcome to Heptagram 👋</h1>
 
 # NOTE: 
 This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [Join our Discord server to say hi and stay up to date with news.](https://discord.gg/HSupF99kpq)
