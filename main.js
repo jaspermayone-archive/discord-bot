@@ -2,8 +2,9 @@
 // main.js is basicly what makes the bot run. There are more comments throughout that help descripe some elements.
 //
 const Discord = require('discord.js');
+const fs = require("fs");
 const config = require('dotenv').config();
-const { token } = require('./config.json');
+const { prefix, token, roles, MongoDB } = require("./config.json");
 const { connectToDb } = require('./database');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
