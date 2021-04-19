@@ -30,12 +30,12 @@ module.exports = {
   execute({ message }) {
     fetchContributors.then(contributors => {
       let listOfContributors = `Here is a list of Heptagram\'s contributors!\n\n`;
-        
-        contributors
-          .filter(contributor => ! contributor.login.includes('[bot]') || contributor.type === 'User')
-          .map(contributor => listOfContributors += `+ ${contributor.login} - ${contributor.contributions} Contributions.\n`);
-        
-        message.channel.send(listOfContributors);
+
+      contributors
+        .filter(contributor => !contributor.login.includes('[bot]') || contributor.type === 'User')
+        .map(contributor => listOfContributors += `+ ${contributor.login} - ${contributor.contributions} Contributions.\n`);
+
+      message.channel.send(listOfContributors);
     }).catch(error => {
       message.channel.send(`Something went wrong: ${error}`);
       console.error(error);

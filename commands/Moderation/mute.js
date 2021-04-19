@@ -1,12 +1,7 @@
-//This is the mute command. The mute command mutes members. 
-//You can either specify a time or just mute untill an admin unmutes them.
-// This command is admin resticted. To see how to resrict a command go to the admin.js file.
-// ms is the timings module we use
-
 const ms = require('ms');
 module.exports = {
     name: 'mute',
-    description: "mutes user",     
+    description: "mutes user",
     guildOnly: true,
     execute({ message, args, roles }) {
 

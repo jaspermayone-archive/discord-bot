@@ -1,6 +1,3 @@
-//This is the ban command. The ban command bans members from the guild.
-// This command is admin resticted. To see how to resrict a command go to the admin.js file.
-
 module.exports = {
     name: 'ban',
     description: "bans users",

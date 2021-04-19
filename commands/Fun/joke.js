@@ -30,7 +30,7 @@ module.exports = {
 				}
 				blocked = true;
 				message.channel.send(setup);
-				return new Promise(function(resolve, reject) {
+				return new Promise(function (resolve, reject) {
 					// wait 3 seconds before sending the punchline
 					setTimeout(() => {
 						message.channel.send(punchline);

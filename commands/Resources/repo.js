@@ -1,5 +1,3 @@
-//This is the repo command. The invite command sends the bot repo. 
-
 module.exports = {
     name: 'repo',
     guildOnly: false,
