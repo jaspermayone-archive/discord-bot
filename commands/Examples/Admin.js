@@ -14,4 +14,5 @@ module.exports = {
             message.channel.send('Sorry, this command is resticted!');
         }
     }
+    /test
 }
