@@ -1,5 +1,3 @@
-//This is the invite command. The invite command sends the bot invite. 
-
 module.exports = {
     name: 'invite',
     guildOnly: false,

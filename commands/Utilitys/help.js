@@ -8,22 +8,22 @@ module.exports = {
     usage: ['command-name'],
     cooldown: 5,
 
-  execute( {message, args, roles} ) {
+    execute({ message, args, roles }) {
         const data = [];
         const { commands } = message.client;
         if (!args) {
             return message.reply('no arguments present!');
-        }        
+        }
         if (!args.length) {
-            data.push('Here\'s a list of all my commands:');            
+            data.push('Here\'s a list of all my commands:');
             var commandNames = commands.map(command => command.name);
             // filter out admin commands if not an admin
             var isAdmin = message.member.roles.cache.has(roles.admin);
             if (!isAdmin) {
                 var adminCommands = ['kick', 'mute', 'unmute', 'wipe', 'clear', 'ban', 'admin'];
-                commandNames = commandNames.filter(function(command) {
+                commandNames = commandNames.filter(function (command) {
                     return !adminCommands.includes(command);
-                });                
+                });
             }
             data.push(commandNames.join(', '));
             data.push('Here\'s a list of all my commands:');
@@ -39,7 +39,7 @@ module.exports = {
                 .catch(error => {
                     console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
                     message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
-                });            
+                });
         }
         const name = args[0].toLowerCase();
         const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));

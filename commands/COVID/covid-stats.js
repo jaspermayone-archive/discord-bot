@@ -1,4 +1,3 @@
-// For display basic COVID stats
 const fetch = require("node-fetch");
 
 const URL = "https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true";
@@ -38,15 +37,13 @@ module.exports = {
 					);
 					return;
 				}
-
-				return new Promise(function(resolve, reject) {
+				return new Promise(function (resolve, reject) {
 					// display a list of countries available
 					if (args[0] === "list") {
 						message.channel.send(countryList(data));
 						resolve();
 						return;
 					}
-
 					// display covid stats for one country
 					const filterTerm = args.join(' ');
 					const stats = countryStats(filterTerm, data);

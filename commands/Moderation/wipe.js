@@ -1,7 +1,3 @@
-//This is the wipe command. The wipe command clears up to 100 messages at a time in the channel including the one you just sent.
-//There is a less powerfull version of this for clearing up to 10 commands. (See clear.js)
-// This command is admin resticted. To see how to resrict a command go to the admin.js file.
-
 module.exports = {
     name: 'wipe',
     description: "clear with bigger options",

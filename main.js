@@ -1,9 +1,6 @@
-//
-// main.js is basicly what makes the bot run. There are more comments throughout that help descripe some elements.
-//
 const Discord = require('discord.js');
 
-const mongoose = require('mongoose'); 
+const mongoose = require('mongoose');
 const fs = require('fs');
 
 const config = require('dotenv').config();

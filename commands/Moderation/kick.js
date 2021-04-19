@@ -1,6 +1,3 @@
-//This is the kick command. The kick command kicks members from the guild.
-// This command is admin resticted. To see how to resrict a command go to the admin.js file.
-
 module.exports = {
     name: 'kick',
     description: "kicks users",

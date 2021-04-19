@@ -1,6 +1,3 @@
-//This is the unmute command. The unmute command unmutes users that have been muted.
-// This command is admin resticted. To see how to resrict a command go to the admin.js file.
-
 const ms = require('ms');
 module.exports = {
     name: 'unmute',
