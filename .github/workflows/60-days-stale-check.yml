@@ -10,7 +10,7 @@ on:
 
 jobs:
   stale:
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    if: github.repository == 'Heptagram-Bot/Heptagram' || github.repository == 'Heptagram-Bot/Heptagram'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
@@ -20,7 +20,6 @@ jobs:
           stale-pr-message: 'This PR is stale because it has been open 60 days with no activity.'
           days-before-stale: 60
           days-before-close: -1
-          only-labels: 'engineering,Triaged,Improve existing docs,Core,Ecosystem'
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
           exempt-pr-labels: 'never-stale'
