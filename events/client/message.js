@@ -11,7 +11,7 @@ module.exports = (Discord, client, message) => {
 			try {
 				client.commands.get(command).execute({ message, args, Discord, client, roles });
 			} catch (error) {
-				console.error(error);
+				console.log(error);
 				message.reply('there was an error trying to execute that command! Please contact a developer in our support server.');
 			}
 		}
