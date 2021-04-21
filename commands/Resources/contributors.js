@@ -27,6 +27,8 @@ module.exports = {
   name: 'contributors',
   guildOnly: false,
   description: "Show current contributors for Heptagram",
+  category: "Resources",
+
   execute({ message }) {
     fetchContributors.then(contributors => {
       let listOfContributors = `Here is a list of Heptagram\'s contributors!\n\n`;

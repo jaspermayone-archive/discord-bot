@@ -2,6 +2,8 @@ module.exports = {
     name: 'botinfo',
     description: "Displays info about bot.",
     guildOnly: true,
+    category: "Bot Info",
+    
     execute({ discord, client, message, roles }) {
         let ping = message.createdTimestamp - message.createdTimestamp;
         message.channel.send('This is the Heptagram discord bot. Heptagram is the open-source multipurpose discord bot with the goal to be the single needed bot for any server.');

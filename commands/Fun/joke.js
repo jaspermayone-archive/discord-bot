@@ -13,6 +13,8 @@ module.exports = {
 	name: "joke",
 	guildOnly: false,
 	description: "Displays a joke",
+	category: "Fun",
+    
 	execute({ message, args, roles }) {
 		// To prevent user spamming the same command
 		if (blocked) {

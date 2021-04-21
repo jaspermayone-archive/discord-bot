@@ -20,6 +20,8 @@ module.exports = {
 	name: "covid-stats",
 	guildOnly: false,
 	description: "Display basic COVID stats of a country",
+	category: "COVID",
+    
 	execute({ message, args, roles }) {
 		// To prevent user spamming the same command
 		if (blocked) {

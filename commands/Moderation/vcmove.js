@@ -3,6 +3,8 @@ module.exports = {
     category: "moderation",
     description: "moves vc user",
     guildOnly: true,
+    category: "moderation",
+
     execute({ message, roles }) {
         run: async (bot, message, args, roles) => {
             if (!message.member.hasPermission("MOVE_MEMBERS") && message.member.roles.cache.has(roles.admin)) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [MOVE_MEMBERS]**");

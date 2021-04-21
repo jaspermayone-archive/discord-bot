@@ -2,6 +2,8 @@ module.exports = {
     name: 'wipe',
     description: "clear with bigger options",
     guildOnly: true,
+    category: "moderation",
+    
     async execute({ message, args, roles }) {
         if (message.member.roles.cache.has(roles.admin)) {
             if (!args[0]) return message.reply("Please specify a number of messages to clear.")

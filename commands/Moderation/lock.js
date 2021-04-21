@@ -3,7 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
     name: "lock",
     category: "moderation",
-    description: "Locks a Channel"
+    description: "Locks a Channel",
+    guildOnly: true,
 }
     run: async (client, message, args) => {
         if (!message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')&& message.member.roles.cache.has(roles.admin)) {
