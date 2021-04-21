@@ -9,6 +9,7 @@ const { prefix, token, roles, MongoDB } = require('./config.json');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
 client.commands = new Discord.Collection();
+client.aliases = new discord.Collection();
 client.events = new Discord.Collection();
 
 ['command_handler', 'event_handler'].forEach(handler => {
