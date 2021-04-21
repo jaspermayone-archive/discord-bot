@@ -4,8 +4,8 @@ Please take a look at our GitHub issues for ideas on what to work on. Our Github
 
 ### Workflow
 
-#### Step 1: Create a fork
-All work should be done on a fork. We update our branches with changes frequently, so make sure to [keep your fork up to date](https://dev.to/giannellitech/keeping-your-fork-up-to-date-klh)
+#### Step 1: Create a fork or branch.
+All work should be done on a fork unless you have been added as a contributor. In that case, please use a branch off of master. We update our branches with changes frequently, so make sure to [keep your fork up to date](https://dev.to/giannellitech/keeping-your-fork-up-to-date-klh)
 
 #### Step 2: Making changes
 Make nessisary changes then commit.
@@ -33,22 +33,7 @@ Invite Bot to your Server (see **Creating a Bot User** below).
 
 ### Setting Up Bot User
 
-First you need to go to [discord developers](https://discordapp.com/developers/applications/me) and click "New Application"
-![Application Screen](http://i.imgur.com/FvgfY2Z.png)
-Now give your bot a name and a picture, a description isn't necessary.
-![New Application Screen](http://i.imgur.com/MOS7yvH.png)
-Click "Create Application". On the next page scroll down until you see "Create a bot user", click that. Also click yes do it.
-![Screen you see after creating a new application then scrolling down a little.](http://i.imgur.com/YAzK5ml.png)
-![Yes Do It.](http://i.imgur.com/vkF6Rxo.png)
-Now you can get your bot's token, by using the "click to reveal button" in the app bot user section. Remember to uncheck `Public Bot`
-![New Bot Page](http://i.imgur.com/xhKMUVU.png)
-![Token](http://i.imgur.com/QwCmJJM.png)
-There's your token! Now its time to invite your bot to your server. Don't worry about your bot being started for this next step. Change the `client_id` in the URL to your Client ID under App Details, then go to this url ```https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID_HERE&scope=bot&permissions=0```
-![Authorize Bot](http://i.imgur.com/Ggwy0BP.png)
-Now select your sever, then click authorize.
-![Authorized](http://i.imgur.com/4cqNcs1.png)
-That's it! Now you can start your bot.
-
+You will need a discord bot token for testing. If you don't know that, you should read https://www.writebots.com/discord-bot-token/
 
 ## Installing Heptagram
 
