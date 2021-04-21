@@ -3,6 +3,8 @@ module.exports = {
     name: 'unmute',
     description: "unmutes user",
     guildOnly: true,
+    category: "moderation",
+
     execute({ message, roles }) {
 
         if (message.member.roles.cache.has(roles.admin)) {

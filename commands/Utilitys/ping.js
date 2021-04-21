@@ -1,6 +1,7 @@
 module.exports = {
   name: 'ping',
   guildOnly: false,
+  category: "Utilitys",
   description: "returns bot ping.",
   execute({ discord, client, message, roles }) {
     let ping = message.createdTimestamp - message.createdTimestamp;

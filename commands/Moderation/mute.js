@@ -3,6 +3,8 @@ module.exports = {
     name: 'mute',
     description: "mutes user",
     guildOnly: true,
+    category: "moderation",
+
     execute({ message, args, roles }) {
 
         if (message.member.roles.cache.has(roles.admin)) {
