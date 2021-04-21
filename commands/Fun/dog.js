@@ -8,7 +8,6 @@ module.exports = {
   guildOnly: false,
 
   execute({ message, client, args, roles }) {
-    //run: async (client, message, args) => {
       //command
       superagent.get('https://nekos.life/api/v2/img/woof')
         .end((err, response) => {
@@ -22,4 +21,3 @@ module.exports = {
         })
     }
   }
-//}
