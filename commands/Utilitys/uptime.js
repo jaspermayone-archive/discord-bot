@@ -5,11 +5,26 @@ module.exports = {
     category: "Utilitys",
 
     execute({ message, args, discord, client, roles }) {
-        let days = Math.floor(client.uptime / 86400000);
-        let hours = Math.floor(client.uptime / 3600000) % 24;
-        let minutes = Math.floor(client.uptime / 60000) % 60;
-        let seconds = Math.floor(client.uptime / 1000) % 60;
+        let days = 0
+        let week = 0
+        let uptime = '';
+        let totalSeconds = (client.uptime / 1000)
+        let hours = Math.floor(totalSeconds / 3600)
+        totalSeconds %= 3600
+        let minutes = Math.floor(totalSeconds / 60)
+        let seconds = Math.floor(totalSeconds % 60)
+        if (hours > 24) {
+        days = days + 1
+        hours = 0
+                }
+        if (week - 0) {
+        uptime += `${week} week, `
+                }
+        if (minutes > 60) {
+        minutes = 0;
+                }
+        uptime += `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`
   
-        message.channel.send(`Bot Uptime: \`${days}d ${hours}h ${minutes}m ${seconds}s\``);
+        message.channel.send(`Bot Uptime: \`${uptime}\``);
     }
 }

@@ -4,10 +4,7 @@ module.exports = {
     name: 'help',
     guildOnly: false,
     description: 'List all of my commands or info about a specific command.',
-    aliases: ['commands'],
-    usage: ['command-name'],
     category: "Utilitys",
-    cooldown: 5,
 
     execute({ message, args, roles }) {
         const data = [];
