@@ -4,19 +4,17 @@ const akaneko = require('akaneko');
 module.exports = {
   name: "ass",
   category: "nsfw",
-  description: "Get some wallpapers",
+  description: "NSFW Command",
   
-  execute: async (client, message, args) => {
+  execute: async ({ Discord, client, message, args }) => { 
     
-    if(!message.channel.nsfw) {
-      return message.channel.send("This channel dosen't support nsfw content")
+    if(message.channel.nsfw) {
       
+      return message.channel.send(await akaneko.nsfw.ass());
+
     } else {
     
-    let akanekoSan = new discord.MessageEmbed()
-    akanekoSan.setColor("RANDOM")
-    akanekoSan.setImage(akaneko.nsfw.ass());
-    return message.channel.send(akanekoSan);
+      return message.channel.send("This channel dosen't support nsfw content")
       
     }
   }
