@@ -43,6 +43,13 @@ abort-controller@^3.0.0:
   dependencies:
     event-target-shim "^5.0.0"
 
+akaneko@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/akaneko/-/akaneko-5.0.1.tgz#db004c8281110bde231fa40863a2838e0a727a87"
+  integrity sha512-eUrD9DW8l1fyl1dnESfo0Tk910U/fL6w2opCpVLsJN3H9D9G9YerzdiumkyFyQEaCPbPrGi/RwiQqUUsOZZxeg==
+  dependencies:
+    node-fetch "^2.6.1"
+
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
@@ -518,6 +525,11 @@ napi-build-utils@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/napi-build-utils/-/napi-build-utils-1.0.2.tgz#b1fddc0b2c46e380a0b7a76f984dd47c41a13806"
   integrity sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==
+
+nekos.life@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/nekos.life/-/nekos.life-2.0.7.tgz#853f93004a9ffcb657c9f8763ce0186bc0d3c0e9"
+  integrity sha512-kL5sYOqaDTIdVH40YVrtWQPX60bGK3Ri/j2jnHugZ86lxc4xIytUmGelspFwKAs4TOHDSZh4jiJGGL8dQ55HNA==
 
 node-abi@^2.21.0:
   version "2.26.0"
