@@ -9,6 +9,7 @@ const { prefix, token, roles, MongoDB } = require('./config.json');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
 client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 client.events = new Discord.Collection();
 
 ['command_handler', 'event_handler'].forEach(handler => {
@@ -26,5 +27,12 @@ mongoose.connect((MongoDB), {
 }).catch((err) => {
 	console.log(err);
 });
+
+client.on("message", async message => {
+	const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+	if (message.content.match(prefixMention)) {
+	  return message.reply(`My prefix is \`${prefix}\``);
+	}
+})
 
 client.login(token);
