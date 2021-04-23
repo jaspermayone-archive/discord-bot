@@ -16,7 +16,6 @@
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
     "akaneko": "^5.0.1",
-    "discord-auditlog": "^2.4.2",
     "discord-mongo-currency": "^1.0.4",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
