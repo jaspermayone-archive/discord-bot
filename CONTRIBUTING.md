@@ -4,10 +4,13 @@ Please take a look at our GitHub issues for ideas on what to work on. Our Github
 
 ### Workflow
 
-#### Step 1: Create a fork or branch.
+#### Step 1: Find an issue
+Step 1 is to find an issue that you can do. If you comment .take in the issue, it will be assigned to you.
+
+#### Step 2: Create a fork or branch.
 All work should be done on a fork unless you have been added as a contributor. In that case, please use a branch off of master. We update our branches with changes frequently, so make sure to [keep your fork up to date](https://dev.to/giannellitech/keeping-your-fork-up-to-date-klh)
 
-#### Step 2: Making changes
+#### Step 3: Making changes
 Make nessisary changes then commit.
 
 ### Step 4: Make sure readme has correct documentation
