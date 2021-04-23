@@ -1,8 +1,7 @@
 name: Assign
 on:
   issue_comment:
-    types: [created, edited]
-
+  
 jobs:
   one:
     runs-on: ubuntu-latest
