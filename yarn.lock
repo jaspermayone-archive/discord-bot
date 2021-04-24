@@ -1389,8 +1389,6 @@ detect-libc@^1.0.3:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
-<<<<<<< HEAD
-=======
 dir-glob@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-3.0.1.tgz#56dbf73d992a4a93ba1584f4534063fd2e41717f"
@@ -1398,12 +1396,11 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-discord-auditlog@^2.4.2:
+discord-auditlog@^2.3.2:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.0.tgz#c0f1f53eae75896e0231c5db3563846677cbbde3"
   integrity sha512-7AKWZlahzHW1zz2WJQifiStjyilkDdzGTy28KSmmyyGZ/WqgwUfY3bnSKoAZYFKflpmEpaEmlcg+oeOP0PsfJw==
 
->>>>>>> master
 discord-mongo-currency@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/discord-mongo-currency/-/discord-mongo-currency-1.0.4.tgz#09df5dfff79061e3b929065cd7072a594d68765c"
@@ -2822,9 +2819,9 @@ plist@^3.0.1:
     xmldom "^0.5.0"
 
 prebuild-install@^6.0.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-6.1.1.tgz#6754fa6c0d55eced7f9e14408ff9e4cba6f097b4"
-  integrity sha512-M+cKwofFlHa5VpTWub7GLg5RLcunYIcLqtY5pKcls/u7xaAb8FrXZ520qY8rkpYy5xw90tYCyMO0MP5ggzR3Sw==
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-6.1.2.tgz#6ce5fc5978feba5d3cbffedca0682b136a0b5bff"
+  integrity sha512-PzYWIKZeP+967WuKYXlTOhYBgGOvTRSfaKI89XnfJ0ansRAH7hDU45X+K+FZeI1Wb/7p/NnuctPH3g0IqKUuSQ==
   dependencies:
     detect-libc "^1.0.3"
     expand-template "^2.0.3"
@@ -3176,9 +3173,9 @@ snekfetch@^4.0.4:
   integrity sha512-dyycG9fvwtSJqKPfMVOpXt+60qvMGe7vWLwOJDiSJaiAx+hs2EnFChG2bXCWn7ulz+zGzrHdN9/yeEb0YqEPww==
 
 something-random-on-discord@^3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/something-random-on-discord/-/something-random-on-discord-3.4.3.tgz#0feced93b2046aef8d65c4d63bc85a17330bdc35"
-  integrity sha512-I6Xaged7hxFHQESjk/WXDrm4XrB4a4tukM3yOujciFhpVLXg/2ZF37nfdE7+SzCTZPUPLa+I9UsKKOg0ShG68w==
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/something-random-on-discord/-/something-random-on-discord-3.4.4.tgz#58b8636ca63d168b73cbaeaafb73c29ef5ad4e36"
+  integrity sha512-xyaSTJmKnG7ARvbp0H6wquFXzQjhB3gF4ZRLwOPpPQTIstBpolNdJCkGbx58MjMK3Wb6WnPlEjYAMNrFSv+L8Q==
   dependencies:
     axios "^0.21.1"
 
