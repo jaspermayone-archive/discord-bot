@@ -1,10 +1,9 @@
 const Discord = require('discord.js');
-
 const mongoose = require('mongoose');
 const fs = require('fs');
-
+const AuditLog = require('discord-auditlog');
 const config = require('dotenv').config();
-const { prefix, token, roles, MongoDB } = require('./config.json');
+const { prefix, token, roles, MongoDB, serverId } = require('./config.json');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
@@ -36,3 +35,15 @@ client.on("message", async message => {
 })
 
 client.login(token);
+
+// Channel log - specify the channel for the type of events
+AuditLog(client, {
+	[serverId]: {
+		auditlog: "audit-log",
+		movement: "in-out",
+		auditmsg: "audit-msg", // Default to false, recommend to set a channel
+		voice: "voice-activity", // Set a Channel name if you want it
+		trackroles: "audit-log", // Default to False
+		// excludedroles: ['671004697850544111', '671004697850544112']  // This is an OPTIONAL array of Roles ID that won't be tracked
+	},
+});
