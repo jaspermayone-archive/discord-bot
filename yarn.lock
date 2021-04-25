@@ -1396,7 +1396,7 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-discord-auditlog@^2.3.2:
+discord-auditlog@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.0.tgz#c0f1f53eae75896e0231c5db3563846677cbbde3"
   integrity sha512-7AKWZlahzHW1zz2WJQifiStjyilkDdzGTy28KSmmyyGZ/WqgwUfY3bnSKoAZYFKflpmEpaEmlcg+oeOP0PsfJw==
