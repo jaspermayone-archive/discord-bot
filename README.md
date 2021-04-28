@@ -42,6 +42,9 @@ The goal is for Heptagram to be the all in one, open source discord bot to be th
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Heptagram-Bot/Heptagram/issues). You can also take a look at the [contributing guide](https://github.com/Heptagram-Bot/Heptagram/blob/master/CONTRIBUTING.md). All pur documentation has moved to the CONTRIBUTING.md file. We encourage you to read that before contributing.
 
+## Discord Server
+Heptagram has a community discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggust features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can gain acces to a special role and channels. To do so, join the server and then ping any admin and let them know.
+
 
 # Open Sauced:
 Heptagram is proud to work with Open Sauced and the Open Sauced discord server. Open Sauced is a website that helps you track your open source contributions and contribution goals. You can find the website at https://opensauced.pizza/. They also have an amaazing Discord community and I highly recommend you check it out. The link for the discord server is https://discord.gg/PDJNR7u37h.
