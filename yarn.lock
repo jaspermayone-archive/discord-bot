@@ -1460,10 +1460,10 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   dependencies:
     once "^1.4.0"
 
-enmap@^5.8.4:
-  version "5.8.4"
-  resolved "https://registry.yarnpkg.com/enmap/-/enmap-5.8.4.tgz#1e007be1d9930f43d03e7306c2e2b3b49e35bd3a"
-  integrity sha512-36zXOIJrAvL6Dk03vz9PA4anpIkms3kelJhG+X1hw5HYlRv8yT6UEMvDH1yUaMYfsH4v3D04nLoBX4z2Vqambw==
+enmap@^5.8.5:
+  version "5.8.5"
+  resolved "https://registry.yarnpkg.com/enmap/-/enmap-5.8.5.tgz#0cbfc011860517c00cc92b9a65c54cf9436d5a8e"
+  integrity sha512-9J1U7Ah2M6Q62K2lrVCMVijMfL9nxOQKoOl7yeahq1qMFt8904SWSTAPH2mVb/+sZ1l2R5xyxxMTvOHWdrQBSg==
   dependencies:
     better-sqlite3 "^7.1.0"
     lodash "^4.17.20"
