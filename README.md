@@ -30,7 +30,7 @@
 <h1 align="center">Welcome to Heptagram 👋</h1>
 
 # NOTE: 
-This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server to say hi and stay up to date with news].(https://discord.gg/HSupF99kpq)
+This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server to say hi and stay up to date with news](https://discord.gg/HSupF99kpq).
 
 
 # Welcome to Heptagram. 
