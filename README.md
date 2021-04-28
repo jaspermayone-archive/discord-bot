@@ -40,7 +40,7 @@ Please note, this bot is open source, but is intended to use the version we have
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Heptagram-Bot/Heptagram/issues). You can also take a look at the [contributing guide](https://github.com/Heptagram-Bot/Heptagram/blob/master/CONTRIBUTING.md). All pur documentation has moved to the CONTRIBUTING.md file. We encourage you to read that before contributing.
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Heptagram-Bot/Heptagram/issues). You can also take a look at the [contributing guide](https://github.com/Heptagram-Bot/Heptagram/blob/master/CONTRIBUTING.md). All pure documentation has moved to the CONTRIBUTING.md file. We encourage you to read that before contributing.
 
 ## Discord Server
 Heptagram has a community discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggust features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can gain acces to a special role and channels. To do so, join the server and then ping any admin and let them know.
