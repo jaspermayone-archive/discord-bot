@@ -30,12 +30,12 @@
 <h1 align="center">Welcome to Heptagram 👋</h1>
 
 # NOTE: 
-This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [Join our Discord server to say hi and stay up to date with news.](https://discord.gg/HSupF99kpq)
+This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server to say hi and stay up to date with news].(https://discord.gg/HSupF99kpq)
 
 
 # Welcome to Heptagram. 
 The goal is for Heptagram to be the all in one, open source discord bot to be the single needed bot for any server.
-.Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing an bot invite link as soon as we finish getting our hosting set up.
+Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing an bot invite link as soon as we finish getting our hosting set up.
 
 
 ## 🤝 Contributing
@@ -47,7 +47,7 @@ Heptagram has a community discord server. You can join it at [https://discord.gg
 
 
 # Open Sauced:
-Heptagram is proud to work with Open Sauced and the Open Sauced discord server. Open Sauced is a website that helps you track your open source contributions and contribution goals. You can find the website at https://opensauced.pizza/. They also have an amaazing Discord community and I highly recommend you check it out. The link for the discord server is https://discord.gg/PDJNR7u37h.
+Heptagram is proud to work with Open Sauced and the Open Sauced discord server. Open Sauced is a website that helps you track your open source contributions and contribution goals. You can find the website at https://opensauced.pizza/. They also have an amazing Discord community and I highly recommend you check it out. The link for the discord server is https://discord.gg/PDJNR7u37h.
 
 
 ## Author
