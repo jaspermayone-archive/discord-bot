@@ -21,4 +21,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: '<h1>Thanks for submitting an issue!</h1> Welcome to the Heptagram community :nerd_face:'
           pr-message: '<h1>Thanks for your contribution! Someone will review your PR shortly.</h1> Welcome to the community :nerd_face:'
-          footer: 'If you would like to continue contributing and would like to talk with other contributors, you should join our <a href="https://discord.gg/HSupF99kpq">Discord Server</a> 
+          footer: 'If you would like to continue contributing and would like to talk with other contributors, you should join our <a href="https://discord.gg/HSupF99kpq">Discord Server</a>' 
