@@ -6,7 +6,7 @@ module.exports = async (Discord, client, args) => {
 	console.log(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
 	
 	client.user.setStatus('online');
-    client.user.setActivity(`${prefix}help and ${prefix}play`, { type: "LISTENING" })
+    client.user.setActivity(`${prefix}help.`, { type: "LISTENING" })
 		.then(presence => console.log(`Activity set to ${presence.activities[0].name}.`))
 		.catch(console.error);
 
