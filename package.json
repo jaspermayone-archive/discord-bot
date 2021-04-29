@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
+    "@mikemcbride/dad-jokes": "mikemcbride/dad-jokes",
     "akaneko": "^5.0.1",
     "discord-auditlog": "^2.4.0",
     "discord-mongo-currency": "^1.0.4",
