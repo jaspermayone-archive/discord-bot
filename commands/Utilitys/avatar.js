@@ -4,13 +4,25 @@ module.exports = {
     guildOnly: true,
     category: "Utilitys",
 
-    execute({ message, args, roles }) {
-        if (!message.mentions.users.size) {
-            return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
+   async execute({ message, args, roles }) {
+        if (!args[0]) {
+            const embed = new MessageEmbed()
+                .setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)
+                .setColor("#000000")
+                .setTitle(`**Avatar**`)
+                .setImage(`${message.author.displayAvatarURL({ size: 4096, dynamic: true })}`);
+            return message.channel.send(embed);
+        } else {
+            let member = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(() => { return undefined });
+            if (!member) return message.reply("User not found.").then(m => del(m, 7500));
+            else {
+                const embed = new MessageEmbed()
+                    .setAuthor(`${member.user.tag}}`, `${member.user.displayAvatarURL()}`)
+                    .setColor("#000000")
+                    .setTitle(`**Avatar**`)
+                    .setImage(`${member.user.displayAvatarURL({ size: 4096, dynamic: true })}`);
+                return message.channel.send(embed);
+            }
         }
-        const avatarList = message.mentions.users.map(user => {
-            return `${user.username}'s avatar: <${user.displayAvatarURL({ format: "png", dynamic: true })}>`;
-        });
-        message.channel.send(avatarList);
     }
 }
