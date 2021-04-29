@@ -1,5 +1,6 @@
 const superagent = require("snekfetch");
 const Discord = require('discord.js')
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
 
 module.exports = {
   name: "dog",
@@ -13,7 +14,7 @@ module.exports = {
           const lewdembed = new Discord.MessageEmbed()
             .setTitle("<a:dog:730389376210829344>")
             .setImage(response.body.url)
-            .setColor(`#000000`)
+            .setColor(colors.heptagram)
             .setFooter(`🤣WHAT A DOG🤣`)
             .setURL(response.body.url);
           message.channel.send(lewdembed);
