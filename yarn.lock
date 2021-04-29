@@ -3569,6 +3569,11 @@ plist@^3.0.1:
     xmlbuilder "^9.0.7"
     xmldom "^0.5.0"
 
+popular-movie-quotes@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/popular-movie-quotes/-/popular-movie-quotes-1.2.4.tgz#7d283bf403db4b215efdeba540ea076afaa4c081"
+  integrity sha512-YOwjB6cKq+RIwbrlPONH0jP14XoBfSHtBGWxm+ZQGGvHLKYBhdoaPZcTBZgC+HV7xY4W4GTQO2Wj7Go5hP1n/w==
+
 prebuild-install@^6.0.1:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-6.1.2.tgz#6ce5fc5978feba5d3cbffedca0682b136a0b5bff"
