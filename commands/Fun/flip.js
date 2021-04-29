@@ -1,5 +1,5 @@
-const { del } = require("../../functions.js");
 const { MessageEmbed } = require("discord.js");
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
 
 module.exports = {
     name: "coinflip",
@@ -7,7 +7,7 @@ module.exports = {
     description: "Flips a coin for heads or tails.",
     execute({ message, client, args, roles }) {
         let embed = new MessageEmbed()
-            .setColor("#0efefe")
+            .setColor(colors.heptagram)
             .setTitle("A coin was flipped..")
             .setTimestamp()
 
@@ -16,6 +16,6 @@ module.exports = {
         if (number === 0) embed.addField("Result", "\`Heads\`")
         else embed.addField("Result", "\`Tails\`")
 
-        message.channel.send(embed).then(m => del(m, 15000));
+        message.channel.send(embed);
     }
 }

@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const dadJokes = require('@mikemcbride/dad-jokes');
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
 
 module.exports = {
     name: "dadjoke",
@@ -9,11 +10,11 @@ module.exports = {
     
     execute({ message, client, args, roles }) {
         let embed = new MessageEmbed()
-            .setColor("#0efefe")
+            .setColor(colors.heptagram)
             .setTitle("Here's a good one...")
             .setTimestamp()
             .setDescription(`${dadJokes.random()}`);
 
-        message.channel.send(embed).then(m => del(m, 15000));
+        message.channel.send(embed);
     }
 }
