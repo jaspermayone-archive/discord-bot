@@ -1,7 +1,8 @@
 
 const { MessageEmbed } = require("discord.js");
 const math = require("mathjs");
-const Color = `RANDOM`;
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 
 module.exports = {
   name: "math",
@@ -11,7 +12,7 @@ module.exports = {
       if (!args[0]) return message.channel.send("Please Give Me Equation!");
 
       const embed = new MessageEmbed()
-        .setColor(`${Color}`)
+        .setColor(colors.heptagram)
         .setTitle(`Result`)
         .setDescription(math.evaluate(args.join(" ")))
         .setTimestamp();
