@@ -18,7 +18,7 @@ module.exports = async (Discord, client, message) => {
 				console.log(error);
 				message.reply('there was an error trying to execute that command! Please contact a developer in our support server.');
 			}
-		}
+		}	
 	} 
 
 	const auditLogs = await message.guild.fetchAuditLogs({ type: 'MESSAGE' });
