@@ -30,6 +30,7 @@
     "ms": "^2.1.3",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
+    "popular-movie-quotes": "^1.2.4",
     "snekfetch": "^4.0.4",
     "something-random-on-discord": "^3.4.3"
   },
