@@ -8,7 +8,6 @@ module.exports = {
   guildOnly: false,
 
   execute({ message, client, args, roles }) {
-      //command
       superagent.get('https://nekos.life/api/v2/img/woof')
         .end((err, response) => {
           const lewdembed = new Discord.MessageEmbed()
