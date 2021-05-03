@@ -1626,10 +1626,10 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-discord-auditlog@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.0.tgz#c0f1f53eae75896e0231c5db3563846677cbbde3"
-  integrity sha512-7AKWZlahzHW1zz2WJQifiStjyilkDdzGTy28KSmmyyGZ/WqgwUfY3bnSKoAZYFKflpmEpaEmlcg+oeOP0PsfJw==
+discord-auditlog@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.2.tgz#a59b1cf0e81de7407476351b537c144625c54474"
+  integrity sha512-fHRV6ioA79unACJT0HXPB4009RggcdO3D1ExZzoPMeKpGVjAE+sFWBfDgDKLRIafVR79yr8PWF+VgTu7SGh/nA==
 
 discord-mongo-currency@^1.0.4:
   version "1.0.4"
