@@ -9,7 +9,7 @@ module.exports = {
 
     execute({ message, Discord, args }) {
         const embed = new Discord.MessageEmbed()
-            .setTitle("Bot Info :robot:")
+            .setTitle("Bot Invite :robot:")
             .setColor(colors.heptagram)
             //const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
             .setDescription(`Heptagram is not yet avaible to be invited to servers. Follow our v1 realese updates channel for updates.`)
