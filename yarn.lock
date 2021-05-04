@@ -9,17 +9,17 @@
   dependencies:
     "@babel/highlight" "^7.12.13"
 
-"@babel/helper-validator-identifier@^7.12.11":
-  version "7.12.11"
-  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.12.11.tgz#c9a1f021917dcb5ccf0d4e453e399022981fc9ed"
-  integrity sha512-np/lG3uARFybkoHokJUmf1QfEvRVCPbmQeUQpKow5cQ3xWrV9i3rUHodKDJPQfTVX61qKi+UdYk8kik84n7XOw==
+"@babel/helper-validator-identifier@^7.14.0":
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.14.0.tgz#d26cad8a47c65286b15df1547319a5d0bcf27288"
+  integrity sha512-V3ts7zMSu5lfiwWDVWzRDGIN+lnCEUdaXgtVHJgLb1rGaA6jMrtB9EmE7L18foXJIE8Un/A/h6NJfGQp/e1J4A==
 
 "@babel/highlight@^7.12.13":
-  version "7.13.10"
-  resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.13.10.tgz#a8b2a66148f5b27d666b15d81774347a731d52d1"
-  integrity sha512-5aPpe5XQPzflQrFwL1/QoeHkP2MsA4JCntcXHRhEsdsfPVkvPi2w7Qix4iV7t5S/oC9OodGrggd8aco1g3SZFg==
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.14.0.tgz#3197e375711ef6bf834e67d0daec88e4f46113cf"
+  integrity sha512-YSCOwxvTYEIMSGaBQb5kDDsCopDdiUGsqpatp3fOlI4+2HQSkTmEVWnVuySdAC5EWCqSWWTv0ib63RjR7dTBdg==
   dependencies:
-    "@babel/helper-validator-identifier" "^7.12.11"
+    "@babel/helper-validator-identifier" "^7.14.0"
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
@@ -49,9 +49,9 @@
     tslib "^1.9.3"
 
 "@heroku-cli/command@^8.4.1":
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/@heroku-cli/command/-/command-8.4.1.tgz#7efe7f7f2a368369108f12540760fe67405a517c"
-  integrity sha512-B8Jg0FtlxNnkRYepzMcAsq17uTxQlg8NubiQKKtlertJmvBUJ2QoBczhsHCc4wuXSlraVhTgRnfT77fZ8bqROw==
+  version "8.5.0"
+  resolved "https://registry.yarnpkg.com/@heroku-cli/command/-/command-8.5.0.tgz#1a9d977c85d5581622699d9a819d6da24a037993"
+  integrity sha512-HtjnammJPaoYkcrhmQM5sJCUueJ80KbZHUo3SldAEXmy9hefk34mk524nKS7ZlrABEiBilv4XYHCkrWCoq94uQ==
   dependencies:
     "@heroku-cli/color" "^1.1.14"
     "@oclif/errors" "^1.2.2"
@@ -790,9 +790,9 @@ abort-controller@^3.0.0:
     event-target-shim "^5.0.0"
 
 ajv-formats@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.0.2.tgz#69875cb99d76c74be46e9c7a4444bc232354eba0"
-  integrity sha512-Brah4Uo5/U8v76c6euTwtjVFFaVishwnJrQBYpev1JRh4vjA1F4HY3UzQez41YUCszUCXKagG8v6eVRBHV1gkw==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.1.0.tgz#96eaf83e38d32108b66d82a9cb0cfa24886cdfeb"
+  integrity sha512-USH2jBb+C/hIpwD2iRjp0pe0k+MvzG0mlSn/FIdCgQhUb9ALPRjt2KIQdfZDS9r0ZIeUAg7gOu9KL0PFqGqr5Q==
   dependencies:
     ajv "^8.0.0"
 
@@ -882,9 +882,9 @@ ansicolors@~0.3.2:
   integrity sha1-ZlWX3oap/+Oqm/vmyuXG6kJrSXk=
 
 app-path@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/app-path/-/app-path-3.2.0.tgz#06d426e0c988885264e0aa0a766dfa2723491633"
-  integrity sha512-PQPaKXi64FZuofJkrtaO3I5RZESm9Yjv7tkeJaDz4EZMeBBfGtr5MyQ3m5AC7F0HVrISBLatPxAAAgvbe418fQ==
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/app-path/-/app-path-3.3.0.tgz#0342a909db37079c593979c720f99e872475eba3"
+  integrity sha512-EAgEXkdcxH1cgEePOSsmUtw9ItPl0KTxnh/pj9ZbhvbKbij9x0oX6PWpGnorDr0DS5AosLgoa5n3T/hZmKQpYA==
   dependencies:
     execa "^1.0.0"
 
@@ -977,9 +977,9 @@ bcrypt-pbkdf@^1.0.2:
     tweetnacl "^0.14.3"
 
 better-sqlite3@^7.1.0:
-  version "7.1.5"
-  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-7.1.5.tgz#3eb0fcc81bed463ddf2da4a02aad7e02726205c0"
-  integrity sha512-HX5dN0zLllJLQOJP2tXqV42bvjXPnbe/Nl5o6nD1jj99h0148B39zbfGZVoJBLtDAd/CJc4Zdm8K+GhHIq84IQ==
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-7.2.0.tgz#fbc460ba92391e5cafbfd96496ff83f7ac17225b"
+  integrity sha512-pVhcTgsDJbv7K3us5o2Cyz6MIuGurHIgcDViHOmN1zs/FWf5A59tllLExHprP5NjZOlISsSeRSchjPkj4Sbg3g==
   dependencies:
     bindings "^1.5.0"
     prebuild-install "^6.0.1"
@@ -1627,9 +1627,9 @@ dir-glob@^3.0.1:
     path-type "^4.0.0"
 
 discord-auditlog@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.0.tgz#c0f1f53eae75896e0231c5db3563846677cbbde3"
-  integrity sha512-7AKWZlahzHW1zz2WJQifiStjyilkDdzGTy28KSmmyyGZ/WqgwUfY3bnSKoAZYFKflpmEpaEmlcg+oeOP0PsfJw==
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.2.tgz#a59b1cf0e81de7407476351b537c144625c54474"
+  integrity sha512-fHRV6ioA79unACJT0HXPB4009RggcdO3D1ExZzoPMeKpGVjAE+sFWBfDgDKLRIafVR79yr8PWF+VgTu7SGh/nA==
 
 discord-mongo-currency@^1.0.4:
   version "1.0.4"

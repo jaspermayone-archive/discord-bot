@@ -1,5 +1,7 @@
 const fetch = require("node-fetch");
 
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 const URL = "https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true";
 
 function fetchStats() {
@@ -22,7 +24,7 @@ module.exports = {
 	description: "Display basic COVID stats of a country",
 	category: "COVID",
     
-	execute({ message, args, roles }) {
+	execute({ message, args, Discord, roles }) {
 		// To prevent user spamming the same command
 		if (blocked) {
 			message.channel.send(
@@ -64,7 +66,7 @@ module.exports = {
 						Recovered: ${recovered}\n
 						Deceased: ${deceased}\n
 					`;
-					message.channel.send(info);
+				message.channel.send(info);
 					resolve();
 				})
 			})
