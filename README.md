@@ -32,6 +32,7 @@
 # NOTE: 
 This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server to say hi and stay up to date with news](https://discord.gg/HSupF99kpq).
 
+[![Support Server](https://img.shields.io/discord/826493837878493204.svg?label=Discord&logo=Discord&colorB=7289da&style=for-the-badge)](https://discord.gg/HSupF99kpq)
 
 # Welcome to Heptagram. 
 The goal is for Heptagram to be the all in one, open source discord bot to be the single needed bot for any server.
