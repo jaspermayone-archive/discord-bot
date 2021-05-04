@@ -1,17 +1,19 @@
+
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 module.exports = {
     name: 'botinfo',
     description: "Displays info about bot.",
     guildOnly: true,
     category: "Bot Info",
 
-    execute({ discord, client, message, roles }) {
+    execute({ Discord, client, message, roles }) {
         let ping = message.createdTimestamp - message.createdTimestamp;
 
         let days = Math.floor(client.uptime / 86400000);
         let hours = Math.floor(client.uptime / 3600000) % 24;
         let minutes = Math.floor(client.uptime / 60000) % 60;
         let seconds = Math.floor(client.uptime / 1000) % 60;
-
 
         message.channel.send('This is the Heptagram discord bot. Heptagram is the open-source multipurpose discord bot with the goal to be the single needed bot for any server.');
 

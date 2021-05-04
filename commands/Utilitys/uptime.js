@@ -1,10 +1,14 @@
+
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 module.exports = {
     name: 'uptime',
     description: "gets server uptime",
     guildOnly: true,
     category: "Utilitys",
 
-    execute({ message, args, discord, client, roles }) {
+    execute({ message, client, roles, Discord, args }) {
+
         let days = 0
         let week = 0
         let uptime = '';
@@ -24,7 +28,12 @@ module.exports = {
         minutes = 0;
                 }
         uptime += `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`
-  
-        message.channel.send(`Bot Uptime: \`${uptime}\``);
-    }
+
+        const embed = new Discord.MessageEmbed()
+          .setTitle("Bot Uptime :robot:")
+          .setColor(colors.heptagram)
+          //const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+          .setDescription(`Bot Uptime: \`${uptime}\``)
+        message.channel.send(embed);
+      }
 }
