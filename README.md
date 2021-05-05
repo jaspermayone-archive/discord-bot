@@ -35,8 +35,8 @@ This bot is still in development. We plan to come out with V1 of this bot shortl
 [![Support Server](https://img.shields.io/discord/826493837878493204.svg?label=Discord&logo=Discord&colorB=7289da&style=for-the-badge)](https://discord.gg/HSupF99kpq)
 
 # Welcome to Heptagram. 
-The goal is for Heptagram to be the all in one, open source discord bot to be the single needed bot for any server.
-Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing an bot invite link as soon as we finish getting our hosting set up.
+The goal is for Heptagram to be the all in one, open source Discord bot to be the single needed bot for any server.
+Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing a bot invite link as soon as we finish getting our hosting set up.
 
 
 ## 🤝 Contributing
@@ -46,7 +46,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 [![Open Source Helpers](https://www.codetriage.com/heptagram-bot/heptagram/badges/users.svg)](https://www.codetriage.com/heptagram-bot/heptagram)
 
 ## Discord Server
-Heptagram has a community discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggust features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can gain acces to a special role and channels. To do so, join the server and then ping any admin and let them know.
+Heptagram has a community Discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggest features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can gain access to a special role and channels. To do so, join the server and then ping any admin and let them know.
 
 
 # Open Sauced:
