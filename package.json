@@ -18,7 +18,7 @@
     "@mikemcbride/dad-jokes": "mikemcbride/dad-jokes",
     "akaneko": "^5.0.1",
     "common-tags": "^1.8.0",
-    "discord-auditlog": "^2.4.2",
+    "discord-auditlog": "^2.4.3",
     "discord-mongo-currency": "^1.0.4",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
