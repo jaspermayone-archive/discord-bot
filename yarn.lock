@@ -585,10 +585,10 @@ detect-libc@^1.0.3:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
-discord-auditlog@^2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.2.tgz#a59b1cf0e81de7407476351b537c144625c54474"
-  integrity sha512-fHRV6ioA79unACJT0HXPB4009RggcdO3D1ExZzoPMeKpGVjAE+sFWBfDgDKLRIafVR79yr8PWF+VgTu7SGh/nA==
+discord-auditlog@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.3.tgz#cb2aab7802b901baa0ce66d4624f622fc64aad65"
+  integrity sha512-u5eCCIHAzu8YYh8V6qq0HqGAS2TILkvjnngbwlIiqzv/z+s+BOpN3sFOv2jckia9SOh6FuqNsrkwOmVQUPUoOg==
 
 discord-mongo-currency@^1.0.4:
   version "1.0.4"
