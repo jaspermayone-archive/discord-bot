@@ -4,6 +4,10 @@ const fs = require('fs');
 const AuditLog = require('discord-auditlog');
 const config = require('dotenv').config();
 const { prefix, token, roles, MongoDB, serverId } = require('./config.json');
+const { Player } = require("discord-player");
+
+const player = new Player(client);
+client.player = player;
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
@@ -26,6 +30,8 @@ mongoose.connect((MongoDB), {
 }).catch((err) => {
 	console.log(err);
 });
+
+client.player.on("trackStart", (message, track) => message.channel.send(`Now playing ${track.title}...`))
 
 client.on("message", async message => {
 	const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
