@@ -4,7 +4,8 @@
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "shard": "main.js",
   "scripts": {
-    "start": "nodemon main.js",
+    "start": "node main.js",
+    "devstart": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/Heptagram-Bot/Heptagram.git",
