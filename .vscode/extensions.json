@@ -5,6 +5,7 @@
         "coenraads.bracket-pair-colorizer-2",
         "kiteco.kite",
         "johnpapa.vscode-peacock",
-        "vscode-icons-team.vscode-icons"
+        "vscode-icons-team.vscode-icons",
+        "snowflake107.discordjs-helper"
     ]
 }
