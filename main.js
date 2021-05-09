@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const mongoose = require('mongoose');
 const fs = require('fs');
+const chalk = require('chalk');
 const AuditLog = require('discord-auditlog');
 const config = require('dotenv').config();
 const { prefix, token, roles, MongoDB, serverId } = require('./config.json');
@@ -20,7 +21,6 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.events = new Discord.Collection();
 
-
 ['command_handler', 'event_handler'].forEach(handler => {
 	require(`./handlers/${handler}`)({ client, Discord });
 })
@@ -32,7 +32,7 @@ mongoose.connect((MongoDB), {
 	useUnifiedTopology: true,
 	useFindAndModify: false
 }).then(() => {
-	console.log('Connected to Heptagram MongoDB database!')
+	console.log(chalk.green('Connected to Heptagram MongoDB database!'));
 }).catch((err) => {
 	console.log(err);
 });
