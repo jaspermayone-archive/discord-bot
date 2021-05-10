@@ -8,15 +8,6 @@ const { prefix, token, roles, MongoDB, serverId } = require('./config.json');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
-const { Player } = require("discord-player"); //Create a new Player (Youtube API key is your Youtube Data v3 key)
-
-const player = new Player(client); //To easily access the player
-
-
-client.player = player;
-client.config = require('./config.json');
-client.emotes = client.config.emotes;
-client.colors = client.config.colors;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.events = new Discord.Collection();
