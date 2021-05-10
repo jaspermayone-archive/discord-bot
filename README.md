@@ -66,5 +66,5 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [J-dogcoder](https://github.com/J-dogcoder).<br />
-This project is [MIT](https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE) licensed.
+This project is [Mozilla Public License 2.0](https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE) licensed.
 
