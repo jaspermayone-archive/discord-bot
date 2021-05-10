@@ -21,7 +21,7 @@
     "discord-auditlog": "^2.4.3",
     "discord-mongo-currency": "^1.0.4",
     "discord.js": "^12.5.3",
-    "dotenv": "^9.0.0",
+    "dotenv": "^9.0.1",
     "enmap": "^5.8.5",
     "fs": "^0.0.1-security",
     "gitmoji-cli": "^4.0.0",
