@@ -23,7 +23,7 @@
     "common-tags": "^1.8.0",
     "discord-auditlog": "^2.4.5",
     "discord-mongo-currency": "^1.0.4",
-    "discord-player": "^4.0.5",
+    "discord-player": "^4.0.7",
     "discord.js": "^12.5.3",
     "dotenv": "^9.0.2",
     "enmap": "^5.8.5",

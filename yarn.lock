@@ -114,6 +114,14 @@
     "@types/bson" "*"
     "@types/node" "*"
 
+"@types/node-fetch@^2.5.10":
+  version "2.5.10"
+  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.10.tgz#9b4d4a0425562f9fcea70b12cb3fcdd946ca8132"
+  integrity sha512-IpkX0AasN44hgEad0gEF/V6EgR5n69VEqPEgnmoM8GsIGro3PowbWs4tR6IhxUTyPLpOn+fiGG6nrQhcmoCuIQ==
+  dependencies:
+    "@types/node" "*"
+    form-data "^3.0.0"
+
 "@types/node@*":
   version "15.0.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.0.2.tgz#51e9c0920d1b45936ea04341aa3e2e58d339fb67"
@@ -749,18 +757,18 @@ discord-mongo-currency@^1.0.4:
   dependencies:
     mongoose "^5.10.0"
 
-discord-player@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/discord-player/-/discord-player-4.0.5.tgz#2258e7c0ea2ae8cf3ba8834e55dba754e745d224"
-  integrity sha512-A/lEgvnnkrytMPKy8NDQlkm6yi70kyygFfZMGMRsPpYNjPko/y7/KxTnNqh7K5UY1Wg65uxaOBofDKIcDQmwgw==
+discord-player@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/discord-player/-/discord-player-4.0.7.tgz#18818f96f4597839601b7cf5beada2fc521c741a"
+  integrity sha512-D/+f4D3PJ2vs1gC3R+2D3uUcwzJnMV4UlP2NkbiIiQflGic+8TKhQY9RgIU0JW2pLIhHQ0nHjgHnxuCyTUKaRA==
   dependencies:
-    discord-ytdl-core "^5.0.2"
-    soundcloud-scraper "^4.0.3"
+    discord-ytdl-core "^5.0.3"
+    soundcloud-scraper "^4.0.4"
     spotify-url-info "^2.2.0"
-    youtube-sr "^4.0.4"
-    ytdl-core "^4.5.0"
+    youtube-sr "^4.0.6"
+    ytdl-core "^4.7.0"
 
-discord-ytdl-core@^5.0.2:
+discord-ytdl-core@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/discord-ytdl-core/-/discord-ytdl-core-5.0.3.tgz#a31560f0bede41d6fc969377083ae958deac2b72"
   integrity sha512-q4GOEFiV19l0OcPezXnkDWualf+n96LcbTEWReceiDHdx4xxn5CXZX9PR4iDTXQR3Kv2VUkwB8RO8dI50d88vQ==
@@ -981,6 +989,15 @@ follow-redirects@^1.10.0:
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.0.tgz#f5d260f95c5f8c105894491feee5dc8993b402fe"
   integrity sha512-0vRwd7RKQBTt+mgu87mtYeofLFZpTas2S9zY+jIeuLJMNvudIgF52nr19q40HOwH5RrhWIPuj9puybzSJiRrVg==
+
+form-data@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-3.0.1.tgz#ebd53791b78356a99af9a300d4282c4d5eb9755f"
+  integrity sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==
+  dependencies:
+    asynckit "^0.4.0"
+    combined-stream "^1.0.8"
+    mime-types "^2.1.12"
 
 fraction.js@^4.0.13:
   version "4.0.13"
@@ -1391,11 +1408,6 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
-
-iso8601-duration@^1.2.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/iso8601-duration/-/iso8601-duration-1.3.0.tgz#29d7b69e0574e4acdee50c5e5e09adab4137ba5a"
-  integrity sha512-K4CiUBzo3YeWk76FuET/dQPH03WE04R94feo5TSKQCXpoXQt9E4yx2CnY737QZnSAI3PI4WlKo/zfqizGx52QQ==
 
 javascript-natural-sort@^0.7.1:
   version "0.7.1"
@@ -2409,14 +2421,6 @@ simple-get@^3.0.3:
     once "^1.3.1"
     simple-concat "^1.0.0"
 
-simple-youtube-api@^5.2.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/simple-youtube-api/-/simple-youtube-api-5.2.1.tgz#d1f6efb941ce404f50ce56e0c5e6bff249fcac6a"
-  integrity sha512-vmndP9Bkh35tifn2OwY+th2imSsfYtmDqczgdOW5yEARFzvSoR8VSQFsivJnctfV5QHQUL6VrOpNdbmDRLh9Bg==
-  dependencies:
-    iso8601-duration "^1.2.0"
-    node-fetch "^2.6.0"
-
 sliced@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
@@ -2434,10 +2438,10 @@ something-random-on-discord@^3.4.3:
   dependencies:
     axios "^0.21.1"
 
-soundcloud-scraper@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/soundcloud-scraper/-/soundcloud-scraper-4.0.3.tgz#cd7ed1d7b6ed1d7729fd7580c011281f652b920f"
-  integrity sha512-A0a6sVJ2wkkWIX8Ft3L63sfHBlFDRAaPFif+SWi07KCNLh8YTcylw45pts76pndxlupKwV2NgOTIYeF/F9tg8w==
+soundcloud-scraper@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/soundcloud-scraper/-/soundcloud-scraper-4.0.4.tgz#dfd6a45dc6e63fac7d6b31f2ba1d23a199ca4fb6"
+  integrity sha512-ei3KuPsVZRiq9j2GN580gQwVGZUWMdkmDAANSPm8qweUa4/UnKAnYiUsc/6volZsQiGsnJAP9+8HECDxNcTg6A==
   dependencies:
     cheerio "^1.0.0-rc.3"
     m3u8stream "^0.8.0"
@@ -2882,15 +2886,15 @@ yargs-parser@^20.2.3:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.7.tgz#61df85c113edfb5a7a4e36eb8aa60ef423cbc90a"
   integrity sha512-FiNkvbeHzB/syOjIUxFDCnhSfzAL8R5vs40MgLFBorXACCOAEaWu0gRZl14vG8MR9AOJIZbmkjhusqBYZ3HTHw==
 
-youtube-sr@^4.0.4:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/youtube-sr/-/youtube-sr-4.0.6.tgz#e27c8fadb51361a6223ba0552b300f131c903fe9"
-  integrity sha512-nRrqgWl0xYfMhwLTqjF7G6s+36IHIdOMtZaSrz0Cpk4uSIqoeKEJgLiAZrYIGWGNYtS8/mzZYRzYxaIA/gW1Ig==
+youtube-sr@^4.0.6:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/youtube-sr/-/youtube-sr-4.0.7.tgz#156137713a5df2d02c0698fd819fca2249f3a9f3"
+  integrity sha512-s05pA+NgD0iPw97XtRXiy5GaEbYyIVsfArmGO5UfvSO5etrG6DxAs1uKqTFbQH4IGTqMsb82M14iB5ohkOD2Mw==
   dependencies:
+    "@types/node-fetch" "^2.5.10"
     node-fetch "^2.6.1"
-    simple-youtube-api "^5.2.1"
 
-ytdl-core@^4.5.0:
+ytdl-core@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-4.7.0.tgz#2c92023536484d8a2760d1aa504df2778f87ae21"
   integrity sha512-G09HeYsyLMsUCPEuK2asDqmLnOx+n5SxVV3QqGJd+iYuw5Z/qiwx7x0gxZTiAkHBsbG3WuluJWBPswZyrygKmQ==
