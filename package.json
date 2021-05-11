@@ -29,7 +29,7 @@
     "enmap": "^5.8.5",
     "ffmpeg-static": "^4.3.0",
     "fs": "^0.0.1-security",
-    "gitmoji-cli": "^4.0.0",
+    "gitmoji-cli": "^4.1.0",
     "mathjs": "^9.3.2",
     "mongoose": "^5.12.7",
     "ms": "^2.1.3",
