@@ -25,7 +25,7 @@
     "discord-mongo-currency": "^1.0.4",
     "discord-player": "^4.0.5",
     "discord.js": "^12.5.3",
-    "dotenv": "^9.0.1",
+    "dotenv": "^9.0.2",
     "enmap": "^5.8.5",
     "ffmpeg-static": "^4.3.0",
     "fs": "^0.0.1-security",
