@@ -1,8 +1,8 @@
-name: Open Source Standard Labels
+name: Import open source standard labels
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master, staged ]
 
 jobs:
   labels:
@@ -16,5 +16,5 @@ jobs:
     - uses: EddieHubCommunity/gh-action-open-source-labels@main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        owner-name: ${{ github.repository_owner }}
-        repository-name: ${{ github.event.repository.name }}
+        owner-name: 'Heptagram-Bot'
+        repository-name: 'Heptagram'
