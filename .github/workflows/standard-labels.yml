@@ -1,4 +1,4 @@
-name: Import open source standard labels
+name: Import standard labels
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '14'
-    - uses: EddieHubCommunity/gh-action-open-source-labels@main
+    - uses: j-dogcoder/j-dogcoder-labels-action@main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         owner-name: 'Heptagram-Bot'
