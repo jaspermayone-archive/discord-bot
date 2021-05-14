@@ -1,4 +1,3 @@
-const dbLogging = require("../dbLogging");
 const { prefix, token, roles, MongoDB, serverId } = require('../../config.json');
 const chalk = require('chalk');
 
@@ -25,5 +24,4 @@ module.exports = async (Discord, client, args) => {
 		readyAt,
 		commands,
 	};
-	dbLogging(data);
 }

@@ -359,11 +359,6 @@ detect-libc@^1.0.3:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
-discord-auditlog@^2.4.5:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/discord-auditlog/-/discord-auditlog-2.4.5.tgz#1b1e0f71fc2de2b68bd3cfd5103c4bad829f68d3"
-  integrity sha512-v8LYBRbQXdsyGTQjoC0mG9FekH4z49zcY2VkZupBjo0/Cet43GDDy8sEHga8MowtPG62UVKfrYmUCp7PTq9v6g==
-
 discord.js@^12.5.3:
   version "12.5.3"
   resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-12.5.3.tgz#56820d473c24320871df9ea0bbc6b462f21cf85c"

@@ -1,9 +1,7 @@
-const ms = module.require("ms");
-
 module.exports = {
   name: "hack",
   description: "Another Fun Command",
-  execute: async(client, message, args) => {
+  execute: async(Discord,client, message, args) => {
     if (!args[0]) {
     return message.channel.send("Woah.... Slow Down!! Who are we hacking..??")
     }

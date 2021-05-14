@@ -20,7 +20,6 @@
     "akaneko": "^5.0.1",
     "chalk": "^4.1.1",
     "common-tags": "^1.8.0",
-    "discord-auditlog": "^2.4.5",
     "discord.js": "^12.5.3",
     "dotenv": "^9.0.2",
     "enmap": "^5.8.5",
