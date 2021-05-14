@@ -18,7 +18,7 @@ module.exports = {
         message.channel.send('This is the Heptagram discord bot. Heptagram is the open-source multipurpose discord bot with the goal to be the single needed bot for any server.');
 
         message.channel.send(`**You can find out more about Heptagram in our support server or on our GitHub Repository.**`);
-        message.channel.send(`Run \`!repo\` for our repo, or \`!server\` for a link to our support server. `),
+        message.channel.send(`Run \`${prefix}repo\` for our repo, or \`${prefix}server\` for a link to our support server. `),
 
 
         message.channel.send(`**Heptagram will now display a variety of statistics.**`);
