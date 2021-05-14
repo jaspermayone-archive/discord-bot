@@ -1,3 +1,5 @@
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 module.exports = {
     name: "hug",
     description: "just hug someone",
@@ -10,12 +12,12 @@ module.exports = {
         let HugEmbed = new Discord.MessageEmbed()
           .setTitle(`${message.author.username} you can't hug yourself but come here I'll hug you`)
           .setImage(String([images[image]]))
-          .setColor(0xF000FF)
+          .setColor(colors.heptagram)
             if(member.id === message.author.id) return message.channel.send(HugEmbed);
          let HugEmbed2 = new Discord.MessageEmbed()
           .setTitle(`${message.author.username} hugs ${member.user.username}, how cute`)
           .setImage(String([images[image]]))
-          .setColor(0xF000FF)
+          .setColor(colors.heptagram)
          return message.channel.send(HugEmbed2);
 
     },
