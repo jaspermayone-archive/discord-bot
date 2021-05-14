@@ -1,5 +1,4 @@
 const { prefix, roles } = require('../../config.json');
-const dbLogging = require('../dbLogging');
 
 module.exports = async (Discord, client, message) => {
 	if (message.author.bot) return
@@ -32,5 +31,4 @@ module.exports = async (Discord, client, message) => {
 		message,
 		log,
 	};
-	dbLogging(data, message.guild.name);
 }
