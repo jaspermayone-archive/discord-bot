@@ -1,3 +1,5 @@
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 module.exports = {
   name: "hack",
   description: "Another Fun Command",
