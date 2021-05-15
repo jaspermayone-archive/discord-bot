@@ -35,7 +35,7 @@ module.exports = {
 
       contributors
         .filter(contributor => !contributor.login.includes('[bot]') || contributor.type === 'User')
-        .map(contributor => listOfContributors += `+ ${contributor.login} - ${contributor.contributions} Contributions.\n`);
+        .map(contributor => listOfContributors += ` *${contributor.login} - ${contributor.contributions} Contributions.*\n`);
 
       message.channel.send(listOfContributors);
     }).catch(error => {
