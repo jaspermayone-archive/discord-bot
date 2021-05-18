@@ -1,7 +1,5 @@
 
 const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
-const moment = require('moment');
-const Discord = require('discord.js')
 
 module.exports = {
     name: 'user',
