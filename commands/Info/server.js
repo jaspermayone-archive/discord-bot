@@ -2,7 +2,7 @@
 const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
 
 module.exports = {
-    name: 'serverinfo',
+    name: 'server',
     description: "gives info about server.",
     guildOnly: true,
     category: "Info",
