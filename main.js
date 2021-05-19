@@ -33,6 +33,5 @@ client.on("message", async message => {
 	  return message.reply(`My prefix is \`${prefix}\``);
 	}
 })
-//Putting my token into .env
 
 client.login(token);
