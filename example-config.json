@@ -1,7 +1,7 @@
 {
   "prefix": "!",
-  "token": "your token here",
-  "MongoDB": "mongodb://localhost/HeptagramDB",
+  "token": "your-token-goes-here",
+  "MongoDB": "your mongo db path",
 
   "roles": {
     "botadmin": "829366831300000",
