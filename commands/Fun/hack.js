@@ -1,59 +1,55 @@
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
-
 module.exports = {
   name: "hack",
   description: "Another Fun Command",
-  execute: async(Discord,client, message, args) => {
-    if (!args[0]) {
-    return message.channel.send("Woah.... Slow Down!! Who are we hacking..??")
+  execute: async (message) => {
+    const msgObj = message.message;
+    if (!message.args[0]) {
+      return msgObj.channel.send("Woah.... Slow Down!! Who are we hacking..??")
     }
-    const tohack = message.mentions.members.first()
-    let msg = await message.channel.send(`Hacking ${tohack.displayName}....`);
+    const tohack = msgObj.mentions.members.first()
+    let msg = await msgObj.channel.send(`Hacking ${tohack.displayName}....`);
 
-    let time = '1s'
-    setTimeout(function(){
-    msg.edit(`Finding ${tohack.displayName}'s Email and Password.....`);
-  }, ms(time));
+    setTimeout(function () {
+      msg.edit(`Finding ${tohack.displayName}'s Email and Password.....`);
+    }, 1000);
 
-    let time1 = '6s'
-    setTimeout(function(){
-    msg.edit(`E-Mail: ${tohack.displayName}@gmail.com \nPassword: ********`);
-  }, ms(time1));
+    setTimeout(function () {
+      msg.edit(`E-Mail: ${tohack.displayName}@gmail.com \nPassword: ********`);
+    }, 9000);
 
-    let time2 = '9s'
-    setTimeout(function(){
-    msg.edit("Finding Other Accounts.....");
-  }, ms(time2));
+    setTimeout(function () {
+      msg.edit("Finding Other Accounts.....");
+    }, 15000);
 
-    let time3 = '15s'
-    setTimeout(function(){
-    msg.edit("Setting up Epic Games Account.....");
-  }, ms(time3));
 
-    let time4 = '21s'
-    setTimeout(function(){
-    msg.edit("Hacking Epic Games Account......");
-  }, ms(time4));
+    setTimeout(function () {
+      msg.edit("Setting up Epic Games Account.....");
+    }, 21000);
 
-    let time5 = '28s'
-    setTimeout(function(){
-    msg.edit("Hacked Epic Games Account!!");
-  }, ms(time5));
 
-    let time6 = '31s'
-    setTimeout(function(){
-    msg.edit("Collecting Info.....");
-  }, ms(time6));
+    setTimeout(function () {
+      msg.edit("Hacking Epic Games Account......");
+    }, 26000);
 
-    let time7 = '38s'
-    setTimeout(function(){
-    msg.edit("Selling data to FBI....");
-  }, ms(time7));
 
-    let time8 = '41s'
-    setTimeout(function(){ 
-    msg.edit(`Finished Hacking ${tohack.displayName}`);
-  }, ms(time8));
+    setTimeout(function () {
+      msg.edit("Hacked Epic Games Account!!");
+    }, 31000);
+
+
+    setTimeout(function () {
+      msg.edit("Collecting Info.....");
+    }, 35000);
+
+
+    setTimeout(function () {
+      msg.edit("Selling data to FBI....");
+    }, 38000);
+
+
+    setTimeout(function () {
+      msg.edit(`Finished Hacking ${tohack.displayName}`);
+    }, 40000);
 
   }
 }
