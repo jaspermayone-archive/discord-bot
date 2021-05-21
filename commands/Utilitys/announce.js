@@ -3,8 +3,9 @@ const { prefix, token, roles, MongoDB, serverId, colors } = require('../../confi
 module.exports = {
     name: "announce",
     description: "Make an Announcemnet in your Server",
-   // execute: async (client, message, args) => {
-        execute ({ message, client, roles, Discord, args }) {
+    guildOnly: true,
+
+    execute ({ message, client, roles, Discord, args }) {
 
         const anchannel = message.mentions.channels.first();
         if(!message.member.hasPermission("MANAGE_MESSAGES")) {

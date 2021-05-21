@@ -4,6 +4,8 @@ module.exports = {
   name: "reload",
   description: "Reloads a command",
   args: true,
+  guildOnly: false,
+  
   execute({ message, args }) {
     if (!args[0]) {
       return message.channel.send("Reload requires an argument!");

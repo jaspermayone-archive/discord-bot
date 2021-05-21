@@ -5,6 +5,7 @@ module.exports = {
     name: 'user',
     description: "gives info about user.",
     category: "Info",
+    guildOnly: false,
 
     execute({ message, Discord, args }) {
         const embed = new Discord.MessageEmbed()

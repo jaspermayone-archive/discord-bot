@@ -4,7 +4,7 @@ const { prefix, token, roles, MongoDB, serverId, colors } = require('../../confi
 module.exports = {
     name: 'uptime',
     description: "gets server uptime",
-    guildOnly: true,
+    guildOnly: false,
     category: "Utilitys",
 
     execute({ message, client, roles, Discord, args }) {
