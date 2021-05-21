@@ -5,12 +5,6 @@ module.exports = async (Discord, client, message) => {
 
 	let isCommand = false;
 
-	//begin added content
-	if (command.guildOnly && message.channel.type === 'dm') {
-		return message.reply('I can\'t execute that command inside DMs!');
-	} 
-	//end added content
-
 	// command messages
 	if (message.content.startsWith(prefix)) {
 		const args = message.content.slice(prefix.length).trim().split(/ +/);
