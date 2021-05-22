@@ -5,7 +5,7 @@ module.exports = {
     name: 'info',
     description: "Displays info about bot.",
     guildOnly: true,
-    category: "Bot Info",
+    category: "Resources",
 
     execute({ Discord, client, message, roles }) {
 

@@ -4,7 +4,7 @@ const { prefix, token, roles, MongoDB, serverId, colors } = require('../../confi
 module.exports = {
     name: 'user',
     description: "gives info about user.",
-    category: "Info",
+    category: "Resources",
     guildOnly: false,
 
     execute({ message, Discord, args }) {
