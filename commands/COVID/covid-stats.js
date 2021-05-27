@@ -57,7 +57,7 @@ module.exports = {
 						.setTitle(":octagonal_sign:  No Argument Given  :octagonal_sign:")
 						.setColor(colors.heptagram)
 						//const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
-						.setDescription(`Oh no! You didn’t specify a country. Type ${prefix}covid-stats list for the list of available countries`)
+						.setDescription(`Oh no! You didn’t specify a country. Type **${prefix}covid-stats list** for the list of available countries`)
 					message.channel.send(noargembed);
 						resolve();
 						return;
