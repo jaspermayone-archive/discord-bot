@@ -29,9 +29,9 @@ mongoose.connect((MongoDB), {
 });
 
 client.on("message", async message => {
-	const prefixMention = new RegExp(`^<@!?${sclient.user.id}>( |)$`);
+	const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
 	if (message.content.match(prefixMention)) {
-	  return message.channel.send(`Hey there! My prefix in this sever is \`${prefix}\``);
+	  return message.reply(`My prefix is \`${prefix}\``);
 	}
 })
 
