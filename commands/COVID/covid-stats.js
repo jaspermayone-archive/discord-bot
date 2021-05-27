@@ -53,7 +53,7 @@ module.exports = {
 					const stats = countryStats(filterTerm, data);
 
 					if (!stats) {
-						message.channel.send(`Stats not available for ${filterTerm}. Type 'list' as arg for the list of available countries`);
+						message.channel.send(`Oh no! You didn’t specify a country. Type ||${prefix}covid-stats list|| for the list of available countries`);
 						resolve();
 						return;
 					}
