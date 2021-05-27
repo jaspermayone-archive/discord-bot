@@ -31,7 +31,7 @@ mongoose.connect((MongoDB), {
 client.on("message", async message => {
 	const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
 	if (message.content.match(prefixMention)) {
-	  return message.reply(`My prefix is \`${prefix}\``);
+	  return message.reply(`My prefix in this server is \`${prefix}\``);
 	}
 })
 
