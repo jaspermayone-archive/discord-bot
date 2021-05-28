@@ -2,7 +2,7 @@
 name: Bug Report
 about: Create a bug-report to help us address errors and bugs.
 title: '🐛 BUG: BUG TITLE HERE'
-labels: 🐛 bug 🐛,🚦 status: awaiting triage 🚦,🚧 status: blocked 🚧
+labels: "🐛 bug 🐛, 🚦 status: awaiting triage 🚦, 🚧 status: blocked 🚧"
 assignees: 'j-dogcoder'
 
 ---
