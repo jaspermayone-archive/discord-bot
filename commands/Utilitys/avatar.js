@@ -1,3 +1,6 @@
+
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 module.exports = {
     name: 'avatar',
     description: "gets user avatar.",
@@ -18,8 +21,8 @@ module.exports = {
             else {
                 const embed = new MessageEmbed()
                     .setAuthor(`${member.user.tag}}`, `${member.user.displayAvatarURL()}`)
-                    .setColor("#000000")
-                    .setTitle(`**Avatar**`)
+                    .setColor(colors.heptagram)
+                    .setTitle(`Requested Avatar:`)
                     .setImage(`${member.user.displayAvatarURL({ size: 4096, dynamic: true })}`);
                 return message.channel.send(embed);
             }
