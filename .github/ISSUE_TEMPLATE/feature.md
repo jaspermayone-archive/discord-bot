@@ -1,7 +1,7 @@
 ---
 name: Feature Request
 about: Request a new feature!
-title: '✨❓ Feature Request: BUG TITLE HERE'
+title: '✨❓ Feature Request:'
 labels: "✨❓ Feature Request ✨❓, 🚦 status: awaiting triage 🚦, 🚧 status: blocked 🚧"
 assignees: 'j-dogcoder'
 
