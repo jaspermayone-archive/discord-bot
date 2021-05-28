@@ -1,9 +1,9 @@
 ---
-Name: Bug Report
-About: Create a bug-report to help us address errors and bugs.
-Title: '🐛 Bug: BUG TITLE HERE'
-Labels: 🐛 bug 🐛
-Assignees: ''
+name: Bug Report
+about: Create a bug-report to help us address errors and bugs.
+title: '🐛 Bug: BUG TITLE HERE'
+labels: 🐛 bug 🐛
+assignees: ''
 
 ---
 
