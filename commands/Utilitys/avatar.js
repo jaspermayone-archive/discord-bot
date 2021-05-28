@@ -4,9 +4,9 @@ module.exports = {
     guildOnly: true,
     category: "Utilitys",
 
-   async execute({ message, args, roles }) {
+   async execute({ message, args, roles, Discord }) {
         if (!args[0]) {
-            const embed = new MessageEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)
                 .setColor("#000000")
                 .setTitle(`**Avatar**`)
