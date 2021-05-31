@@ -1,4 +1,6 @@
 const fs = require("fs");
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 
 module.exports = {
   name: "reload",
@@ -7,6 +9,7 @@ module.exports = {
   guildOnly: false,
   
   execute({ message, args }) {
+    if (message.member.roles.cache.has(roles.botadmin)) {
     if (!args[0]) {
       return message.channel.send("Reload requires an argument!");
     }
@@ -43,5 +46,8 @@ module.exports = {
         `There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``
       );
     }
-  },
+  } else {
+    message.channel.send('Sorry, this command is resticted!');
+  }
+  }
 };
