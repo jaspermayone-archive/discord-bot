@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
-    "@mikemcbride/dad-jokes": "mikemcbride/dad-jokes",
+    "@mikemcbride/dad-jokes": "github:mikemcbride/dad-jokes",
     "akaneko": "^5.0.1",
     "chalk": "^4.1.1",
     "common-tags": "^1.8.0",
