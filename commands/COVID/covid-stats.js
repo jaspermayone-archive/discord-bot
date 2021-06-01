@@ -17,8 +17,6 @@ function countryStats(country, data) {
 	return data.filter(stats => stats.country === country)[0];
 }
 
-let blocked = false;
-
 module.exports = {
 	name: "covid-stats",
 	guildOnly: false,
@@ -54,7 +52,6 @@ module.exports = {
 								":octagonal_sign:  No Argument Given  :octagonal_sign:"
 							)
 							.setColor(colors.heptagram)
-							//const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
 							.setDescription(
 								`Oh no! You didn’t specify a country. Type \`${prefix}covid-stats list\` for the list of available countries`
 							);
@@ -75,9 +72,6 @@ module.exports = {
 					message.channel.send(info);
 					resolve();
 				});
-			})
-			.then(() => {
-				blocked = false;
 			})
 			.catch((err) => console.warn(err));
 	},
