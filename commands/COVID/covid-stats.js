@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const commandCooldowns = require("../../command-cooldowns");
 
 const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
 
@@ -23,16 +24,11 @@ module.exports = {
 	guildOnly: false,
 	description: "Display basic COVID stats of a country",
 	category: "COVID",
-    
-	execute({ message, args, Discord, roles }) {
-		// To prevent user spamming the same command
-		if (blocked) {
-			message.channel.send(
-				"Please stop spamming the command."
-			);
-			return;
-		}
-		blocked = true;
+	cooldown: 5,
+
+	execute({ message, args, Discord, client, roles }) {
+		if (commandCooldowns({ name: this.name, cooldown: this.cooldown, message, Discord, client })) return;
+		
 		fetchStats()
 			.then((data) => {
 				if (!data) {
@@ -49,21 +45,26 @@ module.exports = {
 						return;
 					}
 					// display covid stats for one country
-					const filterTerm = args.join(' ');
+					const filterTerm = args.join(" ");
 					const stats = countryStats(filterTerm, data);
 
 					if (!stats) {
 						const noargembed = new Discord.MessageEmbed()
-						.setTitle(":octagonal_sign:  No Argument Given  :octagonal_sign:")
-						.setColor(colors.heptagram)
-						//const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
-						.setDescription(`Oh no! You didn’t specify a country. Type \`${prefix}covid-stats list\` for the list of available countries`)
-					message.channel.send(noargembed);
+							.setTitle(
+								":octagonal_sign:  No Argument Given  :octagonal_sign:"
+							)
+							.setColor(colors.heptagram)
+							//const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+							.setDescription(
+								`Oh no! You didn’t specify a country. Type \`${prefix}covid-stats list\` for the list of available countries`
+							);
+						message.channel.send(noargembed);
 						resolve();
 						return;
 					}
 
-					const { infected, tested, recovered, deceased, country } = stats;
+					const { infected, tested, recovered, deceased, country } =
+						stats;
 					let info = `
 						Covid Stats for ${country}\n
 						Infected: ${infected}\n
@@ -71,9 +72,9 @@ module.exports = {
 						Recovered: ${recovered}\n
 						Deceased: ${deceased}\n
 					`;
-				message.channel.send(info);
+					message.channel.send(info);
 					resolve();
-				})
+				});
 			})
 			.then(() => {
 				blocked = false;
