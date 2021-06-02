@@ -14,4 +14,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: '<h1>Thanks for opening an issue! We will triage this shortly.<h1>'
           pr-message: '<h1>Thanks for opening an issue! We will review this PR shortly.<h1>'
-          footer: '<h3>Come join our discord server! If you have made a contribution, you can claim a special role there!<h3>'
+          footer: 'Come join our [discord server](https://discord.gg/HSupF99kpq)! If you have made a contribution, you can claim a special role there!'
