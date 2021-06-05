@@ -1,3 +1,6 @@
+
+const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+
 module.exports = {
   name: "unlock",
   category: "moderation",
@@ -18,7 +21,7 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
           .setTitle("Channel Updates")
           .setDescription(`${message.channel} has been unlocked`)
-          .setColor("RANDOM");
+          .setColor(colors.heptagram);
 
       await message.channel.send(embed);
 
