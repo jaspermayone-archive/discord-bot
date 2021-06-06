@@ -6,6 +6,8 @@
         "kiteco.kite",
         "johnpapa.vscode-peacock",
         "vscode-icons-team.vscode-icons",
-        "snowflake107.discordjs-helper"
+        "snowflake107.discordjs-helper",
+        "pkief.material-icon-theme",
+        "wesbos.theme-cobalt2"
     ]
 }
