@@ -4,16 +4,24 @@ const { prefix, token, roles, MongoDB, serverId, colors } = require('../../confi
 module.exports = {
   name: "lock",
   category: "moderation",
-  description: "Locks a Channel",
+  description: "Locks a Channel for a specific Role.",
   guildOnly: true,
   execute: async ({ message, roles, Discord }) => {
     if (!(message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS') && message.member.roles.cache.has(roles.admin))) {
       return message.channel.send("You don't have enough Permissions");
     }
 
-    const argRole = message.content.split(' ').slice(1);
+    let argRole
+    if (message.mentions.roles.last()) {
+      argRole = message.mentions.roles.last().id;
+    } else if (/^[0-9]{18}$/i.test(message.content.split(' ').slice(1)[0])) {
+      argRole = message.content.split(' ').slice(1);
+    } else {
+      return message.channel.send("No valid id or mention was Provided!")
+    }
+
     if (!argRole || argRole.length === 0) return message.channel.send({ embed: new Discord.MessageEmbed().setDescription(`You must enter valid role ID's.`) })
-    let role = message.guild.roles.cache.get(argRole[0]);
+    let role = message.guild.roles.cache.get(argRole);
 
 
     message.channel.updateOverwrite(role,
