@@ -22,25 +22,25 @@ module.exports = {
             commands.map(command => {
                 if (command.category === 'fun') fun.push(`\`${command.name}\``)
             })
-            information.addField('***FUN COMMANDS***', value = fun.join(', '), false)
+            information.addField('***Fun Commands***', value = fun.join(', '), false)
 
 
             commands.map(command => {
                 if (command.category === 'Utilitys') utilitys.push(`\`${command.name}\``)
             })
-            information.addField('***UTLITYS COMMANDS***', value = utilitys.join(', '), false)
+            information.addField('***Utility Commands***', value = utilitys.join(', '), false)
 
 
             commands.map(command => {
                 if (command.category === 'Resources') resources.push(`\`${command.name}\``)
             })
-            information.addField('***RESOURCES COMMANDS***', value = resources.join(', '), false)
+            information.addField('***ResourcesCommands***', value = resources.join(', '), false)
 
 
             commands.map(command => {
                 if (command.category === 'COVID') covid.push(`\`${command.name}\``)
             })
-            information.addField('***COVID COMMANDS***', value = covid.join(', '), false)
+            information.addField('***COVID Commands***', value = covid.join(', '), false)
 
             let isAdmin = message.member.roles.cache.has(roles.admin);
 
@@ -49,7 +49,7 @@ module.exports = {
                 commands.map(command => {
                     if (command.category === 'moderation') moderation.push(`\`${command.name}\``);
                 })
-                information.addField('***MODERATION COMMANDS***', value = moderation.join(', '), false)
+                information.addField('***Moderation Commands***', value = moderation.join(', '), false)
 
 
             } else {
@@ -57,7 +57,7 @@ module.exports = {
                 commands.map(command => {
                     if (command.category === 'moderation' && !adminCommands.includes(command.name)) moderation.push(`\`${command.name}\``);
                 })
-                information.addField('***MODERATION COMMANDS***', value = moderation.join(', '), false)
+                information.addField('***Moderation Commands***', value = moderation.join(', '), false)
             }
 
             message.author.send(information)
