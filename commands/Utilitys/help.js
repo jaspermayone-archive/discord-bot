@@ -84,7 +84,7 @@ module.exports = {
             }
 
             const cmdEmbed = new Discord.MessageEmbed().setTitle('Helping with specific Command').setColor(colors.heptagram).setFooter('Heptagram Bot')
-            cmdEmbed.addField(`***${command.name}***`, `**Description:** ${command.description ? command.description : 'NONE'}\n**Usage:** \`${prefix}${command.name} ${command.usage}\`\n**Aliases:** \`${command.aliases ? command.aliases.join(', ') : 'NONE'}\` \n**Cooldown:** \`${command.cooldown || 3} second(s)\``, false);
+            cmdEmbed.addField(`***${command.name}***`, `**Description:** ${command.description ? command.description : 'NONE'}\n**Usage:** \`${command.usage ? `${prefix}${command.name} ${command.usage}` : `${prefix}${command.name}`}\`\n**Aliases:** \`${command.aliases ? command.aliases.join(', ') : 'NONE'}\` \n**Cooldown:** \`${command.cooldown || 3} second(s)\``, false);
 
             message.channel.send(cmdEmbed);
 
