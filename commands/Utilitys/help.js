@@ -13,9 +13,6 @@ module.exports = {
         const { commands } = message.client;
         if (args.length === 0 || args[0] === '') {
 
-            let commandNames = commands.map(command => command.name);
-
-
             let fun = [];
             let utilitys = [];
             let resources = [];
@@ -57,9 +54,6 @@ module.exports = {
 
             } else {
                 let adminCommands = ['kick', 'mute', 'unmute', 'wipe', 'clear', 'ban', 'admin'];
-                /*commandNames = commandNames.filter(function (command) {
-                    return !adminCommands.includes(command);
-                });*/
                 commands.map(command => {
                     if (command.category === 'moderation' && !adminCommands.includes(command.name)) moderation.push(`\`${command.name}\``);
                 })
