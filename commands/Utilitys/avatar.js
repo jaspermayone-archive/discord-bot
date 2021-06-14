@@ -7,7 +7,7 @@ module.exports = {
     guildOnly: true,
     category: "Utilitys",
 
-   async execute({ message, args, roles, Discord }) {
+    async execute({ message, args, roles, Discord }) {
         if (!args[0]) {
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)
