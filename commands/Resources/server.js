@@ -43,10 +43,10 @@ module.exports = {
                 `**Time Created:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} [${moment(message.guild.createdTimestamp).fromNow()}]`,
                 '\u200b'
             ])
-             .setTimestamp();
+            .setTimestamp();
 
 
-            const statisticsEmbed = new Discord.MessageEmbed()
+        const statisticsEmbed = new Discord.MessageEmbed()
             .setColor(colors.heptagram)
             .setThumbnail(message.guild.iconURL({ dynamic: true }))
             .addField('Server Statistics', [
