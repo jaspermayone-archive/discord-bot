@@ -6,12 +6,11 @@ module.exports = {
     description: "gives info about server.",
     guildOnly: true,
     category: "Resources",
-    
+
     execute({ message, Discord, args }) {
         const embed = new Discord.MessageEmbed()
             .setTitle("Bot Info :robot:")
             .setColor(colors.heptagram)
-            //const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
             .setDescription(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`)
         message.channel.send(embed);
     }
