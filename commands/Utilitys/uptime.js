@@ -32,7 +32,6 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
           .setTitle("Bot Uptime :robot:")
           .setColor(colors.heptagram)
-          //const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
           .setDescription(`Bot Uptime: \`${uptime}\``)
         message.channel.send(embed);
       }
