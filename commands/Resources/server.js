@@ -1,5 +1,22 @@
 
 const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+const moment = require('moment');
+
+const regions = {
+    brazil: 'Brazil',
+    europe: 'Europe',
+    hongkong: 'Hong Kong',
+    india: 'India',
+    japan: 'Japan',
+    russia: 'Russia',
+    singapore: 'Singapore',
+    southafrica: 'South Africa',
+    sydeny: 'Sydeny',
+    'us-central': 'US Central',
+    'us-east': 'US East',
+    'us-west': 'US West',
+    'us-south': 'US South'
+};
 
 module.exports = {
     name: 'server',
@@ -8,10 +25,44 @@ module.exports = {
     category: "Resources",
 
     execute({ message, Discord, args }) {
-        const embed = new Discord.MessageEmbed()
-            .setTitle("Bot Info :robot:")
+
+        const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
+        const members = message.guild.members.cache;
+        const channels = message.guild.channels.cache;
+        const emojis = message.guild.emojis.cache;
+
+        const generalEmbed = new Discord.MessageEmbed()
             .setColor(colors.heptagram)
-            .setDescription(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`)
-        message.channel.send(embed);
+            .setThumbnail(message.guild.iconURL({ dynamic: true }))
+            .addField('General Server Info', [
+                `**Name:** ${message.guild.name}`,
+                `**ID:** ${message.guild.id}`,
+                `**Owner:** ${message.guild.owner.user.tag} (${message.guild.ownerID})`,
+                `**Region:** ${regions[message.guild.region]}`,
+                `**Boost Tier:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
+                `**Time Created:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} [${moment(message.guild.createdTimestamp).fromNow()}]`,
+                '\u200b'
+            ])
+             .setTimestamp();
+
+
+            const statisticsEmbed = new Discord.MessageEmbed()
+            .setColor(colors.heptagram)
+            .setThumbnail(message.guild.iconURL({ dynamic: true }))
+            .addField('Server Statistics', [
+                `**Role Count:** ${roles.length}`,
+                `**Emoji Count:** ${emojis.size}`,
+                `**Humans:** ${members.filter(member => !member.user.bot).size}`,
+                `**Bots:** ${members.filter(member => member.user.bot).size}`,
+                `**Text Channels:** ${channels.filter(channel => channel.type === 'text').size}`,
+                `**Voice Channels:** ${channels.filter(channel => channel.type === 'voice').size}`,
+                '\u200b'
+            ])
+
+            .setTimestamp();
+
+        message.channel.send(generalEmbed);
+        message.channel.send(statisticsEmbed);
+
     }
 }
