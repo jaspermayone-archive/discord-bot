@@ -15,14 +15,16 @@ module.exports = {
         return message.channel.send("I don't have enough Permissions")
         }
         if (!anchannel) {
-        return message.channel.send(`Usage: ${prefix} <channel> <msg>`)
+        message.channel.send("Please specify a channnel and message to make an Announcement.")
+        message.channel.send(`Command Usage: \`${prefix} <channel> <msg>\``)
+
         }
         if (!args.slice(1).join(" ")) {
-        return message.channel.send("Please add some text to make an Announcement")
+        return message.channel.send("")
         }
 
         let embed = new Discord.MessageEmbed()
-        .setTitle(`< New Server Announcement`)
+        .setTitle(`**Announcement!**`)
         .setDescription(args.slice(1).join(" "), { allowedMentions: { parse:["users"] } })
         .setColor(colors.heptagram)
         .setFooter(`Announcement by ${message.author.username}`);
@@ -34,6 +36,5 @@ module.exports = {
         .setColor(colors.heptagram);
 
         message.channel.send(anembed);
-        message.delete();
     }
 }
