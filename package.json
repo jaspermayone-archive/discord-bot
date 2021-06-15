@@ -37,5 +37,8 @@
     "urban": "^0.3.2"
   },
   "main": "main.js",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
 }

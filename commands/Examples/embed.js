@@ -1,13 +1,12 @@
-
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'admin',
-	description: "admin example",
+	description: 'admin example',
 	guildOnly: true,
-	category: "Examples",
+	category: 'Examples',
 
-	execute({ message, roles }) {
+	execute({ message, Discord }) {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
@@ -28,5 +27,5 @@ module.exports = {
 			.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
 		message.channel.send(embed);
-	}
-}
+	},
+};
