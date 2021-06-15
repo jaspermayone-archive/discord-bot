@@ -1,6 +1,6 @@
 const superagent = require('snekfetch');
 const Discord = require('discord.js');
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'dog',
@@ -8,7 +8,7 @@ module.exports = {
 	description: 'Sends a random dog image',
 	guildOnly: false,
 
-	execute({ message, client, args, roles }) {
+	execute({ message }) {
 		superagent.get('https://nekos.life/api/v2/img/woof')
 			.end((err, response) => {
 				const lewdembed = new Discord.MessageEmbed()

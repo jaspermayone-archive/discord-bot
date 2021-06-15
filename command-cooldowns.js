@@ -1,7 +1,7 @@
 // Call this function if a command needs a cooldown period
 
 module.exports = ({ name, cooldown, message, Discord, client }) => {
-	 const { cooldowns } = client;
+	const { cooldowns } = client;
 
 	if (!cooldowns.has(name)) {
 		cooldowns.set(name, new Discord.Collection());
@@ -13,7 +13,7 @@ module.exports = ({ name, cooldown, message, Discord, client }) => {
 
 	if (timestamps.has(message.author.id)) {
 		const expirationTime =
-				timestamps.get(message.author.id) + cooldownAmount;
+			timestamps.get(message.author.id) + cooldownAmount;
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;

@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const commandCooldowns = require('../../command-cooldowns');
 
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+const { colors, prefix } = require('../../config.json');
 
 const URL = 'https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true';
 
@@ -24,7 +24,7 @@ module.exports = {
 	category: 'COVID',
 	cooldown: 5,
 
-	execute({ message, args, Discord, client, roles }) {
+	execute({ message, args, Discord, client }) {
 		if (commandCooldowns({ name: this.name, cooldown: this.cooldown, message, Discord, client })) return;
 
 		fetchStats()
@@ -35,7 +35,7 @@ module.exports = {
 					);
 					return;
 				}
-				return new Promise(function(resolve, reject) {
+				return new Promise(function(resolve) {
 					// display a list of countries available
 					if (args[0] === 'list') {
 						message.channel.send(countryList(data));

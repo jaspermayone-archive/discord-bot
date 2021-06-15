@@ -2,7 +2,7 @@ module.exports = {
 	name: 'wipe',
 	description: 'clear with bigger options',
 	guildOnly: true,
-	category: 'moderation',
+	catagory: 'moderation',
 
 	async execute({ message, args, roles }) {
 		if (message.member.roles.cache.has(roles.admin)) {

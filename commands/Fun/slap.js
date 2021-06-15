@@ -1,5 +1,4 @@
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
-const Discord = require('discord.js');
+const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'slap',
