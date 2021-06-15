@@ -9,9 +9,10 @@ module.exports = ({ client, Discord }) => {
 			const command = require(`../commands/${folder}/${file}`);
 			if (command.name) {
 				client.commands.set(command.name, command);
-			} else {
+			}
+			else {
 				continue;
 			}
 		}
 	}
-}
+};
