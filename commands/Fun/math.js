@@ -1,12 +1,12 @@
 const { MessageEmbed } = require('discord.js');
 const math = require('mathjs');
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+const { colors } = require('../../config.json');
 
 
 module.exports = {
 	name: 'math',
 	category: 'fun',
-	execute({ message, client, args, roles }) {
+	execute({ message, args }) {
 		try {
 			if (!args[0]) return message.channel.send('Please Give Me Equation!');
 

@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const dadJokes = require('@mikemcbride/dad-jokes');
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'dadjoke',
@@ -8,7 +8,7 @@ module.exports = {
 	description: 'Says a random dad joke.',
 	guildOnly: false,
 
-	execute({ message, client, args, roles }) {
+	execute({ message }) {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle('Here\'s a good one...')

@@ -1,9 +1,8 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const Discord = require('discord.js');
 const mongoose = require('mongoose');
-const fs = require('fs');
 const chalk = require('chalk');
-const config = require('dotenv').config();
-const { prefix, token, roles, MongoDB, serverId } = require('./config.json');
+const { prefix, token, MongoDB } = require('./config.json');
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
@@ -15,8 +14,6 @@ client.cooldowns = new Discord.Collection();
 ['command_handler', 'event_handler'].forEach(handler => {
 	require(`./handlers/${handler}`)({ client, Discord });
 });
-
-const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
 mongoose.connect((MongoDB), {
 	useNewUrlParser: true,

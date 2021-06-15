@@ -1,13 +1,13 @@
 const { MessageEmbed } = require('discord.js');
 const movieQuote = require('popular-movie-quotes');
-const { prefix, token, roles, MongoDB, serverId, colors } = require('../../config.json');
+const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'moviequote',
 	category: 'fun',
 	description: 'Says a quote from a movie provided, or a random movie.',
 
-	execute({ message, client, args, roles }) {
+	execute({ message, args }) {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTimestamp();
@@ -18,9 +18,9 @@ module.exports = {
 				embed.setTitle(`Here's a quote from: ${args.join(' ')}`);
 				embed.setDescription(`${quote[0].quote}`);
 				embed.setFooter(`${args.join(' ')} ${quote[0].year}`, message.author.displayAvatarURL());
-				return message.reply(embed).then(m => del(m, 30000));
+				return message.reply(embed);
 			}
-			else {return message.reply('Could not find a quote from that movie.').then(m => del(m, 7500));}
+			else {return message.reply('Could not find a quote from that movie.');}
 		}
 		else {
 			const quote = movieQuote.getRandomQuote();
