@@ -1,7 +1,7 @@
 // For generating a random joke fetch from an API
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
-const URL = "https://official-joke-api.appspot.com/random_joke"; // 120 request per minute limit
+const URL = 'https://official-joke-api.appspot.com/random_joke'; // 120 request per minute limit
 
 function fetchJoke() {
 	return fetch(URL).then((res) => res.json());
@@ -10,35 +10,35 @@ function fetchJoke() {
 let blocked = false;
 
 module.exports = {
-	name: "joke",
+	name: 'joke',
 	guildOnly: false,
-	description: "Displays a joke",
-	category: "Fun",
-    
+	description: 'Displays a joke',
+	category: 'Fun',
+
 	execute({ message, args, roles }) {
 		// To prevent user spamming the same command
 		if (blocked) {
 			message.channel.send(
-				"Please wait until the joke finishes before using this command again."
+				'Please wait until the joke finishes before using this command again.',
 			);
-			return
-		};
+			return;
+		}
 		fetchJoke()
 			.then(response => {
 				const { setup, punchline } = response;
 				if (!setup || !punchline) {
-					message.channel.send("Please wait a few seconds and try again.");
-					return
+					message.channel.send('Please wait a few seconds and try again.');
+					return;
 				}
 				blocked = true;
 				message.channel.send(setup);
-				return new Promise(function (resolve, reject) {
+				return new Promise(function(resolve, reject) {
 					// wait 3 seconds before sending the punchline
 					setTimeout(() => {
 						message.channel.send(punchline);
 						resolve();
 					}, 3000);
-				})
+				});
 			})
 			.then(() => {
 				blocked = false;

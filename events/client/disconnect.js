@@ -1,5 +1,5 @@
 module.exports = (Discord, client) => {
-	client.logger.warn("Bot is disconnecting...");
+	client.logger.warn('Bot is disconnecting...');
 
-	const data = { action: "DISCONNECTING" };
+	const data = { action: 'DISCONNECTING' };
 };
