@@ -10,8 +10,8 @@ module.exports = {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
-			.setTitle('Some title')
-			.setDescription('Some description here')
+			.setTitle('Heptagram Bot List')
+			.setDescription('Here is a discription of all the Heptagram bots!')
 			.addFields(
 				{ name: 'Heptagram', value: `This is the normal Heptagram Bot. Invite it to your server using \`${prefix}invite\`.`, inline: true },
 				{ name: 'Heptagram Canary', value: 'This is the public bot for testing. You can get more info about inviting this bot in the Heptagram server', inline: true },
