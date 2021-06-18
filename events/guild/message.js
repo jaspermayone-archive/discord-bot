@@ -1,5 +1,4 @@
 const { prefix, OwnerID, emoji, roles } = require('../../config.json');
-
 module.exports = async (Discord, client, message) => {
 	if (message.author.bot) return;
 
@@ -11,8 +10,10 @@ module.exports = async (Discord, client, message) => {
 		if (client.commands.has(command)) {
 			try {
 				client.commands.get(command).execute({ message, args, Discord, client, roles });
+				message.react('✅');
 			}
 			catch (error) {
+				message.react('❌');
 				console.log(error);
 				message.reply('there was an error trying to execute that command! Please contact a developer in our support server.');
 			}
