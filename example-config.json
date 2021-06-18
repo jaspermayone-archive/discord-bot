@@ -2,13 +2,12 @@
   "prefix": "!",
   "token": "your-token-goes-here",
   "MongoDB": "your mongo db path",
-
+  "OwnerID": "722121621610954773",
   "roles": {
     "botadmin": "829366831352381450",
-    "admin": "826438768621910000",
-    "staff": "826438768621910000",
-    "users": "826438671993010000",
-    "muted": "826438805686050000"
+    "admin": "828974879096438798",
+    "users": "826600768911704074",
+    "muted": "826592848367058944"
   },
   "colors": {
     "red": "#b70000",
@@ -20,22 +19,11 @@
     "success": "0x00FF46",
     "warning": "0xFFD100"
   },
-  "emojis": {
-    "off": ":x:",
-    "error": ":warning:",
-    "queue": ":bar_chart:",
-    "music": ":musical_note:",
-    "success": ":white_check_mark:"
-},
-  "emotes": {
-    "music": "🎶 ",
-    "queue": "🎞️",
-    "error": "❌",
-    "success": "☑️",
-    "warning": "⚠️",
-    "repeat": "🔁",
-    "pause": "⏸️",
-    "resume": "⏯️",
-    "stop": "⏹️"
+  "emoji":{
+"HeptaHeart": "855424742282362901",
+"status_online": "852483940291706900",
+"status_unstable": "852483940262608896",
+"status_offline": "852483939955769375",
+"status_issue_identified": "852483939905306637"
   }
 }
