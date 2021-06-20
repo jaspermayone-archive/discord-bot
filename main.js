@@ -15,21 +15,13 @@ client.cooldowns = new Discord.Collection();
 	require(`./handlers/${handler}`)({ client, Discord });
 });
 
-// mongoose.connect((MongoDB), {
-//	useNewUrlParser: true,
-//	useUnifiedTopology: true,
-//	useFindAndModify: false,
-// }).then(() => {
-//	console.log(chalk.blue('Connected to Heptagram MongoDB database!'));
-// }).catch((err) => {
-//	console.log(err);
-// });
+
 client.on('ready', async () => {
 	console.log(chalk.blueBright('Bot online and Ready!'));
 
 	await mongo().then(mongoose => {
 		try {
-			console.log(chalk.green('Connected to Mongo!'));
+			console.log(chalk.blue('Connected to Heptagram MongoDB database!'));
 		}
 		finally {
 			mongoose.connection.close();
