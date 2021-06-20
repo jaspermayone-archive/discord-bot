@@ -38,7 +38,8 @@ module.exports = {
 				}, {
 					upsert: true,
 				});
-				message.reply(`The prefix for this server is now *${text}*`);
+				message.reply('This command is curently broken.');
+				//   message.reply(`The prefix for this server is now *${text}*`);
 			}
 			finally {
 				mongoose.connection.close();
