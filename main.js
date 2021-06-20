@@ -1,8 +1,8 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 const Discord = require('discord.js');
-const mongoose = require('mongoose');
 const chalk = require('chalk');
-const { prefix, token, MongoDB } = require('./config.json');
+const { prefix, token } = require('./config.json');
+const mongo = require('./mongo');
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
@@ -15,14 +15,26 @@ client.cooldowns = new Discord.Collection();
 	require(`./handlers/${handler}`)({ client, Discord });
 });
 
-mongoose.connect((MongoDB), {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	useFindAndModify: false,
-}).then(() => {
-	console.log(chalk.green('Connected to Heptagram MongoDB database!'));
-}).catch((err) => {
-	console.log(err);
+// mongoose.connect((MongoDB), {
+//	useNewUrlParser: true,
+//	useUnifiedTopology: true,
+//	useFindAndModify: false,
+// }).then(() => {
+//	console.log(chalk.blue('Connected to Heptagram MongoDB database!'));
+// }).catch((err) => {
+//	console.log(err);
+// });
+client.on('ready', async () => {
+	console.log(chalk.blueBright('Bot online and Ready!'));
+
+	await mongo().then(mongoose => {
+		try {
+			console.log(chalk.green('Connected to Mongo!'));
+		}
+		finally {
+			mongoose.connection.close();
+		}
+	});
 });
 
 client.on('message', async message => {
