@@ -12,4 +12,4 @@ const prefixSchema = mongoose.Schema({
 	prefix: reqString,
 });
 
-module.exports = mongoose.model('prefix', prefixSchema);
+module.exports = mongoose.model('guild-prefixes', prefixSchema);
