@@ -1,3 +1,5 @@
+const { replies } = require('../../config.json');
+
 module.exports = {
 	name: 'unmute',
 	description: 'unmutes user',
@@ -20,7 +22,7 @@ module.exports = {
 				message.channel.send(`<@${memberTarget.user.id}> has been unmuted`);
 			}
 			else {
-				message.reply('Please specify a user to unmute!');
+				message.reply(replies.mention);
 			}
 
 		}

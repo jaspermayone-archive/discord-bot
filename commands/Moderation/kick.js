@@ -1,3 +1,5 @@
+const { replies } = require('../../config.json');
+
 module.exports = {
 	name: 'kick',
 	description: 'kicks users',
@@ -14,7 +16,7 @@ module.exports = {
 				message.reply('The user has been kicked.');
 			}
 			else {
-				message.reply('Please specify a user to kick.');
+				message.reply(replies.mention);
 			}
 		}
 		else {
