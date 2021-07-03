@@ -16,7 +16,6 @@ module.exports = {
 					.setTitle('Random cat')
 					.setImage(response.body.url)
 					.setColor(colors.heptagram)
-					.setFooter('owo')
 					.setURL(response.body.url);
 				message.channel.send(lewdembed);
 			});
