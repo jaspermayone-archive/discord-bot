@@ -1,10 +1,12 @@
+const { replies } = require('../../config.json');
+
 module.exports = {
 	name: 'hack',
 	description: 'Another Fun Command',
 	execute: async (message) => {
 		const msgObj = message.message;
 		if (!message.args[0]) {
-			return msgObj.channel.send('Woah.... Slow Down!! Who are we hacking..??');
+			return msgObj.channel.send(replies.mention);
 		}
 		const tohack = msgObj.mentions.members.first();
 		const msg = await msgObj.channel.send(`Hacking ${tohack.displayName}....`);

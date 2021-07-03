@@ -1,3 +1,5 @@
+const { replies } = require('../../config.json');
+
 const ms = require('ms');
 module.exports = {
 	name: 'mute',
@@ -33,7 +35,7 @@ module.exports = {
 				}, ms(args[1]));
 			}
 			else {
-				message.reply('Please specify a user to mute!');
+				message.reply(replies.mention);
 			}
 
 		}
