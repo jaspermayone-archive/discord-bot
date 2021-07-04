@@ -4,8 +4,7 @@
   <a href="https://github.com/Heptagram-Bot/Heptagram#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge&logo=github?label=healthinesses" />
   </a>
-  <a href="https://github.com/Heptagram-Bot/Heptagram/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge&logo=github?label=healthinesses" />
+  <a href="https://codeclimate.com/github/Heptagram-Bot/Heptagram/maintainability"><img src="https://api.codeclimate.com/v1/badges/dcad108e5bd6ec8d3c4a/maintainability?style=for-the-badge&logo=github?label=healthinesses" />
   </a>
   <a href="https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/J-dogcoder/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
