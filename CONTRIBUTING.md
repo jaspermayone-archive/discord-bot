@@ -1,6 +1,6 @@
 # Contributing
 
-Contributing is welcomed! We have extensive documentation below as well as comments in the code to help you out.
+Contributing is welcomed! We have extensive documentation bellow as well as comments in the code to help you out.
 Please take a look at our GitHub issues for ideas on what to work on. Our Github issues are labeled by priorities. Critical being the highest, and low being the lowest. (Brownie points if you finish something from our [Initial Release Features Milestone](https://github.com/Heptagram-Bot/Heptagram/milestone/1).) We have a variety of tags you can sort issues by to find the right one for you. You cann sort by [Good First Issue](https://github.com/Heptagram-Bot/Heptagram/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22), [Help Wanted](https://github.com/Heptagram-Bot/Heptagram/issues?q=is%3Aopen+is%3Aissue+label%3A%22%F0%9F%91%90+help+wanted+%F0%9F%91%90%22), and more are being added all the time. Please make sure to check for issues flaged with things like "Staff Only" or "ticket work required". These are issues that need stff attention, and should not be assigned to people. Also keep you eye out for things marked as "assigned to user".
 
 ## Workflow
