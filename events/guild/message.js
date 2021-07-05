@@ -1,4 +1,4 @@
-const { prefix, OwnerID, emoji, roles } = require('../../config.json');
+const { prefix, OwnerID, emoji, roles } = require("../../config.json");
 module.exports = async (Discord, client, message) => {
 	if (message.author.bot) return;
 
@@ -10,18 +10,23 @@ module.exports = async (Discord, client, message) => {
 		if (client.commands.has(command)) {
 			try {
 				client.commands.get(command).execute({ message, args, Discord, client, roles });
-				message.react('✅');
+				message.react(emoji.checkmark);
 			}
 			catch (error) {
-				message.react('❌');
+				message.react(emoji.x);
 				console.log(error);
-				message.reply('there was an error trying to execute that command! Please contact a developer in our support server.');
+				message.reply("there was an error trying to execute that command! Please contact a developer in our support server.");
 			}
 		}
 	}
 	if (message.author.id == (OwnerID)) {
 		const reactionEmoji = client.emojis.cache.get(emoji.HeptaHeart);
 		message.react(reactionEmoji);
+	}
+	else {}
+
+	if (message.content.includes("Thanks")) {
+		message.channel.send('Thank you! ');
 	}
 	else {}
 };
