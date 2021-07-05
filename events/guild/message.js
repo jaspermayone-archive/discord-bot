@@ -24,18 +24,10 @@ module.exports = async (Discord, client, message) => {
 		message.react(reactionEmoji);
 	}
 	else {}
-<<<<<<< HEAD
-
-	const { author, channel, content, mentions } = message;
-
-	const thanksRegex =
-		/((?:^|\s)(?:(?:th(?:n[qx]|x)|t[xyq]|tn(?:[x]){0,2})|\w*\s*[.,]*\s*than[kx](?:[sxz]){0,2}|than[kx](?:[sxz]){0,2}(?:[uq]|y(?:ou)?)?)|grazie|arigato(?:[u]{0,1})|doumo|gracias?|spasibo|dhanyavaad(?:hamulu)?|o?brigad(?:o|a)|dziekuje|(?:re)?merci|multumesc|shukra?an|danke)\b/gi;
-=======
 	const { author, channel, content, mentions } = message;
 
 	const thanksRegex =
 	/((?:^|\s)(?:(?:th(?:n[qx]|x)|t[xyq]|tn(?:[x]){0,2})|\w*\s*[.,]*\s*than[kx](?:[sxz]){0,2}|than[kx](?:[sxz]){0,2}(?:[uq]|y(?:ou)?)?)|grazie|arigato(?:[u]{0,1})|doumo|gracias?|spasibo|dhanyavaad(?:hamulu)?|o?brigad(?:o|a)|dziekuje|(?:re)?merci|multumesc|shukra?an|danke)\b/gi;
->>>>>>> staged
 	if (!thanksRegex.test(content) || !mentions.users.size) {
 		return;
 	}
@@ -43,23 +35,6 @@ module.exports = async (Discord, client, message) => {
 	const users = mentions.users.map((u) => u);
 
 	for (const user of users) {
-<<<<<<< HEAD
-		if (user.id === IDs.BotID) {
-			replies.push(
-				"You are quite welcome.",
-			);
-			continue;
-		}
-		if (user.id === author.id) {
-			replies.push(
-				"I suppose you need a pat on the back badly enough to thank yourself.",
-			);
-			continue;
-		}
-		replies.push(
-			`Well done, ${user.username}. It seems you have done something right.`,
-		);
-=======
 	  if (user.id === IDs.BotID) {
 			replies.push(
 		  "You are quite welcome.",
@@ -75,7 +50,6 @@ module.exports = async (Discord, client, message) => {
 	  replies.push(
 			`Well done, ${user.username}. It seems you have done something right.`,
 	  );
->>>>>>> staged
 	}
 	await channel.send(replies.join("\n"));
 };
