@@ -19,11 +19,13 @@ module.exports = async (Discord, client, message) => {
 			}
 		}
 	}
+	// Owner Reaction
 	if (message.author.id == (IDs.OwnerID)) {
 		const reactionEmoji = client.emojis.cache.get(emoji.HeptaHeart);
 		message.react(reactionEmoji);
 	}
 	else {}
+	// Thank you reply
 	const { author, channel, content, mentions } = message;
 
 	const thanksRegex =
