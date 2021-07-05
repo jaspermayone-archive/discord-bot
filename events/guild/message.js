@@ -1,4 +1,5 @@
-const { prefix, OwnerID, emoji, roles } = require("../../config.json");
+const { prefix, IDs, emoji, roles } = require("../../config.json");
+
 module.exports = async (Discord, client, message) => {
 	if (message.author.bot) return;
 
@@ -19,14 +20,9 @@ module.exports = async (Discord, client, message) => {
 			}
 		}
 	}
-	if (message.author.id == (OwnerID)) {
+	if (message.author.id == (IDs.OwnerID)) {
 		const reactionEmoji = client.emojis.cache.get(emoji.HeptaHeart);
 		message.react(reactionEmoji);
-	}
-	else {}
-
-	if (message.content.includes("Thanks")) {
-		message.channel.send('Thank you! ');
 	}
 	else {}
 };
