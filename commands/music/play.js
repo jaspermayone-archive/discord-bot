@@ -24,6 +24,14 @@ module.exports = {
 
 			return message.channel.send(embed);
 		}
+		else if(!args.join(' ')) {
+			message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
+			message.react(emoji.x);
+			const embed = new Discord.MessageEmbed()
+				.setTitle('Error')
+				.setDescription('Please provide a URL or a title.');
+			return message.channel.send(embed);
+		}
 		else {
 			const music = args.join(' ');
 			client.distube.play(message, music);
