@@ -14,7 +14,8 @@
   },
   "replies": {
     "mention": "You need to mention a user for this command!",
-    "sameVC": "🔴 **You must be in the same voice channel as me to use this command.**"
+    "sameVC": "❌ **You must be in the same voice channel as me to use this command.**",
+    "mustVC": "❌ **You must be in a voice channel to use this command.**"
   },
   "colors": {
     "red": "#b70000",
