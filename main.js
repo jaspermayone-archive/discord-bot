@@ -13,19 +13,20 @@ client.aliases = new Discord.Collection();
 client.events = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 
+// music bot
 client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
 client.distube
-	.on('playSong', (message, queue, song) => message.channel.send(
-		`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`,
-	))
-	.on('addSong', (message, queue, song) => message.channel.send(
-		`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`,
-	));
+	.on('playSong', (message, queue, song) => message.channel.send(new Discord.MessageEmbed()
+		.setTitle('Playing')
+		.setDescription(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`)),
+	)
+	.on('addSong', (message, queue, song) => message.channel.send(new Discord.MessageEmbed()
+		.setTitle('Queued')
+		.setDescription(`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)));
 
 ['command_handler', 'event_handler'].forEach(handler => {
 	require(`./handlers/${handler}`)({ client, Discord });
 });
-
 
 client.on('ready', async () => {
 	console.log(chalk.blueBright('Bot online and Ready!'));
