@@ -1,4 +1,4 @@
-const { roles } = require('../../config.json');
+const { roles, replies } = require('../../config.json');
 
 module.exports = {
 	name: 'ban',
@@ -16,7 +16,7 @@ module.exports = {
 				message.reply('The user has been banned.');
 			}
 			else {
-				message.reply('Please specify a user to ban.');
+				message.reply(replies.mention);
 			}
 		}
 		else {

@@ -8,6 +8,7 @@
 		"ecmaVersion": 2019
 	},
 	"rules": {
+		"no-mixed-spaces-and-tabs": "off",
 		"brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
 		"comma-dangle": ["error", "always-multiline"],
 		"comma-spacing": "error",
@@ -30,7 +31,7 @@
 		"no-var": "error",
 		"object-curly-spacing": ["error", "always"],
 		"prefer-const": "error",
-		"quotes": ["error", "single"],
+		"quotes": ["off"],
 		"semi": ["error", "always"],
 		"space-before-blocks": "error",
 		"space-before-function-paren": ["error", {

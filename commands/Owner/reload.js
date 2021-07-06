@@ -1,5 +1,4 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-
+const { OwnerID } = require('../../config.json');
 const fs = require('fs');
 
 module.exports = {
@@ -8,8 +7,9 @@ module.exports = {
 	args: true,
 	guildOnly: false,
 
-	execute({ message, args, roles }) {
-		if (message.member.roles.cache.has(roles.botadmin)) {
+	execute({ message, args }) {
+		if (message.author.id == (OwnerID)) {
+			//	if (message.member.roles.cache.has(roles.botadmin)) {
 			if (!args[0]) {
 				return message.channel.send('Reload requires an argument!');
 			}
