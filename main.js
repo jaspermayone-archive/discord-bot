@@ -3,13 +3,24 @@ const chalk = require('chalk');
 
 const { prefix, token } = require('./config.json');
 const mongo = require('./mongo');
+const DisTube = require('distube');
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.events = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
+
+client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
+client.distube
+	.on('playSong', (message, queue, song) => message.channel.send(
+		`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`,
+	))
+	.on('addSong', (message, queue, song) => message.channel.send(
+		`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`,
+	));
 
 ['command_handler', 'event_handler'].forEach(handler => {
 	require(`./handlers/${handler}`)({ client, Discord });
@@ -35,5 +46,6 @@ client.on('message', async message => {
 		return message.reply(`Hey there! Need some help? My commands can be accessed through my prefix. My prefix in this server is \`${prefix}\`. You can use \`${prefix}help\` for a list of all my commands.`);
 	}
 });
+
 
 client.login(token);
