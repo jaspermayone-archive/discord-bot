@@ -20,7 +20,7 @@ module.exports = {
 			if (!member) {return message.reply('User not found.');}
 			else {
 				const embed = new Discord.MessageEmbed()
-					.setAuthor(`${member.user.tag}}`, `${member.user.displayAvatarURL()}`)
+					.setAuthor(`${member.user.tag}`, `${member.user.displayAvatarURL()}`)
 					.setColor(colors.heptagram)
 					.setTitle('Requested Avatar:')
 					.setImage(`${member.user.displayAvatarURL({ size: 4096, dynamic: true })}`);
