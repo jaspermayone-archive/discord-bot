@@ -20,7 +20,6 @@ module.exports = {
 			const utilitys = [];
 			const resources = [];
 			const moderation = [];
-			const covid = [];
 
 			commands.map(command => {
 				if (command.category === 'fun') fun.push(`\`${command.name}\``);
@@ -38,12 +37,6 @@ module.exports = {
 				if (command.category === 'Resources') resources.push(`\`${command.name}\``);
 			});
 			information.addField('Resources Commands:', value = resources.join(', '), false);
-
-
-			commands.map(command => {
-				if (command.category === 'COVID') covid.push(`\`${command.name}\``);
-			});
-			information.addField('COVID Commands:', value = covid.join(', '), false);
 
 			const isAdmin = message.member.roles.cache.has(roles.admin);
 
