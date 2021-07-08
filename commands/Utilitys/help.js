@@ -1,7 +1,6 @@
-/* eslint-disable no-undef */
-
-const { prefix, colors } = require('../../config.json');
-const Discord = require('discord.js');
+const { MessageEmbed } = require("discord.js");
+const { readdirSync } = require("fs");
+const { prefix, colors } = require("../../config.json");
 
 module.exports = {
 	name: 'help',
@@ -9,76 +8,96 @@ module.exports = {
 	description: 'List all of my commands or info about a specific command.',
 	category: 'Utilitys',
 
-	execute({ message, args, roles }) {
+	execute({ client, message, args }) {
+		if (!args[0]) {
+			const categories = [];
 
-		const information = new Discord.MessageEmbed().setTitle('Command List').setColor(colors.heptagram).setFooter('Heptagram Bot');
+			readdirSync("./commands/").forEach((dir) => {
+				const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
+					file.endsWith(".js"),
+				);
 
-		const { commands } = message.client;
-		if (args.length === 0 || args[0] === '') {
+				const cmds = commands.map((command) => {
+					const file = require(`../../commands/${dir}/${command}`);
 
-			const fun = [];
-			const utilitys = [];
-			const resources = [];
-			const moderation = [];
+					if (!file.name) return "No command name.";
 
-			commands.map(command => {
-				if (command.category === 'fun') fun.push(`\`${command.name}\``);
-			});
-			information.addField('Fun Commands:', value = fun.join(','), false);
+					const name = file.name.replace(".js", "");
 
-
-			commands.map(command => {
-				if (command.category === 'Utilitys') utilitys.push(`\`${command.name}\``);
-			});
-			information.addField('Utility Commands:', value = utilitys.join(', '), false);
-
-
-			commands.map(command => {
-				if (command.category === 'Resources') resources.push(`\`${command.name}\``);
-			});
-			information.addField('Resources Commands:', value = resources.join(', '), false);
-
-			const isAdmin = message.member.roles.cache.has(roles.admin);
-
-			if (isAdmin) {
-
-				commands.map(command => {
-					if (command.category === 'moderation') moderation.push(`\`${command.name}\``);
+					return `\`${name}\``;
 				});
-				information.addField('Moderation Commands:', value = moderation.join(', '), false);
 
+				let data = new Object();
 
-			}
-			else {
-				const adminCommands = ['kick', 'mute', 'unmute', 'wipe', 'clear', 'ban', 'admin'];
-				commands.map(command => {
-					if (command.category === 'moderation' && !adminCommands.includes(command.name)) moderation.push(`\`${command.name}\``);
-				});
-				information.addField('Moderation Commands:', value = moderation.join(', '), false);
-			}
+				data = {
+					name: dir.toUpperCase(),
+					value: cmds.length === 0 ? "In progress." : cmds.join(" "),
+				};
 
-			message.author.send(information)
-				.then(() => {
-					return message.reply('I\'ve sent you a DM with all my commands!');
-				})
-				.catch(error => {
-					console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
-					message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
-				});
+				categories.push(data);
+			});
+
+			const embed = new MessageEmbed()
+				.setTitle("📬 Need help? Here are all of my commands:")
+				.addFields(categories)
+				.setDescription(
+					`Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help ping\`.`,
+				)
+				.setFooter(
+					`Requested by ${message.author.tag}`,
+					message.author.displayAvatarURL({ dynamic: true }),
+				)
+				.setTimestamp()
+				.setColor(colors.heptagram);
+			return message.channel.send(embed);
 		}
 		else {
-			const name = args[0].toLowerCase();
-			const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
+			const command =
+              client.commands.get(args[0].toLowerCase()) ||
+              client.commands.find(
+              	(c) => c.aliases && c.aliases.includes(args[0].toLowerCase()),
+              );
 
 			if (!command) {
-				return message.reply('that\'s not a valid command!');
+				const embed = new MessageEmbed()
+					.setTitle(`Invalid command! Use \`${prefix}help\` for all of my commands!`)
+					.setColor(colors.heptagram);
+				return message.channel.send(embed);
 			}
 
-			const cmdEmbed = new Discord.MessageEmbed().setTitle('Helping with specific Command').setColor(colors.heptagram).setFooter('Heptagram Bot');
-			cmdEmbed.addField(`***${command.name}***`, `**Description:** ${command.description ? command.description : 'NONE'}\n**Usage:** \`${command.usage ? `${prefix}${command.name} ${command.usage}` : `${prefix}${command.name}`}\`\n**Aliases:** \`${command.aliases ? command.aliases.join(', ') : 'NONE'}\` \n**Cooldown:** \`${command.cooldown || 3} second(s)\``, false);
-
-			message.channel.send(cmdEmbed);
-
+			const embed = new MessageEmbed()
+				.setTitle("Command Details:")
+				.addField("PREFIX:", `\`${prefix}\``)
+				.addField(
+					"COMMAND:",
+					command.name ? `\`${command.name}\`` : "No name for this command.",
+				)
+				.addField(
+					"ALIASES:",
+					command.aliases
+						? `\`${command.aliases.join("` `")}\``
+						: "No aliases for this command.",
+				)
+				.addField(
+					"USAGE:",
+					command.usage
+						? `\`${prefix}${command.name} ${command.usage}\``
+						: `\`${prefix}${command.name}\``,
+				)
+				.addField(
+					"DESCRIPTION:",
+					command.description
+						? command.description
+						: "No description for this command.",
+				)
+				.setFooter(
+					`Requested by ${message.author.tag}`,
+					message.author.displayAvatarURL({ dynamic: true }),
+				)
+				.setTimestamp()
+				.setColor(colors.heptagram);
+			return message.channel.send(embed);
 		}
+
 	},
 };

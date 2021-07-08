@@ -3,6 +3,11 @@ const { replies, emoji } = require('../../config.json');
 module.exports = {
 	name: 'play',
 	description: 'Plays the given song.',
+<<<<<<< HEAD
+=======
+	guildOnly: false,
+	category: 'Music',
+>>>>>>> staged
 	execute: async ({ Discord, client, message, args }) => {
 
 		if(!message.member.voice.channel) {
