@@ -3,6 +3,8 @@ const { emoji, replies } = require('../../config.json');
 module.exports = {
 	name: 'skip',
 	description: 'Skips the playing song.',
+	guildOnly: false,
+	category: 'Music',
 	execute: async ({ client, message }) => {
 		if(!message.member.voice.channel) {
 			message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
