@@ -10,10 +10,10 @@ module.exports = async (Discord, client, message) => {
 		if (client.commands.has(command)) {
 			try {
 				client.commands.get(command).execute({ message, args, Discord, client, roles });
-				message.react(emoji.HeptaCheck);
+				message.react(emoji.checkmark);
 			}
 			catch (error) {
-				message.react(emoji.HeptaX);
+				message.react(emoji.x);
 				console.log(error);
 				message.reply("there was an error trying to execute that command! Please contact a developer in our support server.");
 			}
