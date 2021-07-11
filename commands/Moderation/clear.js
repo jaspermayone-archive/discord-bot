@@ -4,8 +4,8 @@ module.exports = {
 	guildOnly: true,
 	category: 'moderation',
 
-	async execute({ message, args, roles }) {
-		if (message.member.roles.cache.has(roles.admin)) {
+	async execute({ message, args }) {
+		if (message.member.permissions.has('MANAGE_MESSAGES')) {
 			if (!args[0]) return message.reply('Please specify a number of messages to clear.');
 			if (isNaN(args[0])) return message.reply('Please enter a number instead of text.');
 
