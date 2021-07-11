@@ -73,22 +73,11 @@ To connect Heptagram with Discord you will need to set your environment variable
 
 #### Setting up your local development
 
-```bash
-cp example-config.json config.json   # Linux/Mac.
+You will need to create a config.json file and fill it with your own credentials.
 
-copy example-config.json config.json # Window.
-```
-
-For local development we recommend copying the `example-config.json` file with your own credentials, for production we recommend you refer to your system's preferred way of storing environment variables securely.
+TO HELP STOP PROJECT COPING, THE CONFIG CAN NOW BE OBTAINED BY JOINING OUR DISCORD, OR CONTACTING ME THROUGH THE EMAIL LISTED ON GITHUB
 
 Fill out the `config.json` will your Discord application's credentials, e.g.
-
-```shell
-{
-    "prefix": "!",
-    "token": "your-token-goes-here"
-}
-```
 
 ## Running Heptagram
 
