@@ -16,8 +16,7 @@ module.exports = {
 		const catembed = new MessageEmbed()
 			.setTitle('Random cat')
 			.setImage(file)
-			.setColor(colors.heptagram)
-			.setURL(file);
+			.setColor(colors.heptagram);
 		message.channel.send(catembed);
 	},
 };
