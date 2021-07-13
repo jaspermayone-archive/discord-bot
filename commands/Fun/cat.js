@@ -1,7 +1,7 @@
-const superagent = require('snekfetch');
-const Discord = require('discord.js');
-
+const { MessageEmbed } = require('discord.js');
 const { colors } = require('../../config.json');
+
+const fetch = require('node-fetch');
 
 module.exports = {
 	name: 'cat',
@@ -9,15 +9,15 @@ module.exports = {
 	description: 'Sends a random image of a cat',
 	guildOnly: false,
 
-	execute({ message }) {
-		superagent.get('https://nekos.life/api/v2/img/meow')
-			.end((err, response) => {
-				const lewdembed = new Discord.MessageEmbed()
-					.setTitle('Random cat')
-					.setImage(response.body.url)
-					.setColor(colors.heptagram)
-					.setURL(response.body.url);
-				message.channel.send(lewdembed);
-			});
+	async execute({ message }) {
+
+		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+
+		const catembed = new MessageEmbed()
+			.setTitle('Random cat')
+			.setImage(file)
+			.setColor(colors.heptagram)
+			.setURL(file);
+		message.channel.send(catembed);
 	},
 };
