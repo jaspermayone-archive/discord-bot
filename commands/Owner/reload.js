@@ -1,4 +1,4 @@
-const { OwnerID } = require('../../config.json');
+const { IDs } = require('../../config.json');
 const fs = require('fs');
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
 	guildOnly: false,
 
 	execute({ message, args }) {
-		if (message.author.id == (OwnerID)) {
+		if (message.author.id == (IDs.OwnerID)) {
 			//	if (message.member.roles.cache.has(roles.botadmin)) {
 			if (!args[0]) {
 				return message.channel.send('Reload requires an argument!');
