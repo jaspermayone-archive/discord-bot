@@ -16,9 +16,6 @@ module.exports = {
 			}
 			else {
 				const serverArg = args[0];
-				//	client.guilds.fetch(serverArg);
-				//	message.channel.send(guild.server.name);
-
 				client.guilds.fetch(serverArg).then(guild => {
 
 					const embed = new MessageEmbed()
