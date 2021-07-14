@@ -1,4 +1,5 @@
-const { IDs, replies } = require('../../config.json');
+const { IDs, replies, colors } = require('../../config.json');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'servers',
@@ -15,7 +16,27 @@ module.exports = {
 			}
 			else {
 				const serverArg = args[0];
-				console.log(serverArg);
+				//	client.guilds.fetch(serverArg);
+				//	message.channel.send(guild.server.name);
+
+				client.guilds.fetch(serverArg).then(guild => {
+
+					const embed = new MessageEmbed()
+						.setColor(colors.heptagram)
+						.setTitle(`Server info for the ${(guild.name)} server:`)
+						.setDescription('Server Information for the specified guild.')
+						.addFields(
+							{ name: 'Guild Name', value: `${guild.name}`, inline: true },
+							{ name: 'Guild ID', value: `\`${guild.id}\``, inline: true },
+							{ name: 'Guild Member Count', value: `${guild.memberCount}`, inline: true },
+							{ name: 'Guild Owner', value: `${guild.owner}`, inline: true },
+						)
+						.setTimestamp();
+
+					message.channel.send(embed);
+
+				})
+					.catch(console.error);
 			}
 		}
 		else {
