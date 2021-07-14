@@ -5,6 +5,7 @@ module.exports = {
 	name: 'servers',
 	description: 'gets list of servers bot is in.',
 	guildOnly: false,
+	OwnerOnly: true,
 
 	execute({ client, message, args }) {
 		if (message.author.id === (IDs.OwnerID)) {
