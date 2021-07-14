@@ -1,4 +1,4 @@
-const { IDs, prefix } = require('../../config.json');
+const { IDs, replies, prefix } = require('../../config.json');
 
 module.exports = {
 	name: 'statuschange',
@@ -17,7 +17,7 @@ module.exports = {
 			});
 		}
 		else {
-			message.channel.send('Sorry, this command is resticted!');
+			message.channel.send(replies.restricted);
 		}
 	},
 };
