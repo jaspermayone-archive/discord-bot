@@ -4,7 +4,7 @@ const chalk = require('chalk');
 module.exports = async (Discord, client) => {
 
 	client.user.setStatus('online');
-	client.user.setActivity(`${prefix}help`, { type: 'LISTENING' });
+	client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
 
 
 	console.log(chalk.magenta('Starting Heptagram\nNode version: ' + process.version + '\nDiscord.js version: ' + Discord.version));
