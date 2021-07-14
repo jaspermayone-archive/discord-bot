@@ -4,6 +4,7 @@ module.exports = {
 	name: 'statuschange',
 	description: 'changes bot status',
 	guildOnly: false,
+	OwnerOnly: true,
 
 	execute({ client, message }) {
 		if (message.author.id === (IDs.OwnerID)) {
