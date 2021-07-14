@@ -5,6 +5,7 @@ module.exports = {
 	name: 'reload',
 	description: 'Reloads a command',
 	guildOnly: false,
+	OwnerOnly: true,
 
 	execute({ message, args }) {
 		if (message.author.id == (IDs.OwnerID)) {
