@@ -1,4 +1,4 @@
-const { IDs } = require('../../config.json');
+const { IDs, replies } = require('../../config.json');
 const fs = require('fs');
 
 module.exports = {
@@ -48,7 +48,7 @@ module.exports = {
 			}
 		}
 		else {
-			message.channel.send('Sorry, this command is resticted!');
+			message.channel.send(replies.restricted);
 		}
 	},
 };
