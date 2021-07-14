@@ -1,4 +1,4 @@
-const { prefix, IDs, emoji, roles } = require('../../config.json');
+const { prefix, IDs, emoji, roles, replies} = require('../../config.json');
 module.exports = async (Discord, client, message) => {
 	if (message.author.bot) return;
 
@@ -6,6 +6,11 @@ module.exports = async (Discord, client, message) => {
 	if (message.content.startsWith(prefix)) {
 		const args = message.content.slice(prefix.length).trim().split(/ +/);
 		const command = args.shift().toLowerCase();
+
+		if (command.OwnerOnly && message.author.id !== IDs.OwnerID) {
+			message.reply(replies.restricted)
+			return;
+		}
 
 		if (client.commands.has(command)) {
 			try {
@@ -33,25 +38,25 @@ module.exports = async (Discord, client, message) => {
 	if (!thanksRegex.test(content) || !mentions.users.size) {
 		return;
 	}
-	const replies = [];
+	const replies1 = [];
 	const users = mentions.users.map((u) => u);
 
 	for (const user of users) {
 	  if (user.id === IDs.BotID) {
-			replies.push(
+			replies1.push(
 		  "You are quite welcome.",
 			);
 			continue;
 	  }
 	  if (user.id === author.id) {
-			replies.push(
+			replies1.push(
 		  "I suppose you need a pat on the back badly enough to thank yourself.",
 			);
 			continue;
 	  }
-	  replies.push(
+	  replies1.push(
 			`Well done, ${user.username}. It seems you have done something right.`,
 	  );
 	}
-	await channel.send(replies.join("\n"));
+	await channel.send(replies1.join("\n"));
 };
