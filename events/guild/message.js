@@ -1,4 +1,4 @@
-const { prefix, IDs, emoji, roles, replies} = require('../../config.json');
+const { prefix, IDs, emoji, roles, replies } = require('../../config.json');
 module.exports = async (Discord, client, message) => {
 	if (message.author.bot) return;
 
@@ -8,7 +8,7 @@ module.exports = async (Discord, client, message) => {
 		const command = args.shift().toLowerCase();
 
 		if (command.OwnerOnly && message.author.id !== IDs.OwnerID) {
-			message.reply(replies.restricted)
+			message.reply(replies.restricted);
 			return;
 		}
 
