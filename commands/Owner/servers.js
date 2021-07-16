@@ -29,7 +29,8 @@ module.exports = {
 							{ name: 'Guild Member Count', value: `${guild.memberCount}`, inline: true },
 							{ name: 'Guild Owner', value: `${guild.owner}`, inline: true },
 						)
-						.setTimestamp();
+						.setTimestamp()
+						.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 					message.channel.send(embed);
 
