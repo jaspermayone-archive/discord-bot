@@ -15,7 +15,7 @@ module.exports = {
 		try {
 			search.first(res => {
 				if (!res) return message.reply('No results found for this topic, sorry!');
-				const { word, definition, example, thumbs_up, thumbs_down, permalink, author } = res;
+				const { word, definition, example, thumbs_up, thumbs_down, permalink } = res;
 
 				const description = stripIndents`**Defintion:** ${definition || 'No definition'}
                     **Example:** ${example || 'No Example'}
@@ -31,7 +31,7 @@ module.exports = {
 						.setThumbnail(image)
 						.setDescription(description)
 						.setTimestamp()
-						.setFooter(`Written by ${author || 'unknown'}`);
+						.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 					message.channel.send(embed);
 				}

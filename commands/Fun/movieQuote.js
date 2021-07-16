@@ -17,7 +17,8 @@ module.exports = {
 			if (quote[0]) {
 				embed.setTitle(`Here's a quote from: ${args.join(' ')}`);
 				embed.setDescription(`${quote[0].quote}`);
-				embed.setFooter(`${args.join(' ')} ${quote[0].year}`, message.author.displayAvatarURL());
+				embed.setTimestamp();
+			    embed.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 				return message.reply(embed);
 			}
 			else {return message.reply('Could not find a quote from that movie.');}
@@ -26,7 +27,9 @@ module.exports = {
 			const quote = movieQuote.getRandomQuote();
 			embed.setTitle('Here\'s a random movie quote');
 			embed.setDescription(`${quote}`);
-			embed.setFooter('Random movie quote', message.author.displayAvatarURL());
+			embed.setTimestamp();
+			embed.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 			return message.reply(embed);
 		}
 	},
