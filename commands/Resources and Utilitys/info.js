@@ -15,7 +15,10 @@ module.exports = {
 			.addFields(
 				{ name: 'Bot Help:', value: `You can run \`${prefix}repo\` for our repo, \`${prefix}support\` for a link to our support server, or \`${prefix}server\` for stats and info about this server. `, inline: true },
 				{ name: 'More info:', value: 'You can find out more about Heptagram in our support server or on our GitHub Repository.', inline: true },
-			);
+			)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 		message.channel.send(embed);
 
 	},

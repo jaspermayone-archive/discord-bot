@@ -11,7 +11,8 @@ module.exports = {
 			.setTitle('Bot Repo :robot:')
 			.setColor(colors.heptagram)
 			.setDescription('Heptagram is proud to be open source! You can find our GitHub repo at https://github.com/Heptagram-Bot/Heptagram')
-			.setFooter('Thanks for cosidering contributing!');
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 		message.channel.send(embed);
 	},
 };

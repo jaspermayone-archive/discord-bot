@@ -43,12 +43,10 @@ module.exports = {
 				.setDescription(
 					`Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help ping\`.`,
 				)
-				.setFooter(
-					`Requested by ${message.author.tag}`,
-					message.author.displayAvatarURL({ dynamic: true }),
-				)
+				.setColor(colors.heptagram)
 				.setTimestamp()
-				.setColor(colors.heptagram);
+				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 			return message.channel.send(embed);
 		}
 		else {

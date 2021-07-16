@@ -12,7 +12,10 @@ module.exports = {
 				.setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)
 				.setColor(colors.heptagram)
 				.setTitle('**Avatar**')
-				.setImage(`${message.author.displayAvatarURL({ size: 4096, dynamic: true })}`);
+				.setImage(`${message.author.displayAvatarURL({ size: 4096, dynamic: true })}`)
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 			return message.channel.send(embed);
 		}
 		else {
@@ -23,7 +26,10 @@ module.exports = {
 					.setAuthor(`${member.user.tag}`, `${member.user.displayAvatarURL()}`)
 					.setColor(colors.heptagram)
 					.setTitle('Requested Avatar:')
-					.setImage(`${member.user.displayAvatarURL({ size: 4096, dynamic: true })}`);
+					.setImage(`${member.user.displayAvatarURL({ size: 4096, dynamic: true })}`)
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 				return message.channel.send(embed);
 			}
 		}

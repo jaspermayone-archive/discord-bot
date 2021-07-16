@@ -31,7 +31,8 @@ module.exports = {
 			.addField('Bot:', `${user.bot}`, true)
 			.addField('Joined The Server On:', `${moment.utc(member.joinedAt).format('dddd, MMMM Do YYYY')}`, true)
 			.addField('Account Created On:', `${moment.utc(user.createdAt).format('dddd, MMMM Do YYYY')}`, true)
-			.setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`);
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 		message.channel.send({ embed });
 	},

@@ -27,13 +27,15 @@ module.exports = {
 			.setTitle('**Announcement!**')
 			.setDescription(args.slice(1).join(' '), { allowedMentions: { parse: ['users'] } })
 			.setColor(colors.heptagram)
-			.setFooter(`Announcement by ${message.author.username}`);
-		anchannel.send(embed);
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');		anchannel.send(embed);
 
 		const anembed = new Discord.MessageEmbed()
 			.setTitle('Done!')
 			.setDescription(`Announcement has been sent to ${anchannel}`)
-			.setColor(colors.heptagram);
+			.setColor(colors.heptagram)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 		message.channel.send(anembed);
 	},
