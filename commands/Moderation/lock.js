@@ -20,7 +20,10 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Channel Updates')
 			.setDescription(`${message.channel} has been Locked`)
-			.setColor(colors.heptagram);
+			.setColor(colors.heptagram)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 
 		await message.channel.send(embed);
 
