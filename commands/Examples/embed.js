@@ -1,8 +1,8 @@
 const { colors } = require('../../config.json');
 
 module.exports = {
-	name: 'admin',
-	description: 'admin example',
+	name: 'embed',
+	description: 'embed example',
 	guildOnly: true,
 	category: 'Examples',
 
@@ -10,9 +10,9 @@ module.exports = {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
-			.setTitle('Some title')
-			.setURL('https://discord.js.org/')
-			.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+			.setTitle('Example Embed')
+			.setURL('https://Heptagram.xyz/')
+			.setAuthor('Heptagram Bot', 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png', 'https://Heptagram.xyz/')
 			.setDescription('Some description here')
 			.setThumbnail('https://i.imgur.com/wSTFkRM.png')
 			.addFields(
