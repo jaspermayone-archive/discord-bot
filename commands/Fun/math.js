@@ -14,7 +14,8 @@ module.exports = {
 				.setColor(colors.heptagram)
 				.setTitle('Result')
 				.setDescription(math.evaluate(args.join(' ')))
-				.setTimestamp();
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 			message.channel.send(embed);
 		}

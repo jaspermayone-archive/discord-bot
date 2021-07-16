@@ -9,7 +9,8 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle('A coin was flipped..')
-			.setTimestamp();
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 		const number = Math.floor(Math.random() * 2);
 

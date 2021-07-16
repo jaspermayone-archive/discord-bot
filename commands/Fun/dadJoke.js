@@ -13,6 +13,7 @@ module.exports = {
 			.setColor(colors.heptagram)
 			.setTitle('Here\'s a good one...')
 			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png')
 			.setDescription(`${dadJokes.random()}`);
 
 		message.channel.send(embed);

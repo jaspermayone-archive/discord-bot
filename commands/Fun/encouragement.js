@@ -63,8 +63,9 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle('Here\'s some insipration/encouragement')
+			.setDescription(`${inspirationalMessages[Math.floor((Math.random() * 10))]}`)
 			.setTimestamp()
-			.setDescription(`${inspirationalMessages[Math.floor((Math.random() * 10))]}`);
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 		return message.reply(embed);
 	},
