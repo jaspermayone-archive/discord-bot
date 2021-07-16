@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
 const chalk = require('chalk');
+const DisTube = require('distube');
 
 const { prefix, token } = require('./config.json');
 const mongo = require('./mongo');
-const DisTube = require('distube');
+const antiAd = require('./anti-Ad');
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
@@ -40,6 +41,8 @@ client.on('ready', async () => {
 		}
 	});
 });
+
+antiAd(client);
 
 client.on('message', async message => {
 	const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
