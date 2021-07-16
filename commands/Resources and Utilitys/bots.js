@@ -17,7 +17,11 @@ module.exports = {
 				{ name: 'Heptagram Canary', value: 'This is the public bot for testing. You can get more info about inviting this bot in the Heptagram server', inline: true },
 				{ name: 'Heptagram Testing', value: 'You may see this bot in the offical server. This bot can\'t be invited and is for staff testing only.', inline: true },
 			)
-			.setFooter('You can join the Heptagram bot discord server at https://discord.gg/HSupF99kpq');
+			.addFields(
+				{ name: 'Join the discord server!', value: 'You can join the Heptagram bot discord server at https://discord.gg/HSupF99kpq', inline: false },
+			)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 		message.channel.send(embed);
 	},

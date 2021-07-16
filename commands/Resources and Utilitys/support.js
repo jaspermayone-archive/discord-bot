@@ -15,7 +15,9 @@ module.exports = {
 				.setTitle('Need some help with the Heptagram Bot?')
 				.setDescription('Join our discord server at https://discord.gg/HSupF99kpq')
 				.setFooter('This is for Heptagram Bot help only. For server specific help, contact a Modarator or Admin.');
-
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+	
 			message.channel.send(inviteEmbed);
 
 		}

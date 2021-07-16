@@ -31,7 +31,10 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Bot Uptime :robot:')
 			.setColor(colors.heptagram)
-			.setDescription(`Bot Uptime: \`${uptime}\``);
+			.setDescription(`Bot Uptime: \`${uptime}\``)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 		message.channel.send(embed);
 	},
 };

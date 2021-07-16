@@ -39,7 +39,7 @@ module.exports = {
 
 		}
 		else {
-			message.channel.send('This Command sets up the server.');
+			message.channel.send('This command sets up the server.');
 		}
 	},
 };

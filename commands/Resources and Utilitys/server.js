@@ -42,7 +42,8 @@ module.exports = {
 				`**Time Created:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} [${moment(message.guild.createdTimestamp).fromNow()}]`,
 				'\u200b',
 			])
-			.setTimestamp();
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 
 		const statisticsEmbed = new Discord.MessageEmbed()
@@ -58,7 +59,9 @@ module.exports = {
 				'\u200b',
 			])
 
-			.setTimestamp();
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
 
 		message.channel.send(generalEmbed);
 		message.channel.send(statisticsEmbed);
