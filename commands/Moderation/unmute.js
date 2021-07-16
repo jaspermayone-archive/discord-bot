@@ -8,8 +8,7 @@ module.exports = {
 
 	execute({ message, roles }) {
 
-		if (message.member.roles.cache.has(roles.admin)) {
-
+		if (!message.member.hasPermission('MOVE_MEMBERS')) {
 			const target = message.mentions.users.first();
 			if (target) {
 				const mainRole = message.guild.roles.cache.get(roles.users);

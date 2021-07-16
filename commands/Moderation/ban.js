@@ -1,4 +1,4 @@
-const { roles, replies } = require('../../config.json');
+const { replies } = require('../../config.json');
 
 module.exports = {
 	name: 'ban',
@@ -9,7 +9,7 @@ module.exports = {
 	execute({ message }) {
 		const member = message.mentions.users.first();
 
-		if (message.member.roles.cache.has(roles.admin)) {
+		if (!(message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS'))) {
 			if (member) {
 				const memberTarget = message.guild.members.cache.get(member.id);
 				memberTarget.ban();

@@ -5,8 +5,8 @@ module.exports = {
 	category: 'moderation',
 	description: 'Locks a Channel',
 	guildOnly: true,
-	execute: async ({ message, roles, Discord }) => {
-		if (!(message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS') && message.member.roles.cache.has(roles.admin))) {
+	execute: async ({ message, Discord }) => {
+		if (!(message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS'))) {
 			return message.channel.send('You don\'t have enough Permissions');
 		}
 
