@@ -9,7 +9,9 @@ module.exports = {
 			message.react(emoji.x);
 			const embed = new Discord.MessageEmbed()
 				.setTitle('Error')
-				.setDescription(replies.mustVC);
+				.setDescription(replies.mustVC)
+				.setTimestamp()
+			    .setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 			return message.channel.send(embed);
 		}
@@ -19,7 +21,9 @@ module.exports = {
 
 			const embed = new Discord.MessageEmbed()
 				.setTitle('Error')
-				.setDescription(replies.sameVC);
+				.setDescription(replies.sameVC)
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
 			return message.channel.send(embed);
 		}
@@ -28,7 +32,9 @@ module.exports = {
 			message.react(emoji.x);
 			const embed = new Discord.MessageEmbed()
 				.setTitle('Error')
-				.setDescription('Please provide a URL or a title.');
+				.setDescription('Please provide a URL or a title.')
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 			return message.channel.send(embed);
 		}
 		else {
