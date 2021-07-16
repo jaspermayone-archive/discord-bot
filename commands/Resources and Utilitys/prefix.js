@@ -1,5 +1,5 @@
-const mongo = require('../../mongo');
-const prefixSchema = require('../../schemas/prefix-schema');
+// const mongo = require('../../mongo');
+// const prefixSchema = require('../../schemas/prefix-schema');
 
 module.exports = {
 	name: 'prefix',
@@ -8,7 +8,10 @@ module.exports = {
 	category: 'Utilitys',
 
 	async execute({ message }) {
-		const { member, channel, content, guild } = message;
+
+		message.channel.send('This command is a work in progress. It curently doesnt work.');
+
+	/* 	const { member, channel, content, guild } = message;
 
 		if (!member.hasPermission('ADMINISTRATOR')) {
 			channel.send('You do not have permission to change this servers prefix.');
@@ -44,6 +47,6 @@ module.exports = {
 			finally {
 				mongoose.connection.close();
 			}
-		});
+		}); */
 	},
 };

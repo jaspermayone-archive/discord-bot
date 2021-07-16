@@ -5,8 +5,8 @@ module.exports = {
 	guildOnly: true,
 	catagory: 'moderation',
 
-	execute: async (bot, message, args, roles) => {
-		if (!message.member.hasPermission('MOVE_MEMBERS') && message.member.roles.cache.has(roles.admin)) return message.channel.send('**You Dont Have The Permissions To Ban Users! - [MOVE_MEMBERS]**');
+	execute: async (bot, message, args) => {
+		if (!message.member.hasPermission('MOVE_MEMBERS')) return message.channel.send('**You Dont Have The Permissions To Move Users! - [MOVE_MEMBERS]**');
 
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase());
 

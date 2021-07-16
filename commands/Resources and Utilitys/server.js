@@ -58,7 +58,6 @@ module.exports = {
 				`**Voice Channels:** ${channels.filter(channel => channel.type === 'voice').size}`,
 				'\u200b',
 			])
-
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 

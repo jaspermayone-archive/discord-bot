@@ -6,30 +6,25 @@ module.exports = {
 	description: 'sends a link for the bot support server',
 	category: 'Resources',
 
-	execute({ message, Discord, roles }) {
+	execute({ message, Discord }) {
 
-		if (message.member.roles.cache.has(roles.admin)) {
 
-			const inviteEmbed = new Discord.MessageEmbed()
-				.setColor(colors.heptagram)
-				.setTitle('Need some help with the Heptagram Bot?')
-				.setDescription('Join our discord server at https://discord.gg/HSupF99kpq')
-				.setFooter('This is for Heptagram Bot help only. For server specific help, contact a Modarator or Admin.');
-				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
-	
-			message.channel.send(inviteEmbed);
+		const inviteEmbed = new Discord.MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle('Need some help with the Heptagram Bot?')
+			.addFields(
+				{ name: 'Need some help?', value: 'Join our discord server at https://discord.gg/HSupF99kpq', inline: false },
 
-		}
-		else {
+			)
+			.addFields(
+				{ name: 'Please Note:', value: 'his is for Heptagram Bot help only. For server specific help, contact a Modarator or Admin.', inline: false },
 
-			const userEmbed = new Discord.MessageEmbed()
-				.setColor(colors.heptagram)
-				.setTitle('Need some help with the Heptagram Bot?')
-				.setDescription('Need help with the Heptagram Bot? Have someone with Admin or Modarator permissions in this server run this command')
-				.setFooter('This is for Heptagram Bot help only. For server specific help, contact a Modarator or Admin.');
+			)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-			message.channel.send(userEmbed);
-		}
+		message.channel.send(inviteEmbed);
+
+
 	},
 };

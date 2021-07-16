@@ -5,7 +5,10 @@ module.exports = {
 	category: 'Utilitys',
 
 	execute({ message }) {
-		if (message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
+
+		message.channel.send('This command is a work in progress. It curently doesnt work.');
+
+	/* 	if (message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
 
 			const guild = message.guild;
 
@@ -40,6 +43,6 @@ module.exports = {
 		}
 		else {
 			message.channel.send('This command sets up the server.');
-		}
+		} */
 	},
 };
