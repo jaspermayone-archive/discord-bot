@@ -7,12 +7,14 @@ module.exports = {
 	guildOnly: false,
 	OwnerOnly: true,
 
-	execute({ client, message, args }) {
+	async execute({ client, message, args }) {
 		if (message.author.id === (IDs.OwnerID)) {
 
 			if (!args[0]) {
+
 				client.guilds.cache.forEach((guild) => {
 					message.channel.send(`The server ${guild.name} (\`${guild.id}\`) has a total of ${guild.memberCount} members.`);
+
 				});
 			}
 			else {
