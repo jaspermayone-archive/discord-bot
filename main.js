@@ -42,7 +42,7 @@ client.on('ready', async () => {
 		testServers: [],
 	})
 		.setBotOwner([`${IDs.OwnerID}`])
-		.setDefaultPrefix('t!')
+		.setDefaultPrefix('!')
 		.setColor(colors.heptagram)
 		.setMongoPath(MongoDB);
 
