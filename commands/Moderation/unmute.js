@@ -3,7 +3,6 @@ const { replies } = require('../../config.json');
 module.exports = {
 	name: 'unmute',
 	description: 'unmutes user',
-	guildOnly: true,
 	category: 'moderation',
 
 	execute({ message, roles }) {
@@ -26,7 +25,7 @@ module.exports = {
 
 		}
 		else {
-			message.channel.send('Sorry, this command is resticted!');
+			message.reply(replies.mention);
 		}
 	},
 };

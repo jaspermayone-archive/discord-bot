@@ -4,6 +4,8 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'hug',
 	description: 'just hug someone',
+	category: 'fun',
+
 	execute: async (message) => {
 
 		const member = message.message.mentions.members.first();

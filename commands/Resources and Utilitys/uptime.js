@@ -1,12 +1,12 @@
 const { colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'uptime',
 	description: 'gets server uptime',
-	guildOnly: false,
 	category: 'Utilitys',
 
-	execute({ message, client, Discord }) {
+	execute: ({ message, client }) => {
 
 		let days = 0;
 		const week = 0;

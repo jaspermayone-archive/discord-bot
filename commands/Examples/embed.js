@@ -1,12 +1,13 @@
 const { colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'embed',
 	description: 'embed example',
-	guildOnly: true,
 	category: 'Examples',
+	ownerOnly: true,
 
-	execute({ message, Discord }) {
+	execute({ message }) {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)

@@ -1,12 +1,12 @@
 const { prefix, colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'info',
 	description: 'Displays info about bot.',
-	guildOnly: true,
 	category: 'Resources',
 
-	execute({ Discord, message }) {
+	execute: ({ message }) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Heptagram Bot Info:')

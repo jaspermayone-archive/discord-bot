@@ -3,7 +3,6 @@ const { emoji, replies } = require('../../config.json');
 module.exports = {
 	name: 'stop',
 	description: 'Stops the playing song.',
-	guildOnly: false,
 	category: 'Music',
 	execute: async ({ client, message }) => {
 		if(!message.member.voice.channel) {

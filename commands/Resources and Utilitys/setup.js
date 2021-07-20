@@ -1,10 +1,9 @@
 module.exports = {
 	name: 'setup',
 	description: 'configures bot for new server.',
-	guildOnly: true,
 	category: 'Utilitys',
 
-	execute({ message }) {
+	execute: ({ message }) => {
 
 		message.channel.send('This command is a work in progress. It curently doesnt work.');
 

@@ -7,7 +7,6 @@ module.exports = {
 	name: 'cat',
 	category: 'fun',
 	description: 'Sends a random image of a cat',
-	guildOnly: false,
 
 	async execute({ message }) {
 

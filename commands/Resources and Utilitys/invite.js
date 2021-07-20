@@ -1,12 +1,12 @@
 const { colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'invite',
-	guildOnly: false,
 	description: 'sends the bot invite link',
 	category: 'Resources',
 
-	execute({ message, Discord }) {
+	execute: ({ message }) => {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Bot Invite :robot:')
 			.setColor(colors.heptagram)

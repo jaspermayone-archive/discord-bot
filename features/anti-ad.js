@@ -29,3 +29,17 @@ module.exports = (client) => {
 		}
 	});
 };
+
+module.exports.config = {
+	// The display name that server owners will see.
+	// This can be changed at any time.
+	displayName: 'Anti Ad',
+
+	// The name the database will use to set if it is enabled or not.
+	// This should NEVER be changed once set, and users cannot see it.
+	dbName: 'ANTI AD',
+
+	// Being true means a database connection must be present before the
+	// feature is enabled.
+	loadDBFirst: true,
+};
