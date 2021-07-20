@@ -5,6 +5,8 @@ module.exports = {
 	description: 'react testing',
 	category: 'Examples',
 	ownerOnly: true,
+	hidden: true,
+	testOnly: true,
 
 	execute({ message, client }) {
 		const reactionEmoji = client.emojis.cache.get(emoji.HeptaHeart);

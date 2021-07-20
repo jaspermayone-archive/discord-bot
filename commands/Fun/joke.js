@@ -11,6 +11,7 @@ let blocked = false;
 
 module.exports = {
 	name: 'joke',
+	cooldown: '1m',
 	description: 'Displays a joke',
 	category: 'Fun',
 

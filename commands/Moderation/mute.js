@@ -3,6 +3,7 @@ const { replies } = require('../../config.json');
 const ms = require('ms');
 module.exports = {
 	name: 'mute',
+	guildOnly: true,
 	description: 'mutes user',
 	category: 'moderation',
 

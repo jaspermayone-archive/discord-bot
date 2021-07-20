@@ -3,6 +3,7 @@ module.exports = {
 	description: 'changes bot status',
 	category: 'Owner',
 	ownerOnly: true,
+	hidden: true,
 
 	execute({ client, message, prefix }) {
 		const content = message.content.replace(`${prefix}status`, '');

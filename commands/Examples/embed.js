@@ -6,6 +6,8 @@ module.exports = {
 	description: 'embed example',
 	category: 'Examples',
 	ownerOnly: true,
+	hidden: true,
+	testOnly: true,
 
 	execute({ message }) {
 
