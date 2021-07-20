@@ -4,7 +4,7 @@ const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'moviequote',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Says a quote from a movie provided, or a random movie.',
 
 	execute({ message, args }) {

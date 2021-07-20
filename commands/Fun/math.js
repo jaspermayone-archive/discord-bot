@@ -6,7 +6,7 @@ const { colors } = require('../../config.json');
 module.exports = {
 	name: 'math',
 	description: 'Calculate math',
-	category: 'fun',
+	category: 'Fun',
 
 	execute({ message, args }) {
 		try {

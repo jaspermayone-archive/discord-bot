@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'wipe',
 	description: 'clear with bigger options',
-	category: 'moderation',
+	category: 'Moderation',
 
 	async execute({ message, args }) {
 		if (message.member.permissions.has('MANAGE_MESSAGES')) {

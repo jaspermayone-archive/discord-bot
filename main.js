@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const distube = require('distube');
 const WOKCommands = require('wokcommands');
 
-const { token, colors, MongoDB, IDs } = require('./config.json');
+const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
 const antiAd = require('./features/anti-ad');
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
@@ -44,7 +44,45 @@ client.on('ready', async () => {
 		.setBotOwner([`${IDs.OwnerID}`])
 		.setDefaultPrefix('!')
 		.setColor(colors.heptagram)
-		.setMongoPath(MongoDB);
+		.setMongoPath(MongoDB)
+		.setCategorySettings([
+			{
+				name: 'Examples',
+				emoji: '🚧',
+				hidden: true,
+			},
+			{
+				name: 'Fun',
+				emoji: '🎮',
+			},
+			{
+				name: 'Moderation',
+				emoji: '🔨',
+			},
+			{
+				name: 'Music',
+				emoji: '🎵',
+			},
+			{
+				name: 'Owner',
+				emoji: `${emoji.HeptaHeart}`,
+				customEmoji: true,
+				hidden: true,
+			},
+			{
+				name: 'Resources',
+				emoji: '📂',
+			},
+			{
+				name: 'Utilitys',
+				emoji: '🦾',
+			},
+			{
+				name: 'Development',
+				emoji: '📎',
+				hidden: true,
+			},
+		]);
 
 	console.log(chalk.blueBright('Bot online and Ready!'));
 

@@ -3,7 +3,7 @@ const { prefix } = require('../../config.json');
 module.exports = {
 	name: 'clyde',
 	description: 'Get a custom clyde message!',
-	category: 'fun',
+	category: 'Fun',
 
 	execute: async (message) => {
 		if (!message.args[0]) {

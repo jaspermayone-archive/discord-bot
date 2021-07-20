@@ -3,7 +3,7 @@ const { colors, replies } = require('../../config.json');
 module.exports = {
 	name: 'slap',
 	description: 'Slaps a user',
-	category: 'fun',
+	category: 'Fun',
 
 	execute: async (message) => {
 		const member = message.message.mentions.members.first();

@@ -4,7 +4,7 @@ const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'dadjoke',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Says a random dad joke.',
 
 	execute({ message }) {

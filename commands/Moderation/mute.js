@@ -5,7 +5,7 @@ module.exports = {
 	name: 'mute',
 	guildOnly: true,
 	description: 'mutes user',
-	category: 'moderation',
+	category: 'Moderation',
 
 	execute({ message, args, roles }) {
 

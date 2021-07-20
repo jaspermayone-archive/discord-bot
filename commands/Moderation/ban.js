@@ -4,7 +4,7 @@ module.exports = {
 	name: 'ban',
 	description: 'bans users',
 	guildOnly: true,
-	category: 'moderation',
+	category: 'Moderation',
 
 	execute({ message }) {
 		const member = message.mentions.users.first();
