@@ -7,6 +7,7 @@ module.exports = {
 	hidden: true,
 
 	execute({ client, message, args }) {
-		console.log(args);
+        client.guild.invite.c
+        //	console.log(args);
 	},
 };
