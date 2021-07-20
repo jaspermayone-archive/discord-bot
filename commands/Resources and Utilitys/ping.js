@@ -1,12 +1,12 @@
 const { colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'ping',
-	guildOnly: false,
+	aliases: ['p'],
 	category: 'Utilitys',
 	description: 'returns bot ping.',
-
-	execute({ message, client, Discord }) {
+	execute: ({ message, client }) => {
 
 		const ping = message.createdTimestamp - message.createdTimestamp;
 

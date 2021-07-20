@@ -5,7 +5,9 @@ const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'math',
+	description: 'Calculate math',
 	category: 'fun',
+
 	execute({ message, args }) {
 		try {
 			if (!args[0]) return message.channel.send('Please Give Me Equation!');

@@ -1,13 +1,12 @@
 const moment = require('moment');
+const Discord = require('discord.js');
 const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'user',
 	description: 'gives info about user.',
 	category: 'Resources',
-	guildOnly: false,
-
-	execute({ message, Discord }) {
+	execute: ({ message }) => {
 
 		let user;
 		if (message.mentions.users.first()) {

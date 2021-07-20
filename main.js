@@ -1,21 +1,14 @@
 const Discord = require('discord.js');
 const chalk = require('chalk');
-const DisTube = require('distube');
+const distube = require('distube');
+const WOKCommands = require('wokcommands');
 
-const { prefix, token } = require('./config.json');
-const mongo = require('./mongo');
-const antiAd = require('./anti-Ad');
+const { token, colors, MongoDB, IDs } = require('./config.json');
+const antiAd = require('./features/anti-ad');
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
-
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-client.events = new Discord.Collection();
-client.cooldowns = new Discord.Collection();
-
-// music bot
-client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
+client.distube = new distube(client, { searchSongs: false, emitNewSongOnly: true });
 client.distube
 	.on('playSong', (message, queue, song) => message.channel.send(new Discord.MessageEmbed()
 		.setTitle('Playing')
@@ -25,30 +18,38 @@ client.distube
 		.setTitle('Queued')
 		.setDescription(`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)));
 
-['command_handler', 'event_handler'].forEach(handler => {
-	require(`./handlers/${handler}`)({ client, Discord });
-});
-
 client.on('ready', async () => {
+
+	client.user.setStatus('online');
+	client.user.setActivity(`${client.guilds.cache.size} servers!`, { type: 'WATCHING' });
+
+
+	console.log(chalk.magenta('Starting Heptagram\nNode version: ' + process.version + '\nDiscord.js version: ' + Discord.version));
+	console.log(chalk.green(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
+
+	new WOKCommands(client, {
+		commandsDir: 'commands',
+		featuresDir: 'features',
+		showWarns: true,
+		del: -1,
+		ignoreBots: true,
+		dbOptions: {
+			keepAlive: true,
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useFindAndModify: false,
+		},
+		testServers: [],
+	})
+		.setBotOwner([`${IDs.OwnerID}`])
+		.setDefaultPrefix('t!')
+		.setColor(colors.heptagram)
+		.setMongoPath(MongoDB);
+
 	console.log(chalk.blueBright('Bot online and Ready!'));
 
-	await mongo().then(mongoose => {
-		try {
-			console.log(chalk.blue('Connected to Heptagram MongoDB database!'));
-		}
-		finally {
-			mongoose.connection.close();
-		}
-	});
 });
 
 antiAd(client);
-
-client.on('message', async message => {
-	const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-	if (message.content.match(prefixMention)) {
-		return message.reply(`Hey there! Need some help? My commands can be accessed through my prefix. My prefix in this server is \`${prefix}\`. You can use \`${prefix}help\` for a list of all my commands.`);
-	}
-});
 
 client.login(token);
