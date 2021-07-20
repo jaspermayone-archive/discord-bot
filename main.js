@@ -39,7 +39,7 @@ client.on('ready', async () => {
 			useUnifiedTopology: true,
 			useFindAndModify: false,
 		},
-		testServers: [],
+		testServers: [`${IDs.ServerID}`],
 	})
 		.setBotOwner([`${IDs.OwnerID}`])
 		.setDefaultPrefix('!')
