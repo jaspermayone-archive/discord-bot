@@ -6,6 +6,7 @@ module.exports = {
 	description: 'gets list of servers bot is in.',
 	category: 'Owner',
 	ownerOnly: true,
+	hidden: true,
 
 	async execute({ client, message, args }) {
 

@@ -3,6 +3,8 @@ module.exports = {
 	description: 'admin example',
 	category: 'Examples',
 	ownerOnly: true,
+	hidden: true,
+	testOnly: true,
 
 	execute({ message, roles }) {
 		if (message.member.roles.cache.has(roles.admin)) {

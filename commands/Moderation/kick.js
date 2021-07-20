@@ -2,6 +2,7 @@ const { replies } = require('../../config.json');
 
 module.exports = {
 	name: 'kick',
+	guildOnly: true,
 	description: 'kicks users',
 	category: 'moderation',
 

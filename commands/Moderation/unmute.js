@@ -2,6 +2,7 @@ const { replies } = require('../../config.json');
 
 module.exports = {
 	name: 'unmute',
+	guildOnly: true,
 	description: 'unmutes user',
 	category: 'moderation',
 

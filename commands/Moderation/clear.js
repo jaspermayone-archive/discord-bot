@@ -2,6 +2,7 @@ const { replies } = require('../../config.json');
 
 module.exports = {
 	name: 'clear',
+	guildOnly: true,
 	description: 'clears messages',
 	category: 'moderation',
 

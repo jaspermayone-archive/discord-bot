@@ -5,6 +5,7 @@ module.exports = {
 	description: 'Reloads a command',
 	category: 'Owner',
 	ownerOnly: true,
+	hidden: true,
 
 	execute({ message, args }) {
 
