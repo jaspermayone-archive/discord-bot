@@ -6,7 +6,6 @@ module.exports = {
 	name: 'dadjoke',
 	category: 'fun',
 	description: 'Says a random dad joke.',
-	guildOnly: false,
 
 	execute({ message }) {
 		const embed = new MessageEmbed()

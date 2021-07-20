@@ -4,12 +4,11 @@ const ms = require('ms');
 module.exports = {
 	name: 'mute',
 	description: 'mutes user',
-	guildOnly: true,
 	category: 'moderation',
 
 	execute({ message, args, roles }) {
 
-		if (!message.member.hasPermission('MOVE_MEMBERS')) {
+		if (message.member.hasPermission('MOVE_MEMBERS')) {
 
 			const target = message.mentions.users.first();
 			if (target) {
@@ -40,7 +39,7 @@ module.exports = {
 
 		}
 		else {
-			message.channel.send('Sorry, this command is resticted!');
+			message.reply(replies.restricted);
 		}
 	},
 };

@@ -1,12 +1,12 @@
 const { colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'support',
-	guildOnly: true,
 	description: 'sends a link for the bot support server',
 	category: 'Resources',
 
-	execute({ message, Discord }) {
+	execute: ({ message }) => {
 
 
 		const inviteEmbed = new Discord.MessageEmbed()
@@ -17,7 +17,7 @@ module.exports = {
 
 			)
 			.addFields(
-				{ name: 'Please Note:', value: 'his is for Heptagram Bot help only. For server specific help, contact a Modarator or Admin.', inline: false },
+				{ name: 'Please Note:', value: 'this is for Heptagram Bot help only. For server specific help, contact a Modarator or Admin.', inline: false },
 
 			)
 			.setTimestamp()

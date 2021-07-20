@@ -1,5 +1,6 @@
 const { colors } = require('../../config.json');
 const moment = require('moment');
+const Discord = require('discord.js');
 
 const regions = {
 	brazil: 'Brazil',
@@ -23,7 +24,7 @@ module.exports = {
 	guildOnly: true,
 	category: 'Resources',
 
-	execute({ message, Discord }) {
+	execute: ({ message }) => {
 
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;

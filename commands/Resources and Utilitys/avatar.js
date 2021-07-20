@@ -1,12 +1,11 @@
 const { colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
 	description: 'gets user avatar.',
-	guildOnly: true,
 	category: 'Utilitys',
-
-	async execute({ message, args, Discord }) {
+	async execute({ message, args }) {
 		if (!args[0]) {
 			const embed = new Discord.MessageEmbed()
 				.setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)

@@ -11,7 +11,6 @@ let blocked = false;
 
 module.exports = {
 	name: 'joke',
-	guildOnly: false,
 	description: 'Displays a joke',
 	category: 'Fun',
 

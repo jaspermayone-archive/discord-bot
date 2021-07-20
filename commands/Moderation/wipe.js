@@ -1,8 +1,7 @@
 module.exports = {
 	name: 'wipe',
 	description: 'clear with bigger options',
-	guildOnly: true,
-	catagory: 'moderation',
+	category: 'moderation',
 
 	async execute({ message, args }) {
 		if (message.member.permissions.has('MANAGE_MESSAGES')) {

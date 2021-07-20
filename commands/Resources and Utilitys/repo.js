@@ -1,4 +1,5 @@
 const { colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'repo',
@@ -6,7 +7,7 @@ module.exports = {
 	description: 'sends the bot repo link',
 	category: 'Resources',
 
-	execute({ message, Discord }) {
+	execute: ({ message }) => {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Bot Repo :robot:')
 			.setColor(colors.heptagram)

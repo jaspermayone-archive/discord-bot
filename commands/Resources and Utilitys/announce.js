@@ -1,11 +1,12 @@
 const { prefix, colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'announce',
 	description: 'Make an Announcemnet in your Server',
-	guildOnly: true,
+	category: 'Resources',
 
-	execute({ message, Discord, args }) {
+	execute: ({ message, args }) => {
 
 		const anchannel = message.mentions.channels.first();
 		if (!message.member.hasPermission('MANAGE_MESSAGES')) {

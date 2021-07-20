@@ -1,7 +1,8 @@
+const { replies } = require('../../config.json');
+
 module.exports = {
 	name: 'clear',
 	description: 'clears messages',
-	guildOnly: true,
 	category: 'moderation',
 
 	async execute({ message, args }) {
@@ -18,7 +19,7 @@ module.exports = {
 
 		}
 		else {
-			message.channel.send('Sorry, this command is resticted!');
+			message.reply(replies.restricted);
 		}
 	},
 };

@@ -1,8 +1,12 @@
 const { replies, emoji } = require('../../config.json');
+const Discord = require('discord.js');
+
 module.exports = {
 	name: 'play',
 	description: 'Plays the given song.',
-	execute: async ({ Discord, client, message, args }) => {
+	category: 'Music',
+
+	execute: async ({ client, message, args }) => {
 
 		if(!message.member.voice.channel) {
 			message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));

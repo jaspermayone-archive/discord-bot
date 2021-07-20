@@ -1,8 +1,8 @@
 module.exports = {
 	name: 'admin',
 	description: 'admin example',
-	guildOnly: true,
 	category: 'Examples',
+	ownerOnly: true,
 
 	execute({ message, roles }) {
 		if (message.member.roles.cache.has(roles.admin)) {

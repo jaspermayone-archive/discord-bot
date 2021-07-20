@@ -1,4 +1,5 @@
 const { prefix, colors } = require('../../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'bots',
@@ -6,7 +7,7 @@ module.exports = {
 	description: 'sends a discription of all the Heptagram bots.',
 	category: 'Resources',
 
-	execute({ message, Discord }) {
+	execute: ({ message }) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
