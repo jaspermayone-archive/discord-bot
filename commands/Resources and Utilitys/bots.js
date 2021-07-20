@@ -7,7 +7,7 @@ module.exports = {
 	description: 'sends a discription of all the Heptagram bots.',
 	category: 'Resources',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
