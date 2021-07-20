@@ -3,7 +3,7 @@ const { replies } = require('../../config.json');
 module.exports = {
 	name: 'hack',
 	description: 'Another Fun Command',
-	category: 'fun',
+	category: 'Fun',
 
 	execute: async (message) => {
 		const msgObj = message.message;

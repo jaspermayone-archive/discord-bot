@@ -4,7 +4,7 @@ module.exports = {
 	name: 'unmute',
 	guildOnly: true,
 	description: 'unmutes user',
-	category: 'moderation',
+	category: 'Moderation',
 
 	execute({ message, roles }) {
 

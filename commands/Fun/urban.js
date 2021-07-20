@@ -5,7 +5,7 @@ const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'urban',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Gets an urban dictionary definition',
 
 	execute({ message, args }) {

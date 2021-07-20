@@ -3,7 +3,7 @@ const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'diceroll',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Rolls a dice for a number 1-6.',
 
 	execute({ message }) {

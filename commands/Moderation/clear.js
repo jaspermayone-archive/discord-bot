@@ -4,7 +4,7 @@ module.exports = {
 	name: 'clear',
 	guildOnly: true,
 	description: 'clears messages',
-	category: 'moderation',
+	category: 'Moderation',
 
 	async execute({ message, args }) {
 		if (message.member.permissions.has('MANAGE_MESSAGES')) {

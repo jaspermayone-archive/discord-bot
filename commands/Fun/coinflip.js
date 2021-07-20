@@ -3,7 +3,7 @@ const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'coinflip',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Flips a coin for heads or tails.',
 	execute({ message }) {
 		const embed = new MessageEmbed()

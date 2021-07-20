@@ -3,7 +3,7 @@ const { colors } = require('../../config.json');
 
 module.exports = {
 	name: 'encouragement',
-	category: 'fun',
+	category: 'Fun',
 	description: 'Says a random form of encouragement.',
 	execute({ message }) {
 		const inspirationalMessages =
