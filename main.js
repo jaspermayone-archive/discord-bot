@@ -30,6 +30,7 @@ client.on('ready', async () => {
 	new WOKCommands(client, {
 		commandsDir: 'commands',
 		featuresDir: 'features',
+		messagesPath: 'messages.json',
 		showWarns: true,
 		del: -1,
 		ignoreBots: true,

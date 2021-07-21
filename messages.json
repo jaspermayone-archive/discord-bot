@@ -1,0 +1,5 @@
+{
+    "SYNTAX_ERROR": {
+      "english": "Incorrect usage! Please use \"{PREFIX}{COMMAND} {ARGUMENTS}\""
+    }
+  }
