@@ -5,6 +5,7 @@ module.exports = {
 	minArgs: 1,
 	maxArgs: 1,
 	expectedArgs: "<number of messgaes you want to clear>",
+	permissions: ["MANAGE_MESSAGES"],
 
 	async execute({ message, args }) {
 		if (message.member.permissions.has('MANAGE_MESSAGES')) {

@@ -8,20 +8,18 @@ module.exports = {
 	minArgs: 2,
 	maxArgs: 2,
 	expectedArgs: "<channel> <msg>",
+	permissions: ["MANAGE_MESSAGES"],
 
 	execute: ({ message, args }) => {
 
 		const anchannel = message.mentions.channels.first();
-		if (!message.member.hasPermission('MANAGE_MESSAGES')) {
-			return message.channel.send('You don\'t have enough Permissions');
-		}
+
 		if (!args.slice(1).join(' ')) {
 			return message.channel.send('');
 		}
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle('**Announcement!**')
-			.setDescription(args.slice(1).join(' '), { allowedMentions: { parse: ['users'] } })
 			.setColor(colors.heptagram)
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);

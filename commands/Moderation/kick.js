@@ -1,5 +1,3 @@
-const { replies } = require('../../config.json');
-
 module.exports = {
 	name: 'kick',
 	guildOnly: true,
@@ -8,19 +6,14 @@ module.exports = {
 	minArgs: 1,
 	maxArgs: 1,
 	expectedArgs: "<@member you want to kick>",
+	permissions: ["KICK_MEMBERS"],
 
 	execute({ message }) {
 		const member = message.mentions.users.first();
+		const memberTarget = message.guild.members.cache.get(member.id);
 
-		if ((message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS'))) {
-			const memberTarget = message.guild.members.cache.get(member.id);
-			memberTarget.kick();
-			message.reply('The user has been kicked.');
-
-		}
-		else {
-			message.channel.send(replies.restricted);
-		}
+		memberTarget.kick();
+		message.reply('The user has been kicked.');
 
 	},
 };

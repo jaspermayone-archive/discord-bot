@@ -1,5 +1,3 @@
-const { replies } = require('../../config.json');
-
 module.exports = {
 	name: 'unmute',
 	guildOnly: true,
@@ -8,6 +6,7 @@ module.exports = {
 	minArgs: 1,
 	maxArgs: 1,
 	expectedArgs: "<@user you want to unmute>",
+	permissions: ["MUTE_MEMBERS"],
 
 	execute({ message, roles }) {
 

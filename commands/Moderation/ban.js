@@ -6,19 +6,13 @@ module.exports = {
 	minArgs: 1,
 	maxArgs: 1,
 	expectedArgs: "<@user you want to ban>",
+	permissions: ["BAN_MEMBERS"],
 
 	execute({ message }) {
 		const member = message.mentions.users.first();
+		const memberTarget = message.guild.members.cache.get(member.id);
 
-		if ((message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS'))) {
-
-			const memberTarget = message.guild.members.cache.get(member.id);
-			memberTarget.ban();
-			message.reply('The user has been banned.');
-		}
-		else {
-			message.channel.send('Sorry, this command is resticted!');
-		}
-
+		memberTarget.ban();
+		message.reply('The user has been banned.');
 	},
 };
