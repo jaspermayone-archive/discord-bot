@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const math = require('mathjs');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
 				.setTitle('Result')
 				.setDescription(math.evaluate(args.join(' ')))
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 			message.channel.send(embed);
 		}

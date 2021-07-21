@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 module.exports = {
 	name: 'coinflip',
@@ -10,7 +10,7 @@ module.exports = {
 			.setColor(colors.heptagram)
 			.setTitle('A coin was flipped..')
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		const number = Math.floor(Math.random() * 2);
 

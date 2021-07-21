@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 module.exports = {
 	name: 'encouragement',
@@ -65,7 +65,7 @@ module.exports = {
 			.setTitle('Here\'s some insipration/encouragement')
 			.setDescription(`${inspirationalMessages[Math.floor((Math.random() * 10))]}`)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		return message.reply(embed);
 	},

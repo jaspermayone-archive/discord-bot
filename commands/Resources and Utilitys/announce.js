@@ -1,4 +1,4 @@
-const { prefix, colors } = require('../../config.json');
+const { cdn, colors } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
 	description: 'Make an Announcemnet in your Server',
 	category: 'Resources',
 
-	execute: ({ message, args }) => {
+	execute: ({ message, args, prefix }) => {
 
 		const anchannel = message.mentions.channels.first();
 		if (!message.member.hasPermission('MANAGE_MESSAGES')) {
@@ -29,14 +29,16 @@ module.exports = {
 			.setDescription(args.slice(1).join(' '), { allowedMentions: { parse: ['users'] } })
 			.setColor(colors.heptagram)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');		anchannel.send(embed);
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+		anchannel.send(embed);
 
 		const anembed = new Discord.MessageEmbed()
 			.setTitle('Done!')
 			.setDescription(`Announcement has been sent to ${anchannel}`)
 			.setColor(colors.heptagram)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		message.channel.send(anembed);
 	},

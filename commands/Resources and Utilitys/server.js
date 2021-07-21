@@ -1,4 +1,4 @@
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 const moment = require('moment');
 const Discord = require('discord.js');
 
@@ -44,7 +44,7 @@ module.exports = {
 				'\u200b',
 			])
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 
 		const statisticsEmbed = new Discord.MessageEmbed()
@@ -60,7 +60,7 @@ module.exports = {
 				'\u200b',
 			])
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 
 		message.channel.send(generalEmbed);

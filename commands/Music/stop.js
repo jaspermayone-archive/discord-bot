@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { emoji, replies } = require('../../config.json');
+const { emoji, replies, cdn } = require('../../config.json');
+
 module.exports = {
 	name: 'stop',
 	description: 'Stops the playing song.',
@@ -12,7 +13,7 @@ module.exports = {
 				.setTitle('Error')
 				.setDescription(replies.mustVC)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 			return message.channel.send(embed);
 		}
