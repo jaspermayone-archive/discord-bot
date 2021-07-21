@@ -6,6 +6,10 @@ module.exports = {
 	name: 'user',
 	description: 'gives info about user.',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
+
 	execute: ({ message }) => {
 
 		let user;

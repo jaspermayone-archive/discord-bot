@@ -5,6 +5,10 @@ module.exports = {
 	name: 'avatar',
 	description: 'gets user avatar.',
 	category: 'Utilitys',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
+
 	async execute({ message, args }) {
 		if (!args[0]) {
 			const embed = new Discord.MessageEmbed()

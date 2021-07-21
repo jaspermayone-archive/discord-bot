@@ -6,38 +6,35 @@ module.exports = {
 	guildOnly: true,
 	description: 'mutes user',
 	category: 'Moderation',
+	minArgs: 1,
+	maxArgs: 1,
+	expectedArgs: "<@user you want to mute>",
 
 	execute({ message, args, roles }) {
 
 		if (message.member.hasPermission('MOVE_MEMBERS')) {
 
 			const target = message.mentions.users.first();
-			if (target) {
 
-				const mainRole = message.guild.roles.cache.get(roles.users);
-				const muteRole = message.guild.roles.cache.get(roles.muted);
+			const mainRole = message.guild.roles.cache.get(roles.users);
+			const muteRole = message.guild.roles.cache.get(roles.muted);
 
-				const memberTarget = message.guild.members.cache.get(target.id);
+			const memberTarget = message.guild.members.cache.get(target.id);
 
-				if (!args[1]) {
-					memberTarget.roles.remove(mainRole.id);
-					memberTarget.roles.add(muteRole.id);
-					message.channel.send(`<@${memberTarget.user.id}> has been muted`);
-					return;
-				}
+			if (!args[1]) {
 				memberTarget.roles.remove(mainRole.id);
 				memberTarget.roles.add(muteRole.id);
-				message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
-
-				setTimeout(function() {
-					memberTarget.roles.remove(muteRole.id);
-					memberTarget.roles.add(mainRole.id);
-				}, ms(args[1]));
+				message.channel.send(`<@${memberTarget.user.id}> has been muted`);
+				return;
 			}
-			else {
-				message.reply(replies.mention);
-			}
+			memberTarget.roles.remove(mainRole.id);
+			memberTarget.roles.add(muteRole.id);
+			message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
 
+			setTimeout(function() {
+				memberTarget.roles.remove(muteRole.id);
+				memberTarget.roles.add(mainRole.id);
+			}, ms(args[1]));
 		}
 		else {
 			message.reply(replies.restricted);

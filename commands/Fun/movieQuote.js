@@ -6,6 +6,9 @@ module.exports = {
 	name: 'moviequote',
 	category: 'Fun',
 	description: 'Says a quote from a movie provided, or a random movie.',
+	minArgs: 0,
+	maxArgs: -1,
+	expectedArgs: "<movie (optional)>",
 
 	execute({ message, args }) {
 		const embed = new MessageEmbed()

@@ -23,6 +23,9 @@ module.exports = {
 	description: 'gives info about server.',
 	guildOnly: true,
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message }) => {
 

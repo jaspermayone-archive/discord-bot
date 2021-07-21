@@ -5,10 +5,12 @@ module.exports = {
 	guildOnly: true,
 	description: 'clears messages',
 	category: 'Moderation',
+	minArgs: 1,
+	maxArgs: 1,
+	expectedArgs: "<number of messages you want to clear>",
 
 	async execute({ message, args }) {
 		if (message.member.permissions.has('MANAGE_MESSAGES')) {
-			if (!args[0]) return message.reply('Please specify a number of messages to clear.');
 			if (isNaN(args[0])) return message.reply('Please enter a number instead of text.');
 
 			if (args[0] > 10) return message.reply('Slow down! This command resticts to 10 messages per command for safety.');

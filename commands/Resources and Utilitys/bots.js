@@ -6,6 +6,9 @@ module.exports = {
 	guildOnly: false,
 	description: 'sends a discription of all the Heptagram bots.',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	callback: ({ message, prefix }) => {
 

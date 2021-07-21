@@ -5,6 +5,9 @@ module.exports = {
 	name: 'uptime',
 	description: 'gets server uptime',
 	category: 'Utilitys',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message, client }) => {
 

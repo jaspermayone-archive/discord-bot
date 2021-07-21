@@ -5,6 +5,9 @@ module.exports = {
 	name: 'diceroll',
 	category: 'Fun',
 	description: 'Rolls a dice for a number 1-6.',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute({ message }) {
 		const embed = new MessageEmbed()

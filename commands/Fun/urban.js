@@ -7,6 +7,9 @@ module.exports = {
 	name: 'urban',
 	category: 'Fun',
 	description: 'Gets an urban dictionary definition',
+	minArgs: 0,
+	maxArgs: -1,
+	expectedArgs: "",
 
 	execute({ message, args }) {
 		if (!args[0] || !['search', 'random'].includes(args[0])) {return message.reply('Please provide <search|random> (query).');}

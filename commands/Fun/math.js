@@ -7,10 +7,12 @@ module.exports = {
 	name: 'math',
 	description: 'Calculate math',
 	category: 'Fun',
+	minArgs: 1,
+	maxArgs: -1,
+	expectedArgs: "<Equation you want solved>",
 
 	execute({ message, args }) {
 		try {
-			if (!args[0]) return message.channel.send('Please Give Me Equation!');
 
 			const embed = new MessageEmbed()
 				.setColor(colors.heptagram)
@@ -22,7 +24,7 @@ module.exports = {
 			message.channel.send(embed);
 		}
 		catch (error) {
-			message.channel.send('Please Give Me Valid Equation | Try Again Later!').then(() => console.log(error));
+			console.log(error);
 		}
 	},
 };

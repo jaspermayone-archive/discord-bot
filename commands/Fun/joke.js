@@ -14,6 +14,9 @@ module.exports = {
 	cooldown: '1m',
 	description: 'Displays a joke',
 	category: 'Fun',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute({ message }) {
 		// To prevent user spamming the same command

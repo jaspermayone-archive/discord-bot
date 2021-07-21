@@ -5,6 +5,10 @@ module.exports = {
 	name: 'encouragement',
 	category: 'Fun',
 	description: 'Says a random form of encouragement.',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
+
 	execute({ message }) {
 		const inspirationalMessages =
 			[

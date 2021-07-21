@@ -7,6 +7,9 @@ module.exports = {
 	name: 'cat',
 	category: 'Fun',
 	description: 'Sends a random image of a cat',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	async execute({ message }) {
 

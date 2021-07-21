@@ -6,6 +6,9 @@ module.exports = {
 	name: 'dadjoke',
 	category: 'Fun',
 	description: 'Says a random dad joke.',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute({ message }) {
 		const embed = new MessageEmbed()

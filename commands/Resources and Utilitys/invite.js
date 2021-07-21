@@ -5,6 +5,9 @@ module.exports = {
 	name: 'invite',
 	description: 'sends the bot invite link',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message }) => {
 		const embed = new Discord.MessageEmbed()

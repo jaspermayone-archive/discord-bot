@@ -6,6 +6,9 @@ module.exports = {
 	guildOnly: false,
 	description: 'sends the bot repo link',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message }) => {
 		const embed = new Discord.MessageEmbed()

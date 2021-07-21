@@ -5,22 +5,21 @@ module.exports = {
 	guildOnly: true,
 	description: 'kicks users',
 	category: 'Moderation',
+	minArgs: 1,
+	maxArgs: 1,
+	expectedArgs: "<@member you want to kick>",
 
 	execute({ message }) {
 		const member = message.mentions.users.first();
 
 		if ((message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS'))) {
-			if (member) {
-				const memberTarget = message.guild.members.cache.get(member.id);
-				memberTarget.kick();
-				message.reply('The user has been kicked.');
-			}
-			else {
-				message.reply(replies.mention);
-			}
+			const memberTarget = message.guild.members.cache.get(member.id);
+			memberTarget.kick();
+			message.reply('The user has been kicked.');
+
 		}
 		else {
-			message.channel.send('Sorry, this command is resticted!');
+			message.channel.send(replies.restricted);
 		}
 
 	},

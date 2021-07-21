@@ -5,20 +5,15 @@ module.exports = {
 	name: 'announce',
 	description: 'Make an Announcemnet in your Server',
 	category: 'Resources',
+	minArgs: 2,
+	maxArgs: 2,
+	expectedArgs: "<channel> <msg>",
 
-	execute: ({ message, args, prefix }) => {
+	execute: ({ message, args }) => {
 
 		const anchannel = message.mentions.channels.first();
 		if (!message.member.hasPermission('MANAGE_MESSAGES')) {
-			return message.channel.send('You don\'t have enogh Permissions');
-		}
-		if (!message.guild.me.hasPermission('MANAGE_MESSAGES')) {
-			return message.channel.send('I don\'t have enough Permissions');
-		}
-		if (!anchannel) {
-			message.channel.send('Please specify a channnel and message to make an Announcement.');
-			message.channel.send(`Command Usage: \`${prefix} <channel> <msg>\``);
-
+			return message.channel.send('You don\'t have enough Permissions');
 		}
 		if (!args.slice(1).join(' ')) {
 			return message.channel.send('');

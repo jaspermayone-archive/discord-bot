@@ -6,6 +6,10 @@ module.exports = {
 	aliases: ['p'],
 	category: 'Utilitys',
 	description: 'returns bot ping.',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
+
 	execute: ({ message, client }) => {
 
 		const ping = message.createdTimestamp - message.createdTimestamp;

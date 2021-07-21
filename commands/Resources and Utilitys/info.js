@@ -5,6 +5,9 @@ module.exports = {
 	name: 'info',
 	description: 'Displays info about bot.',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message, prefix }) => {
 

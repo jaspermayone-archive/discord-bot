@@ -5,6 +5,9 @@ module.exports = {
 	name: 'hug',
 	description: 'just hug someone',
 	category: 'Fun',
+	minArgs: 0,
+	maxArgs: 1,
+	expectedArgs: "<@user you want to hug>",
 
 	execute: async (message) => {
 
