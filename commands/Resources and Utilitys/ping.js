@@ -1,11 +1,16 @@
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
+
 
 module.exports = {
 	name: 'ping',
 	aliases: ['p'],
 	category: 'Utilitys',
 	description: 'returns bot ping.',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
+
 	execute: ({ message, client }) => {
 
 		const ping = message.createdTimestamp - message.createdTimestamp;
@@ -15,7 +20,7 @@ module.exports = {
 			.setColor(colors.heptagram)
 			.setDescription(`Bot Latency: \`${ping}ms\`, API Latency: \`${Math.round(message.client.ws.ping)}ms\` Websocket Heartbeat: \`${client.ws.ping}ms.\``)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		message.channel.send(embed);
 	},

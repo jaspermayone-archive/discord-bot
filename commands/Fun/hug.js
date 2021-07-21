@@ -1,10 +1,13 @@
-const { colors, replies } = require('../../config.json');
+const { colors, replies, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
 	name: 'hug',
 	description: 'just hug someone',
 	category: 'Fun',
+	minArgs: 0,
+	maxArgs: 1,
+	expectedArgs: "<@user you want to hug>",
 
 	execute: async (message) => {
 
@@ -19,7 +22,7 @@ module.exports = {
 			.setImage(String([images[image]]))
 			.setColor(colors.heptagram)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 
 		if(member.id === message.message.author.id) return message.message.channel.send(HugEmbed);

@@ -1,12 +1,15 @@
-const { prefix, colors } = require('../../config.json');
+const { cdn, colors } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
 	name: 'info',
 	description: 'Displays info about bot.',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
-	execute: ({ message }) => {
+	execute: ({ message, prefix }) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Heptagram Bot Info:')
@@ -17,7 +20,7 @@ module.exports = {
 				{ name: 'More info:', value: 'You can find out more about Heptagram in our support server or on our GitHub Repository.', inline: true },
 			)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		message.channel.send(embed);
 

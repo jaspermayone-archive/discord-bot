@@ -1,17 +1,20 @@
 const { MessageEmbed } = require('discord.js');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 module.exports = {
 	name: 'diceroll',
 	category: 'Fun',
 	description: 'Rolls a dice for a number 1-6.',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute({ message }) {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle('A dice was rolled..')
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		const number = Math.floor(Math.random() * 6);
 		const images =

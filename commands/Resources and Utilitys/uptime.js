@@ -1,10 +1,13 @@
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
 	name: 'uptime',
 	description: 'gets server uptime',
 	category: 'Utilitys',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message, client }) => {
 
@@ -33,7 +36,7 @@ module.exports = {
 			.setColor(colors.heptagram)
 			.setDescription(`Bot Uptime: \`${uptime}\``)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		message.channel.send(embed);
 	},

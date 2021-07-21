@@ -1,4 +1,4 @@
-const { prefix, colors } = require('../../config.json');
+const { cdn, colors } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -6,8 +6,11 @@ module.exports = {
 	guildOnly: false,
 	description: 'sends a discription of all the Heptagram bots.',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
-	callback: ({ message }) => {
+	callback: ({ message, prefix }) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
@@ -22,7 +25,7 @@ module.exports = {
 				{ name: 'Join the discord server!', value: 'You can join the Heptagram bot discord server at https://discord.gg/HSupF99kpq', inline: false },
 			)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		message.channel.send(embed);
 	},

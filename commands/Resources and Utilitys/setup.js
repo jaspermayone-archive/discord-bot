@@ -2,6 +2,9 @@ module.exports = {
 	name: 'setup',
 	description: 'configures bot for new server.',
 	category: 'Utilitys',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message }) => {
 

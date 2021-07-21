@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 const fetch = require('node-fetch');
 
@@ -7,6 +7,9 @@ module.exports = {
 	name: 'cat',
 	category: 'Fun',
 	description: 'Sends a random image of a cat',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	async execute({ message }) {
 
@@ -17,7 +20,7 @@ module.exports = {
 			.setImage(file)
 			.setColor(colors.heptagram)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		message.channel.send(catembed);
 	},

@@ -1,0 +1,112 @@
+{
+    "SYNTAX_ERROR": {
+        "english": "Incorrect usage! Please use \"{PREFIX}{COMMAND} {ARGUMENTS}\""
+    },
+    "LANGUAGE_NOT_SUPPORTED": {
+        "english": "This bot does not have support for {LANGUAGE} at this time."
+    },
+    "BOT_OWNERS_ONLY": {
+        "english": "Only the bot owner can run this command."
+    },
+    "DISABLED_COMMAND": {
+        "english": "That command is currently disabled in this server."
+    },
+    "MISSING_PERMISSION": {
+        "english": "You don't have permison to use this command!"
+    },
+    "MISSING_ROLES": {
+        "english": "You do not have the required roles to use this command! You need one of the following: {ROLES}"
+    },
+    "COOLDOWN": {
+        "english": "You must wait {COOLDOWN} before using that command again."
+    },
+    "ENABLE_DISABLE_STATE": {
+        "english": "The state must be either \"enable\" or \"disable\"."
+    },
+    "CANNOT_ENABLE_DISABLE_IN_DMS": {
+        "english": "You cannot enable or disable commands in private messages."
+    },
+    "COMMAND_ALREADY_ENABLED": {
+        "english": "That command is already enabled!"
+    },
+    "COMMAND_ALREADY_DISABLED": {
+        "english": "That command is already disabled!"
+    },
+    "COMMAND_NOW_ENABLED": {
+        "english": "{COMMAND} is now enabled!"
+    },
+    "COMMAND_NOW_DISABLED": {
+        "english": "{COMMAND} is now disabled!"
+    },
+    "UNKNOWN_COMMAND": {
+        "english": "Could not find command {COMMAND}!"
+    },
+    "CURRENT_PREFIX": {
+        "english": "The current prefix is {PREFIX}."
+    },
+    "SET_PREFIX": {
+        "english": "Set the command prefix to {PREFIX}."
+    },
+    "CANNOT_SET_PREFIX_IN_DMS": {
+        "english": "You cannot set a prefix in a private message."
+    },
+    "CANNOT_CHANGE_REQUIRED_ROLES_IN_DMS": {
+        "english": "You cannot change required roles in private messages."
+    },
+    "REMOVED_ALL_REQUIRED_ROLES": {
+        "english": "Removed all required roles from command {COMMAND}."
+    },
+    "ADDED_REQUIRED_ROLE": {
+        "english": "Added role {ROLE} to command {COMMAND}."
+    },
+    "NO_DATABASE_FOUND": {
+        "english": "No database connection found!"
+    },
+    "GUILD_ONLY_COMMAND": {
+        "english": "This command can only be used within a server."
+    },
+    "NO_REACT_PERMS": {
+        "english": "This bot needs the \"Add Reactions\" permission to use the help menu."
+    },
+    "EXCEPTION": {
+        "english": "An error occurred when running this command! PLEASE REPORT THIS IN THE HEPTAGRAM SUPPORT SERVER."
+    },
+    "NO_TAGGED_CHANNELS": {
+        "english": "Please tag at least one channel."
+    },
+    "NOT_CHANNEL_COMMAND": {
+        "english": "That command is currently not limited to any channel."
+    },
+    "NO_LONGER_CHANNEL_COMMAND": {
+        "english": "That command is no longer a channel specific command."
+    },
+    "NOW_CHANNEL_COMMAND": {
+        "english": "\"{COMMAND}\" can now only be ran in {CHANNELS}."
+    },
+    "ALLOWED_CHANNELS": {
+        "english": "You can only use that command in the following: {CHANNELS}."
+    },
+    "HELP_MENU": {
+        "TITLE": {
+            "english": "Help Menu"
+        },
+        "SELECT_A_CATEGORY": {
+            "english": "Select a category:"
+        },
+        "COMMANDS": {
+            "english": "commands"
+        },
+        "DESCRIPTION_FIRST_LINE": {
+            "english": "Use 🚪 to return to the previous menu."
+        },
+        "DESCRIPTION_SECOND_LINE": {
+            "english": "Use ⬅ and ➡ to navigate between pages."
+        },
+        "ALIASES": {
+            "english": "Aliases"
+        },
+        "SYNTAX": {
+            "english": "Syntax"
+        }
+    }
+}

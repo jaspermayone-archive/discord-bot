@@ -1,4 +1,4 @@
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -6,6 +6,9 @@ module.exports = {
 	guildOnly: false,
 	description: 'sends the bot repo link',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message }) => {
 		const embed = new Discord.MessageEmbed()
@@ -13,7 +16,7 @@ module.exports = {
 			.setColor(colors.heptagram)
 			.setDescription('Heptagram is proud to be open source! You can find our GitHub repo at https://github.com/Heptagram-Bot/Heptagram')
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 		message.channel.send(embed);
 	},
 };

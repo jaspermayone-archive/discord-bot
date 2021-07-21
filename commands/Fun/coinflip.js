@@ -1,16 +1,20 @@
 const { MessageEmbed } = require('discord.js');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 module.exports = {
 	name: 'coinflip',
 	category: 'Fun',
 	description: 'Flips a coin for heads or tails.',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
+
 	execute({ message }) {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle('A coin was flipped..')
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		const number = Math.floor(Math.random() * 2);
 

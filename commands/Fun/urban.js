@@ -1,12 +1,15 @@
 const urban = require('urban');
 const { MessageEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 module.exports = {
 	name: 'urban',
 	category: 'Fun',
 	description: 'Gets an urban dictionary definition',
+	minArgs: 0,
+	maxArgs: -1,
+	expectedArgs: "",
 
 	execute({ message, args }) {
 		if (!args[0] || !['search', 'random'].includes(args[0])) {return message.reply('Please provide <search|random> (query).');}
@@ -31,7 +34,7 @@ module.exports = {
 						.setThumbnail(image)
 						.setDescription(description)
 						.setTimestamp()
-						.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+						.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 					message.channel.send(embed);
 				}

@@ -1,10 +1,13 @@
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
 	name: 'support',
 	description: 'sends a link for the bot support server',
 	category: 'Resources',
+	minArgs: 0,
+	maxArgs: 0,
+	expectedArgs: "",
 
 	execute: ({ message }) => {
 
@@ -21,7 +24,7 @@ module.exports = {
 
 			)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		message.channel.send(inviteEmbed);
 
