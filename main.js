@@ -4,7 +4,7 @@ const distube = require('distube');
 const WOKCommands = require('wokcommands');
 
 const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
-const antiAd = require('./features/anti-ad');
+const antiAd = require('./features/anti-link');
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
