@@ -4,11 +4,11 @@ module.exports = {
 	category: 'Fun',
 	expectedArgs: "<message you want clyde to say>",
 	minArgs: 1,
-	maxArgs: 1,
+	maxArgs: -1,
 
-	execute: async (message) => {
+	execute: async (message, args) => {
 
-		const clydeMessage = message.args.slice(0).join(' ');
+		const clydeMessage = args.join(' ');
 
 		message.message.channel.send({ files : [{ attachment: `https://ctk-api.herokuapp.com/clyde/${clydeMessage}`, name: 'file.jpg' }] });
 	},
