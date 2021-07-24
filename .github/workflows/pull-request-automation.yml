@@ -10,4 +10,3 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           event: APPROVE
-          body: 'Automated Approval for user j-dogcoder'
