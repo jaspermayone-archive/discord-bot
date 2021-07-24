@@ -1,4 +1,8 @@
+const Discord = require('discord.js');
+const { colors, cdn } = require('../config.json');
+
 module.exports = (client) => {
+
 	const isInvite = async (guild, code) => {
 		return await new Promise(resolve => {
 			guild.fetchInvites().then(invites => {
@@ -14,6 +18,7 @@ module.exports = (client) => {
 	};
 
 	client.on('message', async message => {
+
 		const { guild, content } = message;
 
 		const code = content.split('discord.gg/')[1];
@@ -23,21 +28,32 @@ module.exports = (client) => {
 
 			const isOurInvite = await isInvite(guild, code);
 			if (!isOurInvite) {
-				message.delete();
-				message.reply('Please do not advertise other discord servers.');
+
+				const nolinkembed = new Discord.MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle('No invites here!')
+					.setDescription('Sorry, invites aren\'t allowed here!')
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+				await (message.delete()).then(() => {
+					message.channel.send(nolinkembed);
+				});
 			}
+			else {}
 		}
+		else {}
 	});
 };
 
 module.exports.config = {
 	// The display name that server owners will see.
 	// This can be changed at any time.
-	displayName: 'Anti Ad',
+	displayName: 'Anti Invite',
 
 	// The name the database will use to set if it is enabled or not.
 	// This should NEVER be changed once set, and users cannot see it.
-	dbName: 'ANTI AD',
+	dbName: 'ANTI INVITE',
 
 	// Being true means a database connection must be present before the
 	// feature is enabled.

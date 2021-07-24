@@ -46,13 +46,6 @@ module.exports = {
 				`**Time Created:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} [${moment(message.guild.createdTimestamp).fromNow()}]`,
 				'\u200b',
 			])
-			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-
-
-		const statisticsEmbed = new Discord.MessageEmbed()
-			.setColor(colors.heptagram)
-			.setThumbnail(message.guild.iconURL({ dynamic: true }))
 			.addField('Server Statistics', [
 				`**Role Count:** ${roles.length}`,
 				`**Emoji Count:** ${emojis.size}`,
@@ -65,9 +58,6 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-
 		message.channel.send(generalEmbed);
-		message.channel.send(statisticsEmbed);
-
 	},
 };
