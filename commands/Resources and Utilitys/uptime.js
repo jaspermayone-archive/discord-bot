@@ -9,35 +9,33 @@ module.exports = {
 	maxArgs: 0,
 	expectedArgs: "",
 
-	execute: ({ message, client }) => {
+	run: async () => {
+		try {
+		  const seconds = Math.round(process.uptime());
+		  const days = seconds >= 86400 ? Math.floor(seconds / 86400) : 0;
+		  const hours =
+			seconds >= 3600 ? Math.floor((seconds - days * 86400) / 3600) : 0;
+		  const minutes =
+			seconds >= 60
+			  ? Math.floor((seconds - days * 86400 - hours * 3600) / 60)
+			  : 0;
+		  const secondsRemain =
+			seconds - days * 86400 - hours * 3600 - minutes * 60;
 
-		let days = 0;
-		const week = 0;
-		let uptime = '';
-		let totalSeconds = (client.uptime / 1000);
-		let hours = Math.floor(totalSeconds / 3600);
-		totalSeconds %= 3600;
-		let minutes = Math.floor(totalSeconds / 60);
-		const seconds = Math.floor(totalSeconds % 60);
-		if (hours > 24) {
-			days = days + 1;
-			hours = 0;
-		}
-		if (week - 0) {
-			uptime += `${week} week, `;
-		}
-		if (minutes > 60) {
-			minutes = 0;
-		}
-		uptime += `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+		  const uptimeEmbed = new Discord.MessageEmbed();
+		  uptimeEmbed.setTitle("Heptagram Uptime");
+		  uptimeEmbed.setColor(colors.heptagram);
+		  uptimeEmbed.setDescription("Current Heptagram Uptime.");
+		  uptimeEmbed.addField("Days", days);
+		  uptimeEmbed.addField("Hours", hours, true);
+		  uptimeEmbed.addField("Minutes", minutes, true);
+		  uptimeEmbed.addField("Seconds", secondsRemain, true);
+		  uptimeEmbed.setTimestamp();
+		  uptimeEmbed.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		const embed = new Discord.MessageEmbed()
-			.setTitle('Bot Uptime :robot:')
-			.setColor(colors.heptagram)
-			.setDescription(`Bot Uptime: \`${uptime}\``)
-			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+		  return { success: true, content: uptimeEmbed };
 
-		message.channel.send(embed);
+		}
+		catch (err) {}
 	},
 };
