@@ -5,6 +5,8 @@ const WOKCommands = require('wokcommands');
 
 const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
 const antiAd = require('./features/anti-link');
+const antiInvite = require('./features/anti-invite');
+
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
@@ -88,7 +90,8 @@ client.on('ready', async () => {
 	console.log(chalk.blueBright('Bot online and Ready!'));
 
 });
-
+antiInvite(client);
 antiAd(client);
+// antiInvite(client);
 
 client.login(token);
