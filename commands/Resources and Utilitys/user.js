@@ -34,10 +34,8 @@ module.exports = {
 			.addField('Bot:', `${user.bot}`, true)
 			.addField('Joined The Server On:', `${moment.utc(member.joinedAt).format('dddd, MMMM Do YYYY')}`, true)
 			.addField('Account Created On:', `${moment.utc(user.createdAt).format('dddd, MMMM Do YYYY')}`, true)
-			.addField(
-				"Nitro",
-				member.premiumSinceTimestamp
-				  ? `Since ${new Date(member.premiumSinceTimestamp).toLocaleDateString()}` : "No.", true)
+			.addField("Nitro", member.premiumSinceTimestamp ? `Since ${new Date(member.premiumSinceTimestamp).toLocaleDateString()}` : "No.", false)
+			.addField('Roles:', (member.roles.cache.map((role) => `<@&${role.id}>`).join(" ")), false)
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
