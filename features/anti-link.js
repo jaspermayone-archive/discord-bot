@@ -9,18 +9,19 @@ module.exports = (client) => {
 
 		const hasLink = linkRegex.test(message.content);
 		if (message.author.id == (IDs.OwnerID)) {
-			if (hasLink) {
-				const nolinkembed = new Discord.MessageEmbed()
-					.setColor(colors.heptagram)
-					.setTitle('No links here!')
-					.setDescription('Sorry, links aren\'t allowed here!')
-					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				await (message.delete()).then(() => {
-					message.channel.send(nolinkembed);
-				});
-			}
+		}
+		else if (hasLink) {
+			const nolinkembed = new Discord.MessageEmbed()
+				.setColor(colors.heptagram)
+				.setTitle('No links here!')
+				.setDescription('Sorry, links aren\'t allowed here!')
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+			await (message.delete()).then(() => {
+				message.channel.send(nolinkembed);
+			});
 		}
 	});
 };
