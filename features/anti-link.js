@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { colors, cdn } = require('../config.json');
+const { colors, cdn, IDs } = require('../config.json');
 
 module.exports = (client) => {
 	client.on('message', async message => {
@@ -8,18 +8,19 @@ module.exports = (client) => {
         /(([a-z]+:\/\/)?((aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|xyz|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-.~]+)*(\/([a-z0-9_\-.]*)(\?[a-z0-9+_\-.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi;
 
 		const hasLink = linkRegex.test(message.content);
+		if (message.author.id == (IDs.OwnerID)) {
+			if (hasLink) {
+				const nolinkembed = new Discord.MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle('No links here!')
+					.setDescription('Sorry, links aren\'t allowed here!')
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		if (hasLink) {
-			const nolinkembed = new Discord.MessageEmbed()
-				.setColor(colors.heptagram)
-				.setTitle('No links here!')
-				.setDescription('Sorry, links aren\'t allowed here!')
-				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-
-			await (message.delete()).then(() => {
-				message.channel.send(nolinkembed);
-			});
+				await (message.delete()).then(() => {
+					message.channel.send(nolinkembed);
+				});
+			}
 		}
 	});
 };
