@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'info',
 	description: 'Displays info about bot.',
-	category: 'Resources',
+	category: 'Info',
 	minArgs: 0,
 	maxArgs: 0,
 	expectedArgs: "",
