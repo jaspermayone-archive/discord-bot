@@ -8,21 +8,27 @@ module.exports = (client) => {
         /(([a-z]+:\/\/)?((aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|xyz|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-.~]+)*(\/([a-z0-9_\-.]*)(\?[a-z0-9+_\-.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi;
 
 		const hasLink = linkRegex.test(message.content);
-		if (message.author.id == (IDs.OwnerID)) {
 
-		}
-		else if (hasLink) {
-			const nolinkembed = new Discord.MessageEmbed()
-				.setColor(colors.heptagram)
-				.setTitle('No links here!')
-				.setDescription('Sorry, links aren\'t allowed here!')
-				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+		if (!(message.member.hasPermission('EMBED_LINKS')) && hasLink) {
 
-			await (message.delete()).then(() => {
-				message.channel.send(nolinkembed);
-			});
+			if (message.author.id == (IDs.OwnerID)) {
+				return;
+			}
+			else {
+
+				const nolinkembed = new Discord.MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle('No links here!')
+					.setDescription('Sorry, links aren\'t allowed here!')
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+				await (message.delete()).then(() => {
+					message.channel.send(nolinkembed);
+				});
+			}
 		}
+		else {}
 	});
 };
 

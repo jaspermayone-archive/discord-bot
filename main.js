@@ -43,11 +43,13 @@ client.on('ready', async () => {
 			useFindAndModify: false,
 		},
 		testServers: [`${IDs.ServerID}`],
+		disabledDefaultCommands: ['language'],
 	})
 		.setBotOwner([`${IDs.OwnerID}`])
 		.setDefaultPrefix('!')
 		.setColor(colors.heptagram)
 		.setMongoPath(MongoDB)
+		.setDisplayName('Heptagram')
 		.setCategorySettings([
 			{
 				name: 'Examples',
@@ -81,6 +83,10 @@ client.on('ready', async () => {
 				emoji: '🦾',
 			},
 			{
+				name: 'Info',
+				emoji: '📒',
+			},
+			{
 				name: 'Development',
 				emoji: '📎',
 				hidden: true,
@@ -92,14 +98,5 @@ client.on('ready', async () => {
 });
 antiInvite(client);
 antiAd(client);
-// antiInvite(client);
 
-/* client.on('message', async message => {
-	if (message.author.id == (IDs.OwnerID)) {
-		const reactionEmoji = client.emojis.cache.get(emoji.HeptaHeart);
-		await message.react(reactionEmoji);
-	}
-	else {}
-});
-*/
 client.login(token);

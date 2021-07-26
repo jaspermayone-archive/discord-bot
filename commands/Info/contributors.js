@@ -27,7 +27,7 @@ const fetchContributors = new Promise((resolve, reject) => {
 module.exports = {
 	name: 'contributors',
 	description: 'Show current contributors for Heptagram',
-	category: 'Resources',
+	category: 'Info',
 	minArgs: 0,
 	maxArgs: 0,
 	expectedArgs: "",

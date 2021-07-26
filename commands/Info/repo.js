@@ -3,9 +3,10 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'repo',
+	aliases: ['opensource', 'os'],
 	guildOnly: false,
 	description: 'sends the bot repo link',
-	category: 'Resources',
+	category: 'Info',
 	minArgs: 0,
 	maxArgs: 0,
 	expectedArgs: "",
