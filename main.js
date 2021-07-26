@@ -94,4 +94,12 @@ antiInvite(client);
 antiAd(client);
 // antiInvite(client);
 
+/* client.on('message', async message => {
+	if (message.author.id == (IDs.OwnerID)) {
+		const reactionEmoji = client.emojis.cache.get(emoji.HeptaHeart);
+		await message.react(reactionEmoji);
+	}
+	else {}
+});
+*/
 client.login(token);

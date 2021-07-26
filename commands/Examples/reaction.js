@@ -1,3 +1,5 @@
+const { IDs, emoji } = require('../../config.json');
+
 module.exports = {
 	name: 'reaction',
 	aliases: ['react'],
@@ -10,8 +12,12 @@ module.exports = {
 	hidden: true,
 	testOnly: true,
 
-	execute({ message }) {
+	execute({ message, client }) {
 		message.react('😄');
-
+		if (message.author.id == (IDs.OwnerID)) {
+			const reactionEmoji = client.emojis.cache.get(emoji.HeptaHeart);
+			message.react(reactionEmoji);
+		}
+		else {}
 	},
 };
