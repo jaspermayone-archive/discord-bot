@@ -1,112 +1,148 @@
 {
     "SYNTAX_ERROR": {
-        "english": "Incorrect usage! Please use \"{PREFIX}{COMMAND} {ARGUMENTS}\""
+        "English": "Incorrect usage! Please use \"{PREFIX}{COMMAND} {ARGUMENTS}\""
+        "Français": "Syntaxe incorrecte. Utilisez \"{PREFIX}{COMMAND} {ARGUMENTS}\""
     },
     "LANGUAGE_NOT_SUPPORTED": {
-        "english": "This bot does not have support for {LANGUAGE} at this time."
+        "English": "This bot does not have support for {LANGUAGE} at this time."
+        "Français": "Actuellement, le bot ne supporte pas la langue {LANGUAGE}."
     },
     "BOT_OWNERS_ONLY": {
-        "english": "Only the bot owner can run this command."
+        "English": "Only the bot owner can run this command."
+        "Français": "Cette commande ne peut être exécutée que par le propriétaire du bot."
     },
     "DISABLED_COMMAND": {
-        "english": "That command is currently disabled in this server."
+        "English": "That command is currently disabled in this server."
+        "Français": "Cette commande est actuellement désactivée dans ce serveur."
     },
     "MISSING_PERMISSION": {
-        "english": "You don't have permison to use this command!"
+        "English": "You don't have permission to use this command!"
+        "Français": "Vous n'avez pas la permission d'utiliser cette commande"
     },
     "MISSING_ROLES": {
-        "english": "You do not have the required roles to use this command! You need one of the following: {ROLES}"
+        "English": "You do not have the required roles to use this command! You need one of the following: {ROLES}"
+        "Français": "Vous n'avez pas le rôle nécessaire pour utiliser cette commande! Vous devez avoir un des {ROLES}"
     },
     "COOLDOWN": {
-        "english": "You must wait {COOLDOWN} before using that command again."
+        "English": "You must wait {COOLDOWN} before using that command again."
+        "Français": "Vous devez attendre {COOLDOWN} avant d'utiliser cette commande une autre fois."
     },
     "ENABLE_DISABLE_STATE": {
-        "english": "The state must be either \"enable\" or \"disable\"."
+        "English": "The state must be either \"enable\" or \"disable\"."
+        "Français": "L'état doit être soit \"enable\" ou \"disable\"."
     },
     "CANNOT_ENABLE_DISABLE_IN_DMS": {
-        "english": "You cannot enable or disable commands in private messages."
+        "English": "You cannot enable or disable commands in private messages."
+        "Français": "Vous ne pouvez pas activer ou désactiver les commandes dans les messages directs (DM)."
     },
     "COMMAND_ALREADY_ENABLED": {
-        "english": "That command is already enabled!"
+        "English": "That command is already enabled!"
+        "Français": "Cette commande est déjà activée!"
     },
     "COMMAND_ALREADY_DISABLED": {
-        "english": "That command is already disabled!"
+        "English": "That command is already disabled!"
+        "Français": "Cette commande est déjà désactivée!"
     },
     "COMMAND_NOW_ENABLED": {
-        "english": "{COMMAND} is now enabled!"
+        "English": "{COMMAND} is now enabled!"
+        "Français": "{COMMAND} est maintenant activée!"
     },
     "COMMAND_NOW_DISABLED": {
-        "english": "{COMMAND} is now disabled!"
+        "English": "{COMMAND} is now disabled!"
+        "Français": "{COMMAND} est maintenant désactivée!"
     },
     "UNKNOWN_COMMAND": {
-        "english": "Could not find command {COMMAND}!"
+        "English": "Could not find command {COMMAND}!"
+        "Français": "La commande {COMMAND} n'est pas reconnue!"
     },
     "CURRENT_PREFIX": {
-        "english": "The current prefix is {PREFIX}."
+        "English": "The current prefix is {PREFIX}."
+        "Français": "Le préfixe est {PREFIX}."
     },
     "SET_PREFIX": {
-        "english": "Set the command prefix to {PREFIX}."
+        "English": "Set the command prefix to {PREFIX}."
+        "Français": "Modifier le préfixe à {PREFIX}."
     },
     "CANNOT_SET_PREFIX_IN_DMS": {
-        "english": "You cannot set a prefix in a private message."
+        "English": "You cannot set a prefix in a private message."
+        "Français": "Vous ne pouvez pas modifier le préfixe dans un message direct (DM)."
     },
     "CANNOT_CHANGE_REQUIRED_ROLES_IN_DMS": {
-        "english": "You cannot change required roles in private messages."
+        "English": "You cannot change required roles in private messages."
+        'Français": "Vous ne pouvez pas changer les rôles requis dans les messages directs (DM)."
     },
-    "REMOVED_ALL_REQUIRED_ROLES": {
-        "english": "Removed all required roles from command {COMMAND}."
+    "REMOVED_ALL_REQUIRED_ROLES": 
+        "English": "Removed all required roles from command {COMMAND}."
+        "Français": "Les rôles requis ont été supprimés de la commande {COMMAND}."
     },
     "ADDED_REQUIRED_ROLE": {
-        "english": "Added role {ROLE} to command {COMMAND}."
+        "English": "Added role {ROLE} to command {COMMAND}."
+        "Français": "Le rôle {ROLE} a été ajouté à la commande {COMMAND}."
     },
     "NO_DATABASE_FOUND": {
-        "english": "No database connection found!"
+        "English": "No database connection found!"
+        "Français": "Aucune base de données n'a été trouvée!"
     },
     "GUILD_ONLY_COMMAND": {
-        "english": "This command can only be used within a server."
+        "English": "This command can only be used within a server."
+        "Français": "Cette commande ne peut-être utilisée que dans un serveur."
     },
     "NO_REACT_PERMS": {
-        "english": "This bot needs the \"Add Reactions\" permission to use the help menu."
+        "English": "This bot needs the \"Add Reactions\" permission to use the help menu."
+        "Français": "Le bot nécessite la permission \"Add Reactions\" pour afficher le menu."
     },
     "EXCEPTION": {
-        "english": "An error occurred when running this command! PLEASE REPORT THIS IN THE HEPTAGRAM SUPPORT SERVER."
+        "English": "An error occurred when running this command! PLEASE REPORT THIS IN THE HEPTAGRAM SUPPORT SERVER."
+        "Français": "Une erreur s'est produite lors de l'exécution de cette commande. Merci de nous prévenir dans notre serveur Discord"
     },
     "NO_TAGGED_CHANNELS": {
-        "english": "Please tag at least one channel."
+        "English": "Please tag at least one channel."
+        "Français": "Merci de mentionner une chaîne."
     },
     "NOT_CHANNEL_COMMAND": {
-        "english": "That command is currently not limited to any channel."
+        "English": "That command is currently not limited to any channel."
+        "Français": "Actuellement, cette commande n'est pas limitée à une chaîne précise."
     },
     "NO_LONGER_CHANNEL_COMMAND": {
-        "english": "That command is no longer a channel specific command."
+        "English": "That command is no longer a channel specific command."
+        "Français": "Cette commande peut-être utilisée partout dans le serveur."
     },
     "NOW_CHANNEL_COMMAND": {
-        "english": "\"{COMMAND}\" can now only be ran in {CHANNELS}."
+        "English": "\"{COMMAND}\" can now only be ran in {CHANNELS}."
+        "Français": "\"{COMMAND}\" ne marche que dans {CHANNELS}."
     },
     "ALLOWED_CHANNELS": {
-        "english": "You can only use that command in the following: {CHANNELS}."
+        "English": "You can only use that command in the following: {CHANNELS}."
+        "Français": "Vous ne pouvez utiliser cette commande que dans: {CHANNELS}."
     },
     "HELP_MENU": {
         "TITLE": {
-            "english": "Help Menu"
+            "English": "Help Menu"
+            "Français": "Menu"
         },
         "SELECT_A_CATEGORY": {
-            "english": "Select a category:"
+            "English": "Select a category:"
+            "Français": "Choisissez une catégorie:"
         },
         "COMMANDS": {
-            "english": "commands"
+            "English": "commands"
+            "Français": "commandes"
         },
         "DESCRIPTION_FIRST_LINE": {
-            "english": "Use 🚪 to return to the previous menu."
+            "English": "Use 🚪 to return to the previous menu."
+            "Français": "Utilisez 🚪 pour retourner au menu précédent."
         },
         "DESCRIPTION_SECOND_LINE": {
-            "english": "Use ⬅ and ➡ to navigate between pages."
+            "English": "Use ⬅ and ➡ to navigate between pages."
+            "Français": "Utilisez ⬅ et ➡ pour naviguer entre les pages."
         },
         "ALIASES": {
-            "english": "Aliases"
+            "English": "Aliases"
+            "Français": "Pseudonymes"
         },
         "SYNTAX": {
-            "english": "Syntax"
+            "English": "Syntax"
+            "Français": "Syntaxe"
         }
     }
 }
