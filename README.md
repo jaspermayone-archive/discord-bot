@@ -35,7 +35,7 @@
 This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server](https://discord.gg/HSupF99kpq) to say hi, chat with developers, and stay up to date with release news.
 
 # Welcome to Heptagram. 
-Heptagram is the all-in-one, open-source Discord bot with the goal to be the single bot needed bot for any server. No more, music bot, mod bot, rules bot. Just Heptagram!
+Heptagram is the all-in-one, open-source Discord bot with the goal to be the single bot needed for any server. No more music bot, mod bot, rules bot. Just Heptagram!
 
 Find out more and invite it at https://heptagram.xyz
 

@@ -13,7 +13,7 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Bot Invite :robot:')
 			.setColor(colors.heptagram)
-			.setDescription('Heptagram is not yet avaible to be invited to servers. Follow our v1 realese updates channel for updates.')
+			.setDescription('Heptagram is not yet available to be invited to servers. Follow our v1 release updates channel for stay up to date.')
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
