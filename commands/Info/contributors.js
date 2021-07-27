@@ -4,7 +4,11 @@ const fetchContributors = new Promise((resolve, reject) => {
 	https.get({
 		hostname: 'api.github.com',
 		path: '/repos/Heptagram-Bot/Heptagram/contributors',
-		headers: { 'User-Agent': 'Heptagram-Bot/1.0' },
+		headers: {
+			'User-Agent': 'Heptagram-Bot/0.5.0-PRE',
+			'Accept': 'application/vnd.github.v3+json',
+			'Cache-Control': 'no-store'
+		},
 	}, response => {
 		response.setEncoding('utf8');
 		let body = '';
