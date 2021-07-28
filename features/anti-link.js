@@ -9,24 +9,28 @@ module.exports = (client) => {
 
 		const hasLink = linkRegex.test(message.content);
 
-		if (!(message.member.hasPermission('EMBED_LINKS')) && hasLink) {
+		if (!message.author.bot && hasLink) {
 
-			if (message.author.id == (IDs.OwnerID)) {
-				return;
+			if (!(message.member.hasPermission('EMBED_LINKS'))) {
+
+				if (message.author.id == (IDs.OwnerID)) {
+					return;
+				}
+				else {
+
+					const nolinkembed = new Discord.MessageEmbed()
+						.setColor(colors.heptagram)
+						.setTitle('No links here!')
+						.setDescription('Sorry, links aren\'t allowed here!')
+						.setTimestamp()
+						.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+					await (message.delete()).then(() => {
+						message.channel.send(nolinkembed);
+					});
+				}
 			}
-			else {
-
-				const nolinkembed = new Discord.MessageEmbed()
-					.setColor(colors.heptagram)
-					.setTitle('No links here!')
-					.setDescription('Sorry, links aren\'t allowed here!')
-					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-
-				await (message.delete()).then(() => {
-					message.channel.send(nolinkembed);
-				});
-			}
+			else {}
 		}
 		else {}
 	});

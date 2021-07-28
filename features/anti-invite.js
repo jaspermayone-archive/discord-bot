@@ -27,7 +27,8 @@ module.exports = (client) => {
 		if (content.includes('https://discord.gg/')) {
 
 			const isOurInvite = await isInvite(guild, code);
-			if (!isOurInvite) {
+
+			if (!message.author.bot && !isOurInvite) {
 
 				const nolinkembed = new Discord.MessageEmbed()
 					.setColor(colors.heptagram)
