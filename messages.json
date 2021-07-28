@@ -1,115 +1,142 @@
 {
     "SYNTAX_ERROR": {
         "EN": "Incorrect usage! Please use \"{PREFIX}{COMMAND} {ARGUMENTS}\"",
-        "FR": "Syntaxe incorrecte. Utilisez \"{PREFIX}{COMMAND} {ARGUMENTS}\""
+        "FR": "Syntaxe incorrecte. Utilisez \"{PREFIX}{COMMAND} {ARGUMENTS}\"",
+        "AR": "\"{PREFIX}{COMMAND} {ARGUMENTS}\" هناك خطأ. استخدم"
     },
     "LANGUAGE_NOT_SUPPORTED": {
         "EN": "This bot does not have support for {LANGUAGE} at this time.",
-        "FR": "Actuellement, le bot ne supporte pas la langue {LANGUAGE}."
+        "FR": "Actuellement, le bot ne supporte pas la langue {LANGUAGE}.",
+        "AR": "حاليا {LANGUAGE} لا يتوفر البوت على اللغة"
     },
     "BOT_OWNERS_ONLY": {
         "EN": "Only the bot owner can run this command.",
-        "FR": "Cette commande ne peut être exécutée que par le propriétaire du bot."
+        "FR": "Cette commande ne peut être exécutée que par le propriétaire du bot.",
+        "AR": "هذا الأمر خاص بصاحب البوت"
     },
     "DISABLED_COMMAND": {
         "EN": "That command is currently disabled in this server.",
-        "FR": "Cette commande est actuellement désactivée dans ce serveur."
+        "FR": "Cette commande est actuellement désactivée dans ce serveur.",
+        "AR": "هذا الأمر غير متاح استخدامه في هذا السيرفر"
     },
     "MISSING_PERMISSION": {
         "EN": "You don't have permission to use this command!",
-        "FR": "Vous n'avez pas la permission d'utiliser cette commande"
+        "FR": "Vous n'avez pas la permission d'utiliser cette commande",
+        "AR": "لا تتوفر على إمكانية استخدام هذا الأمر"
     },
     "MISSING_ROLES": {
         "EN": "You do not have the required roles to use this command! You need one of the following: {ROLES}",
-        "FR": "Vous n'avez pas le rôle nécessaire pour utiliser cette commande! Vous devez avoir un des {ROLES}"
+        "FR": "Vous n'avez pas le rôle nécessaire pour utiliser cette commande! Vous devez avoir un des {ROLES}",
+        "AR": "{ROLES} لاستعمال هذا الأمر، عليك أن تتوفر على"
     },
     "COOLDOWN": {
         "EN": "You must wait {COOLDOWN} before using that command again.",
-        "FR": "Vous devez attendre {COOLDOWN} avant d'utiliser cette commande une autre fois."
+        "FR": "Vous devez attendre {COOLDOWN} avant d'utiliser cette commande une autre fois.",
+        "AR": "{COOLDOWN} المرجو انتظار"
     },
     "ENABLE_DISABLE_STATE": {
         "EN": "The state must be either \"enable\" or \"disable\".",
-        "FR": "L'état doit être soit \"enable\" ou \"disable\"."
+        "FR": "L'état doit être soit \"enable\" ou \"disable\".",
+        "AR": "\"disable\" أو \"enable\" يجب أن يكون إما"
     },
     "CANNOT_ENABLE_DISABLE_IN_DMS": {
         "EN": "You cannot enable or disable commands in private messages.",
-        "FR": "Vous ne pouvez pas activer ou désactiver les commandes dans les messages directs (DM)."
+        "FR": "Vous ne pouvez pas activer ou désactiver les commandes dans les messages directs (DM).",
+        "AR": "لا يمكنك ضبط و تشغيل الأوامر في الرسائل المباشرة"
     },
     "COMMAND_ALREADY_ENABLED": {
         "EN": "That command is already enabled!",
-        "FR": "Cette commande est déjà activée!"
+        "FR": "Cette commande est déjà activée!",
+        "AR": "هذا الأمر مفعل"
     },
     "COMMAND_ALREADY_DISABLED": {
         "EN": "That command is already disabled!",
-        "FR": "Cette commande est déjà désactivée!"
+        "FR": "Cette commande est déjà désactivée!",
+        "AR": "هذا الأمر غير مفعل"
     },
     "COMMAND_NOW_ENABLED": {
         "EN": "{COMMAND} is now enabled!",
-        "FR": "{COMMAND} est maintenant activée!"
+        "FR": "{COMMAND} est maintenant activée!",
+        "AR": "الآن {COMMAND} يمكن تشغيل"
     },
     "COMMAND_NOW_DISABLED": {
         "EN": "{COMMAND} is now disabled!",
-        "FR": "{COMMAND} est maintenant désactivée!"
+        "FR": "{COMMAND} est maintenant désactivée!",
+        "AR": "الآن {COMMAND} لا يمكن تشغيل"
     },
     "UNKNOWN_COMMAND": {
         "EN": "Could not find command {COMMAND}!",
-        "FR": "La commande {COMMAND} n'est pas reconnue!"
+        "FR": "La commande {COMMAND} n'est pas reconnue!",
+        "AR": "{COMMAND} لم يتم التعرف على"
     },
     "CURRENT_PREFIX": {
         "EN": "The current prefix is {PREFIX}.",
-        "FR": "Le préfixe est {PREFIX}."
+        "FR": "Le préfixe est {PREFIX}.",
+        "AR": "{PREFIX} البرفكس الخاص بالبوت هو"
     },
     "SET_PREFIX": {
         "EN": "Set the command prefix to {PREFIX}.",
-        "FR": "Modifier le préfixe à {PREFIX}."
+        "FR": "Modifier le préfixe à {PREFIX}.",
+        "AR": "{PREFIX} تغيير البرفكس الخاص بالبوت ل"
     },
     "CANNOT_SET_PREFIX_IN_DMS": {
         "EN": "You cannot set a prefix in a private message.",
-        "FR": "Vous ne pouvez pas modifier le préfixe dans un message direct (DM)."
+        "FR": "Vous ne pouvez pas modifier le préfixe dans un message direct (DM).",
+        "AR": "لا يمكنك تغيير البرفكس الخاص بالبوت في رسالة مباشرة"
     },
     "CANNOT_CHANGE_REQUIRED_ROLES_IN_DMS": {
         "EN": "You cannot change required roles in private messages.",
-        "FR": "Vous ne pouvez pas changer les rôles requis dans les messages directs (DM)."
+        "FR": "Vous ne pouvez pas changer les rôles requis dans les messages directs (DM).",
+        "AR": "لا يمكنك تغيير الأدوار الضرورية في رسالة مباشرة"
     },
     "REMOVED_ALL_REQUIRED_ROLES": { 
         "EN": "Removed all required roles from command {COMMAND}.",
-        "FR": "Les rôles requis ont été supprimés de la commande {COMMAND}."
-},
+        "FR": "Les rôles requis ont été supprimés de la commande {COMMAND}.",
+        "AR": "{COMMAND} تم مسح الأدوار الضرورية من الأمر"
+    },
     "ADDED_REQUIRED_ROLE": {
         "EN": "Added role {ROLE} to command {COMMAND}.",
-        "FR": "Le rôle {ROLE} a été ajouté à la commande {COMMAND}."
+        "FR": "Le rôle {ROLE} a été ajouté à la commande {COMMAND}.",
+        "AR": "{COMMAND} إلى الأمر {ROLE} تم إضافة الدور"
     },
     "NO_DATABASE_FOUND": {
         "EN": "No database connection found!",
-        "FR": "Aucune base de données n'a été trouvée!"
+        "FR": "Aucune base de données n'a été trouvée!",
+        "AR": "لم يتم إيجاد قاعدة المعلومات"
     },
     "GUILD_ONLY_COMMAND": {
         "EN": "This command can only be used within a server.",
-        "FR": "Cette commande ne peut-être utilisée que dans un serveur."
+        "FR": "Cette commande ne peut-être utilisée que dans un serveur.",
+        "AR": "لا يمكن استخدام هذا الأمر إلا داخل سيرفر"
     },
     "NO_REACT_PERMS": {
         "EN": "This bot needs the \"Add Reactions\" permission to use the help menu.",
-        "FR": "Le bot nécessite la permission \"Add Reactions\" pour afficher le menu."
+        "FR": "Le bot nécessite la permission \"Add Reactions\" pour afficher le menu.",
+        "AR": "لإظهار القائمة الرئيسية \"Add Reactions\" يتطلب البوت"
     },
     "EXCEPTION": {
         "EN": "An error occurred when running this command! PLEASE REPORT THIS IN THE HEPTAGRAM SUPPORT SERVER.",
-        "FR": "Une erreur s'est produite lors de l'exécution de cette commande. Merci de nous prévenir dans notre serveur Discord"
+        "FR": "Une erreur s'est produite lors de l'exécution de cette commande. Merci de nous prévenir dans notre serveur Discord",
+        "AR": "حدث خطأ. المرجو إعلامنا في ديسكورد"    
     },
     "NO_TAGGED_CHANNELS": {
         "EN": "Please tag at least one channel.",
-        "FR": "Merci de mentionner une chaîne."
+        "FR": "Merci de mentionner une chaîne.",
+        "AR": "المرجو اختيار قناة واحدة على الأقل"
     },
     "NOT_CHANNEL_COMMAND": {
         "EN": "That command is currently not limited to any channel.",
-        "FR": "Actuellement, cette commande n'est pas limitée à une chaîne précise."
+        "FR": "Actuellement, cette commande n'est pas limitée à une chaîne précise.",
+        "AR": "استعمال هذا الأمر غير محدود حاليا"
     },
     "NO_LONGER_CHANNEL_COMMAND": {
         "EN": "That command is no longer a channel specific command.",
-        "FR": "Cette commande peut-être utilisée partout dans le serveur."
+        "FR": "Cette commande peut-être utilisée partout dans le serveur.",
+        "AR": "يمكن استعمال هذا الأمر أينما تريد"
     },
     "NOW_CHANNEL_COMMAND": {
         "EN": "\"{COMMAND}\" can now only be ran in {CHANNELS}.",
-        "FR": "\"{COMMAND}\" ne marche que dans {CHANNELS}."
+        "FR": "\"{COMMAND}\" ne marche que dans {CHANNELS}.",
         "AR": "{CHANNELS} لا تعمل إلا في \"{COMMAND}\""
     },
     "ALLOWED_CHANNELS": {
@@ -151,7 +178,7 @@
         "SYNTAX": {
             "EN": "Syntax",
             "FR": "Syntaxe",
-            "AR": "",
+            "AR": "الصياغة"
         }
     }
 }
