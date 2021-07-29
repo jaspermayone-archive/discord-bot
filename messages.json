@@ -1,6 +1,6 @@
 {
     "SYNTAX_ERROR": {
-        "EN": "Incorrect usage! Please use \"{PREFIX}{COMMAND} {ARGUMENTS}\"",
+        "English": "Incorrect usage! Please use \"{PREFIX}{COMMAND} {ARGUMENTS}\"",
         "FR": "Syntaxe incorrecte. Utilisez \"{PREFIX}{COMMAND} {ARGUMENTS}\"",
         "AR": "\"{PREFIX}{COMMAND} {ARGUMENTS}\" هناك خطأ. استخدم"
     },

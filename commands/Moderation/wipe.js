@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js');
+const { colors } = require('../../config.json');
+
 module.exports = {
 	name: 'wipe',
 	description: 'clear with bigger options',
@@ -16,8 +19,18 @@ module.exports = {
 
 			await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
 				message.channel.bulkDelete(messages);
-			});
+			}).finally(() => {
 
+				const embed = new MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+					.setDescription(`You have succesfully wiped ${args[0]} messages. **PLEASE NOTE: This will only delete messages that are under 14 days old. **`)
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
+				message.channel.send(embed);
+
+			});
 		}
 		else {
 			message.channel.send('Sorry, this command is resticted!');
