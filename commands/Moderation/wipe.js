@@ -23,8 +23,8 @@ module.exports = {
 
 				const embed = new MessageEmbed()
 					.setColor(colors.heptagram)
-					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-					.setDescription(`You have succesfully wiped ${args[0]} messages. **PLEASE NOTE: This will only delete messages that are under 14 days old. **`)
+					.setTitle(`:white_check_mark: You have succesfully wiped ${args[0]} messages. :white_check_mark:`)
+					.setDescription(`**PLEASE NOTE: This will only delete messages that are under 14 days old. **`)
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
