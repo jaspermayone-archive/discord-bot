@@ -43,6 +43,7 @@ client.on('ready', async () => {
 			useFindAndModify: false,
 		},
 		testServers: [`${IDs.ServerID}`],
+		disabledDefaultCommands: ['language'],
 	})
 		.setBotOwner([`${IDs.OwnerID}`])
 		.setDefaultPrefix('!')
