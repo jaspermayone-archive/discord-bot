@@ -1,6 +1,10 @@
+const { MessageEmbed } = require('discord.js');
+const { colors, roles } = require('../../config.json');
+
 const ms = require('ms');
 module.exports = {
 	name: 'mute',
+	aliased: ['m'],
 	guildOnly: true,
 	description: 'mutes user',
 	category: 'Moderation',
@@ -9,7 +13,7 @@ module.exports = {
 	expectedArgs: "<@user you want to mute>",
 	permissions: ["MUTE_MEMBERS"],
 
-	execute({ message, args, roles }) {
+	execute: async ({ message, args }) => {
 
 		const target = message.mentions.users.first();
 
@@ -20,17 +24,40 @@ module.exports = {
 
 		if (!args[1]) {
 			memberTarget.roles.remove(mainRole.id);
-			memberTarget.roles.add(muteRole.id);
-			message.channel.send(`<@${memberTarget.user.id}> has been muted`);
-			return;
-		}
-		memberTarget.roles.remove(mainRole.id);
-		memberTarget.roles.add(muteRole.id);
-		message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
+			await memberTarget.roles.add(muteRole.id).then(() => {
 
-		setTimeout(function() {
-			memberTarget.roles.remove(muteRole.id);
-			memberTarget.roles.add(mainRole.id);
-		}, ms(args[1]));
+				const membed = new MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+					.setDescription(`You have succesfully muted <@${memberTarget.user.id}>.`)
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
+				message.channel.send(membed);
+
+				message.channel.send(`<@${memberTarget.user.id}> has been muted`);
+				return;
+			});
+		}
+		else {
+
+			memberTarget.roles.remove(mainRole.id);
+		 await memberTarget.roles.add(muteRole.id).then(() => {
+
+				const msembed = new MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+					.setDescription(`You have succesfully muted <${memberTarget.user.id}> for ${ms(ms(args[1]))}`)
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+
+				message.channel.send(msembed);
+
+		 });
+			setTimeout(function() {
+				memberTarget.roles.remove(muteRole.id);
+				memberTarget.roles.add(mainRole.id);
+			}, ms(args[1]));
+		}
 	},
 };
