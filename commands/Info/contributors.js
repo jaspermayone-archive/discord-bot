@@ -7,7 +7,7 @@ const fetchContributors = new Promise((resolve, reject) => {
 		headers: {
 			'User-Agent': 'Heptagram-Bot/0.5.0-PRE',
 			'Accept': 'application/vnd.github.v3+json',
-			'Cache-Control': 'no-store'
+			'Cache-Control': 'no-store',
 		},
 	}, response => {
 		response.setEncoding('utf8');
