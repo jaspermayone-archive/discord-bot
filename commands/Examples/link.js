@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'link',
-	aliases: ['l'],
+	aliases: ['lnk'],
 	description: 'link testing',
 	category: 'Examples',
 	minArgs: 0,
