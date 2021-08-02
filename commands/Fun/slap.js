@@ -7,6 +7,7 @@ module.exports = {
 	minArgs: 1,
 	maxArgs: 1,
 	expectedArgs: "<@user you want to slap>",
+	cooldown: '1m',
 
 	execute: async (message) => {
 		const member = message.message.mentions.members.first();
