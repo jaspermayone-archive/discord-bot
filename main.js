@@ -87,9 +87,8 @@ client.on('ready', async () => {
 				emoji: '📒',
 			},
 			{
-				name: 'Development',
-				emoji: '📎',
-				hidden: true,
+				name: 'Thanks',
+				emoji: '🤝',
 			},
 		]);
 
