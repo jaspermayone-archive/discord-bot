@@ -4,7 +4,6 @@ const { colors, roles, cdn } = require('../../config.json');
 const ms = require('ms');
 module.exports = {
 	name: 'mute',
-	aliased: ['m'],
 	guildOnly: true,
 	description: 'mutes user',
 	category: 'Moderation',
