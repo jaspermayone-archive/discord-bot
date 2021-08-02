@@ -8,6 +8,7 @@ module.exports = {
 	minArgs: 0,
 	maxArgs: 1,
 	expectedArgs: "<@user you want to hug>",
+	cooldown: '1m',
 
 	execute: async (message) => {
 
