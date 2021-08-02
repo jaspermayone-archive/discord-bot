@@ -27,7 +27,7 @@ module.exports = {
 				.setTitle('Error')
 				.setDescription(replies.sameVC)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 			return message.channel.send(embed);
 		}
@@ -38,7 +38,7 @@ module.exports = {
 				.setTitle('Error')
 				.setDescription('Please provide a URL or a title.')
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 			return message.channel.send(embed);
 		}
 		else {

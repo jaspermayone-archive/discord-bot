@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 
 module.exports = {
 	name: 'wipe',
@@ -26,7 +26,7 @@ module.exports = {
 					.setTitle(`:white_check_mark: You have succesfully wiped ${args[0]} messages. :white_check_mark:`)
 					.setDescription(`**PLEASE NOTE: This will only delete messages that are under 14 days old. **`)
 					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				message.channel.send(embed);
 

@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { colors, roles } = require('../../config.json');
+const { colors, roles, cdn } = require('../../config.json');
 
 const ms = require('ms');
 module.exports = {
@@ -31,11 +31,9 @@ module.exports = {
 					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
 					.setDescription(`You have succesfully muted <@${memberTarget.user.id}>.`)
 					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				message.channel.send(membed);
-
-				message.channel.send(`<@${memberTarget.user.id}> has been muted`);
 				return;
 			});
 		}
@@ -49,7 +47,7 @@ module.exports = {
 					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
 					.setDescription(`You have succesfully muted <${memberTarget.user.id}> for ${ms(ms(args[1]))}`)
 					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				message.channel.send(msembed);
 
