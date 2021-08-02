@@ -25,7 +25,7 @@ module.exports = {
 				.setTitle('Error')
 				.setDescription(replies.sameVC)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 			return message.channel.send(embed);
 		}
@@ -39,7 +39,7 @@ module.exports = {
 				.setTitle('Skip')
 				.setDescription(`${emoji.checkmark} The song has skipped.`)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 			return message.channel.send(embed);
 		}
 		else if (!queue) {
@@ -47,7 +47,7 @@ module.exports = {
 				.setTitle('Empty Queue')
 				.setDescription(`The queue is empty. If you want to stop the bot, use !stop instead.`)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 			return message.channel.send(embed);
 		}
 	},
