@@ -57,7 +57,7 @@ client.on('ready', async () => {
 			},
 			{
 				name: 'Development',
-				emoji: '🚧',
+				emoji: '⭕️',
 				hidden: true,
 			},
 			{
