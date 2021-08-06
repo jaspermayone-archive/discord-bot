@@ -72,6 +72,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		return message.reply(embed);
+		return message.reply({ embeds: [embed] });
+
 	},
 };

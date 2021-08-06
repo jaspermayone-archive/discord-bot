@@ -12,16 +12,12 @@ module.exports = {
 	cooldown: '1m',
 
 	execute: ({ message }) => {
-<<<<<<< HEAD
-		message.channel.send({ content: 'The Heptagram team is curently working on developing an API. Stay tuned for more info.' });
-=======
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Heptagram API')
 			.setColor(colors.heptagram)
 			.setDescription('The Heptagram team is curently working on developing an API. Stay tuned for more info.')
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-		message.channel.send(embed);
->>>>>>> staged
+		message.channel.send({ embeds: [embed] });
 	},
 };

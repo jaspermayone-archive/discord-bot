@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Intents, Client, Discord } = require('discord.js');
 const chalk = require('chalk');
 const distube = require('distube');
 const WOKCommands = require('wokcommands');
@@ -6,9 +6,10 @@ const WOKCommands = require('wokcommands');
 const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
 const antiAd = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
+const pjson = require('./package.json');
 
 
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
 client.distube = new distube(client, { searchSongs: false, emitNewSongOnly: true });
 client.distube
@@ -26,7 +27,7 @@ client.on('ready', async () => {
 	client.user.setActivity(`${client.guilds.cache.size} servers!`, { type: 'WATCHING' });
 
 
-	console.log(chalk.magenta('Starting Heptagram\nNode version: ' + process.version + '\nDiscord.js version: ' + Discord.version));
+	console.log(chalk.magenta('Starting Heptagram || Version: ' + pjson.version));
 	console.log(chalk.green(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
 
 	new WOKCommands(client, {

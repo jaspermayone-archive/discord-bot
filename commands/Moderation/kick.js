@@ -15,10 +15,6 @@ module.exports = {
 		const member = message.mentions.users.first();
 		const memberTarget = message.guild.members.cache.get(member.id);
 
-<<<<<<< HEAD
-		memberTarget.kick();
-		message.reply({ content: 'The user has been kicked.' });
-=======
 		 await memberTarget.kick().then(() => {
 			message.reply('The user has been kicked.');
 
@@ -29,8 +25,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send(membed);
->>>>>>> staged
+			return message.channel.send({ embeds: [membed] });
 
 		});
 	},

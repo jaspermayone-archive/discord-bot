@@ -26,7 +26,7 @@ module.exports = {
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 
-		if(member.id === message.message.author.id) return message.message.channel.send(HugEmbed);
+		if(member.id === message.message.author.id) return message.channel.send({ embeds: [HugEmbed] });
 
 		const HugEmbed2 = new Discord.MessageEmbed()
 			.setTitle(`${message.message.author.username} hugs ${member.user.username}, how cute`)
@@ -35,7 +35,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-		return message.message.channel.send(HugEmbed2);
+		return message.channel.send({ embeds: [HugEmbed2] });
 	},
 };
 

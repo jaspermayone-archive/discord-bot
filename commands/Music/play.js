@@ -39,14 +39,8 @@ module.exports = {
 				.setTitle('Error')
 				.setDescription('Please provide a URL or a title.')
 				.setTimestamp()
-<<<<<<< HEAD
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
-			return message.channel.send({ embeds: [embed] });
-
-=======
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-			return message.channel.send(embed);
->>>>>>> staged
+			return message.channel.send({ embeds: [embed] });
 		}
 		else {
 			const music = args.join(' ');

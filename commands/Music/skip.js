@@ -42,7 +42,7 @@ module.exports = {
 				.setDescription(`${emoji.checkmark} The song has skipped.`)
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-			return message.channel.send(embed);
+			return message.channel.send({ embeds: [embed] });
 		}
 		else if (!queue) {
 			const embed = new Discord.MessageEmbed()
@@ -50,7 +50,8 @@ module.exports = {
 				.setDescription(`The queue is empty. If you want to stop the bot, use !stop instead.`)
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-			return message.channel.send(embed);
+			return message.channel.send({ embeds: [embed] });
+
 		}
 	},
 };

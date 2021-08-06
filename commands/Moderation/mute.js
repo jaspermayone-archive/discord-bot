@@ -23,20 +23,6 @@ module.exports = {
 
 		if (!args[1]) {
 			memberTarget.roles.remove(mainRole.id);
-<<<<<<< HEAD
-			memberTarget.roles.add(muteRole.id);
-			message.channel.send({ content: `<@${memberTarget.user.id}> has been muted` });
-			return;
-		}
-		memberTarget.roles.remove(mainRole.id);
-		memberTarget.roles.add(muteRole.id);
-		message.channel.send({ content: `<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}` });
-
-		setTimeout(function() {
-			memberTarget.roles.remove(muteRole.id);
-			memberTarget.roles.add(mainRole.id);
-		}, ms(args[1]));
-=======
 			await memberTarget.roles.add(muteRole.id).then(() => {
 
 				const membed = new MessageEmbed()
@@ -46,7 +32,7 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				message.channel.send(membed);
+				message.channel.send({ embeds: [membed] });
 				return;
 			});
 		}
@@ -62,14 +48,12 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				message.channel.send(msembed);
-
+				message.channel.send({ embeds: [msembed] });
 		 });
 			setTimeout(function() {
 				memberTarget.roles.remove(muteRole.id);
 				memberTarget.roles.add(mainRole.id);
 			}, ms(args[1]));
 		}
->>>>>>> staged
 	},
 };

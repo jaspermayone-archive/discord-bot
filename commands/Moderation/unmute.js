@@ -21,10 +21,6 @@ module.exports = {
 		const memberTarget = message.guild.members.cache.get(target.id);
 
 		memberTarget.roles.remove(muteRole.id);
-<<<<<<< HEAD
-		memberTarget.roles.add(mainRole.id);
-		message.channel.send({ content: `<@${memberTarget.user.id}> has been unmuted` });
-=======
 		memberTarget.roles.add(mainRole.id).then(() => {
 
 			const embed = new MessageEmbed()
@@ -34,9 +30,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			message.channel.send(embed);
-
+			message.channel.send({ embeds: [embed] });
 		});
->>>>>>> staged
 	},
 };

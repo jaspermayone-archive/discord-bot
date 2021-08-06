@@ -15,10 +15,6 @@ module.exports = {
 		const member = message.mentions.users.first();
 		const memberTarget = message.guild.members.cache.get(member.id);
 
-<<<<<<< HEAD
-		memberTarget.ban();
-		message.reply({ content: 'The user has been banned.' });
-=======
 		await memberTarget.ban().then(() => {
 
 			const membed = new MessageEmbed()
@@ -28,8 +24,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send(membed);
+			return message.channel.send({ embeds: [membed] });
 		});
->>>>>>> staged
 	},
 };

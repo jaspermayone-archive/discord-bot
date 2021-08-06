@@ -22,7 +22,8 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send(jembed);
+			return message.channel.send({ embeds: [jembed] });
+
 		}
 
 		if (args[0] === 'leave') {
@@ -36,7 +37,8 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send(lembed);
+			return message.channel.send({ embeds: [lembed] });
+
 		}
 	},
 };

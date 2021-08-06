@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-
+const { MessageEmbed } = require('discord.js');
 const API_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en_US';
 
 module.exports = {
@@ -18,15 +18,13 @@ module.exports = {
 		const data = await response.json();
 
 		if (data.title === 'No Definitions Found') {
-			return message.channel.send(
-				`❌ | I couldn't get the definition of that word!`
-			);
+			return message.channel.send({ content: `❌ | I couldn't get the definition of that word!` });
 		}
 
 		const { meanings } = data[0];
 		const { definition } = meanings[0].definitions[0];
 		const { partOfSpeech } = meanings[0];
-		
+
 		const speech =
 			partOfSpeech.charAt(0).toUpperCase() + partOfSpeech.slice(1);
 
@@ -34,13 +32,13 @@ module.exports = {
 			.setColor('#75ff6e')
 			.setTitle('✅ | Word definition')
 			.setDescription(
-				`**» Word**: ${word}\n**» Speech**: ${speech}\n**» Definition**: ${definition}`
+				`**» Word**: ${word}\n**» Speech**: ${speech}\n**» Definition**: ${definition}`,
 			)
 			.setFooter(
 				`Requested by ${message.author.tag}`,
-				message.author.displayAvatarURL({ size: 4096, dynamic: true })
+				message.author.displayAvatarURL({ size: 4096, dynamic: true }),
 			);
 
-		message.channel.send(embed);
+		message.channel.send({ embeds: [embed] });
 	},
 };
