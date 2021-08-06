@@ -8,6 +8,6 @@ module.exports = {
 	expectedArgs: "",
 
 	execute: ({ message }) => {
-		message.channel.send('The Heptagram team is curently working on developing an API. Stay tuned for more info.');
+		message.channel.send({ content: 'The Heptagram team is curently working on developing an API. Stay tuned for more info.' });
 	},
 };

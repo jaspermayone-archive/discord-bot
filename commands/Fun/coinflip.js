@@ -21,6 +21,6 @@ module.exports = {
 		if (number === 0) embed.addField('Result', '`Heads`');
 		else embed.addField('Result', '`Tails`');
 
-		message.channel.send(embed);
+		message.channel.send({ embeds: [embed] });
 	},
 };

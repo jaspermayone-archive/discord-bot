@@ -22,6 +22,6 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		message.channel.send(catembed);
+		message.channel.send({ embeds: [catembed] });
 	},
 };

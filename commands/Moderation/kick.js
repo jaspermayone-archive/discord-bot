@@ -13,7 +13,7 @@ module.exports = {
 		const memberTarget = message.guild.members.cache.get(member.id);
 
 		memberTarget.kick();
-		message.reply('The user has been kicked.');
+		message.reply({ content: 'The user has been kicked.' });
 
 	},
 };

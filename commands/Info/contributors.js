@@ -40,9 +40,9 @@ module.exports = {
 				.filter(contributor => !contributor.login.includes('[bot]') || contributor.type === 'User')
 				.map(contributor => listOfContributors += ` *${contributor.login} - ${contributor.contributions} Contributions.*\n`);
 
-			message.channel.send(listOfContributors);
+			message.channel.send({ content: listOfContributors });
 		}).catch(error => {
-			message.channel.send(`Something went wrong: ${error}`);
+			message.channel.send({ content: `Something went wrong: ${error}` });
 			console.error(error);
 		});
 	},

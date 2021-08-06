@@ -7,6 +7,6 @@ module.exports = {
 
 	execute({ client, message }) {
 		client.emit('guildMemberAdd', message.member);
-		message.channel.send('Join emmited!');
+		message.channel.send({ content: 'Join emmited!' });
 	},
 };

@@ -1,6 +1,6 @@
 {
   "name": "heptagram",
-  "version": "0.5.0",
+  "version": "0.8.0",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "shard": "main.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "canvas": "^2.8.0",
     "chalk": "^4.1.1",
     "common-tags": "^1.8.0",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.0.0",
     "distube": "^2.8.15",
     "dotenv": "^10.0.0",
     "enmap": "^5.8.5",

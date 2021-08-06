@@ -13,6 +13,6 @@ module.exports = {
 		const memberTarget = message.guild.members.cache.get(member.id);
 
 		memberTarget.ban();
-		message.reply('The user has been banned.');
+		message.reply({ content: 'The user has been banned.' });
 	},
 };

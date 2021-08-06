@@ -24,7 +24,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		anchannel.send(embed);
+		anchannel.send({ embeds: [embed] });
 
 		const anembed = new Discord.MessageEmbed()
 			.setTitle('Done!')
@@ -33,6 +33,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		message.channel.send(anembed);
+		message.channel.send({ embeds: [anembed] });
+
 	},
 };

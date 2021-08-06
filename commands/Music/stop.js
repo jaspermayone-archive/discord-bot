@@ -15,7 +15,8 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send(embed);
+			return message.channel.send({ embeds: [embed] });
+
 		}
 		else if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) {
 			if(message.reactions) {
@@ -29,7 +30,8 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-			return message.channel.send(embed);
+			return message.channel.send({ embeds: [embed] });
+
 		}
 
 		client.distube.stop(message);
@@ -39,6 +41,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-		return message.channel.send(embed);
+		return message.channel.send({ embeds: [embed] });
+
 	},
 };

@@ -18,6 +18,6 @@ module.exports = {
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`)
 			.setDescription(`${dadJokes.random()}`);
 
-		message.channel.send(embed);
+		message.channel.send({ embeds: [embed] });
 	},
 };

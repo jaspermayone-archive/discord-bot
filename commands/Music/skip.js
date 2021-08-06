@@ -15,7 +15,8 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send(embed);
+			return message.channel.send({ embeds: [embed] });
+
 		}
 		if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) {
 			message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
@@ -27,7 +28,8 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-			return message.channel.send(embed);
+			return message.channel.send({ embeds: [embed] });
+
 		}
 
 		const queue = await client.distube.getQueue(message);
@@ -40,7 +42,9 @@ module.exports = {
 				.setDescription(`${emoji.checkmark} The song has skipped.`)
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
-			return message.channel.send(embed);
+
+			return message.channel.send({ embeds: [embed] });
+
 		}
 		else if (!queue) {
 			const embed = new Discord.MessageEmbed()
@@ -48,7 +52,9 @@ module.exports = {
 				.setDescription(`The queue is empty. If you want to stop the bot, use !stop instead.`)
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
-			return message.channel.send(embed);
+
+			return message.channel.send({ embeds: [embed] });
+
 		}
 	},
 };
