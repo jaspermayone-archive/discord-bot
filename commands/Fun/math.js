@@ -10,6 +10,7 @@ module.exports = {
 	minArgs: 1,
 	maxArgs: -1,
 	expectedArgs: "<Equation you want solved>",
+	cooldown: '1m',
 
 	execute({ message, args }) {
 		try {

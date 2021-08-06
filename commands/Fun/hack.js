@@ -5,6 +5,7 @@ module.exports = {
 	minArgs: 0,
 	maxArgs: 1,
 	expectedArgs: "<@user you want to hack>",
+	cooldown: '1m',
 
 	execute: async (message) => {
 		const msgObj = message.message;

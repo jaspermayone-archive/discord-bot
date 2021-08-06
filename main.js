@@ -56,6 +56,11 @@ client.on('ready', async () => {
 				hidden: true,
 			},
 			{
+				name: 'Development',
+				emoji: '⭕️',
+				hidden: true,
+			},
+			{
 				name: 'Fun',
 				emoji: '🎮',
 			},
@@ -86,9 +91,8 @@ client.on('ready', async () => {
 				emoji: '📒',
 			},
 			{
-				name: 'Development',
-				emoji: '📎',
-				hidden: true,
+				name: 'Thanks',
+				emoji: '🤝',
 			},
 		]);
 

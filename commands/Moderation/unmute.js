@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js');
+const { colors, roles, cdn } = require('../../config.json');
+
 module.exports = {
 	name: 'unmute',
 	guildOnly: true,
@@ -8,7 +11,7 @@ module.exports = {
 	expectedArgs: "<@user you want to unmute>",
 	permissions: ["MUTE_MEMBERS"],
 
-	execute({ message, roles }) {
+	execute({ message }) {
 
 		const target = message.mentions.users.first();
 
@@ -18,7 +21,22 @@ module.exports = {
 		const memberTarget = message.guild.members.cache.get(target.id);
 
 		memberTarget.roles.remove(muteRole.id);
+<<<<<<< HEAD
 		memberTarget.roles.add(mainRole.id);
 		message.channel.send({ content: `<@${memberTarget.user.id}> has been unmuted` });
+=======
+		memberTarget.roles.add(mainRole.id).then(() => {
+
+			const embed = new MessageEmbed()
+				.setColor(colors.heptagram)
+				.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+				.setDescription(`You have succesfully unmuted <@${memberTarget.user.id}>`)
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+			message.channel.send(embed);
+
+		});
+>>>>>>> staged
 	},
 };

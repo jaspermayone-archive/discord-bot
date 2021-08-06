@@ -1,3 +1,6 @@
+const Discord = require('discord.js');
+const { colors, cdn } = require('../../config.json');
+
 module.exports = {
 	name: 'api',
 	aliases: ['API'],
@@ -6,8 +9,19 @@ module.exports = {
 	minArgs: 0,
 	maxArgs: 0,
 	expectedArgs: "",
+	cooldown: '1m',
 
 	execute: ({ message }) => {
+<<<<<<< HEAD
 		message.channel.send({ content: 'The Heptagram team is curently working on developing an API. Stay tuned for more info.' });
+=======
+		const embed = new Discord.MessageEmbed()
+			.setTitle('Heptagram API')
+			.setColor(colors.heptagram)
+			.setDescription('The Heptagram team is curently working on developing an API. Stay tuned for more info.')
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+		message.channel.send(embed);
+>>>>>>> staged
 	},
 };

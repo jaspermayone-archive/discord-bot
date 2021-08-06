@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js');
+const { colors, cdn } = require('../../config.json');
+
 module.exports = {
 	name: 'clear',
 	guildOnly: true,
@@ -15,7 +18,20 @@ module.exports = {
 		if (args[0] < 2) return message.reply({ content: 'You must delete at least 2 messages.' });
 
 		await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
-			message.channel.bulkDelete(messages);
+
+			message.channel.bulkDelete(messages).finally(() => {
+
+				const membed = new MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+					.setDescription(`You have succesfully deleted ${args[0]} messages.`)
+					.addFields({ name: '**PLEASE NOTE:**', value: 'This will only delete messages that are under 14 days old. ', inline: true })
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+				return message.channel.send(membed);
+
+			});
 		});
 	},
 };

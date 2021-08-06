@@ -10,6 +10,7 @@ module.exports = {
 	minArgs: 0,
 	maxArgs: -1,
 	expectedArgs: "",
+	cooldown: '1m',
 
 	execute({ message, args }) {
 		if (!args[0] || !['search', 'random'].includes(args[0])) {return message.reply('Please provide <search|random> (query).');}

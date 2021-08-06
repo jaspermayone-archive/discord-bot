@@ -1,4 +1,6 @@
-module.exports = (client, prefix) => {
+module.exports = (client, instance) => {
+
+	const { _defaultPrefix: prefix } = instance;
 
 	client.on('message', async message => {
 		const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);

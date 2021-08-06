@@ -5,6 +5,7 @@ module.exports = {
 	expectedArgs: "<message you want clyde to say>",
 	minArgs: 1,
 	maxArgs: -1,
+	cooldown: '1m',
 
 	execute: async (message, args) => {
 

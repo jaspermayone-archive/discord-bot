@@ -9,6 +9,7 @@ module.exports = {
 	minArgs: 0,
 	maxArgs: -1,
 	expectedArgs: "<movie (optional)>",
+	cooldown: '1m',
 
 	execute({ message, args }) {
 		const embed = new MessageEmbed()

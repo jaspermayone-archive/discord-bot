@@ -9,6 +9,7 @@ module.exports = {
 	maxArgs: 2,
 	expectedArgs: "<channel> <msg>",
 	permissions: ["MANAGE_MESSAGES"],
+	cooldown: '1m',
 
 	execute: ({ message, args }) => {
 

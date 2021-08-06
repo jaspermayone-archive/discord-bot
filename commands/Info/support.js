@@ -8,6 +8,7 @@ module.exports = {
 	minArgs: 0,
 	maxArgs: 0,
 	expectedArgs: "",
+	cooldown: '1m',
 
 	execute: ({ message }) => {
 
