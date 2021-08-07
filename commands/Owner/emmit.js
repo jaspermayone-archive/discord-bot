@@ -22,7 +22,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send({ embeds: [jembed] });
+			return message.reply({ embeds: [jembed] });
 
 		}
 
@@ -37,7 +37,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send({ embeds: [lembed] });
+			return message.reply({ embeds: [lembed] });
 
 		}
 	},

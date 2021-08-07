@@ -20,7 +20,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send({ embeds: [embed1] });
+			return message.reply({ embeds: [embed1] });
 		}
 		else {
 			const member = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(() => { return undefined; });
@@ -34,7 +34,7 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				return message.channel.send({ embeds: [embed2] });
+				return message.reply({ embeds: [embed2] });
 
 			}
 		}

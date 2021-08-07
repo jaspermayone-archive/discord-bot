@@ -32,7 +32,7 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				message.channel.send({ embeds: [membed] });
+				message.reply({ embeds: [membed] });
 				return;
 			});
 		}
@@ -48,7 +48,7 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				message.channel.send({ embeds: [msembed] });
+				message.reply({ embeds: [msembed] });
 		 });
 			setTimeout(function() {
 				memberTarget.roles.remove(muteRole.id);

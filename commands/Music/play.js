@@ -17,7 +17,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send({ embeds: [embed] });
+			return message.reply({ embeds: [embed] });
 
 		}
 		else if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) {
@@ -30,7 +30,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send({ embeds: [embed] });
+			return message.reply({ embeds: [embed] });
 		}
 		else if(!args.join(' ')) {
 			message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
@@ -40,7 +40,7 @@ module.exports = {
 				.setDescription('Please provide a URL or a title.')
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-			return message.channel.send({ embeds: [embed] });
+			return message.reply({ embeds: [embed] });
 		}
 		else {
 			const music = args.join(' ');

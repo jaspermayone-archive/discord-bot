@@ -18,7 +18,7 @@ module.exports = {
 		const data = await response.json();
 
 		if (data.title === 'No Definitions Found') {
-			return message.channel.send({ content: `❌ | I couldn't get the definition of that word!` });
+			return message.reply({ content: `❌ | I couldn't get the definition of that word!` });
 		}
 
 		const { meanings } = data[0];
@@ -39,6 +39,6 @@ module.exports = {
 				message.author.displayAvatarURL({ size: 4096, dynamic: true }),
 			);
 
-		message.channel.send({ embeds: [embed] });
+		message.reply({ embeds: [embed] });
 	},
 };

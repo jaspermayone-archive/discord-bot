@@ -11,6 +11,6 @@ module.exports = {
 
 		const clydeMessage = args.join(' ');
 
-		message.message.channel.send({ files : [{ attachment: `https://ctk-api.herokuapp.com/clyde/${clydeMessage}`, name: 'file.jpg' }] });
+		message.message.reply({ files : [{ attachment: `https://ctk-api.herokuapp.com/clyde/${clydeMessage}`, name: 'file.jpg' }] });
 	},
 };

@@ -3,7 +3,7 @@ const { IDs } = require('../config.json');
 module.exports = (client) => {
 
 	client.on('messageCreate', async message => {
-		const { author, channel, content, mentions } = message;
+		const { author, content, mentions } = message;
 
 		const thanksRegex =
 	/((?:^|\s)(?:(?:th(?:n[qx]|x)|t[xyq]|tn(?:[x]){0,2})|\w*\s*[.,]*\s*than[kx](?:[sxz]){0,2}|than[kx](?:[sxz]){0,2}(?:[uq]|y(?:ou)?)?)|grazie|arigato(?:[u]{0,1})|doumo|gracias?|spasibo|dhanyavaad(?:hamulu)?|o?brigad(?:o|a)|dziekuje|(?:re)?merci|multumesc|shukra?an|danke)\b/gi;
@@ -33,7 +33,7 @@ module.exports = (client) => {
 					`Well done <@${user.id}>,  \`${author.username}\` thanks you.`,
 	  );
 			}
-			await channel.send({ content: replies1.join("\n") });
+			await message.reply({ content: replies1.join("\n") });
 
 		}
 		else{}

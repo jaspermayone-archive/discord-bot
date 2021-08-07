@@ -18,6 +18,6 @@ module.exports = {
 			.setDescription('The Heptagram team is curently working on developing an API. Stay tuned for more info.')
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-		message.channel.send({ embeds: [embed] });
+		message.reply({ embeds: [embed] });
 	},
 };

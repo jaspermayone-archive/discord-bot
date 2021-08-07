@@ -37,12 +37,12 @@ module.exports = {
 						.setTimestamp()
 						.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-					message.channel.send({ embeds: [embed] });
+					message.reply({ embeds: [embed] });
 				}
 			});
 		}
 		catch (err) {
-			return message.channel.send({ content: `Error while searching... ${err}` });
+			return message.reply({ content: `Error while searching... ${err}` });
 		}
 	},
 };

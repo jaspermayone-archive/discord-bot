@@ -29,7 +29,7 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				return message.channel.send({ embeds: [membed] });
+				return message.reply({ embeds: [membed] });
 
 			});
 		});

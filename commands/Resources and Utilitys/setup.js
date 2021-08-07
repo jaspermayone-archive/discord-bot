@@ -8,7 +8,7 @@ module.exports = {
 
 	execute: ({ message }) => {
 
-		message.channel.send({ content: 'This command is a work in progress. It is not working now.' });
+		message.reply({ content: 'This command is a work in progress. It is not working now.' });
 
 	/* 	if (message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
 
