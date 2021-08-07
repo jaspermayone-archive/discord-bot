@@ -1,30 +1,62 @@
 const { MessageEmbed } = require('discord.js');
-const { colors, cdn } = require('../../config.json');
+const { colors, cdn, emoji } = require('../../config.json');
 
 module.exports = {
 	name: 'ban',
 	description: 'bans users',
 	guildOnly: true,
 	category: 'Moderation',
-	minArgs: 1,
-	maxArgs: 1,
+	minArgs: 2,
+	maxArgs: 2,
 	expectedArgs: "<@user you want to ban>",
 	permissions: ["BAN_MEMBERS"],
 
-	execute: async ({ message }) => {
-		const member = message.mentions.users.first();
-		const memberTarget = message.guild.members.cache.get(member.id);
+	execute: async ({ message, args, client }) => {
 
-		await memberTarget.ban().then(() => {
+		function getUserFromMention(mention) {
+			if (!mention) return;
 
-			const membed = new MessageEmbed()
-				.setColor(colors.heptagram)
-				.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-				.setDescription(`You have succesfully banned ${memberTarget}.`)
-				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			if (mention.startsWith('<@') && mention.endsWith('>')) {
+				mention = mention.slice(2, -1);
 
-			return message.reply({ embeds: [membed] });
-		});
+				if (mention.startsWith('!')) {
+					mention = mention.slice(1);
+				}
+
+				return client.users.cache.get(mention);
+			}
+		}
+
+		const user = getUserFromMention(args[0]);
+		if (!user) {
+			return message.reply('Please use a proper mention if you want to ban someone.');
+		}
+
+		const reason = args.slice(1).join(' ');
+
+
+		const banembed = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+			.setDescription(`Successfully banned **${user.tag}** from the server! || Reason: ${reason}.`)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+		const errorembed = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`${emoji.x} **Failed** ${emoji.x}`)
+			.setDescription(`Failed to ban **${user.tag}**.`)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+
+		try {
+			await message.guild.members.ban(user, { reason });
+		}
+		catch (error) {
+			return message.reply({ embeds: [errorembed] });
+		}
+
+		return message.reply({ embeds: [banembed] });
 	},
 };
