@@ -10,11 +10,33 @@ module.exports = {
 	expectedArgs: "<number of messgaes you want to clear>",
 	permissions: ["MANAGE_MESSAGES"],
 
-	async execute({ message, args }) {
-		if (isNaN(args[0])) return message.reply({ content: 'Please enter a number instead of text.' });
+	async execute({ message, args, prefix }) {
 
-		if (args[0] > 100) return message.reply({ content: 'Slow down! This command resticts to 100 messages per command for safety.' });
-		if (args[0] < 11) return message.reply({ content: 'You must delete at least 11 messages. Please use clear for smaller jobs.' });
+		const numberinsttext = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`Incorect Usage!`)
+			.setDescription('Please enter a number instead of text.')
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+		const slowdown = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`Slow Down!`)
+			.setDescription('This command resticts to 100 messages per command for safety.')
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+		const elevenmsgs = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`Not enough messages.`)
+			.setDescription(`You must delete at least 11 messages. Please use ${prefix}clear for smaller jobs.`)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+		if (isNaN(args[0])) return message.reply({ embeds: [numberinsttext] });
+
+		if (args[0] > 100) return message.reply({ embeds: [slowdown] });
+		if (args[0] < 11) return message.reply({ embeds: [elevenmsgs] });
 
 		await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
 			message.channel.bulkDelete(messages);
