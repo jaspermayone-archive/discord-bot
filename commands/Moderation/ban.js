@@ -7,8 +7,8 @@ module.exports = {
 	guildOnly: true,
 	category: 'Moderation',
 	minArgs: 2,
-	maxArgs: 2,
-	expectedArgs: "<@user you want to ban>",
+	maxArgs: -1,
+	expectedArgs: "<@user you want to ban> <reason>",
 	permissions: ["BAN_MEMBERS"],
 
 	execute: async ({ message, args, client }) => {
