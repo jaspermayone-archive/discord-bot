@@ -26,9 +26,8 @@ client.on('ready', async () => {
 	client.user.setStatus('online');
 	client.user.setActivity(`${client.guilds.cache.size} servers!`, { type: 'WATCHING' });
 
-
 	console.log(chalk.magenta('Starting Heptagram || Version: ' + pjson.version));
-	console.log(chalk.green(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
+	console.log(chalk.green(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
 
 	new WOKCommands(client, {
 		commandsDir: 'commands',
