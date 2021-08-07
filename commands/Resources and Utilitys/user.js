@@ -7,8 +7,8 @@ module.exports = {
 	description: 'gives info about user.',
 	category: 'Resources',
 	minArgs: 0,
-	maxArgs: 0,
-	expectedArgs: "",
+	maxArgs: 1,
+	expectedArgs: "<user you want info about (optional)>",
 	cooldown: '30s',
 
 	execute: ({ message }) => {
