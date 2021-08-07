@@ -2,7 +2,7 @@ const { IDs } = require('../config.json');
 
 module.exports = (client) => {
 
-	client.on('message', async message => {
+	client.on('messageCreate', async message => {
 		const { author, channel, content, mentions } = message;
 
 		const thanksRegex =
@@ -33,7 +33,7 @@ module.exports = (client) => {
 					`Well done <@${user.id}>,  \`${author.username}\` thanks you.`,
 	  );
 			}
-			await channel.send(replies1.join("\n"));
+			await channel.send({ content: replies1.join("\n") });
 
 		}
 		else{}
