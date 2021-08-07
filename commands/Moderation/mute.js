@@ -51,18 +51,4 @@ module.exports = {
 		message.reply({ embeds: [muteEmbed] });
 		return;
 	},
-	member.timeout = message.client.setTimeout(async () => {
-      try {
-        await member.roles.remove(muteRole);
-        const unmuteEmbed = new MessageEmbed()
-          .setTitle('Unmute Member')
-          .setDescription(`${member} has been unmuted.`)
-          .setTimestamp()
-          .setColor(message.guild.me.displayHexColor);
-        message.channel.send(unmuteEmbed);
-      } catch (err) {
-        console.log(err)
-        return message.channel.send('Please check the role hierarchy', err.message);
-      }
-    }, time);
 };
