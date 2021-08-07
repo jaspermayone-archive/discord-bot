@@ -1,4 +1,5 @@
-const { IDs } = require('../config.json');
+const { colors, cdn, IDs } = require('../config.json');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = (client) => {
 
@@ -33,7 +34,15 @@ module.exports = (client) => {
 					`Well done <@${user.id}>,  \`${author.username}\` thanks you.`,
 	  );
 			}
-			await message.reply({ content: replies1.join("\n") });
+
+			const thanksembed = new MessageEmbed()
+				.setColor(colors.heptagram)
+				.setTitle('Thanks!')
+				.setDescription(`${replies1.join("\n")}`)
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+			await message.reply({ embeds: [thanksembed] });
 
 		}
 		else{}

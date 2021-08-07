@@ -38,7 +38,7 @@ module.exports = (client) => {
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				await (message.delete()).then(() => {
-					message.reply({ embeds: nolinkembed });
+					message.reply({ embeds: [nolinkembed] });
 				});
 			}
 			else {}
