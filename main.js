@@ -1,9 +1,9 @@
 const { Intents, Client, Discord } = require('discord.js');
 const chalk = require('chalk');
 const distube = require('distube');
-const WOKCommands = require('wokcommands');
 
-const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
+const { config, token } = require('./config.json');
+
 const antiAd = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
 const pjson = require('./package.json');
@@ -28,73 +28,6 @@ client.on('ready', async () => {
 	console.log(chalk.magenta('Starting Heptagram || Version: ' + pjson.version));
 	console.log(chalk.green(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
 
-	new WOKCommands(client, {
-		commandsDir: 'commands',
-		featuresDir: 'features',
-		messagesPath: 'messages.json',
-		showWarns: true,
-		del: -1,
-		ignoreBots: true,
-		dbOptions: {
-			keepAlive: true,
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useFindAndModify: false,
-		},
-		testServers: [`${IDs.ServerID}`],
-	})
-		.setBotOwner([`${IDs.OwnerID}`])
-		.setDefaultPrefix('!')
-		.setColor(colors.heptagram)
-		.setMongoPath(MongoDB)
-		.setDisplayName('Heptagram')
-		.setCategorySettings([
-			{
-				name: 'Examples',
-				emoji: '🚧',
-				hidden: true,
-			},
-			{
-				name: 'Development',
-				emoji: '⭕️',
-				hidden: true,
-			},
-			{
-				name: 'Fun',
-				emoji: '🎮',
-			},
-			{
-				name: 'Moderation',
-				emoji: '🔨',
-			},
-			{
-				name: 'Music',
-				emoji: '🎵',
-			},
-			{
-				name: 'Owner',
-				emoji: `${emoji.HeptaHeart}`,
-				customEmoji: true,
-				hidden: true,
-			},
-			{
-				name: 'Resources',
-				emoji: '📂',
-			},
-			{
-				name: 'Utilitys',
-				emoji: '🦾',
-			},
-			{
-				name: 'Info',
-				emoji: '📒',
-			},
-			{
-				name: 'Thanks',
-				emoji: '🤝',
-			},
-		]);
-
 	console.log(chalk.blueBright('Bot online and Ready!'));
 
 });
@@ -104,3 +37,4 @@ antiInvite(client);
 antiAd(client);
 
 client.login(token);
+client.config = config;

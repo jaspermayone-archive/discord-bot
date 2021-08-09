@@ -38,8 +38,7 @@
     "popular-movie-quotes": "^1.2.4",
     "snekfetch": "^4.0.4",
     "something-random-on-discord": "^3.4.3",
-    "urban": "^0.3.2",
-    "wokcommands": "^1.3.6"
+    "urban": "^0.3.2"
   },
   "main": "main.js",
   "private": false,
