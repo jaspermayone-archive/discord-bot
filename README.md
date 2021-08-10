@@ -4,10 +4,8 @@
   <a href="https://github.com/Heptagram-Bot/Heptagram#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge&logo=github?label=healthinesses" />
   </a>
-  <a href="https://codeclimate.com/github/Heptagram-Bot/Heptagram/maintainability"><img src="https://api.codeclimate.com/v1/badges/dcad108e5bd6ec8d3c4a/maintainability?style=for-the-badge&logo=github?label=healthinesses" />
-  </a>
   <a href="https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/J-dogcoder/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
+    <img alt="License:" src="https://img.shields.io/github/license/Heptagram-Bot/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
   </a>
   <a href="https://github.com/Heptagram-Bot/Heptagram/issues">
     <img alt="Issues" src="https://img.shields.io/github/issues/Heptagram-Bot/Heptagram?style=for-the-badge&logo=github?label=healthinesses" />
@@ -32,7 +30,7 @@
 <h1 align="center">Welcome to Heptagram 👋</h1>
 
 # NOTE: 
-This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server](https://discord.gg/HSupF99kpq) to say hi, chat with developers, and stay up to date with release news.
+This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server](https://discord.gg/HSupF99kpq) to say hi, chat with developers, and stay up to date with release news. And find out more at our website https://heptagram.xyz
 
 # Welcome to Heptagram. 
 Heptagram is the all-in-one, open-source Discord bot with the goal to be the single bot needed for any server. No more music bot, mod bot, rules bot. Just Heptagram!
@@ -62,5 +60,5 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [J-dogcoder](https://github.com/J-dogcoder).<br />
-This project is [Mozilla Public License 2.0](https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE) licensed.
+This project is [Eclipse Public License 2.0](https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE) licensed.
 
