@@ -19,6 +19,7 @@ module.exports = {
 			.setDescription('Heptagram is proud to be open source! You can find our GitHub repo at https://github.com/Heptagram-Bot/Heptagram')
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-		message.channel.send(embed);
+
+		message.reply({ embeds: [embed] });
 	},
 };

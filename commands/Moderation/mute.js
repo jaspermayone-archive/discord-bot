@@ -7,54 +7,48 @@ module.exports = {
 	guildOnly: true,
 	description: 'mutes user',
 	category: 'Moderation',
-	minArgs: 1,
-	maxArgs: 1,
-	expectedArgs: "<@user you want to mute>",
+	minArgs: 3,
+	maxArgs: -1,
+	expectedArgs: "<@user you want to mute> <time> <reason>",
 	permissions: ["MUTE_MEMBERS"],
 
 	execute: async ({ message, args }) => {
 
-		const target = message.mentions.users.first();
+		const muteRoleId = message.guild.roles.cache.get(roles.muted);
+		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-		const mainRole = message.guild.roles.cache.get(roles.users);
-		const muteRole = message.guild.roles.cache.get(roles.muted);
+		if (!member) {return message.channel.send('Please mention a user or provide a valid user ID');}
+		if (member === message.member) {return message.channel.send('You cannot mute yourself');}
+		if (member === message.guild.me) return message.channel.send(message, 0, 'You cannot mute me');
+		if (member.roles.highest.position >= message.member.roles.highest.position) {return message.channel.send('You cannot mute someone with an equal or higher role');}
+		if (!args[1]) {return message.channel.send('Please enter a length of time. (1s/m/h/d)');}
+		const time = ms(args[1]);
 
-		const memberTarget = message.guild.members.cache.get(target.id);
+		let reason = args.slice(2).join(' ');
+		if (!reason) reason = '`None Provided`';
+		if (reason.length > 1024) reason = reason.slice(0, 1021) + '...';
 
-		if (!args[1]) {
-			memberTarget.roles.remove(mainRole.id);
-			await memberTarget.roles.add(muteRole.id).then(() => {
+		if (member.roles.cache.has(muteRoleId)) {return message.channel.send('Provided member is already muted');}
 
-				const membed = new MessageEmbed()
-					.setColor(colors.heptagram)
-					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-					.setDescription(`You have succesfully muted <@${memberTarget.user.id}>.`)
-					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+		  try {
+			await member.roles.add(muteRoleId);
+		  }
+		catch (err) {
+			console.log(err);
+			return message.channel.send('Please check the role hierarchy', err.message);
+		  }
+		  const muteEmbed = new MessageEmbed()
+			.setTitle('Mute Member')
+			.setDescription(`${member} has now been muted for **${ms(time, { long: true })}**.`)
+			.addField('Moderator', message.member, true)
+			.addField('Member', member, true)
+			.addField('Time', `\`${ms(time)}\``, true)
+			.addField('Reason', reason)
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`)
+			.setTimestamp()
+			.setColor(colors.heptagram);
 
-				message.channel.send(membed);
-				return;
-			});
-		}
-		else {
-
-			memberTarget.roles.remove(mainRole.id);
-		 await memberTarget.roles.add(muteRole.id).then(() => {
-
-				const msembed = new MessageEmbed()
-					.setColor(colors.heptagram)
-					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-					.setDescription(`You have succesfully muted <${memberTarget.user.id}> for ${ms(ms(args[1]))}`)
-					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-
-				message.channel.send(msembed);
-
-		 });
-			setTimeout(function() {
-				memberTarget.roles.remove(muteRole.id);
-				memberTarget.roles.add(mainRole.id);
-			}, ms(args[1]));
-		}
+		message.reply({ embeds: [muteEmbed] });
+		return;
 	},
 };

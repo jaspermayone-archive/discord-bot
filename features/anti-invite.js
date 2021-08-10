@@ -17,7 +17,7 @@ module.exports = (client) => {
 		});
 	};
 
-	client.on('message', async message => {
+	client.on('messageCreate', async message => {
 
 		const { guild, content } = message;
 
@@ -38,7 +38,7 @@ module.exports = (client) => {
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				await (message.delete()).then(() => {
-					message.channel.send(nolinkembed);
+					message.reply({ embeds: [nolinkembed] });
 				});
 			}
 			else {}

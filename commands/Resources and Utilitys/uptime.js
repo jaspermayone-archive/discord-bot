@@ -36,8 +36,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			message.channel.send({ embed: uptimeEmbed });
-			return { success: true, content: uptimeEmbed };
+			message.reply({ embeds: uptimeEmbed });
 		}
 		catch (err) { }
 	},

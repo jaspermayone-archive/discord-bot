@@ -28,6 +28,6 @@ module.exports = {
 
 		embed.setImage(images[number]);
 
-		message.channel.send(embed);
+		message.reply({ embeds: [embed] });
 	},
 };

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const { colors, cdn, IDs } = require('../config.json');
 
 module.exports = (client) => {
-	client.on('message', async message => {
+	client.on('messageCreate', async message => {
 
 		const linkRegex =
         /(([a-z]+:\/\/)?((aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|xyz|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-.~]+)*(\/([a-z0-9_\-.]*)(\?[a-z0-9+_\-.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi;
@@ -26,7 +26,7 @@ module.exports = (client) => {
 						.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 					await (message.delete()).then(() => {
-						message.channel.send(nolinkembed);
+						message.reply({ embeds: [nolinkembed] });
 					});
 				}
 			}

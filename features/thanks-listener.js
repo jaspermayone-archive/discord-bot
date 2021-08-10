@@ -1,9 +1,10 @@
-const { IDs } = require('../config.json');
+const { colors, cdn, IDs } = require('../config.json');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = (client) => {
 
-	client.on('message', async message => {
-		const { author, channel, content, mentions } = message;
+	client.on('messageCreate', async message => {
+		const { author, content, mentions } = message;
 
 		const thanksRegex =
 	/((?:^|\s)(?:(?:th(?:n[qx]|x)|t[xyq]|tn(?:[x]){0,2})|\w*\s*[.,]*\s*than[kx](?:[sxz]){0,2}|than[kx](?:[sxz]){0,2}(?:[uq]|y(?:ou)?)?)|grazie|arigato(?:[u]{0,1})|doumo|gracias?|spasibo|dhanyavaad(?:hamulu)?|o?brigad(?:o|a)|dziekuje|(?:re)?merci|multumesc|shukra?an|danke)\b/gi;
@@ -33,7 +34,15 @@ module.exports = (client) => {
 					`Well done <@${user.id}>,  \`${author.username}\` thanks you.`,
 	  );
 			}
-			await channel.send(replies1.join("\n"));
+
+			const thanksembed = new MessageEmbed()
+				.setColor(colors.heptagram)
+				.setTitle('Thanks!')
+				.setDescription(`${replies1.join("\n")}`)
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+			await message.reply({ embeds: [thanksembed] });
 
 		}
 		else{}
