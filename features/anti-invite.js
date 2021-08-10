@@ -5,7 +5,7 @@ module.exports = (client) => {
 
 	const isInvite = async (guild, code) => {
 		return await new Promise(resolve => {
-			guild.fetchInvites().then(invites => {
+			guild.invites.fetch().then(invites => {
 				for (const invite of invites) {
 					if (code === invite[0]) {
 						resolve(true);
@@ -17,7 +17,7 @@ module.exports = (client) => {
 		});
 	};
 
-	client.on('message', async message => {
+	client.on('messageCreate', async message => {
 
 		const { guild, content } = message;
 
@@ -38,7 +38,7 @@ module.exports = (client) => {
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				await (message.delete()).then(() => {
-					message.channel.send(nolinkembed);
+					message.reply({ embeds: [nolinkembed] });
 				});
 			}
 			else {}

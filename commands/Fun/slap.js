@@ -12,7 +12,7 @@ module.exports = {
 	execute: async (message) => {
 		const member = message.message.mentions.members.first();
 
-		await message.message.channel.send({ embed: {
+		await message.reply({ embed: {
 			color: (colors.heptagram),
 			title: message.message.author.username + ' slapped :raised_back_of_hand: ' + member.displayName + ', ' + member.displayName + ' is now in the hospital! :hospital:',
 			timestamp:new Date(),

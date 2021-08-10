@@ -13,7 +13,7 @@ module.exports = {
 		if (!args[0]) {
 
 			client.guilds.cache.forEach((guild) => {
-				message.channel.send(`The server ${guild.name} (\`${guild.id}\`) has a total of ${guild.memberCount} members.`);
+				message.channel.send({ content: `The server ${guild.name} (\`${guild.id}\`) has a total of ${guild.memberCount} members.` });
 
 			});
 		}
@@ -34,7 +34,7 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-				message.channel.send(embed);
+				message.reply({ embeds: [embed] });
 
 			})
 				.catch(console.error);

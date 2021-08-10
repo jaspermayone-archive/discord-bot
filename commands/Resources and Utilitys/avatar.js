@@ -12,7 +12,7 @@ module.exports = {
 
 	async execute({ message, args }) {
 		if (!args[0]) {
-			const embed = new Discord.MessageEmbed()
+			const embed1 = new Discord.MessageEmbed()
 				.setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)
 				.setColor(colors.heptagram)
 				.setTitle('**Avatar**')
@@ -20,13 +20,13 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.channel.send(embed);
+			return message.reply({ embeds: [embed1] });
 		}
 		else {
 			const member = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(() => { return undefined; });
 			if (!member) {return message.reply('User not found.');}
 			else {
-				const embed = new Discord.MessageEmbed()
+				const embed2 = new Discord.MessageEmbed()
 					.setAuthor(`${member.user.tag}`, `${member.user.displayAvatarURL()}`)
 					.setColor(colors.heptagram)
 					.setTitle('Requested Avatar:')
@@ -34,7 +34,8 @@ module.exports = {
 					.setTimestamp()
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				return message.channel.send(embed);
+				return message.reply({ embeds: [embed2] });
+
 			}
 		}
 	},
