@@ -45,13 +45,14 @@ Please note, this bot is open source, but is intended to use the version we have
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Heptagram-Bot/Heptagram/issues). If you are interested in contributing, we ask that you take a look at the [contributing guide](https://github.com/Heptagram-Bot/Heptagram/blob/master/CONTRIBUTING.md) before you contribute.
 
 ## Discord Server
+
 Heptagram has a community Discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggest features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can gain access to a special role and channels. To do so, join the server and then ping any admin and let them know.
 
 ## Author
 
 👤 **J-dogcoder**
 
-* Github: [@J-dogcoder](https://github.com/J-dogcoder)
+* GitHub: [@J-dogcoder](https://github.com/J-dogcoder)
 
 ## Show your support
 
@@ -60,5 +61,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [J-dogcoder](https://github.com/J-dogcoder).<br />
-This project is [Eclipse Public License 2.0](https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE) licensed.
-
+This project is licensed under the [Eclipse Public License 2.0](https://github.com/Heptagram-Bot/Heptagram/blob/master/LICENSE).
