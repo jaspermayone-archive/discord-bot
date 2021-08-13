@@ -38,4 +38,3 @@ module.exports = {
 		return message.message.channel.send(HugEmbed2);
 	},
 };
-
