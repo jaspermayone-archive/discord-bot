@@ -38,4 +38,3 @@ module.exports = {
 		return message.reply({ embeds: [HugEmbed2] });
 	},
 };
-
