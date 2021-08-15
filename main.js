@@ -1,65 +1,70 @@
-const { Intents, Client, Discord } = require('discord.js');
-const chalk = require('chalk');
-const distube = require('distube');
+/* eslint-disable no-unused-vars */
+if (Number(process.version.slice(1).split(".")[0]) < 16) throw new Error("Node 16.x or higher is required. Update Node on your system.");
 
-const { config, token } = require('./config.json');
+const { Client, Collection } = require("discord.js");
+const { promisify } = require("util");
+const readdir = promisify(require("fs").readdir);
+const Enmap = require("enmap");
 
-const antiAd = require('./features/anti-link');
-const antiInvite = require('./features/anti-invite');
-const pjson = require('./package.json');
+const config = require("./config.js");
 
-const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'], intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGE_REACTIONS] });
-
-// Welcome messages. Requires a channel named `#welcome`.
-client.on("guildMemberAdd", async member => {
-	if (member.id === bot.user.id) return // If a bot was added to a server, do not send a welcome message.
-	let welcomemsgs = [
-	  `Welcome, ${member}, to the Heptagram Discord server. If you need any help, head over to the <#826519674640269373> channel. :wave: <:HeptagramLogo:874265504813056020>`,
-	  `Hi there, ${member}! We're glad to have you here! :smile:`,
-	  `${member} has just joined us! Say hello in the <#869607626185527366> channel! :grin:`
-	]
-
-	let msg = Math.floor(Math.random() * welcomemsgs.length)
-	getChannel(member.guild, "welcome")
-	  .send(welcomemsgs[msg].toString())
-})
-
-// Leaving messages. Requires a channel named `#leaves`.
-client.on("guildMemberRemove", member => {
-	if (member.id === bot.user.id) return  // If a bot was removed from a server, do not send a leave message.
-	let leavemsgs = [
-	  `Goodbye, **${member.user.tag}**. We hope you come back. :wink:`,
-	  `${member.user.tag} just left the server. :wave:`,
-	]
-	let msg = Math.floor(Math.random() * leavemsgs.length)
-	getChannel(member.guild, "leaves").typeMessage(leavemsgs[msg])
-})
-
-client.distube = new distube(client, { searchSongs: false, emitNewSongOnly: true });
-client.distube
-	.on('playSong', (message, queue, song) => message.channel.send(new Discord.MessageEmbed()
-		.setTitle('Playing')
-		.setDescription(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`)),
-	)
-	.on('addSong', (message, queue, song) => message.channel.send(new Discord.MessageEmbed()
-		.setTitle('Queued')
-		.setDescription(`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)));
-
-client.on('ready', async () => {
-
-	client.user.setStatus('online');
-	client.user.setActivity(`${client.guilds.cache.size} servers!`, { type: 'WATCHING' });
-
-	console.log(chalk.magenta('Starting Heptagram || Version: ' + pjson.version));
-	console.log(chalk.green(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
-
-	console.log(chalk.blueBright('Bot online and Ready!'));
-
+const client = new Client({
+  intents: config.intents,
+  partials: config.partials,
 });
-client.on("threadCreate", (thread) => thread.join());
 
-antiInvite(client);
-antiAd(client);
-
-client.login(token);
 client.config = config;
+
+client.logger = require("./modules/Logger");
+
+require("./modules/functions.js")(client);
+
+
+client.owners = ["722121621610954773"];
+
+
+client.commands = new Collection();
+client.aliases = new Collection();
+client.slashcmds = new Collection();
+
+
+client.settings = new Enmap({ name: "settings" });
+
+const init = async () => {
+
+  const cmdFiles = await readdir("./commands/");
+  cmdFiles.forEach(f => {
+    if (!f.endsWith(".js")) return;
+    const response = client.loadCommand(f);
+  });
+
+  readdir("./slash", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+      if (!file.endsWith(".js")) return;
+      const props = require(`./slash/${file}`);
+      const commandName = file.split(".")[0];
+      client.slashcmds.set(props.commandData.name, props);
+    });
+  });
+
+  const evtFiles = await readdir("./events/");
+  evtFiles.forEach(file => {
+    const eventName = file.split(".")[0];
+    const event = require(`./events/${file}`);
+    client.on(eventName, event.bind(null, client));
+  });
+
+  client.levelCache = {};
+  for (let i = 0; i < client.config.permLevels.length; i++) {
+    const thisLevel = client.config.permLevels[i];
+    client.levelCache[thisLevel.name] = thisLevel.level;
+  }
+
+  client.on("threadCreate", (thread) => thread.join());
+
+  client.login(client.config.token);
+
+};
+
+init();

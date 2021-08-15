@@ -1,14 +1,14 @@
 {
-	"extends": "eslint:recommended",
-	"env": {
-		"node": true,
-		"es6": true
-	},
-	"parserOptions": {
-		"ecmaVersion": 2019
-	},
-	"rules": {
-		"no-mixed-spaces-and-tabs": "off",
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-mixed-spaces-and-tabs": "off",
 		"brace-style": [
 			"error",
 			"stroustrup",
@@ -32,11 +32,7 @@
 			"property"
 		],
 		"handle-callback-err": "off",
-		"indent": [
-			"error",
-			"tab"
-		],
-		"max-nested-callbacks": [
+    "max-nested-callbacks": [
 			"error",
 			{
 				"max": 4
@@ -62,16 +58,6 @@
 				"maxBOF": 0
 			}
 		],
-		"no-shadow": [
-			"error",
-			{
-				"allow": [
-					"err",
-					"resolve",
-					"reject"
-				]
-			}
-		],
 		"no-trailing-spaces": [
 			"error"
 		],
@@ -80,28 +66,56 @@
 			"error",
 			"always"
 		],
-		"prefer-const": "error",
-		"quotes": [
-			"off"
-		],
-		"semi": [
-			"error",
-			"always"
-		],
-		"space-before-blocks": "error",
-		"space-before-function-paren": [
-			"error",
-			{
-				"anonymous": "never",
-				"named": "never",
-				"asyncArrow": "always"
-			}
-		],
 		"space-in-parens": "error",
 		"space-infix-ops": "error",
 		"space-unary-ops": "error",
 		"spaced-comment": "error",
 		"yoda": "error",
-		"no-empty": "off"
-	}
+		"no-empty": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "warn",
+      "double"
+    ],
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "keyword-spacing": [
+      "error", {
+        "before": true,
+        "after": true
+      }
+    ],
+    "space-before-blocks": [
+      "error", {
+        "functions":"always",
+        "keywords": "always",
+        "classes": "always"
+      }
+    ],
+    "space-before-function-paren": [
+      "error", {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "prefer-const": [
+      "error", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ]
+  }
 }
