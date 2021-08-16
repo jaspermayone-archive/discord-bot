@@ -1,14 +1,9 @@
 {
     "recommendations": [
-        "darkempire78.discord-tools",
-        "eg2.vscode-npm-script",
+        "wornoffkeys.binuploader",
         "coenraads.bracket-pair-colorizer-2",
-        "kiteco.kite",
-        "johnpapa.vscode-peacock",
-        "vscode-icons-team.vscode-icons",
-        "snowflake107.discordjs-helper",
-        "pkief.material-icon-theme",
-        "wesbos.theme-cobalt2",
-        "felipe-mendes.slack-theme"
+        "dbaeumer.vscode-eslint",
+        "github.copilot",
+        "eg2.vscode-npm-script"
     ]
 }
