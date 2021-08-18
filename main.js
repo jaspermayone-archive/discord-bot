@@ -1,8 +1,9 @@
 const { Intents, Client } = require('discord.js');
 const chalk = require('chalk');
+const path = require('path');
 const WOKCommands = require('wokcommands');
 
-const { token, emoji, IDs, colors, MongoDB } = require('./config.json');
+const { token, emoji, colors, MongoDB, IDs } = require('./config.json');
 
 const antiAd = require('./Features/anti-link');
 const antiInvite = require('./Features/anti-invite');
@@ -18,12 +19,14 @@ client.on('ready', async () => {
 	console.log(chalk.magenta('Starting Heptagram || Version: ' + pjson.version));
 	console.log(chalk.green(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
 
+
 	new WOKCommands(client, {
-		commandsDir: 'Commands',
-		featuresDir: 'Features',
-		messagesPath: 'messages.json',
+		commandsDir: path.join(__dirname, 'Commands'),
+		featuresDir: path.join(__dirname, 'Features'),
+		messagesPath: '',
 		showWarns: true,
-		del: -1,
+		delErrMsgCooldown: -1,
+		defaultLangauge: 'english',
 		ignoreBots: true,
 		dbOptions: {
 			keepAlive: true,
@@ -31,13 +34,19 @@ client.on('ready', async () => {
 			useUnifiedTopology: true,
 			useFindAndModify: false,
 		},
-		testServers: [`${IDs.ServerID}`],
+		testServers: ['826493837878493204'],
+		disabledDefaultCommands: [
+			// 'help',
+			// 'command',
+			'language',
+			// 'prefix',
+			// 'requiredrole'
+		],
 	})
-		.setBotOwner([`${IDs.OwnerID}`])
+	    .setBotOwner(IDs.ownerID)
 		.setDefaultPrefix('!')
 		.setColor(colors.heptagram)
 		.setMongoPath(MongoDB)
-		.setDisplayName('Heptagram')
 		.setCategorySettings([
 			{
 				name: 'Examples',
@@ -86,6 +95,16 @@ client.on('ready', async () => {
 
 });
 client.on("threadCreate", (thread) => thread.join());
+
+
+process.on('unhandledRejection', error => {
+	console.error('Unhandled promise rejection:', error);
+});
+
+client.on('shardError', error => {
+	console.error('A websocket connection encountered an error:', error);
+});
+
 
 antiInvite(client);
 antiAd(client);

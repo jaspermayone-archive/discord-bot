@@ -17,8 +17,6 @@
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
-    "@discordjs/opus": "^0.5.3",
-    "@mikemcbride/dad-jokes": "github:mikemcbride/dad-jokes",
     "akaneko": "^5.0.1",
     "canvas": "^2.8.0",
     "chalk": "^4.1.1",
@@ -38,11 +36,12 @@
     "snekfetch": "^4.0.4",
     "something-random-on-discord": "^3.4.3",
     "urban": "^0.3.2",
-    "wokcommands": "^1.3.9"
+    "wokcommands": "^1.3.91"
   },
   "main": "main.js",
   "private": false,
   "devDependencies": {
-    "eslint": "7.32.0"
+    "eslint": "7.32.0",
+    "nodemon": "^2.0.12"
   }
 }

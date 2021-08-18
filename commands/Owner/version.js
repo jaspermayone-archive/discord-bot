@@ -1,6 +1,6 @@
 const { colors, cdn } = require('../../config.json');
 const { MessageEmbed } = require('discord.js');
-const pjson = require('./package.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'version',
@@ -17,8 +17,6 @@ module.exports = {
 			.setTitle(`<:HeptagramLogo:874265504813056020> Bot Versions: <:HeptagramLogo:874265504813056020>`)
 			.addFields(
 				{ name: 'Node Version:', value: `${process.versions.node}`, inline: true },
-				{ name: 'Discord.js Version:', value: `${process.versions.discord.js}`, inline: true },
-				{ name: 'Mongoose Version:', value: `${process.versions.mongoose}`, inline: true },
 				{ name: 'Bot Version:', value: `${pjson.version}`, inline: true },
 			)
 			.setTimestamp()

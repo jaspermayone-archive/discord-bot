@@ -10,3 +10,9 @@ module.exports = (client) => {
 		else {}
 	});
 };
+
+module.exports.config = {
+	displayName: 'Owner Love',
+	dbName: 'OWNER LOVE',
+	loadDBFirst: true,
+};

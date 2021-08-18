@@ -2,22 +2,6 @@ const { colors, cdn } = require('../../config.json');
 const moment = require('moment');
 const Discord = require('discord.js');
 
-const regions = {
-	brazil: 'Brazil',
-	europe: 'Europe',
-	hongkong: 'Hong Kong',
-	india: 'India',
-	japan: 'Japan',
-	russia: 'Russia',
-	singapore: 'Singapore',
-	southafrica: 'South Africa',
-	sydeny: 'Sydeny',
-	'us-central': 'US Central',
-	'us-east': 'US East',
-	'us-west': 'US West',
-	'us-south': 'US South',
-};
-
 module.exports = {
 	name: 'server',
 	description: 'gives info about server.',
@@ -28,33 +12,32 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message }) => {
+	execute: async ({ message }) => {
 
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;
 		const channels = message.guild.channels.cache;
 		const emojis = message.guild.emojis.cache;
 
+		const owner = await message.guild.fetchOwner();
+
 		const generalEmbed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
 			.setThumbnail(message.guild.iconURL({ dynamic: true }))
-			.addField('General Server Info', [
-				`**Name:** ${message.guild.name}`,
-				`**ID:** ${message.guild.id}`,
-				`**Owner:** ${message.guild.owner.user.tag} (${message.guild.ownerID})`,
-				`**Region:** ${regions[message.guild.region]}`,
-				`**Boost Tier:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
-				`**Time Created:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} [${moment(message.guild.createdTimestamp).fromNow()}]`,
-				'\u200b',
+			.addFields([
+				{ name: '**Name:**', value: `${message.guild.name}`, inline: true },
+				{ name: '**Guild ID:**', value: `${message.guild.id}`, inline: true },
+				{ name: '**Owner:**', value: `${owner} (${owner.id})`, inline: true },
+				{ name: '**Boost Tier:**', value: `${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`, inline: true },
+				{ name: '**Time Created:**', value: `${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} [${moment(message.guild.createdTimestamp).fromNow()}]`, inline: true },
 			])
-			.addField('Server Statistics', [
-				`**Role Count:** ${roles.length}`,
-				`**Emoji Count:** ${emojis.size}`,
-				`**Humans:** ${members.filter(member => !member.user.bot).size}`,
-				`**Bots:** ${members.filter(member => member.user.bot).size}`,
-				`**Text Channels:** ${channels.filter(channel => channel.type === 'text').size}`,
-				`**Voice Channels:** ${channels.filter(channel => channel.type === 'voice').size}`,
-				'\u200b',
+			.addFields([
+				{ name: '**Role Count:**', value: `${roles.length}`, inline: true },
+				{ name: '**Emoji Count:**', value: `${emojis.size}`, inline: true },
+				{ name: '**Humans:**', value: `${members.filter(member => !member.user.bot).size}`, inline: true },
+				{ name: '**Bots:**', value: `${members.filter(member => member.user.bot).size}`, inline: true },
+				{ name: '**Text Channels:**', value: `${channels.filter(channel => channel.type === 'text').size}`, inline: true },
+				{ name: '**Voice Channels:**', value: `${channels.filter(channel => channel.type === 'voice').size}`, inline: true },
 			])
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
