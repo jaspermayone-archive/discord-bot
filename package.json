@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
-    "@discordjs/opus": "^0.5.3",
+    "@discordjs/opus": "^0.6.0",
     "@mikemcbride/dad-jokes": "github:mikemcbride/dad-jokes",
     "akaneko": "^5.0.1",
     "canvas": "^2.8.0",
