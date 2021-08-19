@@ -9,7 +9,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	execute: async ({ message, client }) => {
+	callback: async ({ message, client }) => {
 
 		const BotPlatform = process.platform;
 		const MemoryUsage = process.memoryUsage().heapUsed / 1024 / 1024;

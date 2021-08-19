@@ -8,7 +8,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	execute: async ({ client, message, prefix }) => {
+	callback: async ({ client, message, prefix }) => {
 		const content = message.content.replace(`${prefix}status`, '');
 
 		await client.user.setPresence({

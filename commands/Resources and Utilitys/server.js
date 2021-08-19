@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: async ({ message }) => {
+	callback: async ({ message }) => {
 
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;

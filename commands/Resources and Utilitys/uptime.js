@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	run: async ({ message }) => {
+	callback: async ({ message }) => {
 
 		const seconds = Math.round(process.uptime());
 		const days = seconds >= 86400 ? Math.floor(seconds / 86400) : 0;

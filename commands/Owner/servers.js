@@ -8,7 +8,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	async execute({ client, message, args }) {
+	callback: async ({ client, message, args }) =>{
 
 		if (!args[0]) {
 

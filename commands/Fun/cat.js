@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	async execute({ message }) {
+	callback: async ({ message }) =>{
 
 		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
 

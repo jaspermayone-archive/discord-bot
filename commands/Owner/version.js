@@ -10,7 +10,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	execute: async ({ message }) => {
+	callback: async ({ message }) => {
 
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)

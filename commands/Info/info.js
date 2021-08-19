@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message, prefix }) => {
+	callback: ({ message, prefix }) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Heptagram Bot Info:')

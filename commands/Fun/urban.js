@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute({ message, args }) {
+	callback({ message, args }) {
 		if (!args[0] || !['search', 'random'].includes(args[0])) {return message.reply('Please provide <search|random> (query).');}
 		const image = 'http://cdn.marketplaceimages.windowsphone.com/v8/images/5c942bfe-6c90-45b0-8cd7-1f2129c6e319?imageType=ws_icon_medium';
 		const search = args[1] ? urban(args.slice(1).join(' ')) : urban.random();

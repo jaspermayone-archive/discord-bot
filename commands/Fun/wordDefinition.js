@@ -12,7 +12,7 @@ module.exports = {
 	maxArgs: 1,
 	expectedArgs: "<word>",
 
-	execute: async (message, args) => {
+	callback: async (message, args) => {
 		const word = args[0].toLowerCase();
 
 		const response = await fetch(`${API_URL}/${word}`);

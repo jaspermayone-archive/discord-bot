@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "<Equation you want solved>",
 	cooldown: '1m',
 
-	execute({ message, args }) {
+	callback({ message, args }) {
 		try {
 
 			const embed = new MessageEmbed()

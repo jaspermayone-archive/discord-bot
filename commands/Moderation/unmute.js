@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "<@user you want to unmute>",
 	permissions: ["MUTE_MEMBERS"],
 
-	execute({ message }) {
+	callback({ message }) {
 
 
 		const muteRoleId = message.guild.roles.cache.get(roles.muted);

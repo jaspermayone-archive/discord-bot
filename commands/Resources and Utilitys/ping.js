@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message, client }) => {
+	callback: ({ message, client }) => {
 
 		const ping = message.createdTimestamp - message.createdTimestamp;
 

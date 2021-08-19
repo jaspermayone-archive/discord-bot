@@ -7,7 +7,7 @@ module.exports = {
 	expectedArgs: "<@user you want to hack>",
 	cooldown: '1m',
 
-	execute: async (message) => {
+	callback: async (message) => {
 		const msgObj = message.message;
 
 		const tohack = msgObj.mentions.members.first();

@@ -11,7 +11,7 @@ module.exports = {
 	expectedArgs: "<number of messages you want to clear>",
 	permissions: ["MANAGE_MESSAGES"],
 
-	async execute({ message, args }) {
+	callback: async ({ message, args }) => {
 
 		const numberinsttext = new MessageEmbed()
 			.setColor(colors.heptagram)

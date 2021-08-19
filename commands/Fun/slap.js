@@ -9,7 +9,7 @@ module.exports = {
 	expectedArgs: "<@user you want to slap>",
 	cooldown: '1m',
 
-	execute: async (message) => {
+	callback: async (message) => {
 		const member = message.message.mentions.members.first();
 
 		await message.reply({ embed: {

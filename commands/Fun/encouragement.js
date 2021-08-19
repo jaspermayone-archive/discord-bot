@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute({ message }) {
+	callback({ message }) {
 		const inspirationalMessages =
 			[
 				'Act as if what you do makes a difference. It does. --William James',

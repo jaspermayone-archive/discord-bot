@@ -11,7 +11,7 @@ module.exports = {
 	expectedArgs: "<user you want info about (optional)>",
 	cooldown: '30s',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 
 		let user;
 

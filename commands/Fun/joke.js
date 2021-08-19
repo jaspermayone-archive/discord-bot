@@ -18,7 +18,7 @@ module.exports = {
 	maxArgs: 0,
 	expectedArgs: "",
 
-	execute({ message }) {
+	callback({ message }) {
 		// To prevent user spamming the same command
 		if (blocked) {
 			message.reply({ content: 'Please wait until the joke finishes before using this command again.' });

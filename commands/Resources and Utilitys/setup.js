@@ -6,7 +6,7 @@ module.exports = {
 	maxArgs: 0,
 	expectedArgs: "",
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 
 		message.reply({ content: 'This command is a work in progress. It is not working now.' });
 

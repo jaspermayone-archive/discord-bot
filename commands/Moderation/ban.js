@@ -11,7 +11,7 @@ module.exports = {
 	expectedArgs: "<@user you want to ban> <reason>",
 	permissions: ["BAN_MEMBERS"],
 
-	execute: async ({ message, args, client }) => {
+	callback: async ({ message, args, client }) => {
 
 		function getUserFromMention(mention) {
 			if (!mention) return;

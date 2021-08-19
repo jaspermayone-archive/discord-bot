@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 
 
 		const inviteEmbed = new Discord.MessageEmbed()

@@ -11,7 +11,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Heptagram API')
 			.setColor(colors.heptagram)

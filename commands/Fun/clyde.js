@@ -7,7 +7,7 @@ module.exports = {
 	maxArgs: -1,
 	cooldown: '1m',
 
-	execute: async (message, args) => {
+	callback: async (message, args) => {
 
 		const clydeMessage = args.join(' ');
 

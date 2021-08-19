@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	async execute({ message, args }) {
+	callback: async ({ message, args }) => {
 		if (!args[0]) {
 			const embed1 = new Discord.MessageEmbed()
 				.setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)

@@ -39,7 +39,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 		fetchContributors.then(contributors => {
 			let listOfContributors = 'Here is a list of Heptagram\'s contributors!\n\n';
 

@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Come join the Heptagram bot discord server!')
 			.setColor(colors.heptagram)

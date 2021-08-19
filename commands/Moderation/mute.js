@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "<@user you want to mute> <time> <reason>",
 	permissions: ["MUTE_MEMBERS"],
 
-	execute: async ({ message, args }) => {
+	callback: async ({ message, args }) => {
 
 		const muteRoleId = message.guild.roles.cache.get(roles.muted);
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

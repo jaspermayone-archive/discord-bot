@@ -9,7 +9,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	execute: async ({ client, message, args }) => {
+	callback: async ({ client, message, args }) => {
 
 		if (args[0] === 'join') {
 

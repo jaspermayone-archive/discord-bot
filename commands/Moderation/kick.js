@@ -11,7 +11,7 @@ module.exports = {
 	expectedArgs: "<@member you want to kick> <reason>",
 	permissions: ["KICK_MEMBERS"],
 
-	execute: async ({ message, client, args }) => {
+	callback: async ({ message, client, args }) => {
 
 		function getUserFromMention(mention) {
 			if (!mention) return;

@@ -11,7 +11,7 @@ module.exports = {
 	expectedArgs: "<movie (optional)>",
 	cooldown: '1m',
 
-	execute({ message, args }) {
+	callback({ message, args }) {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTimestamp();

@@ -12,7 +12,7 @@ module.exports = {
 	permissions: ["MANAGE_MESSAGES"],
 	cooldown: '1m',
 
-	execute: ({ message, args }) => {
+	callback: ({ message, args }) => {
 
 		message.reply('This command is curently under reconstuction, and it doesn\t quite work yet.');
 
