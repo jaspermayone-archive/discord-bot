@@ -5,7 +5,7 @@ const WOKCommands = require('wokcommands');
 
 const { token, emoji, colors, MongoDB, IDs } = require('./config.json');
 
-const antiAd = require('./Features/anti-link');
+const antiLink = require('./Features/anti-link');
 const antiInvite = require('./Features/anti-invite');
 const pjson = require('./package.json');
 
@@ -98,6 +98,6 @@ client.on("threadCreate", (thread) => thread.join());
 
 
 antiInvite(client);
-antiAd(client);
+antiLink(client);
 
 client.login(token);
