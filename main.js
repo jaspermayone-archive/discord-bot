@@ -5,8 +5,8 @@ const WOKCommands = require('wokcommands');
 
 const { token, emoji, colors, MongoDB, IDs } = require('./config.json');
 
-const antiLink = require('./Features/anti-link');
-const antiInvite = require('./Features/anti-invite');
+const antiLink = require('./features/anti-link');
+const antiInvite = require('./features/anti-invite');
 const pjson = require('./package.json');
 
 const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'], intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGE_REACTIONS] });
@@ -21,8 +21,8 @@ client.on('ready', async () => {
 
 
 	new WOKCommands(client, {
-		commandsDir: path.join(__dirname, 'Commands'),
-		featuresDir: path.join(__dirname, 'Features'),
+		commandsDir: path.join(__dirname, 'commands'),
+		featuresDir: path.join(__dirname, 'features'),
 		messagesPath: '',
 		showWarns: true,
 		delErrMsgCooldown: -1,
