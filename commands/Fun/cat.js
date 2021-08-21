@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 const { colors, cdn } = require('../../config.json');
 
@@ -12,9 +13,10 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	async execute({ message }) {
+	callback: async ({ message }) =>{
 
-		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+		message.channel.send(`Curently disabled due to API switchover`);
+		/* 		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
 
 		const catembed = new MessageEmbed()
 			.setTitle('Random cat')
@@ -23,6 +25,6 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		message.channel.send(catembed);
+		message.reply({ embeds: [catembed] }); */
 	},
 };

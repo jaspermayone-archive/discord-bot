@@ -5,7 +5,7 @@ module.exports = (client) => {
 
 	const isInvite = async (guild, code) => {
 		return await new Promise(resolve => {
-			guild.fetchInvites().then(invites => {
+			guild.invites.fetch().then(invites => {
 				for (const invite of invites) {
 					if (code === invite[0]) {
 						resolve(true);
@@ -17,7 +17,7 @@ module.exports = (client) => {
 		});
 	};
 
-	client.on('message', async message => {
+	client.on('messageCreate', async message => {
 
 		const { guild, content } = message;
 
@@ -38,7 +38,7 @@ module.exports = (client) => {
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				await (message.delete()).then(() => {
-					message.channel.send(nolinkembed);
+					message.reply({ embeds: [nolinkembed] });
 				});
 			}
 			else {}
@@ -48,15 +48,7 @@ module.exports = (client) => {
 };
 
 module.exports.config = {
-	// The display name that server owners will see.
-	// This can be changed at any time.
 	displayName: 'Anti Invite',
-
-	// The name the database will use to set if it is enabled or not.
-	// This should NEVER be changed once set, and users cannot see it.
 	dbName: 'ANTI INVITE',
-
-	// Being true means a database connection must be present before the
-	// feature is enabled.
 	loadDBFirst: true,
 };

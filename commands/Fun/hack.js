@@ -7,11 +7,11 @@ module.exports = {
 	expectedArgs: "<@user you want to hack>",
 	cooldown: '1m',
 
-	execute: async (message) => {
+	callback: async (message) => {
 		const msgObj = message.message;
 
 		const tohack = msgObj.mentions.members.first();
-		const msg = await msgObj.channel.send(`Hacking ${tohack.displayName}....`);
+		const msg = await msgObj.channel.send({ content: `Hacking ${tohack.displayName}....` });
 
 		setTimeout(function() {
 			msg.edit(`Finding ${tohack.displayName}'s Email and Password.....`);

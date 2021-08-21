@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute({ message }) {
+	callback({ message }) {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle('A coin was flipped..')
@@ -22,6 +22,6 @@ module.exports = {
 		if (number === 0) embed.addField('Result', '`Heads`');
 		else embed.addField('Result', '`Tails`');
 
-		message.channel.send(embed);
+		message.reply({ embeds: [embed] });
 	},
 };

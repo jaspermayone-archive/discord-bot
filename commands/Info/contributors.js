@@ -1,4 +1,6 @@
 const https = require('https');
+const Discord = require('discord.js');
+const { colors, cdn } = require('../../config.json');
 
 const fetchContributors = new Promise((resolve, reject) => {
 	https.get({
@@ -37,7 +39,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 		fetchContributors.then(contributors => {
 			let listOfContributors = 'Here is a list of Heptagram\'s contributors!\n\n';
 
@@ -45,9 +47,17 @@ module.exports = {
 				.filter(contributor => !contributor.login.includes('[bot]') || contributor.type === 'User')
 				.map(contributor => listOfContributors += ` *${contributor.login} - ${contributor.contributions} Contributions.*\n`);
 
-			message.channel.send(listOfContributors);
+			const embed = new Discord.MessageEmbed()
+				.setTitle('Heptagram Contributors')
+				.setColor(colors.heptagram)
+				.setDescription('The Heptagram Team relies on open source contributors to keep the bot running and up to date.')
+				.addField('List of Contributors', listOfContributors, true)
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+			message.reply({ embeds: [embed] });
 		}).catch(error => {
-			message.channel.send(`Something went wrong: ${error}`);
+			message.reply({ content: `Something went wrong: ${error}` });
 			console.error(error);
 		});
 	},

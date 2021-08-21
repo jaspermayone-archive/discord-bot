@@ -8,7 +8,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	execute: async ({ client, message, prefix }) => {
+	callback: async ({ client, message, prefix }) => {
 		const content = message.content.replace(`${prefix}status`, '');
 
 		await client.user.setPresence({
@@ -25,7 +25,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-			message.channel.send(embed);
+			message.reply({ embeds: [embed] });
 		});
 	},
 };

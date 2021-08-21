@@ -6,9 +6,9 @@ module.exports = {
 	maxArgs: 0,
 	expectedArgs: "",
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 
-		message.channel.send('This command is a work in progress. It is not working now.');
+		message.reply({ content: 'This command is a work in progress. It is not working now.' });
 
 	/* 	if (message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
 

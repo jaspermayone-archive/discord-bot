@@ -10,31 +10,47 @@ module.exports = {
 	expectedArgs: "<number of messgaes you want to clear>",
 	permissions: ["MANAGE_MESSAGES"],
 
-	async execute({ message, args }) {
-		if (message.member.permissions.has('MANAGE_MESSAGES')) {
-			if (isNaN(args[0])) return message.reply('Please enter a number instead of text.');
+	callback: async ({ message, args, prefix }) => {
 
-			if (args[0] > 100) return message.reply('Slow down! This command resticts to 100 messages per command for safety.');
-			if (args[0] < 11) return message.reply('You must delete at least 11 messages. Please use clear for smaller jobs.');
+		const numberinsttext = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`Incorect Usage!`)
+			.setDescription('Please enter a number instead of text.')
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
-				message.channel.bulkDelete(messages);
-			}).finally(() => {
+		const slowdown = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`Slow Down!`)
+			.setDescription('This command resticts to 100 messages per command for safety.')
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				const embed = new MessageEmbed()
-					.setColor(colors.heptagram)
-					.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-					.setDescription(`You have succesfully wiped ${args[0]} messages.`)
-					.addFields({ name: '**PLEASE NOTE:**', value: 'This will only delete messages that are under 14 days old. ', inline: true })
-					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+		const elevenmsgs = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`Not enough messages.`)
+			.setDescription(`You must delete at least 11 messages. Please use ${prefix}clear for smaller jobs.`)
+			.setTimestamp()
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-				message.channel.send(embed);
+		if (isNaN(args[0])) return message.reply({ embeds: [numberinsttext] });
 
-			});
-		}
-		else {
-			message.channel.send('Sorry, this command is resticted!');
-		}
+		if (args[0] > 100) return message.reply({ embeds: [slowdown] });
+		if (args[0] < 11) return message.reply({ embeds: [elevenmsgs] });
+
+		await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
+			message.channel.bulkDelete(messages);
+		}).finally(() => {
+
+			const embed = new MessageEmbed()
+				.setColor(colors.heptagram)
+				.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+				.setDescription(`You have succesfully wiped ${args[0]} messages.`)
+				.addFields({ name: '**PLEASE NOTE:**', value: 'This will only delete messages that are under 14 days old. ', inline: true })
+				.setTimestamp()
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+
+			message.reply({ embeds: [embed] });
+		});
 	},
 };

@@ -12,17 +12,24 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message, client }) => {
+	callback: ({ message, client }) => {
 
 		const ping = message.createdTimestamp - message.createdTimestamp;
 
 		const embed = new Discord.MessageEmbed()
-			.setTitle('Bot Ping :robot:')
+			.setTitle(`<:status_online:852483940291706900> Heptagram Pings <:status_online:852483940291706900>`)
 			.setColor(colors.heptagram)
-			.setDescription(`Bot Latency: \`${ping}ms\`, API Latency: \`${Math.round(message.client.ws.ping)}ms\` Websocket Heartbeat: \`${client.ws.ping}ms.\``)
+			.setDescription(``)
+			.addFields(
+				{ name: 'Heptagram Bot Latency:', value: `Bot Latency: \`${ping}ms\``, inline: true },
+				{ name: 'Discord API Latency:', value: `\`${Math.round(message.client.ws.ping)}ms\``, inline: true },
+				{ name: 'Discord Websocket Heartbeat:', value: `\`${client.ws.ping}ms.\``, inline: true })
+			.addFields(
+				{ name: '<:HeptrgramAPI:874269108919750766> Heptagram API:', value: 'Ping coming soon!', inline: false },
+				{ name: 'Heptagram CDN:', value: `CDN Ping coming soon.`, inline: false })
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		message.channel.send(embed);
+		message.reply({ embeds: [embed] });
 	},
 };

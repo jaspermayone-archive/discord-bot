@@ -11,7 +11,7 @@ module.exports = {
 	expectedArgs: "<movie (optional)>",
 	cooldown: '1m',
 
-	execute({ message, args }) {
+	callback({ message, args }) {
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTimestamp();
@@ -23,9 +23,9 @@ module.exports = {
 				embed.setDescription(`${quote[0].quote}`);
 				embed.setTimestamp();
 				embed.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-				return message.reply(embed);
+				return message.reply({ embeds: [embed] });
 			}
-			else {return message.reply('Could not find a quote from that movie.');}
+			else {return message.reply({ content: 'Could not find a quote from that movie.' });}
 		}
 		else {
 			const quote = movieQuote.getRandomQuote();
@@ -34,7 +34,7 @@ module.exports = {
 			embed.setTimestamp();
 			embed.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			return message.reply(embed);
+			return message.reply({ embeds: [embed] });
 		}
 	},
 };

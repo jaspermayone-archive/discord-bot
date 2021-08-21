@@ -7,39 +7,38 @@ module.exports = {
 	description: 'gives info about user.',
 	category: 'Resources',
 	minArgs: 0,
-	maxArgs: 0,
-	expectedArgs: "",
+	maxArgs: 1,
+	expectedArgs: "<user you want info about (optional)>",
 	cooldown: '30s',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 
 		let user;
-		if (message.mentions.users.first()) {
-			user = message.mentions.users.first();
+
+		if (message.mentions.members.first()) {
+			user = message.mentions.members.first();
 		}
 		else {
-			user = message.author;
+			user = message.member;
 		}
 
-		const member = message.guild.member(user);
 
 		const embed = new Discord.MessageEmbed()
 			.setColor(colors.heptagram)
 			.setThumbnail(message.author.avatarURL)
-			.addField(`${user.tag}`, `${user}`, true)
+			.addField(`Username:`, `${user}`, true)
 			.addField('ID:', `${user.id}`, true)
-			.addField('Nickname:', `${member.nickname !== null ? `${member.nickname}` : 'None'}`, true)
-			.addField('Status:', `${user.presence.status}`, true)
+			.addField('Nickname:', `${user.nickname !== null ? `${user.nickname}` : 'None'}`, true)
+			.addField("Colour", user.displayHexColor, true)
 			.addField('In Server', message.guild.name, true)
-			.addField('Game:', `${user.presence.game ? user.presence.game.name : 'None'}`, true)
-			.addField('Bot:', `${user.bot}`, true)
-			.addField('Joined The Server On:', `${moment.utc(member.joinedAt).format('dddd, MMMM Do YYYY')}`, true)
+			.addField('Joined The Server On:', `${moment.utc(user.joinedAt).format('dddd, MMMM Do YYYY')}`, true)
 			.addField('Account Created On:', `${moment.utc(user.createdAt).format('dddd, MMMM Do YYYY')}`, true)
-			.addField("Nitro", member.premiumSinceTimestamp ? `Since ${new Date(member.premiumSinceTimestamp).toLocaleDateString()}` : "No.", false)
-			.addField('Roles:', (member.roles.cache.map((role) => `<@&${role.id}>`).join(" ")), false)
+			.addField("Nitro", user.premiumSinceTimestamp ? `Since ${new Date(user.premiumSinceTimestamp).toLocaleDateString()}` : "No.", true)
+			.addField('Roles:', (user.roles.cache.map((role) => `<@&${role.id}>`).join(" ")), false)
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		message.channel.send({ embed });
+
+		message.reply({ embeds: [embed] });
 	},
 };

@@ -10,13 +10,13 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message }) => {
+	callback: ({ message }) => {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Come join the Heptagram bot discord server!')
 			.setColor(colors.heptagram)
 			.setDescription('Join the Heptagram bot discord server at https://discord.gg/HSupF99kpq')
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-		message.channel.send(embed);
+		message.reply({ embeds: [embed] });
 	},
 };

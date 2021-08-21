@@ -9,7 +9,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	execute: async ({ client, message }) => {
+	callback: async ({ client, message }) => {
 
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
@@ -18,7 +18,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
 
-		await message.channel.send(embed).then(() => {
+		await message.reply({ embeds: [embed] }).then(() => {
 			client.destroy();
 			process.exit();
 		});

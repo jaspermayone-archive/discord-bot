@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { cdn, colors } = require('../../config.json');
 const Discord = require('discord.js');
 
@@ -11,12 +12,14 @@ module.exports = {
 	permissions: ["MANAGE_MESSAGES"],
 	cooldown: '1m',
 
-	execute: ({ message, args }) => {
+	callback: ({ message, args }) => {
 
-		const anchannel = message.mentions.channels.first();
+		message.reply('This command is curently under reconstuction, and it doesn\t quite work yet.');
+
+		/* 	const anchannel = message.mentions.channels.first();
 
 		if (!args.slice(1).join(' ')) {
-			return message.channel.send('');
+			return message.reply('');
 		}
 
 		const embed = new Discord.MessageEmbed()
@@ -25,7 +28,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		anchannel.send(embed);
+		anchannel.send({ embeds: [embed] });
 
 		const anembed = new Discord.MessageEmbed()
 			.setTitle('Done!')
@@ -34,6 +37,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		message.channel.send(anembed);
+		message.reply({ embeds: [anembed] }); */
+
 	},
 };

@@ -10,7 +10,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	execute: ({ message, prefix }) => {
+	callback: ({ message, prefix }) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Heptagram Bot Info:')
@@ -23,7 +23,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-		message.channel.send(embed);
+		message.reply({ embeds: [embed] });
 
 	},
 };

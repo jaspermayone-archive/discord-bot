@@ -12,7 +12,7 @@ module.exports = {
 	expectedArgs: "<Equation you want solved>",
 	cooldown: '1m',
 
-	execute({ message, args }) {
+	callback({ message, args }) {
 		try {
 
 			const embed = new MessageEmbed()
@@ -22,7 +22,7 @@ module.exports = {
 				.setTimestamp()
 				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-			message.channel.send(embed);
+			message.reply({ embeds: [embed] });
 		}
 		catch (error) {
 			console.log(error);

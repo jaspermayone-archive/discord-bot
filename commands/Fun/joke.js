@@ -18,27 +18,25 @@ module.exports = {
 	maxArgs: 0,
 	expectedArgs: "",
 
-	execute({ message }) {
+	callback({ message }) {
 		// To prevent user spamming the same command
 		if (blocked) {
-			message.channel.send(
-				'Please wait until the joke finishes before using this command again.',
-			);
+			message.reply({ content: 'Please wait until the joke finishes before using this command again.' });
 			return;
 		}
 		fetchJoke()
 			.then(response => {
 				const { setup, punchline } = response;
 				if (!setup || !punchline) {
-					message.channel.send('Please wait a few seconds and try again.');
+					message.reply({ content: 'Please wait a few seconds and try again.' });
 					return;
 				}
 				blocked = true;
-				message.channel.send(setup);
+				message.channel.send({ content: setup });
 				return new Promise(function(resolve) {
 					// wait 3 seconds before sending the punchline
 					setTimeout(() => {
-						message.channel.send(punchline);
+						message.reply({ content: punchline });
 						resolve();
 					}, 3000);
 				});
