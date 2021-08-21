@@ -1,3 +1,6 @@
+/* eslint-disable no-irregular-whitespace */
+/* eslint-disable no-unused-vars */
+
 const { MessageEmbed } = require('discord.js');
 const { colors, cdn } = require('../../config.json');
 
@@ -11,7 +14,8 @@ module.exports = {
 	cooldown: '1m',
 
 	callback({ message }) {
-		const inspirationalMessages =
+		message.channel.send(`Curently disabled due to API switchover`);
+		/*  	const inspirationalMessages =
 			[
 				'Act as if what you do makes a difference. It does. --William James',
 				'Success is not final, failure is not fatal: it is the courage to continue that counts. --Winston Churchill',
@@ -73,6 +77,6 @@ module.exports = {
 			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 		return message.reply({ embeds: [embed] });
-
+ */
 	},
 };

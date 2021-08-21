@@ -97,15 +97,6 @@ client.on('ready', async () => {
 client.on("threadCreate", (thread) => thread.join());
 
 
-process.on('unhandledRejection', error => {
-	console.error('Unhandled promise rejection:', error);
-});
-
-client.on('shardError', error => {
-	console.error('A websocket connection encountered an error:', error);
-});
-
-
 antiInvite(client);
 antiAd(client);
 
