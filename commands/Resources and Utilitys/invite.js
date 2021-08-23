@@ -20,5 +20,5 @@ module.exports = {
 
 		message.reply({ embeds: [embed] });
 	},
-	// message.channel.send('You can invite Heptagram to your server at https://discord.com/api/oauth2/authorize?client_id=783073095036043274&permissions=103355329750&redirect_uri=https%3A%2F%2Fwww.heptagram.xyz&scope=bot%20applications.commands');
+	// message.channel.send('You can invite Heptagram to your server at https://discord.com/oauth2/authorize?client_id=783073095036043274&permissions=122682682614&scope=bot%20messages.read%20applications.commands');
 };
