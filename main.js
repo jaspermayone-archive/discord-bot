@@ -58,7 +58,7 @@ client.on('ready', async () => {
 			// 'requiredrole'
 		],
 	})
-	    .setBotOwner(IDs.ownerID)
+	    .setBotOwner(IDs.OwnerID)
 		.setDefaultPrefix('!')
 		.setColor(colors.heptagram)
 		.setMongoPath(MongoDB)
