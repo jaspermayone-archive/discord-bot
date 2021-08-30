@@ -109,7 +109,7 @@
     },
     "COMMAND_NOW_ENABLED": {
       "english": "{COMMAND} is now enabled!",
-      "spanish": "¡{COMMAND} ahora está habilitado!",
+      "spanish": "¡{COMMAND} habilitado!",
       "portuguese": "{COMMAND} agora está ativado!",
       "russian": "{COMMAND} теперь включена!",
       "german": "{COMMAND} wurde aktiviert!",
@@ -118,7 +118,7 @@
     },
     "COMMAND_NOW_DISABLED": {
       "english": "{COMMAND} is now disabled!",
-      "spanish": "¡{COMMAND} ahora está deshabilitada!",
+      "spanish": "¡{COMMAND} deshabilitado!",
       "portuguese": "{COMMAND} agora está desativado!",
       "russian": "{COMMAND} теперь отключена!",
       "german": "{COMMAND} wurde deaktiviert!",
@@ -145,7 +145,7 @@
     },
     "SET_PREFIX": {
       "english": "Set the command prefix to {PREFIX}.",
-      "spanish": "Establezca el prefijo del comando en {PREFIX}.",
+      "spanish": "Establezca el prefijo del comando a {PREFIX}.",
       "portuguese": "Prefixo definido para {PREFIX}.",
       "russian": "Установлен префикс команд на {PREFIX}.",
       "german": "Der Prefix {PREFIX} wurde festgelegt.",
@@ -199,7 +199,7 @@
     },
     "NO_DATABASE_FOUND": {
       "english": "No database connection found!",
-      "spanish": "¡No se encontró conexión a la base de datos!",
+      "spanish": "¡Conexión a la base de datos no encontrado!",
       "portuguese": "Conexão ao banco de dados não econtrada!",
       "russian": "Соединение с базой данных не найдено!",
       "german": "Es wurde keine Verbindung zu einer Datenbank gefunden!",
@@ -235,7 +235,7 @@
     },
     "NO_TAGGED_CHANNELS": {
       "english": "Please tag at least one channel.",
-      "spanish": "Etiqueta al menos un canal.",
+      "spanish": "Por favor, etiqueta al menos un canal.",
       "portuguese": "Marque pelo menos um canal.",
       "russian": "Отметьте хотя бы один канал.",
       "german": "Bitte taggen Sie mindestens einen Kanal.",
@@ -289,7 +289,7 @@
         "french": "Menu d'aide"
       },
       "SELECT_A_CATEGORY": {
-        "english": "Please select a command category by clicking it's reaction.",
+        "english": "Please select a command category by clicking its reaction.",
         "spanish": "Seleccione una categoría de comando haciendo clic en su reacción.",
         "portuguese": "Selecione uma categoria de comando clicando em sua reação.",
         "russian": "Пожалуйста, выберите категорию команд нажатием на её реакцию.",
