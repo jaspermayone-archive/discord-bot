@@ -14,14 +14,12 @@ module.exports = {
 
 	callback: ({ message, client }) => {
 
-		const ping = message.createdTimestamp - message.createdTimestamp;
-
 		const embed = new Discord.MessageEmbed()
 			.setTitle(`<:status_online:852483940291706900> Heptagram Pings <:status_online:852483940291706900>`)
 			.setColor(colors.heptagram)
 			.setDescription(``)
 			.addFields(
-				{ name: 'Heptagram Bot Latency:', value: `Bot Latency: \`${ping}ms\``, inline: true },
+				{ name: 'Heptagram Bot Latency:', value: `🏓 Bot latency is \`${message.createdTimestamp - message.createdTimestamp}ms.\``, inline: true },
 				{ name: 'Discord API Latency:', value: `\`${Math.round(message.client.ws.ping)}ms\``, inline: true },
 				{ name: 'Discord Websocket Heartbeat:', value: `\`${client.ws.ping}ms.\``, inline: true })
 			.addFields(
