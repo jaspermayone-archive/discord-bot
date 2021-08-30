@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const path = require('path');
 const WOKCommands = require('wokcommands');
 
-const { token, emoji, colors, MongoDB, IDs } = require('./config.json');
+const { config, token, IDs, colors, MongoDB, emoji } = require('./config.json');
 
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
@@ -116,3 +116,4 @@ antiInvite(client);
 antiLink(client);
 
 client.login(token);
+client.config = config;
