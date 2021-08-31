@@ -1,4 +1,3 @@
-const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -10,15 +9,15 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	callback: async ({ message, args }) => {
+	callback: async ({ message, args, client }) => {
 		if (!args[0]) {
 			const embed1 = new Discord.MessageEmbed()
 				.setAuthor(`${message.member.user.tag}`, `${message.author.displayAvatarURL()}`)
-				.setColor(colors.heptagram)
+				.setColor(client.config.colors.heptagram)
 				.setTitle('**Avatar**')
 				.setImage(`${message.author.displayAvatarURL({ size: 4096, dynamic: true })}`)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+				.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 			return message.reply({ embeds: [embed1] });
 		}
@@ -28,11 +27,11 @@ module.exports = {
 			else {
 				const embed2 = new Discord.MessageEmbed()
 					.setAuthor(`${member.user.tag}`, `${member.user.displayAvatarURL()}`)
-					.setColor(colors.heptagram)
+					.setColor(client.config.colors.heptagram)
 					.setTitle('Requested Avatar:')
 					.setImage(`${member.user.displayAvatarURL({ size: 4096, dynamic: true })}`)
 					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+					.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 				return message.reply({ embeds: [embed2] });
 

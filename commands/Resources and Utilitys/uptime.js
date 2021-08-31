@@ -1,4 +1,3 @@
-const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -10,7 +9,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	callback: async ({ message }) => {
+	callback: async ({ message, client }) => {
 
 		const seconds = Math.round(process.uptime());
 		const days = seconds >= 86400 ? Math.floor(seconds / 86400) : 0;
@@ -25,7 +24,7 @@ module.exports = {
 
 		const uptimeEmbed = new Discord.MessageEmbed()
 			.setTitle("Heptagram Uptime:")
-			.setColor(colors.heptagram)
+			.setColor(client.config.colors.heptagram)
 			.addFields(
 				{ name: 'Days', value: `${days}`, inline: true },
 				{ name: 'Hours', value: `${hours}`, inline: true },
@@ -33,7 +32,7 @@ module.exports = {
 				{ name: 'Seconds', value: `${secondsRemain}`, inline: true },
 			)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 		message.reply({ embeds: [uptimeEmbed] });
 	},

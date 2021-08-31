@@ -1,6 +1,4 @@
-const { colors, cdn } = require('../../config.json');
 const { MessageEmbed } = require('discord.js');
-const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'version',
@@ -10,17 +8,17 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	callback: async ({ message }) => {
+	callback: async ({ message, client }) => {
 
 		const embed = new MessageEmbed()
-			.setColor(colors.heptagram)
+			.setColor(client.config.colors.heptagram)
 			.setTitle(`<:HeptagramLogo:874265504813056020> Bot Versions: <:HeptagramLogo:874265504813056020>`)
 			.addFields(
 				{ name: 'Node Version:', value: `${process.versions.node}`, inline: true },
-				{ name: 'Bot Version:', value: `${pjson.version}`, inline: true },
+				{ name: 'Bot Version:', value: `${client.version}`, inline: true },
 			)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},

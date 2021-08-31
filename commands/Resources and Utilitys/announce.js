@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-const { cdn, colors } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -12,7 +11,7 @@ module.exports = {
 	permissions: ["MANAGE_MESSAGES"],
 	cooldown: '1m',
 
-	callback: ({ message, args }) => {
+	callback: ({ message, args, client }) => {
 
 		message.reply('This command is curently under reconstuction, and it doesn\t quite work yet.');
 
@@ -24,18 +23,18 @@ module.exports = {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle('**Announcement!**')
-			.setColor(colors.heptagram)
+			.setColor(client.config.colors.heptagram)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 		anchannel.send({ embeds: [embed] });
 
 		const anembed = new Discord.MessageEmbed()
 			.setTitle('Done!')
 			.setDescription(`Announcement has been sent to ${anchannel}`)
-			.setColor(colors.heptagram)
+			.setColor(client.config.colors.heptagram)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 		message.reply({ embeds: [anembed] }); */
 
