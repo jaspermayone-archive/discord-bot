@@ -1,4 +1,3 @@
-const { colors, cdn } = require('../../config.json');
 const moment = require('moment');
 const Discord = require('discord.js');
 
@@ -12,7 +11,7 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	callback: async ({ message }) => {
+	callback: async ({ message, client }) => {
 
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;
@@ -22,7 +21,7 @@ module.exports = {
 		const owner = await message.guild.fetchOwner();
 
 		const generalEmbed = new Discord.MessageEmbed()
-			.setColor(colors.heptagram)
+			.setColor(client.config.colors.heptagram)
 			.setThumbnail(message.guild.iconURL({ dynamic: true }))
 			.addFields([
 				{ name: '**Name:**', value: `${message.guild.name}`, inline: true },
@@ -40,7 +39,7 @@ module.exports = {
 				{ name: '**Voice Channels:**', value: `${channels.filter(channel => channel.type === 'voice').size}`, inline: true },
 			])
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 		message.reply({ embeds: [generalEmbed] });
 	},

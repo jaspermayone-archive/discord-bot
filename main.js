@@ -4,10 +4,10 @@ const path = require('path');
 const WOKCommands = require('wokcommands');
 
 const { config, token, IDs, colors, MongoDB, emoji } = require('./config.json');
+const pjson = require('./package.json');
 
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
-const pjson = require('./package.json');
 
 const client = new Client({
 	partials: [
@@ -111,9 +111,12 @@ client.on('ready', async () => {
 });
 client.on("threadCreate", (thread) => thread.join());
 
+console.log(config);
 
 antiInvite(client);
 antiLink(client);
 
+// client.config = config;
+// client.version = pjson.version;
+
 client.login(token);
-client.config = config;

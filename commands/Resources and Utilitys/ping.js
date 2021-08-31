@@ -1,4 +1,3 @@
-const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 
@@ -16,7 +15,7 @@ module.exports = {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle(`<:status_online:852483940291706900> Heptagram Pings <:status_online:852483940291706900>`)
-			.setColor(colors.heptagram)
+			.setColor(client.config.colors.heptagram)
 			.setDescription(``)
 			.addFields(
 				{ name: 'Heptagram Bot Latency:', value: `🏓 Bot latency is \`${message.createdTimestamp - message.createdTimestamp}ms.\``, inline: true },
@@ -26,7 +25,7 @@ module.exports = {
 				{ name: '<:HeptrgramAPI:874269108919750766> Heptagram API:', value: 'Ping coming soon!', inline: false },
 				{ name: 'Heptagram CDN:', value: `CDN Ping coming soon.`, inline: false })
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},

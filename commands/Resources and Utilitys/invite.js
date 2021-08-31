@@ -1,4 +1,3 @@
-const { colors, cdn } = require('../../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -10,13 +9,13 @@ module.exports = {
 	expectedArgs: "",
 	cooldown: '1m',
 
-	callback: ({ message }) => {
+	callback: ({ message, client }) => {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Bot Invite :robot:')
-			.setColor(colors.heptagram)
+			.setColor(client.config.colors.heptagram)
 			.setDescription('Heptagram is not yet available to be invited to servers. Follow our v1 release updates channel for stay up to date.')
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},
