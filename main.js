@@ -3,10 +3,6 @@ const { Intents, Client } = require('discord.js');
 const chalk = require('chalk');
 const path = require('path');
 
-const Sentry = require("@sentry/node");
-// eslint-disable-next-line no-unused-vars
-const Tracing = require("@sentry/tracing");
-
 const WOKCommands = require('wokcommands');
 
 const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
@@ -120,12 +116,6 @@ client.on("threadCreate", (thread) => thread.join());
 
 antiInvite(client);
 antiLink(client);
-
-
-Sentry.init({
-	dsn: "https://008b187101f541bab51e257a253c024c@o948173.ingest.sentry.io/5897392",
-	tracesSampleRate: 1.0,
-});
 
 // client.config = config;
 // client.version = pjson.version;

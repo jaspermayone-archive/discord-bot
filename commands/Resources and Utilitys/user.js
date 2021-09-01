@@ -1,5 +1,6 @@
 const moment = require('moment');
 const Discord = require('discord.js');
+const { colors, cdn } = require('../../config.json');
 
 module.exports = {
 	name: 'user',
@@ -10,7 +11,7 @@ module.exports = {
 	expectedArgs: "<user you want info about (optional)>",
 	cooldown: '30s',
 
-	callback: ({ message, client }) => {
+	callback: ({ message }) => {
 
 		let user;
 
@@ -21,10 +22,8 @@ module.exports = {
 			user = message.member;
 		}
 
-		console.log(client.config);
-
 		const embed = new Discord.MessageEmbed()
-			.setColor(client.config.colors.heptagram)
+			.setColor(colors.heptagram)
 			.setThumbnail(message.author.avatarURL)
 			.addField(`Username:`, `${user}`, true)
 			.addField('ID:', `${user.id}`, true)
@@ -36,7 +35,7 @@ module.exports = {
 			.addField("Nitro", user.premiumSinceTimestamp ? `Since ${new Date(user.premiumSinceTimestamp).toLocaleDateString()}` : "No.", true)
 			.addField('Roles:', (user.roles.cache.map((role) => `<@&${role.id}>`).join(" ")), false)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${client.config.cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 
 		message.reply({ embeds: [embed] });
