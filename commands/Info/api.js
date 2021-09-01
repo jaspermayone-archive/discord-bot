@@ -16,7 +16,7 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Heptagram API')
 			.setColor(colors.heptagram)
-			.setDescription('The Heptagram bot relies on a first party api, developed to reducde external api reliances. Find more about it in the Heptagram server.')
+			.setDescription('The Heptagram bot relies on a first party api, developed to reduce external api reliances. Find more about it in the Heptagram server.')
 			.setTimestamp()
 			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 		message.reply({ embeds: [embed] });
