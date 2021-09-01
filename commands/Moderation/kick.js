@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { colors, cdn, emoji } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'kick',
@@ -40,14 +41,14 @@ module.exports = {
 			.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
 			.setDescription(`Successfully kicked **${user.tag}** from the server! || Reason: ${reason}.`)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		const errorembed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle(`${emoji.x} **Failed** ${emoji.x}`)
 			.setDescription(`Failed to kick **${user.tag}**.`)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 
 		try {

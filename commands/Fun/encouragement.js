@@ -3,6 +3,7 @@
 
 const { MessageEmbed } = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'encouragement',
@@ -74,7 +75,7 @@ module.exports = {
 			.setTitle('Here\'s some insipration/encouragement')
 			.setDescription(`${inspirationalMessages[Math.floor((Math.random() * 10))]}`)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		return message.reply({ embeds: [embed] });
  */

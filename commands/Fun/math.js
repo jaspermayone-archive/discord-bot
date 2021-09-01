@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const math = require('mathjs');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
 				.setTitle('Result')
 				.setDescription(math.evaluate(args.join(' ')))
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 			message.reply({ embeds: [embed] });
 		}

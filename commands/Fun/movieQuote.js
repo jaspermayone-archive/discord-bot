@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const movieQuote = require('popular-movie-quotes');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'moviequote',
@@ -22,7 +23,7 @@ module.exports = {
 				embed.setTitle(`Here's a quote from: ${args.join(' ')}`);
 				embed.setDescription(`${quote[0].quote}`);
 				embed.setTimestamp();
-				embed.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+				embed.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 				return message.reply({ embeds: [embed] });
 			}
 			else {return message.reply({ content: 'Could not find a quote from that movie.' });}
@@ -32,7 +33,8 @@ module.exports = {
 			embed.setTitle('Here\'s a random movie quote');
 			embed.setDescription(`${quote}`);
 			embed.setTimestamp();
-			embed.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			embed.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
+
 
 			return message.reply({ embeds: [embed] });
 		}

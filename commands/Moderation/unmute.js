@@ -1,6 +1,7 @@
 /* eslint-disable */
 const { MessageEmbed } = require('discord.js');
 const { colors, roles, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'unmute',

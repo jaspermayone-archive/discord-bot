@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+const pjson = require('../../package.json');
+const Discord = require('discord.js');
+const { colors, cdn } = require('../../config.json');
+
 module.exports = {
 	name: 'setup',
 	description: 'configures bot for new server.',

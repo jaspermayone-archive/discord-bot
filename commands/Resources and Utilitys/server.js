@@ -1,6 +1,7 @@
 const moment = require('moment');
 const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'server',
@@ -40,7 +41,7 @@ module.exports = {
 				{ name: '**Voice Channels:**', value: `${channels.filter(channel => channel.type === 'voice').size}`, inline: true },
 			])
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [generalEmbed] });
 	},

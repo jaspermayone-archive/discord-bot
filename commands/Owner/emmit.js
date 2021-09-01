@@ -1,5 +1,6 @@
 const { colors, cdn } = require('../../config.json');
 const { MessageEmbed } = require('discord.js');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'emmit',
@@ -20,7 +21,7 @@ module.exports = {
 				.setTitle(`Join Emmitted!`)
 				.setDescription(`You have succesfully emmited a join. || <@${message.author.id}>`)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 			return message.reply({ embeds: [jembed] });
 
@@ -35,7 +36,7 @@ module.exports = {
 				.setTitle(`Leave Emmitted!`)
 				.setDescription(`You have succesfully emmited a leave. || <@${message.author.id}>`)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 			return message.reply({ embeds: [lembed] });
 

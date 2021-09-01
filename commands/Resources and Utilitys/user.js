@@ -1,6 +1,7 @@
 const moment = require('moment');
 const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'user',
@@ -35,7 +36,7 @@ module.exports = {
 			.addField("Nitro", user.premiumSinceTimestamp ? `Since ${new Date(user.premiumSinceTimestamp).toLocaleDateString()}` : "No.", true)
 			.addField('Roles:', (user.roles.cache.map((role) => `<@&${role.id}>`).join(" ")), false)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 
 		message.reply({ embeds: [embed] });

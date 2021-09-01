@@ -1,5 +1,6 @@
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 const { MessageEmbed } = require('discord.js');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'restart',
@@ -16,7 +17,7 @@ module.exports = {
 			.setTitle(`<:status_offline:852483939955769375> **Bot Restarting!** <:status_offline:852483939955769375>`)
 			.setDescription(`The bot has been qued to restart.`)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		await message.reply({ embeds: [embed] }).then(() => {
 			client.destroy();

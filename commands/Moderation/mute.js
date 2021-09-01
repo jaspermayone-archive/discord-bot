@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { colors, roles, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 const ms = require('ms');
 module.exports = {
@@ -44,7 +45,7 @@ module.exports = {
 			.addField('Member', member, true)
 			.addField('Time', `\`${ms(time)}\``, true)
 			.addField('Reason', reason)
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`)
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`)
 			.setTimestamp()
 			.setColor(colors.heptagram);
 

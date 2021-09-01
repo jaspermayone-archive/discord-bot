@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'invite',
@@ -16,7 +17,7 @@ module.exports = {
 			.setColor(colors.heptagram)
 			.setDescription('Heptagram is not yet available to be invited to servers. Follow our v1 release updates channel for stay up to date.')
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},

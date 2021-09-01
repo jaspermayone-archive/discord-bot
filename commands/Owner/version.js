@@ -20,7 +20,7 @@ module.exports = {
 				{ name: 'Bot Version:', value: `${pjson.version}`, inline: true },
 			)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},

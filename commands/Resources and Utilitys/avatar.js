@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'avatar',
@@ -18,7 +19,7 @@ module.exports = {
 				.setTitle('**Avatar**')
 				.setImage(`${message.author.displayAvatarURL({ size: 4096, dynamic: true })}`)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 			return message.reply({ embeds: [embed1] });
 		}
@@ -32,7 +33,7 @@ module.exports = {
 					.setTitle('Requested Avatar:')
 					.setImage(`${member.user.displayAvatarURL({ size: 4096, dynamic: true })}`)
 					.setTimestamp()
-					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+					.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 				return message.reply({ embeds: [embed2] });
 

@@ -1,5 +1,6 @@
 const { colors, cdn } = require('../../config.json');
 const { MessageEmbed } = require('discord.js');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'stats',
@@ -31,7 +32,7 @@ module.exports = {
 			.addField(" \u200B ", "**System Ping** :  ` " + SystemPing + " `")
 
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},

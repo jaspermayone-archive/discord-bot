@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'uptime',
@@ -33,7 +34,7 @@ module.exports = {
 				{ name: 'Seconds', value: `${secondsRemain}`, inline: true },
 			)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [uptimeEmbed] });
 	},

@@ -1,5 +1,7 @@
-// For generating a random joke fetch from an API
-const fetch = require('node-fetch');
+/* eslint-disable no-undef */
+/* eslint-disable prefer-const */
+/* eslint-disable no-unused-vars */
+const pjson = require('../../package.json');
 
 const URL = 'https://official-joke-api.appspot.com/random_joke';
 
@@ -19,7 +21,9 @@ module.exports = {
 	expectedArgs: "",
 
 	callback({ message }) {
-		// To prevent user spamming the same command
+
+		message.channel.send(`Curently disabled due to API switchover`);
+		/* // To prevent user spamming the same command
 		if (blocked) {
 			message.reply({ content: 'Please wait until the joke finishes before using this command again.' });
 			return;
@@ -45,5 +49,6 @@ module.exports = {
 				blocked = false;
 			})
 			.catch((err) => console.warn(err));
+			*/
 	},
 };

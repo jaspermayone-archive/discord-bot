@@ -2,6 +2,7 @@ const urban = require('urban');
 const { MessageEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'urban',
@@ -35,7 +36,7 @@ module.exports = {
 						.setThumbnail(image)
 						.setDescription(description)
 						.setTimestamp()
-						.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+						.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 					message.reply({ embeds: [embed] });
 				}

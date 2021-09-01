@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'ping',
@@ -25,7 +26,7 @@ module.exports = {
 				{ name: '<:HeptrgramAPI:874269108919750766> Heptagram API:', value: 'Ping coming soon!', inline: false },
 				{ name: 'Heptagram CDN:', value: `CDN Ping coming soon.`, inline: false })
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},

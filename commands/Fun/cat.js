@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 const { MessageEmbed } = require('discord.js');
 const { colors, cdn } = require('../../config.json');
-
-const fetch = require('node-fetch');
+const pjson = require('../../package.json');
 
 module.exports = {
 	name: 'cat',
@@ -23,7 +22,7 @@ module.exports = {
 			.setImage(file)
 			.setColor(colors.heptagram)
 			.setTimestamp()
-			.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+			.setFooter("Message sent by the Heptagram Bot || ${pjson.version}", `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [catembed] }); */
 	},

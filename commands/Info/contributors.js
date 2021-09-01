@@ -1,6 +1,7 @@
 const https = require('https');
 const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
+const pjson = require('../../package.json');
 
 const fetchContributors = new Promise((resolve, reject) => {
 	https.get({
@@ -53,7 +54,7 @@ module.exports = {
 				.setDescription('The Heptagram Team relies on open source contributors to keep the bot running and up to date.')
 				.addField('List of Contributors', listOfContributors, true)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 			message.reply({ embeds: [embed] });
 		}).catch(error => {
