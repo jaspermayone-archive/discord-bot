@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const path = require('path');
 
 const Sentry = require("@sentry/node");
+// eslint-disable-next-line no-unused-vars
 const Tracing = require("@sentry/tracing");
 
 const WOKCommands = require('wokcommands');
@@ -123,29 +124,8 @@ antiLink(client);
 
 Sentry.init({
 	dsn: "https://008b187101f541bab51e257a253c024c@o948173.ingest.sentry.io/5897392",
-
-	// Set tracesSampleRate to 1.0 to capture 100%
-	// of transactions for performance monitoring.
-	// We recommend adjusting this value in production
 	tracesSampleRate: 1.0,
 });
-
-const transaction = Sentry.startTransaction({
-	op: "test",
-	name: "My First Test Transaction",
-});
-
-setTimeout(() => {
-	try {
-	  console.log('foo');
-	}
-	catch (e) {
-	  Sentry.captureException(e);
-	}
-	finally {
-	  transaction.finish();
-	}
-}, 99);
 
 // client.config = config;
 // client.version = pjson.version;
