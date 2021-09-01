@@ -14,7 +14,7 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setColor(colors.heptagram)
-			.setTitle(`<:HeptagramLogo:874265504813056020> Bot Versions: <:HeptagramLogo:874265504813056020>`)
+			.setTitle(`Hey J-dogcoder! Here are my current versions.`)
 			.addFields(
 				{ name: 'Node Version:', value: `${process.versions.node}`, inline: true },
 				{ name: 'Bot Version:', value: `${pjson.version}`, inline: true },
