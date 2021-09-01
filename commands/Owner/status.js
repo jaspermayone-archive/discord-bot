@@ -1,4 +1,4 @@
-const { colors } = require('../../config.json');
+const { colors, cdn } = require('../../config.json');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
 				.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
 				.setDescription(`You have succesfully changed the bot's status to **${content}**`)
 				.setTimestamp()
-				.setFooter("Message sent by the Heptagram Bot", 'https://cdn.heptagram.xyz/Logos/HeptagramLogo%28square%29.png');
+				.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 			message.reply({ embeds: [embed] });
 		});
