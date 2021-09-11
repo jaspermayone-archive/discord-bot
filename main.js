@@ -40,7 +40,7 @@ try {
 
 	// this error event should have trace context
 	// eslint-disable-next-line no-undef
-	foo();
+	console.log();
 }
 catch (err) {
 	Sentry.captureException(err);
