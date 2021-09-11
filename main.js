@@ -22,7 +22,7 @@ Sentry.init({
 
 const transaction = Sentry.startTransaction({
 	op: "transaction",
-	name: "My Transaction",
+	name: "Init Transaction",
 });
 
 // Note that we set the transaction as the span on the scope.
