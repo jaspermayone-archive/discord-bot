@@ -1,6 +1,57 @@
+const chalk = require('chalk');
+
+
+const Sentry = require("@sentry/node");
+// const Tracing = require("@sentry/tracing");
+
+const http = require("http");
+
+console.log(chalk.cyanBright(`[SENTRY] Starting Sentry`));
+
+
+Sentry.init({
+	dsn: "https://6db956a768384c90a1ac352cd1f78a3e@o948173.ingest.sentry.io/5954610",
+	integrations: [
+		new Sentry.Integrations.Http({ tracing: true }),
+	  ],
+	tracesSampleRate: 1.0,
+});
+
+const transaction = Sentry.startTransaction({
+	op: "transaction",
+	name: "My Transaction",
+});
+
+// Note that we set the transaction as the span on the scope.
+// This step makes sure that if an error happens during the lifetime of the transaction
+// the transaction context will be attached to the error event
+Sentry.configureScope(scope => {
+	scope.setSpan(transaction);
+});
+
+let request;
+
+try {
+	// this should generate an http span
+	request = http.get("http://sentry.io", res => {
+		console.log(chalk.cyanBright(`[SENTRY] STATUS: ${res.statusCode}`));
+		console.log(chalk.cyanBright(`[SENTRY] HEADERS: ${JSON.stringify(res.headers)}`));
+	});
+
+	// this error event should have trace context
+	// eslint-disable-next-line no-undef
+	foo();
+}
+catch (err) {
+	Sentry.captureException(err);
+}
+
+request.on("close", () => {
+	transaction.finish();
+});
+
 const { Intents, Client } = require('discord.js');
 
-const chalk = require('chalk');
 const path = require('path');
 
 const WOKCommands = require('wokcommands');
@@ -34,7 +85,7 @@ client.on('ready', async () => {
 	client.user.setStatus('online');
 	client.user.setActivity(`${client.guilds.cache.size} servers!`, { type: 'WATCHING' });
 
-	console.log(chalk.magenta('Starting Heptagram || Version: ' + pjson.version));
+	console.log(chalk.hex('#FFF800')('Starting Heptagram || Version: ' + pjson.version));
 	console.log(chalk.green(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
 
 
