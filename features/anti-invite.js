@@ -50,5 +50,4 @@ module.exports = (client) => {
 module.exports.config = {
 	displayName: 'Anti Invite',
 	dbName: 'ANTI INVITE',
-	loadDBFirst: true,
 };
