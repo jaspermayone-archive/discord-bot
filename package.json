@@ -1,6 +1,6 @@
 {
   "name": "heptagram",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "shard": "main.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "discord.js": "^13.0.0",
     "dotenv": "^10.0.0",
     "enmap": "^5.8.5",
+    "erlpack": "discord/erlpack",
     "ffmpeg-static": "^4.4.0",
     "fs": "^0.0.1-security",
     "mathjs": "^9.3.2",

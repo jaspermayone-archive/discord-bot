@@ -180,11 +180,11 @@ client.on('ready', async () => {
 
 });
 
-client.on("threadCreate", (thread) => thread.join());
-
-
 antiInvite(client);
 antiLink(client);
 
 
 client.login(token);
+
+client.on("threadCreate", (thread) => thread.join());
+client.on("threadDelete", (thread) => thread.leave());
