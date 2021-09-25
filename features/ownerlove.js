@@ -14,5 +14,4 @@ module.exports = (client) => {
 module.exports.config = {
 	displayName: 'Owner Love',
 	dbName: 'OWNER LOVE',
-	loadDBFirst: true,
 };

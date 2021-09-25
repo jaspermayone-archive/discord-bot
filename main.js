@@ -82,6 +82,7 @@ const client = new Client({
 	],
 });
 
+
 client.on('ready', async () => {
 
 	client.user.setStatus('online');
@@ -90,21 +91,24 @@ client.on('ready', async () => {
 	console.log(chalk.hex('#FFF800')('Starting Heptagram || Version: ' + pjson.version));
 	console.log(chalk.green(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
 
+	const dbOptions = {
+		keepAlive: true,
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false,
+	  };
 
-	new WOKCommands(client, {
+	const wok = new WOKCommands(client, {
+		dbOptions, mongoUri: MongoDB,
 		commandsDir: path.join(__dirname, 'commands'),
 		featuresDir: path.join(__dirname, 'features'),
 		messagesPath: '',
+		typeScript: false,
 		showWarns: true,
 		delErrMsgCooldown: -1,
 		defaultLangauge: 'english',
 		ignoreBots: true,
-		dbOptions: {
-			keepAlive: true,
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useFindAndModify: false,
-		},
+		ephemeral: false,
 		testServers: ['826493837878493204'],
 		disabledDefaultCommands: [
 			// 'help',
@@ -117,7 +121,6 @@ client.on('ready', async () => {
 	    .setBotOwner(IDs.OwnerID)
 		.setDefaultPrefix('!')
 		.setColor(colors.heptagram)
-		.setMongoPath(MongoDB)
 		.setCategorySettings([
 			{
 				name: 'Examples',
@@ -162,16 +165,26 @@ client.on('ready', async () => {
 		]);
 
 
+	wok.on('databaseConnected', (connection, state) => {
+		console.log(chalk.hex('#b8e014')(`The database connection state is now "${state}"`));
+		  });
+
+		  wok.on('commandException', (command, message, error) => {
+		message.channel.send(`An error occured while executing the command \`${command.name}\`: \`${error.message}\``);
+		console.log(chalk.hex('#ed0c22')`An exception occured when using command "${command.names[0]}"! The error is:`);
+		console.error(error);
+		  });
+
+
 	console.log(chalk.blueBright('Bot online and Ready!'));
 
 });
+
 client.on("threadCreate", (thread) => thread.join());
 
 
 antiInvite(client);
 antiLink(client);
 
-// client.config = config;
-// client.version = pjson.version;
 
 client.login(token);

@@ -39,5 +39,4 @@ module.exports = (client) => {
 module.exports.config = {
 	displayName: 'Anti Link',
 	dbName: 'ANTI LINK',
-	loadDBFirst: true,
 };
