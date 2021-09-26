@@ -15,11 +15,10 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Bot Invite :robot:')
 			.setColor(colors.heptagram)
-			.setDescription('Heptagram is not yet available to be invited to servers. Follow our v1 release updates channel for stay up to date.')
+			.setDescription(`You can invite Heptagram to your server [here](https://discord.com/oauth2/authorize?client_id=783073095036043274&permissions=122682682614&scope=bot%20messages.read%20applications.commands).`)
 			.setTimestamp()
 			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [embed] });
 	},
-	// message.channel.send('You can invite Heptagram to your server at https://discord.com/oauth2/authorize?client_id=783073095036043274&permissions=122682682614&scope=bot%20messages.read%20applications.commands');
 };
