@@ -151,7 +151,7 @@ client.on('ready', async () => {
 				emoji: '📂',
 			},
 			{
-				name: 'Utilitys',
+				name: 'Utilities',
 				emoji: '🦾',
 			},
 			{
