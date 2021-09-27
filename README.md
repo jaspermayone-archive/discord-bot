@@ -33,11 +33,11 @@
 
 We launched the V1 of this bot, you can find more informations at the [Heptagram Website](https://heptagram.xyz) and in the [Discord Server](https://discord.gg/HSupF99kpq).
 
-# Welcome to Heptagram.
+# Welcome to Heptagram!
 
-Heptagram is the all-in-one, open-source Discord bot with the goal to be the single bot needed for any server. No more music bot, mod bot, rules bot. Just Heptagram!
+Heptagram is the all-in-one, open-source Discord bot with the goal to be the single bot needed for any server. No more music bot, mod bot, rules bot, etc.. Just Heptagram!
 
-Find out more and invite it at https://heptagram.xyz
+Find out more and invite the bot at our [official website](https://heptagram.xyz)
 
 ## 🤝 Contributing
 
