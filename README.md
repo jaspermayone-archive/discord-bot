@@ -1,6 +1,6 @@
 <img src="https://socialify.git.ci/Heptagram-Bot/Heptagram/image?description=1&font=Raleway&owner=1&pattern=Circuit%20Board&theme=Dark" alt="Heptagram" width="1040" height="320" />
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000&style=for-the-badge&logo=github?label=healthinesses" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000&style=for-the-badge&logo=github?label=healthinesses" />
   <a href="https://github.com/Heptagram-Bot/Heptagram#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge&logo=github?label=healthinesses" />
   </a>
@@ -29,16 +29,15 @@
 
 <h1 align="center">Welcome to Heptagram 👋</h1>
 
-# NOTE: 
-This bot is still in development. We plan to come out with V1 of this bot shortly. In the meantime, [join our Discord server](https://discord.gg/HSupF99kpq) to say hi, chat with developers, and stay up to date with release news. And find out more at our website https://heptagram.xyz
+# NOTE:
 
-# Welcome to Heptagram. 
+We launched the V1 of this bot, you can find more informations at the [Heptagram Website](https://heptagram.xyz) and in the [Discord Server](https://discord.gg/HSupF99kpq).
+
+# Welcome to Heptagram.
+
 Heptagram is the all-in-one, open-source Discord bot with the goal to be the single bot needed for any server. No more music bot, mod bot, rules bot. Just Heptagram!
 
 Find out more and invite it at https://heptagram.xyz
-
-Please note, this bot is open source, but is intended to use the version we have hosted. We will be publishing a bot invite link as soon as we finish getting our hosting set up.
-
 
 ## 🤝 Contributing
 
