@@ -1,5 +1,9 @@
 {
-	"extends": "eslint:recommended",
+	"extends": [
+		"eslint:recommended",
+		"plugin:prettier/recommended",
+		"prettier"
+	],
 	"env": {
 		"node": true,
 		"es6": true
@@ -9,13 +13,6 @@
 	},
 	"rules": {
 		"no-mixed-spaces-and-tabs": "off",
-		"brace-style": [
-			"error",
-			"stroustrup",
-			{
-				"allowSingleLine": true
-			}
-		],
 		"comma-dangle": [
 			"error",
 			"always-multiline"
@@ -32,10 +29,6 @@
 			"property"
 		],
 		"handle-callback-err": "off",
-		"indent": [
-			"error",
-			"tab"
-		],
 		"max-nested-callbacks": [
 			"error",
 			{
