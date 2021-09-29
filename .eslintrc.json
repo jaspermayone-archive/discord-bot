@@ -2,7 +2,6 @@
 	"extends": [
 		"eslint:recommended",
 		"plugin:prettier/recommended",
-		"prettier"
 	],
 	"env": {
 		"node": true,
@@ -11,7 +10,11 @@
 	"parserOptions": {
 		"ecmaVersion": 2019
 	},
+	"plugins": [
+		"prettier"
+	],
 	"rules": {
+		"prettier/prettier": "error",
 		"no-mixed-spaces-and-tabs": "off",
 		"comma-dangle": [
 			"error",

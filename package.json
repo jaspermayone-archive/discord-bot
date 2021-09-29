@@ -8,7 +8,7 @@
     "dev": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "format:prettier": "prettier --write **/*.js"
+    "format:prettier": "prettier --write \"**/*.js\""
   },
   "repository": "git+https://github.com/Heptagram-Bot/Heptagram.git",
   "author": "J-dogcoder",
