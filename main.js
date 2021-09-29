@@ -1,4 +1,5 @@
 const pjson = require('./package.json');
+const { token, IDs, colors, MongoDB, emoji, sentrydsn } = require('./config.json');
 
 const chalk = require('chalk');
 // const Spinnies = require('spinnies');
@@ -14,7 +15,7 @@ console.log(chalk.cyanBright(`[SENTRY] Starting Sentry`));
 
 
 Sentry.init({
-	dsn: "https://6db956a768384c90a1ac352cd1f78a3e@o948173.ingest.sentry.io/5954610",
+	dsn: `${sentrydsn}`,
 	environment: "production",
 	release: "Heptagram@" + pjson.version,
 	integrations: [
@@ -65,7 +66,6 @@ const path = require('path');
 
 const WOKCommands = require('wokcommands');
 
-const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
 
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
