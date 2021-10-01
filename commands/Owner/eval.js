@@ -1,4 +1,7 @@
-const {MessageEmbed} = require('discord.js');
+const { colors, cdn } = require('../../config.json');
+const { MessageEmbed } = require('discord.js');
+const pjson = require('../../package.json');
+
 module.exports = {
 	name: 'eval',
 	description: 'allows owner to run any js script through discord',
@@ -7,7 +10,7 @@ module.exports = {
 	ownerOnly: true,
 	hidden: true,
 
-	callback: async ({ client, message, args }) =>{
+	callback: async ({ message, args }) =>{
 
 		if(!args[0]) return message.channel.send('Please provide a code to run.');
 
@@ -15,19 +18,23 @@ module.exports = {
 			let evaled = eval(args.join(' '));
 			if (typeof evaled !== 'string') evaled = require('util').inspect(evaled);
 			const embed = new MessageEmbed()
-				.setColor('#0099ff')
+				.setColor(colors.heptagram)
 				.setTitle('Eval')
 				.setDescription(`\`\`\`js\n${evaled}\n\`\`\``)
-				.setTimestamp();
+				.setTimestamp()
+				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
+
 			message.channel.send(embed);
-		} catch (err) {
+		}
+		catch (err) {
 			const embed = new MessageEmbed()
-				.setColor('#ff0000')
+				.setColor(colors.heptagram)
 				.setTitle('Eval')
 				.setDescription(`\`\`\`js\n${err}\n\`\`\``)
-				.setTimestamp();
+				.setTimestamp()
+				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 			message.channel.send(embed);
 		}
 
 
-	}}
+	} };
