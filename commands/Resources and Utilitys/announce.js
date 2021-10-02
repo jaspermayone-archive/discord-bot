@@ -4,20 +4,21 @@ const { colors, cdn } = require('../../config.json');
 const pjson = require('../../package.json');
 
 module.exports = {
-	name: 'announce',
-	description: 'Make an Announcemnet in your Server',
-	category: 'Resources',
-	minArgs: 2,
-	maxArgs: 2,
-	expectedArgs: "<channel> <msg>",
-	permissions: ["MANAGE_MESSAGES"],
-	cooldown: '1m',
+  name: 'announce',
+  description: 'Make an Announcemnet in your Server',
+  category: 'Resources',
+  minArgs: 2,
+  maxArgs: 2,
+  expectedArgs: '<channel> <msg>',
+  permissions: ['MANAGE_MESSAGES'],
+  cooldown: '1m',
 
-	callback: ({ message, args, client }) => {
+  callback: ({ message, args, client }) => {
+    message.reply(
+      'This command is curently under reconstuction, and it doesn\t quite work yet.',
+    );
 
-		message.reply('This command is curently under reconstuction, and it doesn\t quite work yet.');
-
-		/* 	const anchannel = message.mentions.channels.first();
+    /* 	const anchannel = message.mentions.channels.first();
 
 		if (!args.slice(1).join(' ')) {
 			return message.reply('');
@@ -39,6 +40,5 @@ module.exports = {
 			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
 		message.reply({ embeds: [anembed] }); */
-
-	},
+  },
 };

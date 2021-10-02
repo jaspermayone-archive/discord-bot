@@ -1,13 +1,15 @@
 {
   "name": "heptagram",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "shard": "main.js",
   "scripts": {
     "start": "node main.js",
     "dev": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ."
+    "lint": "eslint \"**/*.js\" --fix",
+    "format:prettier": "prettier --write \"**/*.js\"",
+    "prepare": "husky install"
   },
   "repository": "git+https://github.com/Heptagram-Bot/Heptagram.git",
   "author": "J-dogcoder",
@@ -43,6 +45,10 @@
   "private": false,
   "devDependencies": {
     "eslint": "7.32.0",
-    "nodemon": "2.0.12"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "2.0.12",
+    "prettier": "^2.4.1",
+    "husky": "^7.0.0"
   }
 }
