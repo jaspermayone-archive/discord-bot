@@ -37,6 +37,7 @@
     "node-fetch": "^3.0.0",
     "popular-movie-quotes": "^1.2.4",
     "something-random-on-discord": "^3.4.3",
+    "spinnies": "^0.5.1",
     "urban": "^0.3.2",
     "wokcommands": "^1.3.91"
   },

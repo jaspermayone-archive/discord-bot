@@ -1,5 +1,16 @@
-const chalk = require('chalk');
 const pjson = require('./package.json');
+const {
+  token,
+  IDs,
+  colors,
+  MongoDB,
+  emoji,
+  sentrydsn,
+} = require('./config.json');
+
+const chalk = require('chalk');
+// const Spinnies = require('spinnies');
+// const spinnies = new Spinnies();
 
 const Sentry = require('@sentry/node');
 // const Tracing = require("@sentry/tracing");
@@ -9,7 +20,7 @@ const http = require('http');
 console.log(chalk.cyanBright(`[SENTRY] Starting Sentry`));
 
 Sentry.init({
-  dsn: 'https://6db956a768384c90a1ac352cd1f78a3e@o948173.ingest.sentry.io/5954610',
+  dsn: `${sentrydsn}`,
   environment: 'production',
   release: 'Heptagram@' + pjson.version,
   integrations: [new Sentry.Integrations.Http({ tracing: true })],
@@ -32,22 +43,23 @@ let request;
 
 try {
   // this should generate an http span
+  // eslint-disable-next-line no-unused-vars
   request = http.get('http://sentry.io', (res) => {
-    console.log(chalk.cyanBright(`[SENTRY] STATUS: ${res.statusCode}`));
-    console.log(
-      chalk.cyanBright(`[SENTRY] HEADERS: ${JSON.stringify(res.headers)}`),
-    );
+    /*
+		// This can be un commented to see the span in the console
+	console.log(chalk.cyanBright(`[SENTRY] STATUS: ${res.statusCode}`));
+	console.log(chalk.cyanBright(`[SENTRY] HEADERS: ${JSON.stringify(res.headers)}`));
+	*/
   });
 
-  // this error event should have trace context
-  // eslint-disable-next-line no-undef
-  console.log();
+  console.log(chalk.cyanBright(`[SENTRY] Sentry is testing the connection`));
 } catch (err) {
   Sentry.captureException(err);
 }
 
 request.on('close', () => {
   transaction.finish();
+  console.log(chalk.cyanBright(`[SENTRY] Sentry is up and running`));
 });
 
 const { Intents, Client } = require('discord.js');
@@ -55,8 +67,6 @@ const { Intents, Client } = require('discord.js');
 const path = require('path');
 
 const WOKCommands = require('wokcommands');
-
-const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
 
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
@@ -85,7 +95,7 @@ client.on('ready', async () => {
     chalk.hex('#FFF800')('Starting Heptagram || Version: ' + pjson.version),
   );
   console.log(
-    chalk.green(
+    chalk.hex('#FFF800')(
       `Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`,
     ),
   );
@@ -182,7 +192,7 @@ client.on('ready', async () => {
     console.error(error);
   });
 
-  console.log(chalk.blueBright('Bot online and Ready!'));
+  console.log(chalk.greenBright('Bot online and Ready!'));
 });
 
 antiInvite(client);
