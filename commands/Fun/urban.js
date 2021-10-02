@@ -22,10 +22,11 @@ module.exports = {
     const search = args[1] ? urban(args.slice(1).join(' ')) : urban.random();
     try {
       search.first((res) => {
-        if (!res)
+        if (!res) {
           return message.reply({
             content: 'No results found for this topic, sorry!',
           });
+        }
         const { word, definition, example, thumbs_up, thumbs_down, permalink } =
           res;
 

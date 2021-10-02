@@ -27,8 +27,9 @@ module.exports = {
     if (member === message.member) {
       return message.channel.send('You cannot mute yourself');
     }
-    if (member === message.guild.me)
+    if (member === message.guild.me) {
       return message.channel.send(message, 0, 'You cannot mute me');
+    }
     if (
       member.roles.highest.position >= message.member.roles.highest.position
     ) {

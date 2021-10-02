@@ -7,8 +7,9 @@
     "start": "node main.js",
     "dev": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "format:prettier": "prettier --write \"**/*.js\""
+    "lint": "eslint \"**/*.js\" --fix",
+    "format:prettier": "prettier --write \"**/*.js\"",
+    "prepare": "husky install"
   },
   "repository": "git+https://github.com/Heptagram-Bot/Heptagram.git",
   "author": "J-dogcoder",
@@ -46,6 +47,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "2.0.12",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "husky": "^7.0.0"
   }
 }

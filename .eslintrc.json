@@ -2,6 +2,7 @@
 	"extends": [
 		"eslint:recommended",
 		"plugin:prettier/recommended",
+		"prettier"
 	],
 	"env": {
 		"node": true,
@@ -68,9 +69,7 @@
 				]
 			}
 		],
-		"no-trailing-spaces": [
-			"error"
-		],
+		"no-trailing-spaces": "error",
 		"no-var": "error",
 		"object-curly-spacing": [
 			"error",
@@ -85,14 +84,6 @@
 			"always"
 		],
 		"space-before-blocks": "error",
-		"space-before-function-paren": [
-			"error",
-			{
-				"anonymous": "never",
-				"named": "never",
-				"asyncArrow": "always"
-			}
-		],
 		"space-in-parens": "error",
 		"space-infix-ops": "error",
 		"space-unary-ops": "error",
