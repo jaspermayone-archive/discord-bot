@@ -30,6 +30,7 @@
     "enmap": "^5.8.5",
     "erlpack": "discord/erlpack",
     "ffmpeg-static": "^4.4.0",
+    "leo-profanity": "^1.3.0",
     "mathjs": "^9.3.2",
     "moment": "^2.29.1",
     "mongoose": "^6.0.0",
