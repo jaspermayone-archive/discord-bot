@@ -25,7 +25,7 @@ module.exports = (client) => {
     if (content.includes('https://discord.gg/')) {
       const isOurInvite = await isInvite(guild, code);
 
-      if (!message.author.bot && !isOurInvite) {
+      if (!isOurInvite) {
         const nolinkembed = new Discord.MessageEmbed()
           .setColor(colors.heptagram)
           .setTitle('No invites here!')
@@ -34,7 +34,7 @@ module.exports = (client) => {
           .setFooter('Message sent by the Heptagram Bot', `${cdn.sqlogo}`);
 
         await message.delete().then(() => {
-          message.reply({ embeds: [nolinkembed] });
+          message.channel.send({ embeds: [nolinkembed] });
         });
       } else {
       }
