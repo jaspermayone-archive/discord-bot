@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { colors, cdn, IDs } = require('../config.json');
+const { colors, cdn } = require('../config.json');
 
 module.exports = (client) => {
 	client.on('messageCreate', async message => {
@@ -9,30 +9,21 @@ module.exports = (client) => {
 
 		const hasLink = linkRegex.test(message.content);
 
-		if (!message.author.bot && hasLink) {
+		if (hasLink) {
 
-			if (!(message.member.permissions.has('EMBED_LINKS'))) {
+			const channel = message.channel;
+			await (message.delete()).then(() => {
 
-				if (message.author.id == (IDs.OwnerID)) {
-					return;
-				}
-				else {
+				const nolinkembed = new Discord.MessageEmbed()
+					.setColor(colors.heptagram)
+					.setTitle('No links here!')
+					.setDescription('Sorry, links aren\'t allowed here!')
+					.setTimestamp()
+					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
-					const nolinkembed = new Discord.MessageEmbed()
-						.setColor(colors.heptagram)
-						.setTitle('No links here!')
-						.setDescription('Sorry, links aren\'t allowed here!')
-						.setTimestamp()
-						.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
-
-					await (message.delete()).then(() => {
-						message.reply({ embeds: [nolinkembed] });
-					});
-				}
-			}
-			else {}
+				channel.send({ embeds: [nolinkembed] });
+			});
 		}
-		else {}
 	});
 };
 
