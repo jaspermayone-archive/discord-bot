@@ -70,6 +70,7 @@ const WOKCommands = require('wokcommands');
 
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
+const antiSwear = require('./features/anti-swear');
 
 const client = new Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
@@ -195,6 +196,7 @@ client.on('ready', async () => {
   console.log(chalk.greenBright('Bot online and Ready!'));
 });
 
+antiSwear(client)
 antiInvite(client);
 antiLink(client);
 
