@@ -11,54 +11,57 @@ const Sentry = require("@sentry/node");
 
 const http = require("http");
 
-console.log(chalk.cyanBright(`[SENTRY] Starting Sentry`));
+//------------------------------------------------------
+//console.log(chalk.cyanBright(`[SENTRY] Starting Sentry`));
 
 
-Sentry.init({
-	dsn: `${sentrydsn}`,
-	environment: "production",
-	release: "Heptagram@" + pjson.version,
-	integrations: [
-		new Sentry.Integrations.Http({ tracing: true }),
-	  ],
-	tracesSampleRate: 1.0,
-});
+//Sentry.init({
+//	dsn: `${sentrydsn}`,
+//	environment: "production",
+//	release: "Heptagram@" + pjson.version,
+//	integrations: [
+//		new Sentry.Integrations.Http({ tracing: true }),
+//	  ],
+//	tracesSampleRate: 1.0,
+//});
 
-const transaction = Sentry.startTransaction({
-	op: "transaction",
-	name: "Init Transaction",
-});
+//const transaction = Sentry.startTransaction({
+//	op: "transaction",
+//	name: "Init Transaction",
+//});
 
-// Note that we set the transaction as the span on the scope.
-// This step makes sure that if an error happens during the lifetime of the transaction
-// the transaction context will be attached to the error event
-Sentry.configureScope(scope => {
-	scope.setSpan(transaction);
-});
+//// Note that we set the transaction as the span on the scope.
+//// This step makes sure that if an error happens during the lifetime of the transaction
+//// the transaction context will be attached to the error event
+//Sentry.configureScope(scope => {
+//	scope.setSpan(transaction);
+//});
 
-let request;
+//let request;
 
-try {
-	// this should generate an http span
-	// eslint-disable-next-line no-unused-vars
-	request = http.get("http://sentry.io", res => {
-	/*
-		// This can be un commented to see the span in the console
-	console.log(chalk.cyanBright(`[SENTRY] STATUS: ${res.statusCode}`));
-	console.log(chalk.cyanBright(`[SENTRY] HEADERS: ${JSON.stringify(res.headers)}`));
-	*/
-	});
+//try {
+//	// this should generate an http span
+//	// eslint-disable-next-line no-unused-vars
+//	request = http.get("http://sentry.io", res => {
+//	/*
+//		// This can be un commented to see the span in the console
+//	console.log(chalk.cyanBright(`[SENTRY] STATUS: ${res.statusCode}`));
+//	console.log(chalk.cyanBright(`[SENTRY] HEADERS: ${JSON.stringify(res.headers)}`));
+//	*/
+//	});
 
-	console.log(chalk.cyanBright(`[SENTRY] Sentry is testing the connection`));
-}
-catch (err) {
-	Sentry.captureException(err);
-}
+//	console.log(chalk.cyanBright(`[SENTRY] Sentry is testing the connection`));
+//}
+//catch (err) {
+//	Sentry.captureException(err);
+//}
 
-request.on("close", () => {
-	transaction.finish();
-	console.log(chalk.cyanBright(`[SENTRY] Sentry is up and running`));
-});
+//request.on("close", () => {
+//	transaction.finish();
+//	console.log(chalk.cyanBright(`[SENTRY] Sentry is up and running`));
+//});
+
+//----------------------------------------------------------------
 
 const { Intents, Client } = require('discord.js');
 
