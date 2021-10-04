@@ -196,7 +196,7 @@ client.on('ready', async () => {
   console.log(chalk.greenBright('Bot online and Ready!'));
 });
 
-antiSwear(client)
+antiSwear(client);
 antiInvite(client);
 antiLink(client);
 
