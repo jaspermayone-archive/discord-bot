@@ -1272,6 +1272,11 @@ fraction.js@^4.1.1:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.1.1.tgz#ac4e520473dae67012d618aab91eda09bcb400ff"
   integrity sha512-MHOhvvxHTfRFpF1geTK9czMIZ6xclsEor2wkIGYYq+PxcQqT7vStJqjhe6S1TenZrMZzo+wlqOufBDVepUEgPg==
 
+french-badwords-list@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/french-badwords-list/-/french-badwords-list-1.0.5.tgz#acd35c950f8cd64dd99ab4f5ac9dfb133966f791"
+  integrity sha512-MZ4tpLH+GNlFEx62RLZAttE/ZvmYf42M3MFwh9QK/l4TV6WgZWy1bx4xI3z9mjuLh5GWQQ5jLOx8BFUAwt99tw==
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -1689,6 +1694,13 @@ latest-version@^5.0.0:
   integrity sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==
   dependencies:
     package-json "^6.3.0"
+
+leo-profanity@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/leo-profanity/-/leo-profanity-1.3.0.tgz#a39b65d828e95f2acdfa893495e3dcc5bc1cb39b"
+  integrity sha512-muRCLSKPqfduVNpSOsXUBmfUSJvIJpnP2PrrZI7ba1/OuVLBCPX+ZH1jCGDf6+lOP8+qGcyviB45oerjdcM1Bw==
+  dependencies:
+    french-badwords-list "^1.0.5"
 
 levn@^0.4.1:
   version "0.4.1"
