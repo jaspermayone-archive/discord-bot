@@ -1,6 +1,9 @@
+const { MessageEmbed } = require('discord.js');
+const { arg } = require('mathjs');
 const mongo = require('../../mongo')
 const warnSchema = require('../../schemas/warn-schema')
-//const ban = require('./ban.js')
+const pjson = require('../../package.json');
+const { colors, cdn, emoji } = require('../../config.json');
 
 module.exports = {
     name: 'warn',
@@ -12,13 +15,27 @@ module.exports = {
 	permissions: ["MANAGE_MESSAGES"],
 
 
-    callback : async ({ message, args }) => {
-        let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+    callback : async ({ message, args, target}) => {
+        console.log(message)
+        console.log(args)       
+        console.log(target)
+
+        // 'warn' command is called automatically from the anti-link or anti-ad features file
+        let auto = true
+
         if(!target){
-            message.reply('Please specify someone to warn.')
+            target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+            
+            // i.e. Warn command is called manually by a moderator
+            auto = false
+        }
+        if(!target){
+            //message.reply('Please specify someone to warn.')
+            await message.channel.send('Please specify someone to warn.')
             return
         }
-        args.shift()
+
+        args.shift();
 
         const guildId = message.guild.id
         const userId = target.id
@@ -29,8 +46,46 @@ module.exports = {
             timestamp: new Date().getTime(),
             reason  
         }
+        if (auto === true){
+            //If called automatically form anti-link/ad files, then set the bot as the author of warning
+            warning.author = 'Heptagram Bot'
+        }
 
+        //Embeds:
+        const warnembed = new MessageEmbed()
+            .setColor(colors.heptagram)
+            .setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+            .setDescription(`Warned **${message.author}**! || Reason: ${reason}.`)
+            .setTimestamp()
+            .setFooter('Message sent by the Heptagram Bot', `${cdn.sqlogo}`);
 
+        const kickembed = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+			.setDescription(`Successfully kicked **${message.author}** from the server! || Reason: ${reason}.`)
+			.setTimestamp()
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
+        
+        const banembed = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
+			.setDescription(`Successfully banned **${message.author}** from the server! || Reason: ${reason}.`)
+			.setTimestamp()
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
+
+        const errorembed = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`${emoji.x} **Error** ${emoji.x}`)
+			.setDescription(`Encountered an error. Pls report the error to the team`)
+			.setTimestamp()
+			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
+
+        const msgembed = new MessageEmbed()
+			.setColor(colors.heptagram)
+			.setTitle(`**Note**`);
+
+        
+        // Fetch and update database:
         await mongo().then(async mongoose => {
             try{
                 await warnSchema.findOneAndUpdate({
@@ -52,28 +107,33 @@ module.exports = {
                     guildId,
                     userId
                 })
-                // Ban or kick the user
 
+                // Ban or kick the user
                 if(results.warnings.length >= results.maxWarnings){
                     try{
                         if(results.action === 'ban'){
-                            await target.send(`Banned for reaching maximum warnings`)
+                            msgembed.setDescription(`Banned for reaching maximum warnings`)
+                            await target.send({embeds: [msgembed]})
                             const reason = `Banned for reaching maximum warnings`
                             await message.guild.members.ban(target, {reason});
-                            await message.reply(`${target} banned for reaching max warnings`)
-                            return
+                            await message.channel.send({ embeds: [banembed] })
+                            //await message.reply(`${target} banned for reaching max warnings`)
+                            return                      
                         }
                         else if(results.action === 'kick'){
-                            await target.user.send("Kicked for reaching maximum warnings")
+                            msgembed.setDescription(`Kicked for reaching maximum warnings`)
+                            await target.user.send({embeds: [msgembed]})
                             const reason = `Kicked for reaching maximum warnings`
                             await message.guild.members.kick(target, { reason });
-                            await message.reply(`${target} kicked for reaching max warnings`)
+                            await message.channel.send({ embeds: [kickembed] })
+                            //await message.reply(`${target} kicked for reaching max warnings`)
                             return
                         }
                     }
                     catch(error){
                         console.log(error)
-                        return message.reply(`Error`)
+                        return message.channel.send({embeds: [errorembed]})
+                        //return message.reply(`Error`)
                     }      
                 }
                 
@@ -83,7 +143,8 @@ module.exports = {
             }
         })
 
-        await message.reply(`${target} warned for ${reason}`)
-        return
+    
+        await message.channel.send({ embeds: [warnembed] })
+        return 
     },
 };

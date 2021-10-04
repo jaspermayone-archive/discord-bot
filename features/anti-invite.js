@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { colors, cdn } = require('../config.json');
+const warn = require('../commands/Moderation/warn');
 
 module.exports = (client) => {
 
@@ -38,8 +39,27 @@ module.exports = (client) => {
 					.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
 
 				await (message.delete()).then(() => {
-					message.reply({ embeds: [nolinkembed] });
+					message.channel.send({ embeds: [nolinkembed] });
 				});
+
+				
+				// To warn the user if an invite is sent
+				try{
+					const arguments = [`${message.author}`, `Invites not allowed`]
+
+					console.log(message.author)
+					message.content = `!warn ${message.author} Invites not allowed`
+					//message.mentions.MessageMentions = message.author
+					await warn.callback({ message: message , args: arguments, target: message.author})
+					return
+				}
+				catch(error){
+					console.log(error)
+					message.channel.send('Error !')
+					return
+				}
+				
+
 			}
 			else {}
 		}

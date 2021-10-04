@@ -1,42 +1,53 @@
 const Discord = require('discord.js');
-const { colors, cdn, IDs } = require('../config.json');
+const { colors, cdn } = require('../config.json');
+const warn = require('../commands/Moderation/warn');
+
 
 module.exports = (client) => {
-	client.on('messageCreate', async message => {
+  client.on('messageCreate', async (message) => {
+    const linkRegex =
+      /(([a-z]+:\/\/)?((aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|xyz|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-.~]+)*(\/([a-z0-9_\-.]*)(\?[a-z0-9+_\-.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi;
 
-		const linkRegex =
-        /(([a-z]+:\/\/)?((aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|xyz|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-.~]+)*(\/([a-z0-9_\-.]*)(\?[a-z0-9+_\-.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi;
+    const hasLink = linkRegex.test(message.content);
 
-		const hasLink = linkRegex.test(message.content);
+    if (hasLink) {
 
-		if (!message.author.bot && hasLink) {
+      const channel = message.channel;
+      await message.delete().then(() => {
 
-			if (!(message.member.permissions.has('EMBED_LINKS'))) {
+        const nolinkembed = new Discord.MessageEmbed()
+          .setColor(colors.heptagram)
+          .setTitle('No links here!')
+          .setDescription("Sorry, links aren't allowed here!")
+          .setTimestamp()
+          .setFooter('Message sent by the Heptagram Bot', `${cdn.sqlogo}`);
 
-				if (message.author.id == (IDs.OwnerID)) {
-					return;
-				}
-				else {
+        channel.send({ embeds: [nolinkembed] });
 
-					const nolinkembed = new Discord.MessageEmbed()
-						.setColor(colors.heptagram)
-						.setTitle('No links here!')
-						.setDescription('Sorry, links aren\'t allowed here!')
-						.setTimestamp()
-						.setFooter("Message sent by the Heptagram Bot", `${cdn.sqlogo}`);
+      });
 
-					await (message.delete()).then(() => {
-						message.reply({ embeds: [nolinkembed] });
-					});
-				}
-			}
-			else {}
-		}
-		else {}
-	});
+      //To warn the user when a link is sent
+      try{
+        const arguments = [`${message.author}`, `Links not allowed`]
+
+        console.log(message.author)
+        message.content = `!warn ${message.author} Links not allowed`
+        //message.mentions.MessageMentions = message.author
+        await warn.callback({ message: message , args: arguments, target: message.author})
+        return
+      }
+      catch(error){
+        console.log(error)
+        message.channel.send('Error !')
+        return
+      }
+
+
+    }
+  });
 };
 
 module.exports.config = {
-	displayName: 'Anti Link',
-	dbName: 'ANTI LINK',
+  displayName: 'Anti Link',
+  dbName: 'ANTI LINK',
 };
