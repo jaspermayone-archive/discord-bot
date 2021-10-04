@@ -25,7 +25,7 @@ module.exports = (client) => {
 		const code = content.split('discord.gg/')[1];
 
 		// check to see if message contains a discord invite link
-		if (content.includes('https://discord.gg/')) {
+		if (content.includes('discord.gg/')) {
 
 			const isOurInvite = await isInvite(guild, code);
 

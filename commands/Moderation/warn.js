@@ -62,14 +62,14 @@ module.exports = {
         const kickembed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-			.setDescription(`Successfully kicked **${message.author}** from the server! || Reason: ${reason}.`)
+			.setDescription(`Successfully kicked **${message.author}** from the server! || Reason: Kicked for reaching maximum warnings.`)
 			.setTimestamp()
 			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
         
         const banembed = new MessageEmbed()
 			.setColor(colors.heptagram)
 			.setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-			.setDescription(`Successfully banned **${message.author}** from the server! || Reason: ${reason}.`)
+			.setDescription(`Successfully banned **${message.author}** from the server! || Reason: Banned for reaching maximum warnings.`)
 			.setTimestamp()
 			.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
 
@@ -122,7 +122,7 @@ module.exports = {
                         }
                         else if(results.action === 'kick'){
                             msgembed.setDescription(`Kicked for reaching maximum warnings`)
-                            await target.user.send({embeds: [msgembed]})
+                            await target.send({embeds: [msgembed]})
                             const reason = `Kicked for reaching maximum warnings`
                             await message.guild.members.kick(target, { reason });
                             await message.channel.send({ embeds: [kickembed] })
