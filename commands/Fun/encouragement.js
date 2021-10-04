@@ -6,17 +6,17 @@ const { colors, cdn } = require('../../config.json');
 const pjson = require('../../package.json');
 
 module.exports = {
-	name: 'encouragement',
-	category: 'Fun',
-	description: 'Says a random form of encouragement.',
-	minArgs: 0,
-	maxArgs: 0,
-	expectedArgs: "",
-	cooldown: '1m',
+  name: 'encouragement',
+  category: 'Fun',
+  description: 'Says a random form of encouragement.',
+  minArgs: 0,
+  maxArgs: 0,
+  expectedArgs: '',
+  cooldown: '1m',
 
-	callback({ message }) {
-		message.channel.send(`Curently disabled due to API switchover`);
-		/*  	const inspirationalMessages =
+  callback({ message }) {
+    message.channel.send(`Curently disabled due to API switchover`);
+    /*  	const inspirationalMessages =
 			[
 				'Act as if what you do makes a difference. It does. --William James',
 				'Success is not final, failure is not fatal: it is the courage to continue that counts. --Winston Churchill',
@@ -79,5 +79,5 @@ module.exports = {
 
 		return message.reply({ embeds: [embed] });
  */
-	},
+  },
 };

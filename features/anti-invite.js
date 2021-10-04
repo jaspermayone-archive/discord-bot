@@ -68,6 +68,6 @@ module.exports = (client) => {
 };
 
 module.exports.config = {
-	displayName: 'Anti Invite',
-	dbName: 'ANTI INVITE',
+  displayName: 'Anti Invite',
+  dbName: 'ANTI INVITE',
 };

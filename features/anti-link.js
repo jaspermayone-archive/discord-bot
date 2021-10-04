@@ -11,10 +11,8 @@ module.exports = (client) => {
     const hasLink = linkRegex.test(message.content);
 
     if (hasLink) {
-
       const channel = message.channel;
       await message.delete().then(() => {
-
         const nolinkembed = new Discord.MessageEmbed()
           .setColor(colors.heptagram)
           .setTitle('No links here!')
