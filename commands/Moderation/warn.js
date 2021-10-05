@@ -16,9 +16,6 @@ module.exports = {
 
 
     callback : async ({ message, args, target}) => {
-        console.log(message)
-        console.log(args)       
-        console.log(target)
 
         // 'warn' command is called automatically from the anti-link or anti-ad features file
         let auto = true

@@ -45,12 +45,10 @@ module.exports = (client) => {
 				
 				// To warn the user if an invite is sent
 				try{
-					const arguments = [`${message.author}`, `Invites not allowed`]
+					const argsAssign = [`${message.author}`, `Invites not allowed`]
 
-					console.log(message.author)
 					message.content = `!warn ${message.author} Invites not allowed`
-					//message.mentions.MessageMentions = message.author
-					await warn.callback({ message: message , args: arguments, target: message.author})
+					await warn.callback({ message: message , args: argsAssign, target: message.author})
 					return
 				}
 				catch(error){

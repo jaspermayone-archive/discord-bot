@@ -26,12 +26,10 @@ module.exports = (client) => {
 
       //To warn the user when a link is sent
       try{
-        const arguments = [`${message.author}`, `Links not allowed`]
+        const argsAssign = [`${message.author}`, `Links not allowed`]
 
-        console.log(message.author)
         message.content = `!warn ${message.author} Links not allowed`
-        //message.mentions.MessageMentions = message.author
-        await warn.callback({ message: message , args: arguments, target: message.author})
+        await warn.callback({ message: message , args: argsAssign, target: message.author})
         return
       }
       catch(error){
