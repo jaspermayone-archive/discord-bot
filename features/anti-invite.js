@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { colors, cdn } = require('../config.json');
+const warn = require('../commands/Moderation/warn');
 
 module.exports = (client) => {
   const isInvite = async (guild, code) => {
@@ -22,10 +23,10 @@ module.exports = (client) => {
     const code = content.split('discord.gg/')[1];
 
     // check to see if message contains a discord invite link
-    if (content.includes('https://discord.gg/')) {
+    if (content.includes('discord.gg/')) {
       const isOurInvite = await isInvite(guild, code);
 
-      if (!isOurInvite) {
+      if (!message.author.bot && !isOurInvite) {
         const nolinkembed = new Discord.MessageEmbed()
           .setColor(colors.heptagram)
           .setTitle('No invites here!')
@@ -36,6 +37,23 @@ module.exports = (client) => {
         await message.delete().then(() => {
           message.channel.send({ embeds: [nolinkembed] });
         });
+
+        // To warn the user if an invite is sent
+        try {
+          const argsAssign = [`${message.author}`, `Invites not allowed`];
+
+          message.content = `!warn ${message.author} Invites not allowed`;
+          await warn.callback({
+            message: message,
+            args: argsAssign,
+            target: message.author,
+          });
+          return;
+        } catch (error) {
+          console.log(error);
+          message.channel.send('Error !');
+          return;
+        }
       } else {
       }
     } else {
