@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const { colors, cdn } = require('../config.json');
+const warn = require('../commands/Moderation/warn');
+
 
 module.exports = (client) => {
   client.on('messageCreate', async (message) => {
@@ -19,7 +21,24 @@ module.exports = (client) => {
           .setFooter('Message sent by the Heptagram Bot', `${cdn.sqlogo}`);
 
         channel.send({ embeds: [nolinkembed] });
+
       });
+
+      //To warn the user when a link is sent
+      try{
+        const argsAssign = [`${message.author}`, `Links not allowed`]
+
+        message.content = `!warn ${message.author} Links not allowed`
+        await warn.callback({ message: message , args: argsAssign, target: message.author})
+        return
+      }
+      catch(error){
+        console.log(error)
+        message.channel.send('Error !')
+        return
+      }
+
+
     }
   });
 };
