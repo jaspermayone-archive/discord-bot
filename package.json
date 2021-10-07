@@ -1,6 +1,6 @@
 {
   "name": "heptagram",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "shard": "main.js",
   "scripts": {
@@ -51,5 +51,8 @@
     "nodemon": "2.0.12",
     "prettier": "2.4.1",
     "husky": "7.0.2"
+  },
+  "resolutions": {
+    "**/**/fsevents": "^1.2.9"
   }
 }
