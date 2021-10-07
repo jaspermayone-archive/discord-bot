@@ -118,7 +118,7 @@ module.exports = {
 
         suggestEmbed.edit({ embeds: [acceptEmbed] });
 
-        await message.delete()
+        await message.delete();
 
         const user = await client.users.cache.find(
           (u) => u.tag === data.author.name,
@@ -190,7 +190,7 @@ module.exports = {
 
         suggestEmbed.edit({ embeds: [declineEmbed] });
 
-        await message.delete()
+        await message.delete();
 
         const user = await client.users.cache.find(
           (u) => u.tag === data.author.name,

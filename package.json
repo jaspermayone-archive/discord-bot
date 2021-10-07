@@ -51,8 +51,5 @@
     "nodemon": "2.0.12",
     "prettier": "2.4.1",
     "husky": "7.0.2"
-  },
-  "resolutions": {
-    "**/**/fsevents": "^2.0.0"
   }
 }
