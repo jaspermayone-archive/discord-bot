@@ -32,7 +32,7 @@ module.exports = {
       return message.reply({ embeds: [embed1] });
     } else {
       const member =
-        message.mentions.members.first() ||
+        message.mentions.users.first() ||
         (await message.guild.members.fetch(args[0]).catch(() => {
           return undefined;
         }));
