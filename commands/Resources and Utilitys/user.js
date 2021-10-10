@@ -15,7 +15,7 @@ module.exports = {
   callback: ({ message }) => {
     let user;
 
-    if (message.mentions.members.first()) {
+    if (message.mentions.users.first()) {
       user = message.mentions.members.first();
     } else {
       user = message.member;
