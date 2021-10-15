@@ -1,71 +1,9 @@
 const pjson = require('./package.json');
-const {
-  token,
-  IDs,
-  colors,
-  MongoDB,
-  emoji,
-  sentrydsn,
-} = require('./config.json');
+const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
 
 const chalk = require('chalk');
-// const Spinnies = require('spinnies');
-// const spinnies = new Spinnies();
-
-const Sentry = require('@sentry/node');
-// const Tracing = require("@sentry/tracing");
-
-const http = require('http');
-
-console.log(chalk.cyanBright(`[SENTRY] Starting Sentry`));
-
-Sentry.init({
-  dsn: `${sentrydsn}`,
-  environment: 'production',
-  release: 'Heptagram@' + pjson.version,
-  integrations: [new Sentry.Integrations.Http({ tracing: true })],
-  tracesSampleRate: 1.0,
-});
-
-const transaction = Sentry.startTransaction({
-  op: 'transaction',
-  name: 'Init Transaction',
-});
-
-// Note that we set the transaction as the span on the scope.
-// This step makes sure that if an error happens during the lifetime of the transaction
-// the transaction context will be attached to the error event
-Sentry.configureScope((scope) => {
-  scope.setSpan(transaction);
-});
-
-let request;
-
-try {
-  // this should generate an http span
-  // eslint-disable-next-line no-unused-vars
-  request = http.get('http://sentry.io', (res) => {
-    /*
-		// This can be un commented to see the span in the console
-	console.log(chalk.cyanBright(`[SENTRY] STATUS: ${res.statusCode}`));
-	console.log(chalk.cyanBright(`[SENTRY] HEADERS: ${JSON.stringify(res.headers)}`));
-	*/
-  });
-
-  console.log(chalk.cyanBright(`[SENTRY] Sentry is testing the connection`));
-} catch (err) {
-  Sentry.captureException(err);
-}
-
-request.on('close', () => {
-  transaction.finish();
-  console.log(chalk.cyanBright(`[SENTRY] Sentry is up and running`));
-});
-
 const { Intents, Client } = require('discord.js');
-
 const path = require('path');
-
 const WOKCommands = require('wokcommands');
 
 const antiLink = require('./features/anti-link');
@@ -108,7 +46,7 @@ client.on('ready', async () => {
     useFindAndModify: false,
   };
 
-  const wok = new WOKCommands(client, {
+  new WOKCommands(client, {
     dbOptions,
     mongoUri: MongoDB,
     commandsDir: path.join(__dirname, 'commands'),
@@ -174,25 +112,6 @@ client.on('ready', async () => {
         emoji: '🤝',
       },
     ]);
-
-  wok.on('databaseConnected', (connection, state) => {
-    console.log(
-      chalk.hex('#b8e014')(`The database connection state is now "${state}"`),
-    );
-  });
-
-  wok.on('commandException', (command, message, error) => {
-    message.channel.send(
-      `An error occured while executing the command \`${command.name}\`: \`${error.message}\``,
-    );
-    console.log(
-      chalk.hex(
-        '#ed0c22',
-      )`An exception occured when using command "${command.names[0]}"! The error is:`,
-    );
-    console.error(error);
-  });
-
   console.log(chalk.greenBright('Bot online and Ready!'));
 });
 
