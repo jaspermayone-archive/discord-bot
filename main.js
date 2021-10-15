@@ -39,15 +39,7 @@ client.on('ready', async () => {
     ),
   );
 
-  const dbOptions = {
-    keepAlive: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  };
-
   new WOKCommands(client, {
-    dbOptions,
     mongoUri: MongoDB,
     commandsDir: path.join(__dirname, 'commands'),
     featuresDir: path.join(__dirname, 'features'),
@@ -59,6 +51,7 @@ client.on('ready', async () => {
     ignoreBots: true,
     ephemeral: false,
     testServers: ['826493837878493204'],
+    botOwners: [`${IDs.OwnerID}`],
     disabledDefaultCommands: [
       // 'help',
       // 'command',
@@ -67,7 +60,6 @@ client.on('ready', async () => {
       // 'requiredrole'
     ],
   })
-    .setBotOwner(IDs.OwnerID)
     .setDefaultPrefix('!')
     .setColor(colors.heptagram)
     .setCategorySettings([

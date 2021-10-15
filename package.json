@@ -18,11 +18,6 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "discord.js": "^13.0.0",
-    "docsify-cli": "^4.4.3",
-    "dotenv": "^10.0.0",
-    "enmap": "^5.8.5",
-    "erlpack": "discord/erlpack",
-    "ffmpeg-static": "^4.4.0",
     "leo-profanity": "^1.3.0",
     "mathjs": "^9.3.2",
     "moment": "^2.29.1",
