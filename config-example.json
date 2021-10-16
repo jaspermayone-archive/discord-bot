@@ -1,0 +1,37 @@
+{
+    "token" : "your token here",
+    "MongoDB": "your mongo URI here",
+    "Auth" :{
+  "clientID" : "your client ID here",
+  "clientSecret" : "your client secret here",
+  "callbackURL" : "your callback url here"
+    },
+    "IDs": {
+      "OwnerID": "Owner id here",
+      "BotID": "bot ID here",
+      "ServerID": "main server id here"
+    },
+    "cdn": {
+      "sqlogo": "https://cdn.heptagram.xyz/Logos/HeptagramSquare.png",
+      "logo": "https://cdn.heptagram.xyz/Logos/HeptagramLogo.png",
+      "canary": "https://cdn.heptagram.xyz/Logos/HeptagramCanaryLogo.jpg",
+      "testing": "https://cdn.heptagram.xyz/Logos/HeptagramTestingLogo.png",
+      "multicolor": "https://cdn.heptagram.xyz/Logos/HeptagramMulticolorAnimated.gif"
+    },
+    "replies": {
+      "mention": "You need to mention a user for this command!",
+      "sameVC": "🔴 **You must be in the same voice channel as me to use this command.**"
+    },
+    "colors": {
+      "heptagram": "#fff826"
+    },
+    "emoji": {
+      "checkmark": "✅",
+      "x": "❌",
+      "HeptaHeart": "855424742282362901",
+      "status_online": "852483940291706900",
+      "status_unstable": "852483940262608896",
+      "status_offline": "852483939955769375",
+      "status_issue_identified": "852483939905306637"
+    }
+  }
