@@ -1,5 +1,6 @@
 const pjson = require('./package.json');
-const { token, IDs, colors, MongoDB, emoji, Auth } = require('./config.json');
+const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
+const logger = require("./util/logger.js");
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
 const antiSwear = require('./features/anti-swear');
@@ -9,7 +10,6 @@ const WOKCommands = require('wokcommands');
 const path = require("path");
 const io = require('@pm2/io');
 const chalk = require('chalk');
-
 
 io.init({
   transactions: true,
@@ -38,14 +38,9 @@ client.on('ready', async () => {
     type: 'WATCHING',
   });
 
-  console.log(
-    chalk.hex('#FFF800')('Starting Heptagram || Version: ' + pjson.version),
-  );
-  console.log(
-    chalk.hex('#FFF800')(
-      `Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`,
-    ),
-  );
+   logger.heptagram('Starting Heptagram || Version: ' + pjson.version)
+
+   logger.heptagram(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
 
   new WOKCommands(client, {
     mongoUri: MongoDB,
@@ -112,7 +107,7 @@ client.on('ready', async () => {
         emoji: '🤝',
       },
     ]);
-  console.log(chalk.greenBright('Bot online and Ready!'));
+  logger.ready('Bot online and Ready!');
 });
 
 antiSwear(client);

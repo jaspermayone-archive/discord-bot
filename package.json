@@ -17,7 +17,9 @@
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
     "@pm2/io": "^5.0.0",
+    "@sapphire/time-utilities": "^1.4.3",
     "chalk": "^4.1.1",
+    "colorette": "^2.0.16",
     "common-tags": "^1.8.0",
     "discord.js": "^13.0.0",
     "ejs": "^3.1.6",
