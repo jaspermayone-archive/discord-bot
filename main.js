@@ -1,5 +1,8 @@
 const pjson = require('./package.json');
 const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
+const antiLink = require('./features/anti-link');
+const antiInvite = require('./features/anti-invite');
+const antiSwear = require('./features/anti-swear');
 
 const chalk = require('chalk');
 const { Intents, Client } = require('discord.js');
@@ -12,9 +15,7 @@ io.init({
   http: true,
 });
 
-const antiLink = require('./features/anti-link');
-const antiInvite = require('./features/anti-invite');
-const antiSwear = require('./features/anti-swear');
+
 
 const client = new Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
