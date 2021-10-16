@@ -114,6 +114,18 @@
   resolved "https://registry.yarnpkg.com/@sapphire/async-queue/-/async-queue-1.1.6.tgz#785ea53b2b6b0a471cf03cf2e836f9f5b5139be2"
   integrity sha512-M5CbgMgesemMUCQo5G/InGHvp+GZx6uuJNV1iwvSWD8EFNVrfxaTcqhcAXM3MPYkjlxvNnoDNk0R1lfzvca6LA==
 
+"@sapphire/time-utilities@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.4.3.tgz#18f508fb4f8a2e0899734992e6f8d96e373b222c"
+  integrity sha512-AC55nNklE76Xm1POGw24PzPa3oNeuNNOJE+Ndjd8a48ie/0d2JITMc4QTCJT3VB3lh+fOL9hT/jgc+xHd8An8Q==
+  dependencies:
+    "@sapphire/utilities" "^3.0.3"
+
+"@sapphire/utilities@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-3.0.3.tgz#7e854dde9489407fbb4a56d0955412d956a93640"
+  integrity sha512-DWjQzXFK8m8STmlTmOS8fi0HI1TUOnAQkbChVyTEhRUQZ3vR0VtiEWpghQRl5j4HwjP0x9Fx1B4JDfmS3+sYrg==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -460,6 +472,11 @@ color-name@~1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
+
+colorette@^2.0.16:
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
+  integrity sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==
 
 combined-stream@^1.0.8:
   version "1.0.8"
