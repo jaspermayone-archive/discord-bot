@@ -5,6 +5,12 @@ const chalk = require('chalk');
 const { Intents, Client } = require('discord.js');
 const path = require('path');
 const WOKCommands = require('wokcommands');
+const io = require('@pm2/io');
+
+io.init({
+  transactions: true,
+  http: true,
+});
 
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
