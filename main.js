@@ -1,5 +1,7 @@
 const pjson = require('./package.json');
 const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
+const { intents, partials } = require("./config.js");
+
 const logger = require("./util/logger.js");
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
@@ -16,21 +18,7 @@ io.init({
   http: true,
 });
 
-
-
-const client = new Client({
-  partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.DIRECT_MESSAGES,
-    Intents.FLAGS.GUILD_BANS,
-    Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
-    Intents.FLAGS.GUILD_INVITES,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
-  ],
-});
+const client = new Client({ intents, partials });
 
 client.on('ready', async () => {
   client.user.setStatus('online');
