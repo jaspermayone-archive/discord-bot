@@ -1,14 +1,15 @@
 const pjson = require('./package.json');
-const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
+const { token, IDs, colors, MongoDB, emoji, Auth } = require('./config.json');
 const antiLink = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
 const antiSwear = require('./features/anti-swear');
 
-const chalk = require('chalk');
 const { Intents, Client } = require('discord.js');
-const path = require('path');
 const WOKCommands = require('wokcommands');
+const path = require("path");
 const io = require('@pm2/io');
+const chalk = require('chalk');
+
 
 io.init({
   transactions: true,
