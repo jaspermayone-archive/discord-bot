@@ -3,21 +3,27 @@ const { MessageEmbed } = require('discord.js');
 const pjson = require('../../package.json');
 
 module.exports = {
-  name: 'servers',
+  name: 'server',
   description: 'gets list of servers bot is in.',
+  aliases: ['guilds', 'guild', 'servers'],
   category: 'Owner',
   ownerOnly: true,
   hidden: true,
 
   callback: async ({ client, message, args }) => {
-    if (!args[0]) {
+
+  if (!args[0]) {
+
       client.guilds.cache.forEach((guild) => {
         message.channel.send({
           content: `The server ${guild.name} (\`${guild.id}\`) has a total of ${guild.memberCount} members.`,
         });
       });
-    } else {
+    
+    }  else {
+
       const serverArg = args[0];
+      
       client.guilds
         .fetch(serverArg)
         .then((guild) => {
@@ -37,10 +43,7 @@ module.exports = {
                 { name: 'Guild Owner', value: `${GuildMember}`, inline: true },
               )
               .setTimestamp()
-              .setFooter(
-                `Message sent by the Heptagram Bot || ${pjson.version}`,
-                `${cdn.sqlogo}`,
-              );
+              .setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`,`${cdn.sqlogo}`);
 
             message.reply({ embeds: [embed] });
           });

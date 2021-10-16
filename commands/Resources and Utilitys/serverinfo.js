@@ -4,7 +4,7 @@ const { colors, cdn } = require('../../config.json');
 const pjson = require('../../package.json');
 
 module.exports = {
-  name: 'server',
+  name: 'serverinfo',
   description: 'gives info about server.',
   guildOnly: true,
   category: 'Resources',
