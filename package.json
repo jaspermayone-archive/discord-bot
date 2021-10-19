@@ -39,7 +39,7 @@
   "private": false,
   "devDependencies": {
     "eslint": "8.0.1",
-    "nodemon": "2.0.12"
+    "nodemon": "2.0.14"
   },
   "engines": {
     "node": ">=16.10.0"
