@@ -36,7 +36,7 @@ module.exports = {
     );
     if (!sendChannel) {
       await message.channel.send({
-        embeds: [msgembed.setDescription(`Suggestions channel does not exist`)],
+        embeds: [msgembed.setDescription(`Suggestions channel does not exist.`)],
       });
       return;
     }
@@ -60,7 +60,7 @@ module.exports = {
       await message.reply({
         embeds: [
           msgembed.setDescription(
-            `Your suggestion has been sent. Pls check the ${sendChannel} channel`,
+            `Your suggestion has been sent. Please check the ${sendChannel} channel`,
           ),
         ],
       });
@@ -84,13 +84,13 @@ module.exports = {
       // Error catching
       if (!messageID) {
         await message.reply({
-          embeds: [msgembed.setDescription(`'Please specify the message id!`)],
+          embeds: [msgembed.setDescription(`'Please specify the message ID!`)],
         });
         return;
       }
       if (!acceptQuery) {
         await message.reply({
-          embeds: [msgembed.setDescription(`Please specify an Accept Query`)],
+          embeds: [msgembed.setDescription(`Please specify an Accept Query!`)],
         });
         return;
       }
@@ -98,7 +98,7 @@ module.exports = {
         await sendChannel.messages.fetch(messageID);
       } catch (error) {
         await message.channel.send({
-          embeds: [msgembed.setDescription(`Incorrect ID Provided !`)],
+          embeds: [msgembed.setDescription(`Incorrect ID Provided!`)],
         });
         return;
       }
@@ -126,7 +126,7 @@ module.exports = {
         await user.send({
           embeds: [
             msgembed.setDescription(
-              `Your suggestion to : "${data.description}" has been accepted !`,
+              `Your suggestion to : "${data.description}" has been accepted!`,
             ),
           ],
         });
@@ -134,7 +134,7 @@ module.exports = {
         await message.channel.send({
           embeds: [
             msgembed.setDescription(
-              `Encountered an error. Pls share with the development team!`,
+              `Encountered an error. Please share with the development team!`,
             ),
           ],
         });
@@ -145,7 +145,7 @@ module.exports = {
       if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
         await message.channel.send({
           embeds: [
-            msgembed.setDescription(`You dont have the required permissions!`),
+            msgembed.setDescription(`You don't have the required permissions!`),
           ],
         });
         return;
@@ -156,13 +156,13 @@ module.exports = {
       // Error catching
       if (!messageID) {
         await message.reply({
-          embeds: [msgembed.setDescription(`Please specify the message id!`)],
+          embeds: [msgembed.setDescription(`Please specify the message ID!`)],
         });
         return;
       }
       if (!declineQuery) {
         await message.reply({
-          embeds: [msgembed.setDescription(`Please specify an Accept Query`)],
+          embeds: [msgembed.setDescription(`Please specify an Accept Query!`)],
         });
         return;
       }
@@ -170,7 +170,7 @@ module.exports = {
         await sendChannel.messages.fetch(messageID);
       } catch (error) {
         await message.channel.send({
-          embeds: [msgembed.setDescription(`Incorrect ID Provided !`)],
+          embeds: [msgembed.setDescription(`Incorrect ID Provided!`)],
         });
         return;
       }
@@ -198,7 +198,7 @@ module.exports = {
         await user.send({
           embeds: [
             msgembed.setDescription(
-              `Your suggestion to: "${data.description}" has been declined !`,
+              `Your suggestion to: "${data.description}" has been declined!`,
             ),
           ],
         });
@@ -206,7 +206,7 @@ module.exports = {
         await message.channel.send({
           embeds: [
             msgembed.setDescription(
-              `Encountered an error. Pls share with the development team!`,
+              `Encountered an error. Please share with the development team!`,
             ),
           ],
         });
