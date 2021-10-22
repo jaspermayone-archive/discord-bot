@@ -1,24 +1,36 @@
 const pjson = require('./package.json');
 const { token, IDs, colors, MongoDB, emoji } = require('./config.json');
 const { intents, partials } = require("./config.js");
-
 const logger = require("./util/logger.js");
-const antiLink = require('./features/anti-link');
-const antiInvite = require('./features/anti-invite');
-const antiSwear = require('./features/anti-swear');
+// const antiLink = require('./features/anti-link');
+// const antiInvite = require('./features/anti-invite');
+// const antiSwear = require('./features/anti-swear');
 
-const { Intents, Client } = require('discord.js');
-const WOKCommands = require('wokcommands');
+const { Client } = require('discord.js');
+// const WOKCommands = require('wokcommands');
 const path = require("path");
 const io = require('@pm2/io');
-const chalk = require('chalk');
 
 io.init({
   transactions: true,
   http: true,
-});
+})
 
 const client = new Client({ intents, partials });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 client.on('ready', async () => {
   client.user.setStatus('online');
@@ -30,7 +42,7 @@ client.on('ready', async () => {
 
    logger.heptagram(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
 
-  new WOKCommands(client, {
+  /* new WOKCommands(client, {
     mongoUri: MongoDB,
     commandsDir: path.join(__dirname, 'commands'),
     featuresDir: path.join(__dirname, 'features'),
@@ -43,13 +55,6 @@ client.on('ready', async () => {
     ephemeral: false,
     testServers: ['826493837878493204'],
     botOwners: [`${IDs.OwnerID}`],
-    disabledDefaultCommands: [
-      // 'help',
-      // 'command',
-      'language',
-      // 'prefix',
-      // 'requiredrole'
-    ],
   })
     .setDefaultPrefix('!')
     .setColor(colors.heptagram)
@@ -57,11 +62,6 @@ client.on('ready', async () => {
       {
         name: 'Examples',
         emoji: '🚧',
-        hidden: true,
-      },
-      {
-        name: 'Development',
-        emoji: '⭕️',
         hidden: true,
       },
       {
@@ -76,7 +76,6 @@ client.on('ready', async () => {
         name: 'Owner',
         emoji: `${emoji.HeptaHeart}`,
         customEmoji: true,
-        hidden: true,
       },
       {
         name: 'Resources',
@@ -95,12 +94,15 @@ client.on('ready', async () => {
         emoji: '🤝',
       },
     ]);
+    */
   logger.ready('Bot online and Ready!');
 });
 
+/* Disabled till configurablw
 antiSwear(client);
 antiInvite(client);
 antiLink(client);
+*/
 
 client.login(token);
 
