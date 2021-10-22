@@ -8,6 +8,7 @@
         "snowflake107.discordjs-helper",
         "pkief.material-icon-theme",
         "wesbos.theme-cobalt2",
-        "ankitcode.firefly"
+        "ankitcode.firefly",
+        "coscreen-inc.coscreen-vsc-extension"
     ]
 }
