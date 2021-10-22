@@ -7,7 +7,7 @@ const logger = require("./util/logger.js");
 // const antiSwear = require('./features/anti-swear');
 
 const { Client } = require('discord.js');
-// const WOKCommands = require('wokcommands');
+const heptahandler = require('heptagram-handler');
 const path = require("path");
 const io = require('@pm2/io');
 
@@ -17,19 +17,6 @@ io.init({
 })
 
 const client = new Client({ intents, partials });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 client.on('ready', async () => {
@@ -42,7 +29,7 @@ client.on('ready', async () => {
 
    logger.heptagram(`Logged in as ${client.user.tag}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`);
 
-  /* new WOKCommands(client, {
+   new heptahandler(client, {
     mongoUri: MongoDB,
     commandsDir: path.join(__dirname, 'commands'),
     featuresDir: path.join(__dirname, 'features'),
@@ -94,7 +81,6 @@ client.on('ready', async () => {
         emoji: '🤝',
       },
     ]);
-    */
   logger.ready('Bot online and Ready!');
 });
 
