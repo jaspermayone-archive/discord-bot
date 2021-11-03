@@ -3,12 +3,12 @@
         "darkempire78.discord-tools",
         "eg2.vscode-npm-script",
         "coenraads.bracket-pair-colorizer-2",
-        "kiteco.kite",
         "johnpapa.vscode-peacock",
         "vscode-icons-team.vscode-icons",
         "snowflake107.discordjs-helper",
         "pkief.material-icon-theme",
         "wesbos.theme-cobalt2",
-        "ankitcode.firefly"
+        "ankitcode.firefly",
+        "coscreen-inc.coscreen-vsc-extension"
     ]
 }

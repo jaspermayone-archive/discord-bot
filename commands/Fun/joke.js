@@ -6,24 +6,23 @@ const pjson = require('../../package.json');
 const URL = 'https://official-joke-api.appspot.com/random_joke';
 
 function fetchJoke() {
-	return fetch(URL).then((res) => res.json());
+  return fetch(URL).then((res) => res.json());
 }
 
 let blocked = false;
 
 module.exports = {
-	name: 'joke',
-	cooldown: '1m',
-	description: 'Displays a joke',
-	category: 'Fun',
-	minArgs: 0,
-	maxArgs: 0,
-	expectedArgs: "",
+  name: 'joke',
+  cooldown: '1m',
+  description: 'Displays a joke',
+  category: 'Fun',
+  minArgs: 0,
+  maxArgs: 0,
+  expectedArgs: '',
 
-	callback({ message }) {
-
-		message.channel.send(`Curently disabled due to API switchover`);
-		/* // To prevent user spamming the same command
+  callback({ message }) {
+    message.channel.send(`Curently disabled due to API switchover`);
+    /* // To prevent user spamming the same command
 		if (blocked) {
 			message.reply({ content: 'Please wait until the joke finishes before using this command again.' });
 			return;
@@ -50,5 +49,5 @@ module.exports = {
 			})
 			.catch((err) => console.warn(err));
 			*/
-	},
+  },
 };

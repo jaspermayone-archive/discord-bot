@@ -3,43 +3,48 @@ const { MessageEmbed } = require('discord.js');
 const pjson = require('../../package.json');
 
 module.exports = {
-	name: 'emmit',
-	aliases: ['ej', 'emit', 'e'],
-	description: 'pretends a new user has joined (for testing only)',
-	category: 'Owner',
-	ownerOnly: true,
-	hidden: true,
+  name: 'emmit',
+  aliases: ['ej', 'emit', 'e'],
+  description: 'pretends a new user has joined (for testing only)',
+  category: 'Owner',
+  ownerOnly: true,
+  hidden: true,
 
-	callback: async ({ client, message, args }) => {
+  callback: async ({ client, message, args }) => {
+    if (args[0] === 'join') {
+      client.emit('guildMemberAdd', message.member);
 
-		if (args[0] === 'join') {
+      const jembed = new MessageEmbed()
+        .setColor(colors.heptagram)
+        .setTitle(`Join Emmitted!`)
+        .setDescription(
+          `You have succesfully emmited a join. || <@${message.author.id}>`,
+        )
+        .setTimestamp()
+        .setFooter(
+          `Message sent by the Heptagram Bot || ${pjson.version}`,
+          `${cdn.sqlogo}`,
+        );
 
-			 client.emit('guildMemberAdd', message.member);
+      return message.reply({ embeds: [jembed] });
+    }
 
-			const jembed = new MessageEmbed()
-				.setColor(colors.heptagram)
-				.setTitle(`Join Emmitted!`)
-				.setDescription(`You have succesfully emmited a join. || <@${message.author.id}>`)
-				.setTimestamp()
-				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
+    if (args[0] === 'leave') {
+      client.emit('guildMemberLeave', message.member);
 
-			return message.reply({ embeds: [jembed] });
+      const lembed = new MessageEmbed()
+        .setColor(colors.heptagram)
+        .setTitle(`Leave Emmitted!`)
+        .setDescription(
+          `You have succesfully emmited a leave. || <@${message.author.id}>`,
+        )
+        .setTimestamp()
+        .setFooter(
+          `Message sent by the Heptagram Bot || ${pjson.version}`,
+          `${cdn.sqlogo}`,
+        );
 
-		}
-
-		if (args[0] === 'leave') {
-
-			client.emit('guildMemberLeave', message.member);
-
-			const lembed = new MessageEmbed()
-				.setColor(colors.heptagram)
-				.setTitle(`Leave Emmitted!`)
-				.setDescription(`You have succesfully emmited a leave. || <@${message.author.id}>`)
-				.setTimestamp()
-				.setFooter(`Message sent by the Heptagram Bot || ${pjson.version}`, `${cdn.sqlogo}`);
-
-			return message.reply({ embeds: [lembed] });
-
-		}
-	},
+      return message.reply({ embeds: [lembed] });
+    }
+  },
 };

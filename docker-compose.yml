@@ -1,0 +1,19 @@
+version: '3'
+
+volumes:
+    mongo_persist:
+services:
+    mongo:
+        image: mongo
+        container_name: db
+        volumes:
+            - mongo_persist:/data/db
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=root
+            - MONGO_INITDB_DATABASE=heptagram
+        restart: always
+    bot:
+        container_name: bot
+        build: .
+        restart: always

@@ -4,18 +4,19 @@ const Discord = require('discord.js');
 const { colors, cdn } = require('../../config.json');
 
 module.exports = {
-	name: 'setup',
-	description: 'configures bot for new server.',
-	category: 'Utilitys',
-	minArgs: 0,
-	maxArgs: 0,
-	expectedArgs: "",
+  name: 'setup',
+  description: 'configures bot for new server.',
+  category: 'Utilitys',
+  minArgs: 0,
+  maxArgs: 0,
+  expectedArgs: '',
 
-	callback: ({ message }) => {
+  callback: ({ message }) => {
+    message.reply({
+      content: 'This command is a work in progress. It is not working now.',
+    });
 
-		message.reply({ content: 'This command is a work in progress. It is not working now.' });
-
-	/* 	if (message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
+    /* 	if (message.member.hasPermission('MANAGE_SERVER', 'MANAGE_CHANNELS')) {
 
 			const guild = message.guild;
 
@@ -51,5 +52,5 @@ module.exports = {
 		else {
 			message.channel.send('This command sets up the server.');
 		} */
-	},
+  },
 };
