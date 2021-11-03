@@ -26,7 +26,7 @@
     "express": "^4.17.1",
     "heptagram-handler": "^0.0.2",
     "leo-profanity": "^1.3.0",
-    "mathjs": "^9.3.2",
+    "mathjs": "^10.0.0",
     "moment": "^2.29.1",
     "mongoose": "^6.0.0",
     "ms": "^2.1.3",
