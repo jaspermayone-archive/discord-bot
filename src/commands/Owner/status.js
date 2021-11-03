@@ -8,6 +8,10 @@ module.exports = {
   category: 'Owner',
   ownerOnly: true,
   hidden: true,
+  expectedArgs: '<NewStatus>',
+  minArgs: 1,
+  maxArgs: 1,
+  syntaxError: 'Incorrect usage! Please use "{PREFIX}status {ARGUMENTS}"',
 
   callback: async ({ client, message, prefix }) => {
     const content = message.content.replace(`${prefix}status`, '');
