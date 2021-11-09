@@ -113,5 +113,5 @@ const config = {
     }
   ]
 }
-
+// Export the config.
 module.exports = config;

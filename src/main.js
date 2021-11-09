@@ -9,7 +9,7 @@ const logger = require("./util/logger.js");
 // const antiInvite = require('./features/anti-invite');
 // const antiSwear = require('./features/anti-swear');
 
-logger.heptagram('Starting Heptagram || Version: ' + pjson.version)
+logger.heptagram(`Starting Heptagram || Version: ${pjson.version}`)
 
 const { Client, Collection } = require('discord.js');
 const { readdirSync } = require("fs");

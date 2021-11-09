@@ -9,6 +9,7 @@
         "pkief.material-icon-theme",
         "wesbos.theme-cobalt2",
         "ankitcode.firefly",
-        "coscreen-inc.coscreen-vsc-extension"
+        "coscreen-inc.coscreen-vsc-extension",
+        "teamhub.teamhub"
     ]
 }
