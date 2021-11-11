@@ -13,7 +13,6 @@ logger.heptagram(`Starting Heptagram || Version: ${pjson.version}`)
 
 const { Client, Collection } = require('discord.js');
 const { readdirSync } = require("fs");
-const heptahandler = require('heptagram-handler');
 const path = require("path");
 const io = require('@pm2/io');
 
