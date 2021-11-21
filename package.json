@@ -38,7 +38,7 @@
   "main": "main.js",
   "private": false,
   "devDependencies": {
-    "eslint": "8.2.0",
+    "eslint": "8.3.0",
     "nodemon": "2.0.15"
   },
   "engines": {
