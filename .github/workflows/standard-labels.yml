@@ -16,5 +16,5 @@ jobs:
     - uses: j-dogcoder/gh-action-labels@main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        owner-name: 'Heptagram-Bot'
-        repository-name: 'Heptagram'
+        owner-name: 'Heptagram-Bot-Project'
+        repository-name: 'bot'
