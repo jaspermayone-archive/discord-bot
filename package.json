@@ -41,5 +41,5 @@
   "engines": {
     "node": ">=16.10.0"
   },
-  "type":"commonjs"
+  "type": "module"
 }
