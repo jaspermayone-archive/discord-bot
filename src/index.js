@@ -3,8 +3,8 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
     "Node 16.x or higher is required. Update Node on your system."
   );
 
-const { Client, Collection } = require("discord.js");
-const { readdirSync } = require("fs");
+import  { Client, Collection } from ("discord.js");
+import { readdirSync } from ("fs");
 
 const { intents, partials, permLevels } = require("./config.js");
 const logger = require("./modules/Logger.js");
