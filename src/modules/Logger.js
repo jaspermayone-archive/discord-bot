@@ -1,13 +1,13 @@
-const {
+import {
   black, red, green, yellow, blue, magenta, cyan, white, grey, 
   redBright, greenBright, yellowBright, blueBright, magentaBright, cyanBright, whiteBright,
   bgBlack, bgRed, bgGreen, bgYellow, bgBlue, bgMagenta, bgCyan, bgWhite, bgGrey,
   bgRedBright, bgGreenBright, bgYellowBright, bgBlueBright, bgMagentaBright, bgCyanBright, bgWhiteBright
-} = require("chalk");
+} from ("chalk");
 
-const chalk = require("chalk");
+import chalk from ("chalk");
 
-const { Timestamp } = require("@sapphire/time-utilities");
+import { Timestamp } from ("@sapphire/time-utilities");
 
 exports.log = (content, type = "log") => {
 const timestamp = `[${white(new Timestamp("YYYY-MM-DD HH:mm:ss"))}]:`;

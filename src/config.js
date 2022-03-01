@@ -1,4 +1,4 @@
-const { Intents } = require("discord.js");
+import { Intents } from ("discord.js");
 
 const config = {
   "emoji" : {
