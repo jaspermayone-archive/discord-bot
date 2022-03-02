@@ -1,7 +1,7 @@
 name: Bug report
 description: Create a report to help us address an error.
 title: "[BUG] - "
-labels:  ["🐛 bug 🐛", "priority: critical", "🧹 status: ticket work required 🧹", 🚦 status: awaiting triage 🚦]
+labels:  ["🐛 bug 🐛", "priority: critical", "🧹 status: ticket work required 🧹", "🚦 status: awaiting triage 🚦"]
 assignees: "j-dogcoder"
 body:
   - type: markdown

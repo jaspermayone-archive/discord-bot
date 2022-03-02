@@ -1,4 +1,4 @@
-const logger = require("../modules/Logger.js");
+const logger = require("../utils/Logger.js");
 
 module.exports = async client => {
 

@@ -8,8 +8,8 @@ your bot. The `del` action removes the key also from every guild, and loses its 
 
 const { codeBlock } = require ("@discordjs/builders");
 const config = require("../config.js");
-const { awaitReply } = require("../modules/functions.js");
-const { settings } = require("../modules/settings.js");
+const { awaitReply } = require("../utils/functions.js");
+const { settings } = require("../utils/settings.js");
 
 exports.run = async (client, message, [action, key, ...value], level) => { // eslint-disable-line no-unused-vars
 

@@ -11,8 +11,8 @@
 // OR the same as:
 // const [action, key, ...value] = args;
 const { codeBlock } = require("@discordjs/builders");
-const { settings } = require("../modules/settings.js");
-const { awaitReply } = require("../modules/functions.js");
+const { settings } = require("../utils/settings.js");
+const { awaitReply } = require("../utils/functions.js");
 
 exports.run = async (client, message, [action, key, ...value], level) => { // eslint-disable-line no-unused-vars
 

@@ -1,5 +1,5 @@
-const logger = require("../modules/Logger.js");
-const { getSettings, permlevel } = require("../modules/functions.js");
+const logger = require("../utils/Logger.js");
+const { getSettings, permlevel } = require("../utils/functions.js");
 const config = require("../config.js");
 
 module.exports = async (client, interaction) => {

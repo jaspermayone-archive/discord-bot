@@ -1,5 +1,5 @@
-const logger = require("../modules/Logger.js");
-const { settings } = require("../modules/settings.js");
+const logger = require("../utils/Logger.js");
+const { settings } = require("../utils/settings.js");
 
 module.exports = (client, guild) => {
   if (!guild.available) return; 

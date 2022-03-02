@@ -7,7 +7,7 @@ const { Client, Collection } = require ("discord.js");
 const { readdirSync } = require ("fs");
 
 const { intents, partials, permLevels } = require ("./config.js");
-const logger = require ("./modules/Logger.js");
+const logger = require ("./utils/Logger.js");
 const { version } = require ("../package.json");
 require("dotenv").config();
 
