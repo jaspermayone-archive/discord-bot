@@ -1,6 +1,6 @@
-import { version } from ("discord.js");
-import { codeBlock } from ("@discordjs/builders");
-import { DurationFormatter } from ("@sapphire/time-utilities");
+const { version } = require ("discord.js");
+const { codeBlock } = require ("@discordjs/builders");
+const { DurationFormatter } = require ("@sapphire/time-utilities");
 const durationFormatter = new DurationFormatter();
 
 exports.run = async (client, interaction) => { // eslint-disable-line no-unused-vars
