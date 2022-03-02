@@ -3,12 +3,12 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
     "Node 16.x or higher is required. Update Node on your system."
   );
 
-import  { Client, Collection } from ("discord.js");
-import { readdirSync } from ("fs");
+const { Client, Collection } = require ("discord.js");
+const { readdirSync } = require ("fs");
 
-const { intents, partials, permLevels } = require("./config.js");
-const logger = require("./modules/Logger.js");
-const { version } = require("../package.json");
+const { intents, partials, permLevels } = require ("./config.js");
+const logger = require ("./modules/Logger.js");
+const { version } = require ("../package.json");
 require("dotenv").config();
 
 const client = new Client({ intents, partials });
