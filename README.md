@@ -27,17 +27,13 @@
    </a>
 </p>
 
-<h1 align="center">Welcome to Heptagram 👋</h1>
+<h1 align="center">Welcome to the Heptagram Bot repo! 👋</h1>
 
-# NOTE:
+# Welcome to the Heptagram Bot Repo!
 
-We launched the V1 of this bot, you can find more informations at the [Heptagram Website](https://heptagram.xyz) and in the [Discord Server](https://discord.gg/HSupF99kpq).
+Heptagram Bot is designed to be the all-in-one, open-source Discord bot that handles all your server needs. No more needing a music bot, mod bot, rules bot, etc... Now you only need one!
 
-# Welcome to Heptagram!
-
-Heptagram is the all-in-one, open-source Discord bot with the goal to be the single bot needed for any server. No more music bot, mod bot, rules bot, etc.. Just Heptagram!
-
-Find out more and invite the bot at our [official website](https://heptagram.xyz)
+Find out more and invite the bot at our [official website](https://heptagram.jaspermayone.com)
 
 ## 🤝 Contributing
 
@@ -45,7 +41,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## Discord Server
 
-Heptagram has a community Discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggest features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can gain access to a special role and channels. To do so, join the server and then ping any admin and let them know.
+Heptagram has a community Discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggest features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can claim all kinds of perks. You can find out more about this in the [contributing guide](https://github.com/Heptagram-Bot-Project/bot/blob/main/CONTRIBUTING.md).
 
 ## Author
 
