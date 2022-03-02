@@ -4,8 +4,14 @@ const config = require("../config.js");
 
 module.exports = async (client, message) => {
   const { container } = client;
-  if (message.author.bot) return;
 
+  if (message.author.id === process.env.OWNER) {
+    const reactionEmoji = client.emojis.cache.get(config.emoji.HeptaHeart);
+        await message.react(reactionEmoji);
+  
+  }
+
+  if (message.author.bot) return;
 
   const settings = message.settings = getSettings(message.guild);
 
@@ -13,12 +19,6 @@ module.exports = async (client, message) => {
   if (message.content.match(prefixMention)) {
     return message.reply(`Hey there <@!${message.author.id}>! Need some help? I am here to assist you. My prefix on this server is \`${settings.prefix}\`. You can run \`${settings.prefix}\help\` to see what I can do!`);
   }
-
-if (message.author.id === process.env.OWNER) {
-  const reactionEmoji = client.emojis.cache.get(config.emoji.HeptaHeart);
-      await message.react(reactionEmoji);
-
-}
 
   const prefix = new RegExp(`^<@!?${client.user.id}> |^\\${settings.prefix}`).exec(message.content);
   if (!prefix) return;
