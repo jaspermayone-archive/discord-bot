@@ -18,6 +18,9 @@
   "dependencies": {
     "@discordjs/builders": "^0.2.0",
     "@pm2/io": "^5.0.0",
+    "@sentry/integrations": "^6.16.1",
+    "@sentry/node": "^6.16.1",
+    "@sentry/tracing": "^6.16.1",
     "@sapphire/time-utilities": "^1.4.3",
     "chalk": "2.4.1",
     "colorette": "^2.0.16",
