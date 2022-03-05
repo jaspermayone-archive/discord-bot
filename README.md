@@ -22,7 +22,7 @@
    <a href="https://github.com/Heptagram-Bot-Project/bot">
     <img alt="Language" src="https://img.shields.io/github/languages/top/Heptagram-Bot-Project/bot?style=for-the-badge&logo=github?label=healthinesses?" />
   </a>
-   <a href="https://discord.gg/HSupF99kpq">
+   <a href="https://discord.gg/yHFQWNtNDt">
     <img alt="Support Server Link" src="https://img.shields.io/discord/826493837878493204.svg?label=Discord&logo=Discord&colorB=7289da&style=for-the-badge" />
    </a>
 </p>
@@ -41,7 +41,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## Discord Server
 
-Heptagram has a community Discord server. You can join it at [https://discord.gg/HSupF99kpq](https://discord.gg/HSupF99kpq). In the server you can suggest features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can claim all kinds of perks. You can find out more about this in the [contributing guide](https://github.com/Heptagram-Bot-Project/bot/blob/main/CONTRIBUTING.md).
+Heptagram has a community Discord server. You can join it at [https://discord.gg/yHFQWNtNDt](https://discord.gg/yHFQWNtNDt). In the server you can suggest features, talk with developers, and test out the bot for yourself. If you have made an Open Source Contribution, you can claim all kinds of perks. You can find out more about this in the [contributing guide](https://github.com/Heptagram-Bot-Project/bot/blob/main/CONTRIBUTING.md).
 
 ## Author
 
