@@ -7,8 +7,8 @@ yarn-error.log*
 lerna-debug.log*
 .DS_Store
 ~/.DS_Store
-package-lock.json
 yarn.lock
+src/data/*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -78,6 +78,7 @@ config.json
 # dotenv environment variables file
 .env
 .env.test
+/env_var_folder/*
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
