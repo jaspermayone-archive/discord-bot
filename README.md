@@ -33,7 +33,7 @@
 
 Heptagram Bot is designed to be the all-in-one, open-source Discord bot that handles all your server needs. No more needing a music bot, mod bot, rules bot, etc... Now you only need one!
 
-Find out more and invite the bot at our [official website](https://heptagram.jaspermayone.com)
+Find out more and invite the bot at our [official website](https://heptagrambotproject.com)
 
 ## 🤝 Contributing
 
