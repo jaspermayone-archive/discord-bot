@@ -37,3 +37,39 @@ module.exports = async (client, interaction) => {
         .catch(e => console.error("An error occurred replying on an error", e));
   }
 };
+
+//Autopublisher part
+async function autopublish (msg, arg, client, interaction) {
+  /**
+   * This is the part where the bot will check if the sender has all the permissions
+   * And check if the channel is a channel where you can publish
+   */
+
+
+  const CLOCK = '⏲️';
+  const MEGAPHONE = '📢';
+  const EXCLAMATION = '❗';
+  const ROTATING_LIGHT = '🚨';
+
+  //Check if the you have persmission to manage messages and send messages
+  if(
+    !msg.channel.permissionFor(msg.guild.me).has('MANAGE_MESSAGES') ||
+    !msg.channel.permissionFor(msg.guild.me).has('SEND_MESSAGES')
+  ) return reaction(msg, ROTATING_LIGHT);
+
+  const res = await msg.client.api.channels(msg.channel.id).messages(msg.id).crosspost().post();
+
+  if (res?.message === 'You are being rate limited.') return await reaction(msg, CLOCK);
+  if (res?.id === msg.id) return await reaction(msg, MEGAPHONE);
+  if (res?.code === 40033) return await reaction(msg, EXCLAMATION);
+}
+
+function reaction(msg, emoji){
+  if (!msg.channel.permissionsFor(msg.guild.me).has('ADD_REACTIONS')) return ;
+  return msg.react(emoji)
+    .then((r) => setTimeout(() => r.remove(), 2000));
+}
+
+function checkPermission (msg, channel) {
+  return channel.permissionsFor(msg.member).has('MANAGE_CHANNELS')
+}
