@@ -39,7 +39,9 @@ module.exports = async (client, interaction) => {
 };
 
 //Autopublisher part
-async function autopublish (msg, arg, client, interaction) {
+async function autopublish (msg, arg) {
+  if(!arg) return msg.channel.send(`:x: You must precise the link or id of the message you want to publish. *Exemple : \`${settings.prefix}publish [link-to-your-message]*`);
+  
   /**
    * This is the part where the bot will check if the sender has all the permissions
    * And check if the channel is a channel where you can publish
@@ -71,5 +73,5 @@ function reaction(msg, emoji){
 }
 
 function checkPermission (msg, channel) {
-  return channel.permissionsFor(msg.member).has('MANAGE_CHANNELS')
+  return channel.permissionsFor(msg.member).has('MANAGE_CHANNELS');
 }
