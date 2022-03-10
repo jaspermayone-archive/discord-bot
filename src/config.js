@@ -30,6 +30,7 @@ const config = {
     "adminRole": "Administrator",
     "systemNotice": "true", 
     "commandReply": "true",
+    "autoPublishChannel": "",
   },
 
 
