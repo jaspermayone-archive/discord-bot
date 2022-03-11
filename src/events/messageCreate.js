@@ -7,10 +7,10 @@ const { MessageEmbed } = require('discord.js');
 module.exports = async (client, message) => {
   const { container } = client;
 
-  if (
-    process.env.NODE_ENV === "production" &&
-    message.guild.id === `${process.env.TEST_GUILD_ID}`
-  ) {
+  if (process.env.NODE_ENV === "production" && message.guild.id === `${process.env.TEST_GUILD_ID}`) {
+    return;
+  }
+  if (process.env.NODE_ENV === "development" && message.guild.id === `${process.env.HOME_GUILD_ID}`) {
     return;
   }
 
