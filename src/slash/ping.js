@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 exports.run = async (client, interaction) => { // eslint-disable-line no-unused-vars
   await interaction.deferReply();
   const reply = await interaction.editReply("Pinging...");

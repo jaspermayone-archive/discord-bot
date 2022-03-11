@@ -1,6 +1,8 @@
 const logger = require("../utils/Logger.js");
 const { getSettings, permlevel } = require("../utils/functions.js");
 const config = require("../config.js");
+const { MessageEmbed } = require('discord.js');
+
 
 module.exports = async (client, message) => {
   const { container } = client;
@@ -83,7 +85,7 @@ This command requires level ${container.levelCache[cmd.conf.permLevel]} (${
     console.error(e);
     message.channel
       .send({
-        content: `There was a problem with your request. Please contact a developer in our support server for assistance. You can run \`${settings.prefix}support for an invite if needed.\` \n\`\`\`${e.message}\`\`\``,
+        content: `There was a problem with your request. Please contact a developer in our support server for assistance. You can run \`${settings.prefix}support\` for an invite if needed.\` \n\`\`\`${e.message}\`\`\``,
       })
       .catch((e) => console.error("An error occurred replying on an error", e));
   }

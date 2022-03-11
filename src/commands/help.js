@@ -7,6 +7,8 @@ help command, its extended help is shown.
 */
 const { codeBlock } = require("@discordjs/builders");
 const { toProperCase } = require("../utils/functions.js");
+const { MessageEmbed } = require('discord.js');
+
 
 exports.run = (client, message, args, level) => {
   // Grab the container from the client to reduce line length.
