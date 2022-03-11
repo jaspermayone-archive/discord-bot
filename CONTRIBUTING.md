@@ -3,7 +3,7 @@
 Thank you for your interest in contributing to the Heptagram Bot!  We have extensive documentation below to do our best to make your contribution journey as smooth as possible.
 
 # Our Discord Server
- If you ever need support with contributing to the bot, you can alway join our discord server at <https://discord.gg/HSupF99kpq>, where we have staff and knowledgeable people to help you out! 
+ If you ever need support with contributing to the bot, you can alway join our discord server at <https://discord.gg/yHFQWNtNDt>, where we have staff and knowledgeable people to help you out! 
 
  In this server you can also interact with the main bot, hang out with other Heptagram community members, and use our collection of Heptagram stickers and emojis!
 
