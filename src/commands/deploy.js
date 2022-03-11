@@ -15,7 +15,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   await client.application?.commands.set(globalCmds.map(c => c.commandData)).catch(e => console.log(e));
 
   // Reply to the user that the commands have been deployed.
-  await message.channel.send("All commands deployed!");
+  await message.channel.send("<a:verifyblack:951863095238754324> All commands deployed! <a:verifyblack:951863095238754324>");
 };
 
 exports.conf = {

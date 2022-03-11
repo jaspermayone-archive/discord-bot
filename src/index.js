@@ -15,7 +15,6 @@ const client = new Client({ intents, partials });
 const commands = new Collection();
 const aliases = new Collection();
 const slashcmds = new Collection();
-global.client = client;
 
 logger.heptagram("Starting Heptagram || Version: " + version);
 
