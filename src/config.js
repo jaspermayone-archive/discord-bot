@@ -32,6 +32,7 @@ const config = {
     "adminRole": "Administrator",
     "systemNotice": "true", 
     "commandReply": "true",
+    "autoPublishChannel": "",
   },
 
 
@@ -97,6 +98,13 @@ const config = {
         return owner.id === process.env.OWNER_ID;
       }
     }
+  ],
+
+  autoPublishEmojis: [
+    { CLOCK: '⏲️' },
+    { MEGAPHONE: '📢' },
+    { EXCLAMATION: '❗' },
+    { ROTATING_LIGHT: '🚨'}
   ]
 };
 
