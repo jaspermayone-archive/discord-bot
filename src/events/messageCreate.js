@@ -1,4 +1,4 @@
-const logger = require("../utils/Logger.js");
+const logger = require("../utils/logger.js");
 const { getSettings, permlevel } = require("../utils/functions.js");
 const config = require("../config.js");
 const { MessageEmbed } = require('discord.js');
