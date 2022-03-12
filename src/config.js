@@ -2,9 +2,11 @@ const { Intents } = require ("discord.js");
 
 const config = {
   "emoji" : {
-    "HeptaHeart" : "947771887247822869",
+    "HeptaLove" : "951855088488579132",
+    "rupee" : "951855035610972210",
+    "verifyblack" : "951863095238754324"
   },
-  "admins": [],
+  "admins": ["722121621610954773"],
   "support": [],
   intents: [
     Intents.FLAGS.GUILDS,
@@ -93,7 +95,7 @@ const config = {
       name: "Bot Owner", 
       check: (message) => {
         const owner = message.author ?? message.user;
-        return owner.id === process.env.OWNER;
+        return owner.id === process.env.OWNER_ID;
       }
     }
   ],

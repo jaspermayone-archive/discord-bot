@@ -13,6 +13,7 @@
 const { codeBlock } = require("@discordjs/builders");
 const { settings } = require("../utils/settings.js");
 const { awaitReply } = require("../utils/functions.js");
+const { MessageEmbed } = require('discord.js');
 
 exports.run = async (client, message, [action, key, ...value], level) => { // eslint-disable-line no-unused-vars
 
@@ -42,7 +43,7 @@ exports.run = async (client, message, [action, key, ...value], level) => { // es
     settings.set(message.guild.id, joinedValue, key);
 
     // Confirm everything is fine!
-    message.reply({ content: `${key} successfully edited to ${joinedValue}`, allowedMentions: { repliedUser: (replying === "true") }});
+    message.reply({ content: `"<a:verifyblack:951863095238754324> ${key} successfully edited to ${joinedValue} "<a:verifyblack:951863095238754324>`, allowedMentions: { repliedUser: (replying === "true") }});
   } else
   
   // Resets a key to the default value

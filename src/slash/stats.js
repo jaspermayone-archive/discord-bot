@@ -1,20 +1,24 @@
 const { version } = require ("discord.js");
-const { codeBlock } = require ("@discordjs/builders");
+const { MessageEmbed } = require('discord.js');
 const { DurationFormatter } = require ("@sapphire/time-utilities");
 const durationFormatter = new DurationFormatter();
 
-exports.run = async (client, interaction) => { // eslint-disable-line no-unused-vars
+exports.run = async (client, interaction) => {
   const duration = durationFormatter.format(client.uptime);
-  const stats = codeBlock("asciidoc", `= STATISTICS =
-• Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
-• Uptime     :: ${duration}
-• Users      :: ${client.guilds.cache.map(g => g.memberCount).reduce((a, b) => a + b).toLocaleString()}
-• Servers    :: ${client.guilds.cache.size.toLocaleString()}
-• Channels   :: ${client.channels.cache.size.toLocaleString()}
-• Discord.js :: v${version}
-• Node       :: ${process.version}`);
-  await interaction.reply(stats);
-};
+
+   const statsEmbed = new MessageEmbed()
+    .setColor("#fff800")
+    .setTitle("Statistics")
+    .setDescription(`• Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`)
+    .addField("• Uptime:", duration)
+    .addField("• Users:", client.guilds.cache.map(g => g.memberCount).reduce((a, b) => a + b).toLocaleString())
+    .addField("• Servers:", client.guilds.cache.size.toLocaleString())
+    .addField("• Channels:", client.channels.cache.size.toLocaleString())
+    .addField("• Discord.js:", `v${version}`)
+    .addField("• Node:", `${process.version}`);
+
+ await interaction.reply({embeds: [statsEmbed]});
+  };
 
 exports.commandData = {
   name: "stats",
@@ -23,8 +27,7 @@ exports.commandData = {
   defaultPermission: true,
 };
 
-// Set guildOnly to true if you want it to be available on guilds only.
-// Otherwise false is global.
+
 exports.conf = {
   permLevel: "User",
   guildOnly: false
