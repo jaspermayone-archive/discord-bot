@@ -1,0 +1,21 @@
+{
+    "emoji": {
+      "custom": {
+        "HeptaLove": "951855088488579132",
+        "rupee": "951855035610972210",
+        "verifyblack": "951863095238754324"
+      },
+      "system": {
+        "success": "✅",
+        "error": "❌",
+        "warning": "⚠️",
+        "info": "ℹ️",
+        "megaphone": "📣"
+      }
+    },
+    "colors": {
+      "heptagram": "fff826"
+    },
+    "admins": ["722121621610954773"],
+    "support": []
+  }

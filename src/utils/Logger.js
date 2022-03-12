@@ -12,15 +12,15 @@ exports.log = (content, type = "log") => {
 const timestamp = `${white(new Timestamp("YYYY-MM-DD HH:mm:ss"))}]:`;
 
 switch (type) {
-  case "log": return console.log(`${grey(type.toUpperCase())}  ${`[LOG]`}  ${timestamp}  ${grey(type.toUpperCase())} ${content}`);
-  case "info": return console.log(`${blueBright(type.toUpperCase())} ${`[INFO]`}  ${timestamp}  ${blueBright(type.toUpperCase())} ${content} `);
-  case "warn": return console.log(`${yellow(type.toUpperCase())} ${`[WARN]`}  ${timestamp}  ${yellow(type.toUpperCase())} ${content} `);
-  case "error": return console.log(`${red(type.toUpperCase())} ${`[ERROR]`}  ${timestamp}  ${red(type.toUpperCase())} ${content} `);
-  case "debug": return console.log(`${magenta(type.toUpperCase())} ${`[DEBUG]`}  ${timestamp}  ${magenta(type.toUpperCase())} ${content} `);
-  case "ready": return console.log(`${green(`[READY]`)}  ${timestamp}  ${green(content)}`);
-  case "mongo": return console.log(`${cyan(type.toUpperCase())} ${`[MONGO]`}  ${timestamp}  ${cyan(type.toUpperCase())} ${content}`);
-  case "heptagram": return console.log(`${chalk.hex('#FFF800')(`[HEPTAGRAM]`)}  ${timestamp}  ${chalk.hex('#FFF800')(`${content}`)}`);
-  case "shard": return console.log(`${chalk.hex('#ff7557')(`[SHARD]`)}  ${timestamp}  ${chalk.hex('#ff7557')(`${content}`)}`);
+  case "log": return console.log(`${grey("[LOG]")} ${timestamp} ${content}`);
+  case "info": return console.log(`${blueBright("[INFO]")} ${timestamp} ${blueBright(content)}`);
+  case "warn": return console.log(`${yellow("[WARN]")} ${timestamp} ${content} `);
+  case "error": return console.log(`${red("[ERROR]")} ${timestamp} ${content} `);
+  case "debug": return console.log(`${magenta("[DEBUG]")}  ${timestamp} ${content} `);
+  case "ready": return console.log(`${green("[READY]")}  ${timestamp} ${green(content)}`);
+  case "mongo": return console.log(`${cyan("[MONGO]")} ${timestamp} ${content}`);
+  case "heptagram": return console.log(`${chalk.hex('#FFF800')("[HEPTAGRAM]")}  ${timestamp}  ${chalk.hex('#FFF800')(`${content}`)}`);
+  case "shard": return console.log(`${chalk.hex('#ff7557')("[SHARD]")}  ${timestamp}  ${chalk.hex('#ff7557')(`${content}`)}`);
   default: throw new TypeError("Logger type not correct.");
 }
 }; 

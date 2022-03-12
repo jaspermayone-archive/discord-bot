@@ -1,5 +1,5 @@
 const logger = require("./logger.js");
-const config = require("../config.js");
+const config = require("../config/intents.js");
 const { settings } = require("./settings.js");
 
 function permlevel(message) {

@@ -1,21 +1,23 @@
 const logger = require("../utils/logger.js");
 const { getSettings, permlevel } = require("../utils/functions.js");
-const config = require("../config.js");
+const config = require("../config/intents.js");
+const { emoji }= require("../config/config.json");
+
 const { MessageEmbed } = require('discord.js');
 
 
 module.exports = async (client, message) => {
   const { container } = client;
 
-  if (process.env.NODE_ENV === "production" && message.guild.id === `${process.env.TEST_GUILD_ID}`) {
+  if (process.env.NODE_ENV === "production" && message.guild.id === process.env.TEST_GUILD_ID) {
     return;
   }
-  if (process.env.NODE_ENV === "development" && message.guild.id === `${process.env.HOME_GUILD_ID}`) {
+  if (process.env.NODE_ENV === "development" && message.guild.id != process.env.TEST_GUILD_ID) {
     return;
   }
 
   if (message.author.id === process.env.OWNER_ID) {
-    const reactionEmoji = client.emojis.cache.get(config.emoji.HeptaLove);
+    const reactionEmoji = client.emojis.cache.get(emoji.custom.HeptaLove);
     await message.react(reactionEmoji);
 
     //    const animatedEmoji = client.emojis.cache.find(emoji => emoji.id === "951855035610972210");

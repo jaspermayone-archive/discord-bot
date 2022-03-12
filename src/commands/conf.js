@@ -7,7 +7,7 @@ your bot. The `del` action removes the key also from every guild, and loses its 
 */
 
 const { codeBlock } = require ("@discordjs/builders");
-const config = require("../config.js");
+const config = require("../config/intents.js");
 const { awaitReply } = require("../utils/functions.js");
 const { settings } = require("../utils/settings.js");
 const { MessageEmbed } = require('discord.js');

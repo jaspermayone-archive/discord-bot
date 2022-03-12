@@ -1,4 +1,4 @@
-const config = require("../config.js");
+const config = require("../config/intents.js");
 const { settings } = require("../utils/settings.js");
 const { MessageEmbed } = require('discord.js');
 

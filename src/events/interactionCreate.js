@@ -1,6 +1,6 @@
 const logger = require("../utils/Logger.js");
 const { getSettings, permlevel } = require("../utils/functions.js");
-const config = require("../config.js");
+const config = require("../config/intents.js");
 const { MessageEmbed } = require('discord.js');
 
 module.exports = async (client, interaction) => {

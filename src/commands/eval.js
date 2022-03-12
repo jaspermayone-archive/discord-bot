@@ -31,7 +31,7 @@ async function clean(client, text) {
 
 // However it's, like, super ultra useful for troubleshooting and doing stuff
 // you don't want to put in a command.
-exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
+exports.run = async (client, message, args, level) => {
   const code = args.join(" ");
   const evaled = eval(code);
   const cleaned = await clean(client, evaled);

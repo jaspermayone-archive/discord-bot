@@ -6,10 +6,12 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
 const { Client, Collection } = require ("discord.js");
 const { readdirSync } = require ("fs");
 
-const { intents, partials, permLevels } = require ("./config.js");
+const { configJSON } = require ("./config/config.json");
+const { intents, partials, permLevels } = require ("./config/intents.js");
+require("dotenv").config();
+
 const logger = require ("./utils/Logger.js");
 const { version } = require ("../package.json");
-require("dotenv").config();
 
 const client = new Client({ intents, partials });
 const commands = new Collection();
@@ -63,7 +65,7 @@ const init = async () => {
 
   client.on("threadCreate", (thread) => thread.join());
 
-  client.login();
+  client.login(process.env.DISCORD_TOKEN);
 };
 
 init();
