@@ -4,6 +4,7 @@
 // purging the hard drive. DO NOT LET ANYONE ELSE USE THIS
 
 const { codeBlock } = require("@discordjs/builders");
+const { MessageEmbed } = require('discord.js');
 
 /*
   MESSAGE CLEAN FUNCTION

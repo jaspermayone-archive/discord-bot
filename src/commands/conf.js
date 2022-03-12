@@ -10,6 +10,8 @@ const { codeBlock } = require ("@discordjs/builders");
 const config = require("../config.js");
 const { awaitReply } = require("../utils/functions.js");
 const { settings } = require("../utils/settings.js");
+const { MessageEmbed } = require('discord.js');
+
 
 exports.run = async (client, message, [action, key, ...value], level) => { // eslint-disable-line no-unused-vars
 
