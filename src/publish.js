@@ -6,10 +6,6 @@
 const config = require("./config");
 const { getSettings }= require("./utils/functions");
 
-const CLOCK = '⏲️';
-const MEGAPHONE = '📢';
-const EXCLAMATION = '❗';
-const ROTATING_LIGHT = '🚨';
 
 exports.run = async (client, message, args, level) =>{
     const settings = message.settings = getSettings(message.guild);
@@ -17,20 +13,17 @@ exports.run = async (client, message, args, level) =>{
 
 
     //Check if the you have persmission to manage messages and send messages
-    if(checkPermission(message,)) return reaction(message, ROTATING_LIGHT);
+    if(checkPermission(message,)) return reaction(message, config.autoPublishEmojis.ROTATING_LIGHT);
 
     //Check if there is an argument to the command
-    if(!args) return message.channel.send(`:x: You must precise the link or id of the message you want to publish. *Exemple : \`${settings.prefix}publish [link-to-your-message]*`);
+    if(!args) return message.channel.send(`:x: You must precise the link or id of the message you want to publish. *Example : \`${settings.prefix}publish [link-to-your-message]*`);
 
     //Get the message from the link or ID provided
     const [msg, channel] = await getMessage(message, args[0]);
 
-    //Check if the message is in the discord server
-    if  (msg.guild.id !== message.guild.id) return;
-
     //Check if the message exist
     if (!msg){
-        return message.channel.send(":x: That message doesn't exist. Check if you messsage ID is right or try using message links instead.");
+        return message.channel.send(":x: That message doesn't exist. Check if your message ID is right or try using message links instead.");
     }
 
     //Check if the message is sent in an announcement channel
@@ -43,7 +36,7 @@ exports.run = async (client, message, args, level) =>{
         !msg.guild.me.permissionsIn(channel).has('MANAGE_MESSAGES') ||
         !msg.guild.me.permissionsIn(channel).has('SEND_MESSAGES')
     ){
-        return await message.channel.send(":x: I do not have the permissions required to publish messages. Please make sure I can bot `MANAGE_MESSAGE` and `SEND_MESSAGES`.")
+        return await message.channel.send(":x: I do not have the permissions required to publish messages. Please make sure I can both `MANAGE_MESSAGES` and `SEND_MESSAGES`.")
             .then(msg => msg.delete({ timeout: 5000 }));
     }
 
@@ -56,17 +49,17 @@ exports.run = async (client, message, args, level) =>{
     const res = await message.client.api.channels(message.channel.id).messages(message.id).crosspost().post().catch(e => Promise.resolve(e));
 
     //If you are being rate limited, react to your message with a clock
-    if (res?.message === 'You are being rate limited.') return await reaction(message, CLOCK);
+    if (res?.message === 'You are being rate limited.') return await reaction(message, config.autoPublishEmojis.CLOCK);
 
     //If the message is published, react to your message with the megaphone
     if (res?.id === message.id){
         return await
-            reaction(message, MEGAPHONE) &&
+            reaction(message, config.autoPublishEmojis.MEGAPHONE) &&
             message.channel.send(`:white_check_mark: Successfully published message!! ID is : \`${msg.id}\``);
     }
 
     //If the message has already been published, react to your message with an exclamation mark
-    if (res?.code === 40033) return await reaction(message, EXCLAMATION);
+    if (res?.code === 40033) return await reaction(message, config.autoPublishEmojis.EXCLAMATION);
 
 
 
@@ -84,7 +77,7 @@ function checkPermission (msg) {
         !msg.channel.permissionsFor(msg.member).has('SEND_MESSAGES')
     ){
         msg.channel.send(":x: You must have the permissions `MANAGE_MESSAGE` to use this command");
-        return reaction(msg,ROTATING_LIGHT);
+        return reaction(msg,config.autoPublishEmojis.ROTATING_LIGHT);
     }
 }
 

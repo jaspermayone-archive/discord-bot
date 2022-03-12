@@ -96,6 +96,13 @@ const config = {
         return owner.id === process.env.OWNER;
       }
     }
+  ],
+
+  autoPublishEmojis: [
+    { CLOCK: '⏲️' },
+    { MEGAPHONE: '📢' },
+    { EXCLAMATION: '❗' },
+    { ROTATING_LIGHT: '🚨'}
   ]
 };
 
