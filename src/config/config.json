@@ -1,21 +1,25 @@
 {
-    "emoji": {
-      "custom": {
-        "HeptaLove": "951855088488579132",
-        "rupee": "951855035610972210",
-        "verifyblack": "951863095238754324"
-      },
-      "system": {
-        "success": "✅",
-        "error": "❌",
-        "warning": "⚠️",
-        "info": "ℹ️",
-        "megaphone": "📣"
-      }
+  "invites": {
+    "bot": "https://discord.com/api/oauth2/authorize?client_id=946494580315017236&permissions=1643257916663&scope=applications.commands%20bot",
+    "server": "https://discord.gg/yHFQWNtNDt"
+  },
+  "emoji": {
+    "custom": {
+      "HeptaLove": "951855088488579132",
+      "rupee": "951855035610972210",
+      "verifyblack": "951863095238754324"
     },
-    "colors": {
-      "heptagram": "fff826"
-    },
-    "admins": ["722121621610954773"],
-    "support": []
-  }
+    "system": {
+      "success": "✅",
+      "error": "❌",
+      "warning": "⚠️",
+      "info": "ℹ️",
+      "megaphone": "📣"
+    }
+  },
+  "colors": {
+    "heptagram": "fff826"
+  },
+  "admins": ["722121621610954773"],
+  "support": []
+}

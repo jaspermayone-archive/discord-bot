@@ -39,6 +39,7 @@ const init = async () => {
   );
   for (const file of commands) {
     const props = require(`./commands/${file}`);
+  //  logger.log(`Loading Command: ${props.help.name}. 👌`, "log");
     client.container.commands.set(props.help.name, props);
     props.conf.aliases.forEach((alias) => {
       client.container.aliases.set(alias, props.help.name);
@@ -52,6 +53,7 @@ const init = async () => {
     const command = require(`./slash/${file}`);
     const commandName = file.split(".")[0];
     client.container.slashcmds.set(command.commandData.name, command);
+  //  logger.log(`Loading Slash command: ${commandName}. 👌`, "log");
   }
 
   const eventFiles = readdirSync("./events/").filter((file) =>
@@ -59,6 +61,7 @@ const init = async () => {
   );
   for (const file of eventFiles) {
     const eventName = file.split(".")[0];
+    // logger.log(`Loading Event: ${eventName}. 👌`, "log");
     const event = require(`./events/${file}`);
     client.on(eventName, event.bind(null, client));
   }
