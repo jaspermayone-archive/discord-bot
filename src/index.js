@@ -10,7 +10,7 @@ const { configJSON } = require ("./config/config.json");
 const { intents, partials, permLevels } = require ("./config/intents.js");
 require("dotenv").config();
 
-const logger = require ("./utils/Logger.js");
+const logger = require ("/utils/Logger.js");
 const { version } = require ("../package.json");
 
 const client = new Client({ intents, partials });
