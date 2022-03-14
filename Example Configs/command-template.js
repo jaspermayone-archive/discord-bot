@@ -1,4 +1,4 @@
-const { Discord, MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { colors } = require('../config/config.json');
 const pjson = require('../../package.json');
 
