@@ -14,7 +14,11 @@ exports.run = async (client, message, args, level) => {
       },
       { name: 'Bot Version:', value: `${pjson.version}`, inline: true },
     )
-    .setTimestamp();
+    .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
   message.reply({ embeds: [embed] });
 };

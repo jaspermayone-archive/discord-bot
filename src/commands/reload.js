@@ -1,10 +1,9 @@
-const config = require("../config/intents.js");
 const { settings } = require("../utils/settings.js");
 const { MessageEmbed } = require('discord.js');
 
 exports.run = async (client, message, args, level) => { 
   const { container } = client;
-  const replying = settings.ensure(message.guild.id, config.defaultSettings).commandReply;
+  const replying = settings.ensure(message.guild.id, client.intents.defaultSettings).commandReply;
   if (!args || args.length < 1) return message.reply("Must provide a command name to reload.");
   const command = container.commands.get(args[0]) || container.commands.get(container.aliases.get(args[0]));
   if (!command) {

@@ -1,4 +1,3 @@
-const config = require("../config/intents.js");
 const { settings } = require("../utils/settings.js");
 const { colors } = require('../config/config.json');
 const { MessageEmbed } = require('discord.js');
@@ -11,7 +10,11 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     `<:status_offline:852483939955769375> **Bot Restarting!** <:status_offline:852483939955769375>`,
   )
   .setDescription(`The bot has been qued to restart.`)
-  .setTimestamp();
+  .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
 await Promise.all(client.container.commands.map(cmd => {
     // the path is relative to the *current folder*, so just ./filename.js

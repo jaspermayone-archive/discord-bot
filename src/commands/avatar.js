@@ -13,7 +13,11 @@ exports.run = async (client, message, args, level) => {
     .setImage(
         `${member.displayAvatarURL({ size: 4096, dynamic: true })}`,
       )
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter({
+        text: `Message sent by Heptagram || ${pjson.version}`,
+        iconURL: `${client.config.cdn.sqlogo}`,
+      });
 
     message.reply({ embeds: [avatarEmbed] });
 };
@@ -27,7 +31,7 @@ exports.conf = {
   
   exports.help = {
     name: "avatar",
-    category: "Resources & Utilitys",
+    category: "Utilities",
     description: "gets user's avatar",
     usage: "avatar <optionalUser>"
   };

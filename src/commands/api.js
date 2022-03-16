@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, Options } = require('discord.js');
 const { colors } = require('../config/config.json');
 const pjson = require('../../package.json');
 
@@ -10,7 +10,11 @@ exports.run = async (client, message, args, level) => {
     .setDescription(
       'The Heptagram bot relies on a first party api, developed to reduce external api reliances. Find more about it in the Heptagram server.',
     )
-    .setTimestamp();
+    .setTimestamp()
+    .setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
   message.reply({ embeds: [embed] });
 };
 

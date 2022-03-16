@@ -12,7 +12,11 @@ exports.run = async (client, message, args, level) => {
           .setDescription(
             `You have succesfully emmited a join. || <@${message.author.id}>`,
           )
-          .setTimestamp();
+          .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
   
         return message.reply({ embeds: [jembed] });
       }
@@ -26,7 +30,11 @@ exports.run = async (client, message, args, level) => {
           .setDescription(
             `You have succesfully emmited a leave. || <@${message.author.id}>`,
           )
-          .setTimestamp();
+          .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
   
         return message.reply({ embeds: [lembed] });
           }

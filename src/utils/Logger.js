@@ -1,12 +1,17 @@
+const chalk = require ("chalk");
+const { Discord } = require("discord.js");
+const { Timestamp } = require ("@sapphire/time-utilities");
+const fs = require("fs");
+const mongoose = require("mongoose");
+
+const Guild = require("../../schemas/log.js");
+
 const {
   black, red, green, yellow, blue, magenta, cyan, white, grey, 
   redBright, greenBright, yellowBright, blueBright, magentaBright, cyanBright, whiteBright,
   bgBlack, bgRed, bgGreen, bgYellow, bgBlue, bgMagenta, bgCyan, bgWhite, bgGrey,
   bgRedBright, bgGreenBright, bgYellowBright, bgBlueBright, bgMagentaBright, bgCyanBright, bgWhiteBright
 } = require ("chalk");
-
-const chalk = require ("chalk");
-const { Timestamp } = require ("@sapphire/time-utilities");
 
 exports.log = (content, type = "log") => {
 const timestamp = `${white(new Timestamp("YYYY-MM-DD HH:mm:ss"))}]:`;

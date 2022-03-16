@@ -3,6 +3,15 @@
     "bot": "https://discord.com/api/oauth2/authorize?client_id=946494580315017236&permissions=1643257916663&scope=applications.commands%20bot",
     "server": "https://discord.gg/yHFQWNtNDt"
   },
+  "repos": {
+    "base": "https://github.com/Heptagram-Bot-Project",
+    "bot": "https://github.com/Heptagram-Bot-Project/bot",
+    "website": "https://github.com/Heptagram-Bot-Project/website"
+  },
+  "cdn" : {
+"mainlogo" : "https://imagedelivery.net/iNQ6knP5OSIwhHVhEm4foA/22bfbdbc-28cb-4b69-087b-e32af61c2a00/public",
+"sqlogo" : "https://imagedelivery.net/iNQ6knP5OSIwhHVhEm4foA/749735ec-fd6a-49b3-aa12-e263833a7000/public"
+  },
   "emoji": {
     "custom": {
       "HeptaLove": "951855088488579132",

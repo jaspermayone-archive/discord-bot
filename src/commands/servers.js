@@ -33,7 +33,11 @@ exports.run = async (client, message, args, level) => {
               },
               { name: 'Guild Owner', value: `${GuildMember}`, inline: true },
             )
-            .setTimestamp();
+            .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
           message.reply({ embeds: [embed] });
         });
       })

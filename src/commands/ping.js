@@ -40,7 +40,11 @@ exports.run = async (client, message, args, level) => {
         inline: false,
       },
     )
-    .setTimestamp();
+    .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
   message.reply({ embeds: [embed] });
 };
@@ -54,7 +58,7 @@ exports.conf = {
 
 exports.help = {
   name: "ping",
-  category: "Resources & Utilitys",
+  category: "Utilities",
   description: "Returns various ping informaton for Heptagram.",
   usage: "ping"
 };

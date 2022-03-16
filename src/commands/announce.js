@@ -14,7 +14,11 @@ exports.run = async (client, message, args, level) => {
       .setTitle('📣 **Announcement!** 📣')
       .setColor(colors.heptagram)
       .setDescription(announcementMessage)
-      .setTimestamp();
+      .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
     anchannel.send({ embeds: [embed] });
 
@@ -22,7 +26,11 @@ exports.run = async (client, message, args, level) => {
       .setTitle('<a:verifyblue:951863100292857859> Done! <a:verifyblue:951863100292857859>')
       .setDescription(`Announcement has been sent to ${anchannel}`)
       .setColor(colors.heptagram)
-      .setTimestamp();
+      .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
     message.reply({ embeds: [anembed] });
   };

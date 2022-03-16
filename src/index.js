@@ -3,17 +3,21 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
     "Node 16.x or higher is required. Update Node on your system."
   );
 
-const { Client, Collection } = require ("discord.js");
-const { readdirSync } = require ("fs");
+const { Client, Collection } = require("discord.js");
+const { readdirSync } = require("fs");
 
-const { configJSON } = require ("./config/config.json");
-const { intents, partials, permLevels } = require ("./config/intents.js");
+const { configJSON } = require("./config/config.json");
+const { intents, partials, permLevels } = require("./config/intents.js");
 require("dotenv").config();
 
-const logger = require ("./utils/logger.js");
-const { version } = require ("../package.json");
+const logger = require("./utils/logger.js");
+const { version } = require("../package.json");
 
-const client = new Client({ intents, partials });
+const client = new Client({
+  intents,
+  partials,
+});
+
 const commands = new Collection();
 const aliases = new Collection();
 const slashcmds = new Collection();
@@ -34,6 +38,7 @@ client.container = {
 };
 
 const init = async () => {
+ 
   // load commands from ./commands
 
   const commands = readdirSync("./commands").filter((file) =>
@@ -55,7 +60,7 @@ const init = async () => {
     const command = require(`./slash/${file}`);
     const commandName = file.split(".")[0];
     client.container.slashcmds.set(command.commandData.name, command);
-  //  logger.log(`Loading Slash command: ${commandName}. 👌`, "log");
+    //  logger.log(`Loading Slash command: ${commandName}. 👌`, "log");
   }
 
   const eventFiles = readdirSync("./events/").filter((file) =>
@@ -70,7 +75,12 @@ const init = async () => {
 
   client.on("threadCreate", (thread) => thread.join());
 
-  client.login(process.env.DISCORD_TOKEN);
+  // needs to be tested
+  client.config = require("./config/config.json");
+  client.intents = require("./config/intents.js");
+  client.env = process.env;
+
+  client.login(client.env.DISCORD_TOKEN);
 };
 
 init();

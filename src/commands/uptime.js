@@ -22,7 +22,11 @@ exports.run = async (client, message, args, level) => {
         { name: 'Minutes', value: `${minutes}`, inline: true },
         { name: 'Seconds', value: `${secondsRemain}`, inline: true },
       )
-      .setTimestamp();
+      .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
     message.reply({ embeds: [uptimeEmbed] });
 };
@@ -36,7 +40,7 @@ exports.conf = {
 
 exports.help = {
   name: "uptime",
-  category: "Resources & Utilitys",
+  category: "Info",
   description: "gets bot uptime.",
   usage: "uptime"
 };

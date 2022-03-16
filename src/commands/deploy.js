@@ -29,7 +29,7 @@ exports.conf = {
 
 exports.help = {
   name: "deploy",
-  category: "System",
+  category: "Owner",
   description: "This will deploy all slash commands.",
   usage: "deploy"
 };

@@ -46,7 +46,11 @@ exports.run = async (client, message, args, level) => {
         user.roles.cache.map((role) => `<@&${role.id}>`).join(' '),
         false,
       )
-      .setTimestamp();
+      .setTimestamp()    
+.setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
     message.reply({ embeds: [embed] });
 };
@@ -60,7 +64,7 @@ exports.conf = {
 
 exports.help = {
   name: "user",
-  category: "Resources & Utilitys",
+  category: "Utilities",
   description: "gives info about user",
   usage: "user <user you want info about (optional)>"
 };

@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { colors } = require('../config/config.json');
 const pjson = require('../../package.json');
 
 exports.run = async (client, message, args, level) => {
@@ -7,15 +8,15 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: [],
-  permLevel: "User"
+  permLevel: "Moderator"
 };
 
 exports.help = {
-  name: "announce",
+  name: "ban",
   category: "Moderation",
-  description: "Make an Announcemnet in your Server",
-  usage: "announce <channel> <msg>"
+  description: "bans users",
+  usage: "ban <@user you want to ban> <reason>"
 };
 
