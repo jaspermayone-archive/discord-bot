@@ -14,7 +14,7 @@ exports.run = async (client, message, args, level) => {
   const owner = await message.guild.fetchOwner();
 
   const generalEmbed = new Discord.MessageEmbed()
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setThumbnail(message.guild.iconURL({ dynamic: true }))
     .addFields([
       { name: '**Name:**', value: `${message.guild.name}`, inline: true },

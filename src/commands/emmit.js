@@ -7,7 +7,7 @@ exports.run = async (client, message, args, level) => {
         client.emit('guildMemberAdd', message.member);
   
         const jembed = new Discord.MessageEmbed()
-          .setColor(colors.heptagram)
+          .setColor(client.config.colors.heptagram)
           .setTitle(`Join Emmitted!`)
           .setDescription(
             `You have succesfully emmited a join. || <@${message.author.id}>`,
@@ -25,7 +25,7 @@ exports.run = async (client, message, args, level) => {
         client.emit('guildMemberLeave', message.member);
   
         const lembed = new Discord.MessageEmbed()
-          .setColor(colors.heptagram)
+          .setColor(client.config.colors.heptagram)
           .setTitle(`Leave Emmitted!`)
           .setDescription(
             `You have succesfully emmited a leave. || <@${message.author.id}>`,

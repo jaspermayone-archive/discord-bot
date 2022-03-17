@@ -1,8 +1,10 @@
 const { MessageEmbed } = require("discord.js");
-const { colors } = require("../config/config.json");
 const pjson = require("../../package.json");
+const { settings } = require("../utils/settings.js");
 
 exports.run = async (client, message, args, level) => {
+  let prefix = settings.get(message.guild.id).prefix;
+
   const numberinsttext = new MessageEmbed()
     .setColor(client.config.colors.heptagram)
     .setTitle(`Incorect Usage!`)
@@ -17,7 +19,7 @@ exports.run = async (client, message, args, level) => {
     .setColor(client.config.colors.heptagram)
     .setTitle(`Slow Down!`)
     .setDescription(
-      "This command resticts to 10 messages per command for safety."
+      "This command resticts to 100 messages per command for safety."
     )
     .setTimestamp()
     .setFooter({
@@ -25,10 +27,12 @@ exports.run = async (client, message, args, level) => {
       iconURL: `${client.config.cdn.sqlogo}`,
     });
 
-  const twomsgs = new MessageEmbed()
+  const elevenmsgs = new MessageEmbed()
     .setColor(client.config.colors.heptagram)
     .setTitle(`Not enough messages.`)
-    .setDescription("You must delete at least 2 messages.")
+    .setDescription(
+      `You must delete at least 11 messages. Please use ${prefix}clear for smaller jobs.`
+    )
     .setTimestamp()
     .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
@@ -37,15 +41,19 @@ exports.run = async (client, message, args, level) => {
 
   if (isNaN(args[0])) return message.reply({ embeds: [numberinsttext] });
 
-  if (args[0] > 10) return message.reply({ embeds: [slowdown] });
-  if (args[0] < 2) return message.reply({ embeds: [twomsgs] });
+  if (args[0] > 100) return message.reply({ embeds: [slowdown] });
+  if (args[0] < 11) return message.reply({ embeds: [elevenmsgs] });
 
-  await message.channel.messages.fetch({ limit: args[0] }).then((messages) => {
-    message.channel.bulkDelete(messages).finally(() => {
-      const deleted = new MessageEmbed()
+  await message.channel.messages
+    .fetch({ limit: args[0] })
+    .then((messages) => {
+      message.channel.bulkDelete(messages);
+    })
+    .finally(() => {
+      const embed = new MessageEmbed()
         .setColor(client.config.colors.heptagram)
         .setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
-        .setDescription(`You have succesfully deleted ${args[0]} messages.`)
+        .setDescription(`You have succesfully wiped ${args[0]} messages.`)
         .addFields({
           name: "**PLEASE NOTE:**",
           value:
@@ -58,9 +66,8 @@ exports.run = async (client, message, args, level) => {
           iconURL: `${client.config.cdn.sqlogo}`,
         });
 
-      return message.channel.send({ embeds: [deleted] });
+      return message.channel.send({ embeds: [embed] });
     });
-  });
 };
 
 exports.conf = {
@@ -71,8 +78,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "clear",
+  name: "wipe",
   category: "Moderation",
-  description: "clears messages",
-  usage: "clear <number of messages you want to clear>",
+  description: "clear command, but with bigger options",
+  usage: "wipe <number of messages you want to clear>",
 };

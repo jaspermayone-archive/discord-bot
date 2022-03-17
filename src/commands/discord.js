@@ -5,7 +5,7 @@ const pjson = require("../../package.json");
 exports.run = async (client, message, args, level) => {
   const embed = new MessageEmbed()
     .setTitle("Come join the Heptagram bot discord server!")
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setDescription(
       `Join the Heptagram bot discord server at ${invites.server}`
     )

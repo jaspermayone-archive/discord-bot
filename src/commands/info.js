@@ -10,7 +10,7 @@ exports.run = async (client, message, args, level) => {
 
   const embed = new MessageEmbed()
     .setTitle("Heptagram Bot Info:")
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setDescription(
       "This is the Heptagram discord bot. Heptagram is the open-source multipurpose discord bot with the goal to be the single needed bot for any server."
     )

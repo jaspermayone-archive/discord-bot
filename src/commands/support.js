@@ -4,7 +4,7 @@ const pjson = require('../../package.json');
 
 exports.run = async (client, message, args, level) => {
     const inviteEmbed = new MessageEmbed()
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setTitle('Need some help with the Heptagram Bot?')
     .addFields({
       name: 'Need some help?',

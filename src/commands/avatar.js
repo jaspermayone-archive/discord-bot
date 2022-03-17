@@ -8,7 +8,7 @@ exports.run = async (client, message, args, level) => {
     const membername = member.username;
 
     const avatarEmbed = new MessageEmbed()
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setTitle(`${membername}'s Avatar:`)
     .setImage(
         `${member.displayAvatarURL({ size: 4096, dynamic: true })}`,

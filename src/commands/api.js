@@ -6,7 +6,7 @@ exports.run = async (client, message, args, level) => {
     
     const embed = new MessageEmbed()
     .setTitle('Heptagram API')
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setDescription(
       'The Heptagram bot relies on a first party api, developed to reduce external api reliances. Find more about it in the Heptagram server.',
     )

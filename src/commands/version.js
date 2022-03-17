@@ -4,7 +4,7 @@ const pjson = require('../../package.json');
 
 exports.run = async (client, message, args, level) => {
     const embed = new MessageEmbed()
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setTitle(`Hey J-dogcoder! Here are my current versions.`)
     .addFields(
       {

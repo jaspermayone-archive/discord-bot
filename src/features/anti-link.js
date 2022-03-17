@@ -37,7 +37,7 @@ module.exports = (client) => {
     ];
 
     const nolinkembed = new MessageEmbed()
-      .setColor(colors.heptagram)
+      .setColor(client.config.colors.heptagram)
       .setTitle('No links here!')
       .setDescription("Sorry, links aren't allowed here!")
       .setTimestamp()

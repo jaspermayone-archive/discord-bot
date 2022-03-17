@@ -31,7 +31,7 @@ module.exports = (client) => {
 
       if (!message.author.bot && !isOurInvite) {
         const nolinkembed = new Discord.MessageEmbed()
-          .setColor(colors.heptagram)
+          .setColor(client.config.colors.heptagram)
           .setTitle('No invites here!')
           .setDescription("Sorry, invites aren't allowed here!")
           .setTimestamp()

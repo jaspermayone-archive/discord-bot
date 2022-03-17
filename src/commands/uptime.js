@@ -15,7 +15,7 @@ exports.run = async (client, message, args, level) => {
 
     const uptimeEmbed = new Discord.MessageEmbed()
       .setTitle('Heptagram Uptime:')
-      .setColor(colors.heptagram)
+      .setColor(client.config.colors.heptagram)
       .addFields(
         { name: 'Days', value: `${days}`, inline: true },
         { name: 'Hours', value: `${hours}`, inline: true },

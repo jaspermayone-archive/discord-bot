@@ -7,7 +7,7 @@ exports.run = async (client, message, args, level) => {
     .setTitle(
       "<:status_online:951855000605298708> Heptagram Pings <:status_online:951855000605298708>",
     )
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setDescription(``)
     .addFields(
       {

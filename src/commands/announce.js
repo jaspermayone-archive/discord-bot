@@ -12,7 +12,7 @@ exports.run = async (client, message, args, level) => {
 
     const embed = new Discord.MessageEmbed()
       .setTitle('📣 **Announcement!** 📣')
-      .setColor(colors.heptagram)
+      .setColor(client.config.colors.heptagram)
       .setDescription(announcementMessage)
       .setTimestamp()    
 .setFooter({
@@ -25,7 +25,7 @@ exports.run = async (client, message, args, level) => {
     const anembed = new Discord.MessageEmbed()
       .setTitle('<a:verifyblue:951863100292857859> Done! <a:verifyblue:951863100292857859>')
       .setDescription(`Announcement has been sent to ${anchannel}`)
-      .setColor(colors.heptagram)
+      .setColor(client.config.colors.heptagram)
       .setTimestamp()    
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,

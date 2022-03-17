@@ -13,7 +13,7 @@ exports.run = async (client, message, args, level) => {
     }
 
     const embed = new Discord.MessageEmbed()
-      .setColor(colors.heptagram)
+      .setColor(client.config.colors.heptagram)
       .setThumbnail(message.author.avatarURL)
       .addField(`Username:`, `${user}`, true)
       .addField('ID:', `${user.id}`, true)

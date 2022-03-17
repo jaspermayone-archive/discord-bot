@@ -32,7 +32,7 @@ let reason
   }
 
   const kickembed = new MessageEmbed()
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
     .setDescription(
       `Successfully kicked **${user.tag}** from the server! || Reason: ${reason}.`
@@ -44,7 +44,7 @@ let reason
     });;
 
   const errorembed = new MessageEmbed()
-    .setColor(colors.heptagram)
+    .setColor(client.config.colors.heptagram)
     .setTitle(`**Failed**`)
     .setDescription(`Failed to kick **${user.tag}**.`)
     .setTimestamp()

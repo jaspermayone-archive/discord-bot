@@ -5,7 +5,7 @@ const { MessageEmbed } = require('discord.js');
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   
   const embed = new MessageEmbed()
-  .setColor(colors.heptagram)
+  .setColor(client.config.colors.heptagram)
   .setTitle(
     `<:status_offline:852483939955769375> **Bot Restarting!** <:status_offline:852483939955769375>`,
   )

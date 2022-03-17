@@ -27,7 +27,7 @@ exports.run = async (client, message, args, level) => {
       const reason = args.slice(1).join(' ');
   
       const banembed = new MessageEmbed()
-        .setColor(colors.heptagram)
+        .setColor(client.config.colors.heptagram)
         .setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
         .setDescription(
           `Successfully banned **${user.tag}** from the server! || Reason: ${reason}.`,
@@ -39,7 +39,7 @@ exports.run = async (client, message, args, level) => {
     });
   
       const errorembed = new MessageEmbed()
-        .setColor(colors.heptagram)
+        .setColor(client.config.colors.heptagram)
         .setTitle(`**Failed**`)
         .setDescription(`Failed to ban **${user.tag}**.`)
         .setTimestamp()    

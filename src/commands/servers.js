@@ -20,7 +20,7 @@ exports.run = async (client, message, args, level) => {
       .then((guild) => {
         guild.fetchOwner().then((GuildMember) => {
           const embed = new MessageEmbed()
-            .setColor(colors.heptagram)
+            .setColor(client.config.colors.heptagram)
             .setTitle(`Server info for the ${guild.name} server:`)
             .setDescription('Server Information for the specified guild.')
             .addFields(

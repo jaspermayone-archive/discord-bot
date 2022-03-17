@@ -6,7 +6,7 @@ exports.run = async (client, message, args, level) => {
   if (args.length < 1) {
     const embed = new MessageEmbed()
       .setTitle("Bot Repo :robot:")
-      .setColor(colors.heptagram)
+      .setColor(client.config.colors.heptagram)
       .setDescription(
         `Heptagram is proud to be open source! You can find our Bot's GitHub repo at ${repos.bot}`
       )
@@ -21,7 +21,7 @@ exports.run = async (client, message, args, level) => {
     if (args[0] === "bot") {
       const embed = new MessageEmbed()
         .setTitle("Bot Repo :robot:")
-        .setColor(colors.heptagram)
+        .setColor(client.config.colors.heptagram)
         .setDescription(
           `Heptagram is proud to be open source! You can find our Bot's GitHub repo at ${repos.bot}`
         )
@@ -35,7 +35,7 @@ exports.run = async (client, message, args, level) => {
     } else if (args[0] === "website") {
       const embed = new MessageEmbed()
         .setTitle("Website Repo :robot:")
-        .setColor(colors.heptagram)
+        .setColor(client.config.colors.heptagram)
         .setDescription(
           `Heptagram is proud to be open source! You can find our Website's GitHub repo at ${repos.website}`
         )

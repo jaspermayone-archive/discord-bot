@@ -4,6 +4,7 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
   );
 
 const { Client, Collection } = require("discord.js");
+const { mongoose } = require("mongoose");
 const { readdirSync } = require("fs");
 
 const { configJSON } = require("./config/config.json");
@@ -12,6 +13,7 @@ require("dotenv").config();
 
 const logger = require("./utils/logger.js");
 const { version } = require("../package.json");
+const mongo = require('./mongo');
 
 const client = new Client({
   intents,
@@ -72,8 +74,6 @@ const init = async () => {
     const event = require(`./events/${file}`);
     client.on(eventName, event.bind(null, client));
   }
-
-  client.on("threadCreate", (thread) => thread.join());
 
   // needs to be tested
   client.config = require("./config/config.json");
