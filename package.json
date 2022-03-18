@@ -34,7 +34,8 @@
     "mathjs": "^10.0.0",
     "moment": "^2.29.1",
     "mongoose": "^6.2.7",
-    "ms": "^2.1.3"
+    "ms": "^2.1.3",
+    "node-fetch": "^3.2.3"
   },
   "private": false,
   "devDependencies": {

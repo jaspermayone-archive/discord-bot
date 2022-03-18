@@ -1,22 +1,22 @@
-const { MessageEmbed } = require('discord.js');
-const pjson = require('../../package.json');
+const { MessageEmbed } = require("discord.js");
+const pjson = require("../../package.json");
 const { settings } = require("../utils/settings.js");
+const prefix = settings.get(message.guild.id).prefix;
 
 exports.run = async (client, message, args, level) => {
-
+  const prefix = settings.get(message.guild.id).prefix;
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: "User"
+  permLevel: "User",
 };
 
 exports.help = {
   name: "announce",
-  category: "Moderation",
+  category: "Fun",
   description: "Make an Announcemnet in your Server",
-  usage: "announce <channel> <msg>"
+  usage: "announce <channel> <msg>",
 };
-
