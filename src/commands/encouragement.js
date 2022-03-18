@@ -26,8 +26,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "announce",
+  name: "encouragement",
   category: "Fun",
-  description: "Make an Announcemnet in your Server",
-  usage: "announce <channel> <msg>",
+  description: "Says a random form of encouragement.",
+  usage: "encouragement",
 };

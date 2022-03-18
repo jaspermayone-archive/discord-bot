@@ -46,7 +46,7 @@ exports.run = async (client, message, args, level) => {
         user.roles.cache.map((role) => `<@&${role.id}>`).join(' '),
         false,
       )
-      .setTimestamp()    
+      .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,

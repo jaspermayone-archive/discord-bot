@@ -10,11 +10,11 @@ exports.run = async (client, message, args, level) => {
         content: `The server ${guild.name} (\`${guild.id}\`) has a total of ${guild.memberCount} members.`,
       });
     });
-  
+
   }  else {
 
     const serverArg = args[0];
-    
+
     client.guilds
       .fetch(serverArg)
       .then((guild) => {
@@ -33,7 +33,7 @@ exports.run = async (client, message, args, level) => {
               },
               { name: 'Guild Owner', value: `${GuildMember}`, inline: true },
             )
-            .setTimestamp()    
+            .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,

@@ -3,7 +3,7 @@ const { colors } = require('../config/config.json');
 const pjson = require('../../package.json');
 
 exports.run = async (client, message, args, level) => {
-  
+
     const member = message.mentions.users.first() || message.author;
     const membername = member.username;
 
@@ -28,7 +28,7 @@ exports.conf = {
     aliases: [],
     permLevel: "User"
   };
-  
+
   exports.help = {
     name: "avatar",
     category: "Utilities",

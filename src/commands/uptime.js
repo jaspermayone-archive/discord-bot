@@ -22,7 +22,7 @@ exports.run = async (client, message, args, level) => {
         { name: 'Minutes', value: `${minutes}`, inline: true },
         { name: 'Seconds', value: `${secondsRemain}`, inline: true },
       )
-      .setTimestamp()    
+      .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,

@@ -1,10 +1,11 @@
 const { MessageEmbed } = require("discord.js");
 const pjson = require("../../package.json");
 const { settings } = require("../utils/settings.js");
-const prefix = settings.get(message.guild.id).prefix;
 
 exports.run = async (client, message, args, level) => {
   const prefix = settings.get(message.guild.id).prefix;
+
+
 };
 
 exports.conf = {

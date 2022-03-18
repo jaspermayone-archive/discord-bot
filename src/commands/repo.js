@@ -10,7 +10,7 @@ exports.run = async (client, message, args, level) => {
       .setDescription(
         `Heptagram is proud to be open source! You can find our Bot's GitHub repo at ${repos.bot}`
       )
-      .setTimestamp()    
+      .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,
@@ -25,7 +25,7 @@ exports.run = async (client, message, args, level) => {
         .setDescription(
           `Heptagram is proud to be open source! You can find our Bot's GitHub repo at ${repos.bot}`
         )
-        .setTimestamp()    
+        .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,
@@ -39,7 +39,7 @@ exports.run = async (client, message, args, level) => {
         .setDescription(
           `Heptagram is proud to be open source! You can find our Website's GitHub repo at ${repos.website}`
         )
-        .setTimestamp()    
+        .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,

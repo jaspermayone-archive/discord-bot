@@ -3,14 +3,14 @@ const { colors } = require('../config/config.json');
 const { MessageEmbed } = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  
+
   const embed = new MessageEmbed()
   .setColor(client.config.colors.heptagram)
   .setTitle(
     `<:status_offline:852483939955769375> **Bot Restarting!** <:status_offline:852483939955769375>`,
   )
   .setDescription(`The bot has been qued to restart.`)
-  .setTimestamp()    
+  .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,

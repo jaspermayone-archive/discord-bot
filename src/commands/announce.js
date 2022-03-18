@@ -14,7 +14,7 @@ exports.run = async (client, message, args, level) => {
       .setTitle('📣 **Announcement!** 📣')
       .setColor(client.config.colors.heptagram)
       .setDescription(announcementMessage)
-      .setTimestamp()    
+      .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,
@@ -26,7 +26,7 @@ exports.run = async (client, message, args, level) => {
       .setTitle('<a:verifyblue:951863100292857859> Done! <a:verifyblue:951863100292857859>')
       .setDescription(`Announcement has been sent to ${anchannel}`)
       .setColor(client.config.colors.heptagram)
-      .setTimestamp()    
+      .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,

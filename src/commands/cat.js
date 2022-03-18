@@ -8,6 +8,7 @@ exports.run = async (client, message, args, level) => {
   const apimigrationembed = new MessageEmbed()
     .setTitle("API Migration")
     .setDescription(`API Migrations are currently in progress to our first party API. Please try again later. For more info, run \`${prefix}api\``)
+    .addField('Are you a bot developer or coder? Do you have knowledge about API creation and development? If so, please join the discord server and ask for J-dogcoder', `${client.config.invites.server}`)
     .setColor(client.config.colors.heptagram)
     .setTimestamp()
     .setFooter({

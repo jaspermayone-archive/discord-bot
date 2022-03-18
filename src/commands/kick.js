@@ -52,7 +52,7 @@ let reason
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,
     });
-  
+
   try {
     await message.guild.members.kick(user, { reason });
   } catch (error) {

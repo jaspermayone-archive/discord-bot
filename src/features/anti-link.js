@@ -67,7 +67,7 @@ module.exports = (client) => {
     // If the message is marked as a link, then delete the msg and warn the user
     if (link == true) {
       await message.delete();
-      await message.channel.send({ embeds: [nolinkembed] });
+      await  [nolinkembed] });
 
       link = false;
 

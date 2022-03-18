@@ -17,7 +17,7 @@ exports.run = async (client, message, args, level) => {
         'this is for Heptagram Bot help only. For server specific help, contact a Modarator or Admin.',
       inline: false,
     })
-    .setTimestamp()    
+    .setTimestamp()
 .setFooter({
       text: `Message sent by Heptagram || ${pjson.version}`,
       iconURL: `${client.config.cdn.sqlogo}`,

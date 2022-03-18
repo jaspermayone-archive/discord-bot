@@ -38,7 +38,7 @@ module.exports = (client) => {
           .setFooter('Message sent by the Heptagram Bot', `${cdn.sqlogo}`);
 
         await message.delete().then(() => {
-          message.channel.send({ embeds: [nolinkembed] });
+           [nolinkembed] });
         });
 
         // To warn the user if an invite is sent
