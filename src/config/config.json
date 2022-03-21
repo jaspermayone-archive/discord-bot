@@ -1,6 +1,6 @@
 {
   "invites": {
-    "bot": "https://discord.com/api/oauth2/authorize?client_id=946494580315017236&permissions=1643257916663&scope=applications.commands%20bot",
+    "bot": "https://discord.com/api/oauth2/authorize?client_id=946494580315017236&permissions=1503402519799&scope=applications.commands%20bot",
     "server": "https://discord.gg/yHFQWNtNDt"
   },
   "repos": {
