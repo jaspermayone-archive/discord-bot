@@ -1,4 +1,5 @@
-<img src="https://socialify.git.ci/Heptagram-Bot-Project/bot/image?description=1&font=Raleway&owner=1&pattern=Circuit%20Board&theme=Dark" alt="Heptagram" width="1040" height="320" />
+![github-header-image-2](https://user-images.githubusercontent.com/65788728/160950742-a9594e09-17da-4baa-ae01-b67b8662cf0b.png)
+
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000&style=for-the-badge&logo=github?label=healthinesses" />
   <a href="https://github.com/Heptagram-Bot-Project/bot#readme" target="_blank">
