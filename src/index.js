@@ -13,7 +13,7 @@ require("dotenv").config();
 
 const logger = require("./utils/logger.js");
 const { version } = require("../package.json");
-const mongo = require('./mongo');
+const mongo = require("./mongo");
 
 const client = new Client({
   intents,
@@ -40,7 +40,6 @@ client.container = {
 };
 
 const init = async () => {
- 
   // load commands from ./commands
 
   const commands = readdirSync("./commands").filter((file) =>
@@ -48,7 +47,7 @@ const init = async () => {
   );
   for (const file of commands) {
     const props = require(`./commands/${file}`);
-  //  logger.log(`Loading Command: ${props.help.name}. 👌`, "log");
+    //  logger.log(`Loading Command: ${props.help.name}. 👌`, "log");
     client.container.commands.set(props.help.name, props);
     props.conf.aliases.forEach((alias) => {
       client.container.aliases.set(alias, props.help.name);

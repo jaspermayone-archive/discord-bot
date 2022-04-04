@@ -15,7 +15,7 @@
     "url": "https://github.com/Heptagram-Bot/Heptagram/issues"
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
-  "dependencies": {
+  "capabilities": {
     "@discordjs/builders": "^0.2.0",
     "@discordjs/rest": "^0.3.0",
     "@discordjs/voice": "^0.8.0",
@@ -37,8 +37,7 @@
     "mathjs": "^10.4.0",
     "moment": "^2.29.1",
     "mongoose": "^6.2.7",
-    "ms": "^2.1.3",
-    "node-fetch": "^3.2.3"
+    "ms": "^2.1.3"
   },
   "private": false,
   "devDependencies": {
