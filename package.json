@@ -17,6 +17,8 @@
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
   "dependencies": {
     "@discordjs/builders": "^0.2.0",
+    "@discordjs/rest": "^0.3.0",
+    "@discordjs/voice": "^0.8.0",
     "@pm2/io": "^5.0.0",
     "@sapphire/time-utilities": "^1.4.3",
     "@sentry/integrations": "^6.16.1",
@@ -25,7 +27,8 @@
     "chalk": "2.4.1",
     "colorette": "^2.0.16",
     "common-tags": "^1.8.0",
-    "discord.js": "^13.0.0",
+    "discord-api-types": "^0.30.0",
+    "discord.js": "^13.6.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "enmap": "^5.8.5",

@@ -5,7 +5,7 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 
 const {
-  black, red, green, yellow, blue, magenta, cyan, white, grey, 
+  black, red, green, yellow, blue, magenta, cyan, white, grey,
   redBright, greenBright, yellowBright, blueBright, magentaBright, cyanBright, whiteBright,
   bgBlack, bgRed, bgGreen, bgYellow, bgBlue, bgMagenta, bgCyan, bgWhite, bgGrey,
   bgRedBright, bgGreenBright, bgYellowBright, bgBlueBright, bgMagentaBright, bgCyanBright, bgWhiteBright
@@ -26,7 +26,7 @@ switch (type) {
   case "shard": return console.log(`${chalk.hex('#ff7557')("[SHARD]")}  ${timestamp}  ${chalk.hex('#ff7557')(`${content}`)}`);
   default: throw new TypeError("Logger type not correct.");
 }
-}; 
+};
 
 exports.info = (...args) => this.log(...args, "info");
 exports.warn = (...args) => this.log(...args, "warn");
