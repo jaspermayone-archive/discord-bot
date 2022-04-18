@@ -48,5 +48,9 @@
     "node": ">=16.10.0",
     "npm": "^8.0.0"
   },
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "ora": "^6.1.0"
+  }
 }
