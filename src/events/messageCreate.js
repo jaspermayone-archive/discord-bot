@@ -1,4 +1,4 @@
-const logger = require("../utils/logger.js");
+const logger = require("../utils/Logger.js");
 const { getSettings, permlevel } = require("../utils/functions.js");
 const config = require("../config/intents.js");
 const { emoji } = require("../config/config.json");
