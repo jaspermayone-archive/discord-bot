@@ -11,9 +11,9 @@ const { configJSON } = require("./config/config.json");
 const { intents, partials, permLevels } = require("./config/intents.js");
 require("dotenv").config();
 
-const logger = require("./utils/logger.js");
+const logger = require("./utils/Logger.js");
 const { version } = require("../package.json");
-const mongo = require("./mongo");
+const mongo = require("./mongo.js");
 
 const client = new Client({
   intents,
