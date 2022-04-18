@@ -1,4 +1,4 @@
-const logger = require("./logger.js");
+const logger = require("./Logger.js");
 const config = require("../config/intents.js");
 const { settings } = require("./settings.js");
 
