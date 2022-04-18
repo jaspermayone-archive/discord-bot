@@ -2,10 +2,10 @@
   "name": "heptagram",
   "version": "2.0.0",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "cd src && node shard.js",
-    "dev": "cd src && nodemon --quiet shard.js",
+    "start": "cd src && node index.js",
+    "dev": "cd src && nodemon --quiet index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/Heptagram-Bot/Heptagram.git",
@@ -15,12 +15,16 @@
     "url": "https://github.com/Heptagram-Bot/Heptagram/issues"
   },
   "homepage": "https://github.com/Heptagram-Bot/Heptagram#readme",
-  "capabilities": {
+  "dependencies": {
+    "@sapphire/time-utilities": "^1.7.4",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "mongoose": "^6.3.0",
+    "ora": "^6.1.0",
     "@discordjs/builders": "^0.2.0",
     "@discordjs/rest": "^0.3.0",
     "@discordjs/voice": "^0.8.0",
     "@pm2/io": "^5.0.0",
-    "@sapphire/time-utilities": "^1.4.3",
     "@sentry/integrations": "^6.16.1",
     "@sentry/node": "^6.16.1",
     "@sentry/tracing": "^6.16.1",
@@ -28,15 +32,12 @@
     "colorette": "^2.0.16",
     "common-tags": "^1.8.0",
     "discord-api-types": "^0.30.0",
-    "discord.js": "^13.6.0",
-    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "enmap": "^5.8.5",
     "express": "^4.17.1",
     "leo-profanity": "^1.3.0",
     "mathjs": "^10.4.0",
     "moment": "^2.29.1",
-    "mongoose": "^6.2.7",
     "ms": "^2.1.3"
   },
   "private": false,
@@ -48,9 +49,5 @@
     "node": ">=16.10.0",
     "npm": "^8.0.0"
   },
-  "type": "commonjs",
-  "dependencies": {
-    "dotenv": "^16.0.0",
-    "ora": "^6.1.0"
-  }
+  "type": "commonjs"
 }

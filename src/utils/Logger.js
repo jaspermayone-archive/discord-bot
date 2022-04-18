@@ -1,4 +1,4 @@
-const chalk = require ("chalk");
+const chalk = require("chalk");
 const { Discord } = require("discord.js");
 const { Timestamp } = require ("@sapphire/time-utilities");
 const fs = require("fs");
