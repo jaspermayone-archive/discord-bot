@@ -2,7 +2,7 @@ name: Import standard labels
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   labels:
