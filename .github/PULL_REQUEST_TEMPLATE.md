@@ -22,7 +22,7 @@ Did you remember to update the version number in the package.json file?
 
 ## Documentation
 
-For _any_ version updates, please verify if the [documentation page](https://docs.beccalyria.com?utm_source=github&utm_medium=pr-template) needs an update. If it does, please [create an issue there](https://github.com/BeccaLyria/discord-documentation/issues/new?assignees=nhcarrigan&labels=%F0%9F%9A%A6+status%3A+awaiting+triage&template=update.md&title=%5BUPDATE%5D) to ensure it is not forgotten.
+For _any_ version updates, please verify if the [documentation page]() needs an update. If it does, please [create an issue there]() to ensure it is not forgotten.
 
 - [ ] My contribution does NOT require a documentation update.
 - [ ] My contribution DOES require a documentation update.
