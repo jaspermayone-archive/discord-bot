@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const schema = require('../../schemas/warnDB')
 const { colors } = require("../config/config.json");
 const pjson = require("../../package.json");
-const { re } = require("mathjs");
+
 
 exports.run = async (client, message, args, level) => {
   //check for permission
@@ -23,7 +23,7 @@ exports.run = async (client, message, args, level) => {
     })
     if(!data){
       data =await schema.create({
-        uuserId: user.id,
+        userId: user.id,
         guildId: message.guild.id
       })
   }
@@ -31,8 +31,8 @@ exports.run = async (client, message, args, level) => {
     console.log(error)
   }
 
-  //check the number of warning of the user
-  const warnembed = new MessageEmbed()
+  //check the number of warnings of the user
+  const warningembed = new MessageEmbed()
     .setColor(client.config.colors.heptagram)
     .setTitle(`:white_check_mark: **Success!** :white_check_mark:`)
     .setDescription(
@@ -45,25 +45,7 @@ exports.run = async (client, message, args, level) => {
 
       
     });;
-message.channel.send(warnembed);
-
-  // const errorembed = new MessageEmbed()
-  //   .setColor(client.config.colors.heptagram)
-  //   .setTitle(`**Failed**`)
-  //   .setDescription(`Failed to warn **${user.tag}**.`)
-  //   .setTimestamp()
-  //   .setFooter({
-  //     text: `Message sent by Heptagram || ${pjson.version}`,
-  //     iconURL: `${client.config.cdn.sqlogo}`,
-  //   });
-
-//   try {
-//     await message.guild.members.warn(user, { reason });
-//   } catch (error) {
-//     return message.reply({ embeds: [errorembed] });
-//   }
-
-//   return message.reply({ embeds: [warnembed] });
+message.channel.send(warningembed);
 
 
 };
