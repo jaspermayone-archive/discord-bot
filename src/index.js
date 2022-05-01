@@ -88,8 +88,9 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+if (process.env.NODE_ENV === "development") {
 app.listen(8000, () => console.log('Ping! Express running on port 8000'));
-
+}
 
 if (process.env.NODE_ENV === "production") {
 
@@ -116,7 +117,7 @@ if (process.env.NODE_ENV === "production") {
 
   const httpsServer = https.createServer(credentials, app);
 
-  httpsServer.listen(443, () => {
+  httpsServer.listen(8000, () => {
     logHandler.log("http", "https server listening on port 443");
   });
 };
