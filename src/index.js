@@ -96,15 +96,15 @@ if (process.env.NODE_ENV === "production") {
   const https = require("https");
 
   const privateKey = await readFile(
-    "/etc/letsencrypt/live/example.com/privkey.pem",
+    "/etc/letsencrypt/live/discord-bot.heptagrambotproject.com/privkey.pem",
     "utf8"
   );
   const certificate = await readFile(
-    "/etc/letsencrypt/live/example.com/cert.pem",
+    "/etc/letsencrypt/live/discord-bot.heptagrambotproject.com/cert.pem",
     "utf8"
   );
   const ca = await readFile(
-    "/etc/letsencrypt/live/example.com/chain.pem",
+    "/etc/letsencrypt/live/discord-bot.heptagrambotproject.com/chain.pem",
     "utf8"
   );
 
