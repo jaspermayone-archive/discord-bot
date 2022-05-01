@@ -5,7 +5,8 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
 
 const { Client, Collection } = require("discord.js");
 const { mongoose } = require("mongoose");
-const { readdirSync, readFile } = require("fs");
+const { readdirSync } = require("fs");
+const { readFile } = require("fs/promises")
 
 const { configJSON } = require("./config/config.json");
 const { intents, partials, permLevels } = require("./config/intents.js");
@@ -91,6 +92,9 @@ app.listen(8000, () => console.log('Ping! Express running on port 8000'));
 
 
 if (process.env.NODE_ENV === "production") {
+
+  const https = require("https");
+
   const privateKey = await readFile(
     "/etc/letsencrypt/live/example.com/privkey.pem",
     "utf8"
@@ -115,7 +119,7 @@ if (process.env.NODE_ENV === "production") {
   httpsServer.listen(443, () => {
     logHandler.log("http", "https server listening on port 443");
   });
-}
+};
 
 };
 
