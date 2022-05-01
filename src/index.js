@@ -5,7 +5,7 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
 
 const { Client, Collection } = require("discord.js");
 const { mongoose } = require("mongoose");
-const { readdirSync } = require("fs");
+const { readdirSync, readFile } = require("fs");
 
 const { configJSON } = require("./config/config.json");
 const { intents, partials, permLevels } = require("./config/intents.js");
