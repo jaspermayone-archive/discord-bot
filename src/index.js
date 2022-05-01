@@ -80,16 +80,6 @@ const init = async () => {
   client.env = process.env;
 
   client.login(client.env.DISCORD_TOKEN);
-
-  // serve basic http server
-  const http = require("http");
-  const port = 8000;
-  const server = http.createServer((req, res) => {
-    res.writeHead(200);
-    res.end("Heptagram is running!");
-  }
-  );
-  server.listen(port);
 };
 
 init();
