@@ -95,6 +95,7 @@ app.listen(8000, () => console.log('Ping! Express running on port 8000'));
 if (process.env.NODE_ENV === "production") {
 
   const https = require("https");
+  const http = require("http");
 
   const privateKey = await readFile(
     "/etc/letsencrypt/live/discord-bot.heptagrambotproject.com/privkey.pem",
