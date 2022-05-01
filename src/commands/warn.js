@@ -2,13 +2,13 @@ const { MessageEmbed } = require("discord.js");
 const schema = require('../../schemas/warnDB')
 const { colors } = require("../config/config.json");
 const pjson = require("../../package.json");
-const { re } = require("mathjs");
+
 
 exports.run = async (client, message, args, level) => {
   //check for permission
   if(!message.member.hasPermission("MANAGE_MESSAGES"))
     {
-      return message.channel.reply("You don't have enough permission")
+      return message.channel.reply("You don't have enough permissions!")
     }
     //get the user from the mention
   let user = message.mentions.users.first()
@@ -20,7 +20,7 @@ exports.run = async (client, message, args, level) => {
   if (args.length === 1) {
   reason = args.slice(1).join(" ");
   } else {
-    reason = "No reason provided.";
+    reason = "Please mention a reason.";
   }
 
   //find or update the user on database
@@ -32,7 +32,7 @@ exports.run = async (client, message, args, level) => {
     })
     if(!data){
       data =await schema.create({
-        uuserId: user.id,
+        userId: user.id,
         guildId: message.guild.id
       })
   }
@@ -58,25 +58,29 @@ exports.run = async (client, message, args, level) => {
 
       
     });;
-message.channel.send(warnembed);
 
-  // const errorembed = new MessageEmbed()
-  //   .setColor(client.config.colors.heptagram)
-  //   .setTitle(`**Failed**`)
-  //   .setDescription(`Failed to warn **${user.tag}**.`)
-  //   .setTimestamp()
-  //   .setFooter({
-  //     text: `Message sent by Heptagram || ${pjson.version}`,
-  //     iconURL: `${client.config.cdn.sqlogo}`,
-  //   });
 
-//   try {
-//     await message.guild.members.warn(user, { reason });
-//   } catch (error) {
-//     return message.reply({ embeds: [errorembed] });
-//   }
+  const errorembed = new MessageEmbed()
+    .setColor(client.config.colors.heptagram)
+    .setTitle(`**Failed**`)
+    .setDescription(`Failed to warn **${user.tag}**.`)
+    .setTimestamp()
+    .setFooter({
+      text: `Message sent by Heptagram || ${pjson.version}`,
+      iconURL: `${client.config.cdn.sqlogo}`,
+    });
 
-//   return message.reply({ embeds: [warnembed] });
+  try {
+    //sends the user a personal warning message 
+
+    await user.send(`You have been warned for ${reason} and now you've a total of ${data.warns} warnings`);
+  } catch (error) {
+    //error if the dm doesn't reach
+    return message.channel.send({ embeds: [errorembed] });
+  }
+
+  //informs on the channel that the user has been warned
+  return message.channel.send({ embeds: [warnembed] });
 
 
 };
