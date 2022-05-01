@@ -118,7 +118,7 @@ if (process.env.NODE_ENV === "production") {
   const httpsServer = https.createServer(credentials, app);
 
   httpsServer.listen(8000, () => {
-    logHandler.log("http", "https server listening on port 443");
+    console.log("http", "https server listening on port 443");
   });
 };
 
