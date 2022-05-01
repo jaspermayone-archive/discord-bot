@@ -89,6 +89,34 @@ app.get('/', (req, res) => {
 
 app.listen(8000, () => console.log('Ping! Express running on port 8000'));
 
+
+if (process.env.NODE_ENV === "production") {
+  const privateKey = await readFile(
+    "/etc/letsencrypt/live/example.com/privkey.pem",
+    "utf8"
+  );
+  const certificate = await readFile(
+    "/etc/letsencrypt/live/example.com/cert.pem",
+    "utf8"
+  );
+  const ca = await readFile(
+    "/etc/letsencrypt/live/example.com/chain.pem",
+    "utf8"
+  );
+
+  const credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca,
+  };
+
+  const httpsServer = https.createServer(credentials, app);
+
+  httpsServer.listen(443, () => {
+    logHandler.log("http", "https server listening on port 443");
+  });
+}
+
 };
 
 init();
