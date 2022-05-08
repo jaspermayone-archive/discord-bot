@@ -6,6 +6,7 @@ if (Number(process.version.slice(1).split(".")[0]) < 16)
 const { Client, Collection } = require("discord.js");
 const { mongoose } = require("mongoose");
 const { readdirSync } = require("fs");
+const { readFile } = require("fs/promises")
 
 const { configJSON } = require("./config/config.json");
 const { intents, partials, permLevels } = require("./config/intents.js");
@@ -80,6 +81,48 @@ const init = async () => {
   client.env = process.env;
 
   client.login(client.env.DISCORD_TOKEN);
+
+const express = require("express");
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+if (process.env.NODE_ENV === "development") {
+app.listen(8000, () => console.log('Ping! Express running on port 8000'));
+}
+
+if (process.env.NODE_ENV === "production") {
+
+  const https = require("https");
+  const http = require("http");
+
+  const privateKey = await readFile(
+    "/etc/letsencrypt/live/discord-bot.heptagrambotproject.com/privkey.pem",
+    "utf8"
+  );
+  const certificate = await readFile(
+    "/etc/letsencrypt/live/discord-bot.heptagrambotproject.com/cert.pem",
+    "utf8"
+  );
+  const ca = await readFile(
+    "/etc/letsencrypt/live/discord-bot.heptagrambotproject.com/chain.pem",
+    "utf8"
+  );
+
+  const credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca,
+  };
+
+  const httpsServer = https.createServer(credentials, app);
+
+  httpsServer.listen(8000, () => {
+    console.log("http", "https server listening on port 443");
+  });
+};
+
 };
 
 init();
