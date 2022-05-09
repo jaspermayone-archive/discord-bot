@@ -1,4 +1,5 @@
 ![github-header-image-2](https://user-images.githubusercontent.com/65788728/160950742-a9594e09-17da-4baa-ae01-b67b8662cf0b.png)
+[![Open Source Helpers](https://www.codetriage.com/heptagram-bot-project/discord-bot/badges/users.svg)](https://www.codetriage.com/heptagram-bot-project/discord-bot)
 
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000&style=for-the-badge&logo=github?label=healthinesses" />
