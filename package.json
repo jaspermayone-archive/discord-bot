@@ -4,20 +4,9 @@
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "main": "src/index.js",
   "scripts": {
-    "start": "wireit",
-    "dev": "wireit",
-    "test": "wireit"
-  },
-  "wireit": {
-    "start": {
-      "command": "cd src && node index.js"
-    },
-    "dev": {
-      "command": "cd src && nodemon --quiet index.js"
-    },
-    "test": {
-      "command": "echo \"Error: no test specified\" && exit 1"
-    }
+    "start": "cd src && node index.js",
+    "dev": "cd src && nodemon --quiet index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/Heptagram-Bot/Heptagram.git",
   "author": "J-dogcoder",
@@ -54,11 +43,9 @@
     "ora": "^6.1.0",
     "quick.eco": "^6.0.0"
   },
-  "private": false,
   "devDependencies": {
     "eslint": "8.10.0",
-    "nodemon": "2.0.15",
-    "wireit": "^0.4.3"
+    "nodemon": "2.0.15"
   },
   "engines": {
     "node": ">=16.10.0",
