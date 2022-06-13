@@ -5,6 +5,14 @@ import { Client } from "discord.js";
 import { CommandList } from "../commands/_CommandList";
 
 export const onReady = async (Heptagram: Client) => {
+
+  if (process.env.NODE_ENV === "production") {
+    console.log(`Heptagram Started in PRODUCTION Mode`);
+      }
+      if (process.env.NODE_ENV === "development") {
+        console.log(`Heptagram Started in DEVELOPMENT Mode`);
+      }
+
   const rest = new REST({ version: "9" }).setToken(
     process.env.DISCORD_TOKEN as string
   );
@@ -19,5 +27,10 @@ export const onReady = async (Heptagram: Client) => {
     { body: commandData }
   );
 
-  console.log("Discord ready!");
+      console.log(`Logged in as ${Heptagram?.user?.tag!== null}. Ready on ${Heptagram?.guilds?.cache?.size} servers, for a total of ${Heptagram.users.cache.size} users`);
+
+      Heptagram?.user?.setStatus('online');
+      Heptagram?.user?.setActivity(`${Heptagram.guilds.cache.size} servers!`, { type: "WATCHING" })
+
+      console.log('Bot online and Ready!');
 };

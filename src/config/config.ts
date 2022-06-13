@@ -23,13 +23,13 @@ const config = {
         warning: "⚠️",
         info: "ℹ️",
         megaphone: "📣",
-      }
+      },
     },
     animated: {
       waveanimated: "985896076034838620",
       rupee: "951855035610972210",
       verifyblack: "951863095238754324",
-    }
+    },
   },
   admins: ["722121621610954773"],
   support: [],

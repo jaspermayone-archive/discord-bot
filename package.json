@@ -20,6 +20,7 @@
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
+    "@sapphire/time-utilities": "^1.7.4",
     "@types/node": "^17.0.42",
     "cors": "^2.8.5",
     "discord-api-types": "^0.33.5",

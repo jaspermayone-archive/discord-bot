@@ -10,14 +10,26 @@ import { serverInit } from "./server/serve";
 import { validateEnv } from "./utils/validateEnv";
 
 (async () => {
-  if (!validateEnv()) {return;}
+  if (!validateEnv()) {
+    return;
+  }
 
   const Heptagram = new Client({ intents: IntentOptions });
 
   Heptagram.on("ready", async () => await onReady(Heptagram));
 
-  Heptagram.on("interactionCreate", async (interaction) => await onInteractionCreate(interaction));
-  Heptagram.on("messageCreate", async (message) => await onMessageCreate(message, Heptagram));
+  Heptagram.on(
+    "interactionCreate",
+    async (interaction) => await onInteractionCreate(interaction)
+  );
+  Heptagram.on(
+    "messageCreate",
+    async (message) => await onMessageCreate(message, Heptagram)
+  );
+
+  Heptagram.on("threadCreate", (thread) => {
+    thread.join();
+  });
 
   await connectDatabase();
 
