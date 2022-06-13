@@ -25,8 +25,8 @@ export const help: Command = {
         text: `Message sent by Heptagram Bot || ${process.env.npm_package_version}`,
         iconURL: config.cdn.circlelogo,
       })
+      .setColor('#fff826')
       .setTimestamp();
-
 
     await interaction.editReply({ embeds: [helpEmbed] });
     return;

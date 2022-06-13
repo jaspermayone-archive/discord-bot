@@ -3,22 +3,21 @@ import "dotenv/config";
 
 import { IntentOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
-import { onInteraction } from "./events/onInteraction";
-import { onReady } from "./events/onReady";
+import { onInteractionCreate } from "./events/interactionCreate";
+import { onMessageCreate } from "./events/messageCreate";
+import { onReady } from "./events/ready";
 import { serverInit } from "./server/serve";
 import { validateEnv } from "./utils/validateEnv";
 
 (async () => {
-  if (!validateEnv()) return;
+  if (!validateEnv()) {return;}
 
   const Heptagram = new Client({ intents: IntentOptions });
 
   Heptagram.on("ready", async () => await onReady(Heptagram));
 
-  Heptagram.on(
-    "interactionCreate",
-    async (interaction) => await onInteraction(interaction)
-  );
+  Heptagram.on("interactionCreate", async (interaction) => await onInteractionCreate(interaction));
+  Heptagram.on("messageCreate", async (message) => await onMessageCreate(message, Heptagram));
 
   await connectDatabase();
 
