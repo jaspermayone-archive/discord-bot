@@ -1,4 +1,4 @@
-import { IntentsString } from "discord.js";
+import { IntentsString, PartialTypes } from "discord.js";
 
 export const IntentOptions: IntentsString[] = [
   "GUILDS",
@@ -8,4 +8,10 @@ export const IntentOptions: IntentsString[] = [
   "GUILD_INVITES",
   "GUILD_MESSAGES",
   "GUILD_MESSAGE_REACTIONS",
+];
+
+export const PartialsOptions: PartialTypes[] = [
+  "MESSAGE",
+  "CHANNEL",
+  "REACTION",
 ];

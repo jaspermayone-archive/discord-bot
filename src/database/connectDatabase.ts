@@ -1,6 +1,7 @@
 import { connect } from "mongoose";
+import { heptagramLogHandler } from "../utils/heptagramLogHandler";
 
 export const connectDatabase = async () => {
   await connect(process.env.MONGO_URI as string);
-  console.log("Database Connected!");
+  heptagramLogHandler.log("info","Database Connected!");
 };

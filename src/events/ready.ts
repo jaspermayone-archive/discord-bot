@@ -1,36 +1,27 @@
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v9";
 import { Client } from "discord.js";
+import { heptagramLogHandler } from "../utils/heptagramLogHandler";
 
-import { CommandList } from "../commands/_CommandList";
 
-export const onReady = async (Heptagram: Client) => {
-
+export const onReady = (Heptagram: Client) => {
   if (process.env.NODE_ENV === "production") {
-    console.log(`Heptagram Started in PRODUCTION Mode`);
-      }
-      if (process.env.NODE_ENV === "development") {
-        console.log(`Heptagram Started in DEVELOPMENT Mode`);
-      }
+    heptagramLogHandler.log("info", `Heptagram Started in PRODUCTION Mode`);
+  }
+  if (process.env.NODE_ENV === "development") {
+    heptagramLogHandler.log("info", `Heptagram Started in DEVELOPMENT Mode`);
+  }
 
-  const rest = new REST({ version: "9" }).setToken(
-    process.env.DISCORD_TOKEN as string
+  heptagramLogHandler.log("info",
+    `Logged in as ${Heptagram?.user?.tag !== null}. Ready on ${
+      Heptagram?.guilds?.cache?.size
+    } servers, for a total of ${Heptagram.users.cache.size} users`
   );
 
-  const commandData = CommandList.map((command) => command.data.toJSON());
+  Heptagram?.user?.setStatus("online");
+  Heptagram?.user?.setActivity(`${Heptagram.guilds.cache.size} servers!`, {
+    type: "WATCHING",
+  });
 
-  await rest.put(
-    Routes.applicationGuildCommands(
-      Heptagram.user?.id || "missing id",
-      process.env.TEST_GUILD_ID as string
-    ),
-    { body: commandData }
-  );
-
-      console.log(`Logged in as ${Heptagram?.user?.tag!== null}. Ready on ${Heptagram?.guilds?.cache?.size} servers, for a total of ${Heptagram.users.cache.size} users`);
-
-      Heptagram?.user?.setStatus('online');
-      Heptagram?.user?.setActivity(`${Heptagram.guilds.cache.size} servers!`, { type: "WATCHING" })
-
-      console.log('Bot online and Ready!');
+  heptagramLogHandler.log("info", "Bot online and Ready!");
 };

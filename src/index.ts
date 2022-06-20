@@ -1,39 +1,74 @@
-import { Client } from "discord.js";
+import { Client, WebhookClient } from "discord.js";
 import "dotenv/config";
 
-import { IntentOptions } from "./config/IntentOptions";
+import { IntentOptions, PartialsOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
-import { onInteractionCreate } from "./events/interactionCreate";
 import { onMessageCreate } from "./events/messageCreate";
 import { onReady } from "./events/ready";
-import { serverInit } from "./server/serve";
+import { Heptagram } from "./interfaces/Heptagram";
+import { createServer } from "./server/serve";
+import { heptagramErrorHandler } from "./utils/heptagramErrorHandler";
+import { heptagramLogHandler } from "./utils/heptagramLogHandler";
+import { loadCommands } from "./utils/loadCommands";
+import { loadPM2 } from "./utils/loadPM2";
+import { registerCommands } from "./utils/registerCommands";
 import { validateEnv } from "./utils/validateEnv";
 
-(async () => {
-  if (!validateEnv()) {
+void (async () => {
+
+  const Heptagram = new Client({
+    shards: "auto",
+    intents: IntentOptions,
+    partials: PartialsOptions
+   }) as Heptagram;
+
+  heptagramLogHandler.log("debug", "Validating environment variables...");
+  const validatedEnvironment = validateEnv(Heptagram);
+  if (!validatedEnvironment.valid) {
+   heptagramLogHandler.log("error", `validatedEnvironment.message`);
     return;
   }
 
-  const Heptagram = new Client({ intents: IntentOptions });
+  heptagramLogHandler.log("debug", "Loading PM2...");
+  const loadedPM2 = loadPM2(Heptagram);
+  if (!loadedPM2) {
+    heptagramLogHandler.log("error", "Unable to load Grafana metrics");
+    return;
+  }
 
-  Heptagram.on("ready", async () => await onReady(Heptagram));
+  Heptagram.debugHook = new WebhookClient({ url: Heptagram.configs.whUrl });
 
-  Heptagram.on(
-    "interactionCreate",
-    async (interaction) => await onInteractionCreate(interaction)
-  );
-  Heptagram.on(
-    "messageCreate",
-    async (message) => await onMessageCreate(message, Heptagram)
-  );
-
-  Heptagram.on("threadCreate", (thread) => {
-    thread.join();
+  process.on("unhandledRejection", async (error: Error) => {
+    await heptagramErrorHandler(Heptagram, "Unhandled Rejection Error", error);
   });
 
-  await connectDatabase();
+  process.on("uncaughtException", async (error) => {
+    await heptagramErrorHandler(Heptagram, "Uncaught Exception Error", error);
+  });
 
-  Heptagram.login(process.env.DISCORD_TOKEN);
+  heptagramLogHandler.log("debug", "Initialising web server...");
+  const server = await createServer(Heptagram);
+  if (!server) {
+    heptagramLogHandler.log("error", "failed to launch web server.");
+    return;
+  }
 
-  await serverInit();
+ heptagramLogHandler.log("debug", "Importing commands...");
+  const commands = await loadCommands(Heptagram);
+  // eslint-disable-next-line require-atomic-updates
+  Heptagram.commands = commands;
+  if (!commands.length) {
+    heptagramLogHandler.log("error", "failed to import commands.");
+    return;
+  }
+
+  if (process.env.NODE_ENV !== "production") {
+    heptagramLogHandler.log("debug", "Registering commands in development...");
+    const success = await registerCommands(Heptagram);
+    if (!success) {
+      heptagramLogHandler.log("error", "failed to register commands.");
+      return;
+    }
+  }
+
 })();
