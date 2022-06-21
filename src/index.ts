@@ -15,14 +15,13 @@ import { validateEnv } from "./utils/validateEnv";
 import { validateNode } from "./utils/validateNode";
 
 void (async () => {
-
-const validatedNode = validateNode();
-if (!validatedNode.valid) {
+  const validatedNode = validateNode();
+  if (!validatedNode.valid) {
     heptagramLogHandler.log("error", validatedNode.message);
     process.exit(1);
-} else {
+  } else {
     heptagramLogHandler.log("debug", validatedNode.message);
-}
+  }
 
   const Heptagram = new Client({
     shards: "auto",
