@@ -1,7 +1,7 @@
 /* eslint-disable import/order */
 import { CommandInteraction } from "discord.js";
 
-import CommandCountModel from "../database/models/CommandCountModel"
+import CommandCountModel from "../database/models/CommandCountModel";
 import { Heptagram } from "../interfaces/Heptagram";
 import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
 
@@ -24,7 +24,6 @@ export const commandListener = {
       if (!guild) {
         return;
       }
-
 
       await CommandCountModel.findOneAndUpdate(
         { serverId: guild.id },

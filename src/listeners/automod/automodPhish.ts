@@ -10,10 +10,7 @@ import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
  *
  * @returns {boolean} If a scam link was detected.
  */
-export const automodPhish: ListenerHandler = async (
-  Heptagram,
-  message,
-) => {
+export const automodPhish: ListenerHandler = async (Heptagram, message) => {
   try {
     const contentWithoutCode = message.content.replace(
       /`{3}([\S]+)?\n((?!`{3})((?!```)[\s\S])+)\n`{3}/gi,
@@ -145,7 +142,6 @@ export const automodPhish: ListenerHandler = async (
     await message.delete();
 
     return true;
-
   } catch (err) {
     await heptagramErrorHandler(
       Heptagram,

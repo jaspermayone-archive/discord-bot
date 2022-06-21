@@ -35,5 +35,4 @@ export const handleEvents = (Heptagram: Heptagram): void => {
   Heptagram.on("threadCreate", async (thread) => {
     await threadCreate(Heptagram, thread);
   });
-
 };

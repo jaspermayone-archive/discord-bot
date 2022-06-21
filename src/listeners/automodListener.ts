@@ -1,7 +1,6 @@
 import { Listener } from "../interfaces/listeners/Listener";
 import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
 
-
 /**
  * Checks if the message content includes a link, and confirms that link
  * has not been set as allowed and the user does not have a link-permitted role.
@@ -17,8 +16,6 @@ export const automodListener: Listener = {
       if (message.member?.permissions.has("MANAGE_MESSAGES")) {
         return;
       }
-
-
     } catch (error) {
       await heptagramErrorHandler(
         Heptagram,

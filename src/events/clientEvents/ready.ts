@@ -20,10 +20,8 @@ export const ready = async (Heptagram: Heptagram): Promise<void> => {
   readyEmbed.setColor(Heptagram.colors.success);
   readyEmbed.setFooter({ text: `Heptagram v${Heptagram.configs.version}` });
 
-
   await Heptagram.debugHook.send({ embeds: [readyEmbed] });
   heptagramLogHandler.log("debug", "Discord ready!");
-
 
   heptagramLogHandler.log("debug", "Loaded PM2 counts!");
   Heptagram.pm2.metrics.events.mark();

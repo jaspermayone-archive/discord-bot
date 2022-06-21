@@ -56,7 +56,6 @@ export const validateEnv = (
       return { valid: false, message: "Missing Heart Emoji" };
     }
 
-
     Heptagram.commitHash = child
       .execSync("git rev-parse HEAD")
       .toString()
@@ -87,9 +86,7 @@ export const validateEnv = (
     };
     Heptagram.configs = configs;
 
-    Heptagram.usersToHeart = [
-      `${Heptagram.configs.ownerId}`,
-    ];
+    Heptagram.usersToHeart = [`${Heptagram.configs.ownerId}`];
 
     return { valid: true, message: "Environment variables validated!" };
   } catch (err) {

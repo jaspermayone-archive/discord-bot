@@ -10,19 +10,23 @@ import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
  * @param {Heptagram} Heptagram's Discord instance.
  * @returns {boolean} True if the connection was successful.
  */
-export const connectDatabase = async (Heptagram: Heptagram): Promise<boolean> => {
+export const connectDatabase = async (
+  Heptagram: Heptagram
+): Promise<boolean> => {
   try {
     await connect(Heptagram.configs.mongoUri);
 
     const databaseEmbed = new MessageEmbed();
     databaseEmbed.setTitle("Database connected!");
     databaseEmbed.setDescription(
-      `${Heptagram.user?.username || "Heptagram"} has connected to its database.`
+      `${
+        Heptagram.user?.username || "Heptagram"
+      } has connected to its database.`
     );
     databaseEmbed.setTimestamp();
     databaseEmbed.setColor(Heptagram.colors.success);
     await Heptagram.debugHook.send({
-      embeds: [databaseEmbed]
+      embeds: [databaseEmbed],
     });
 
     return true;
