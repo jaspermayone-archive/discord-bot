@@ -12,8 +12,18 @@ import { heptagramLogHandler } from "./utils/heptagramLogHandler";
 import { loadPM2 } from "./utils/loadPM2";
 //import { registerCommands } from "./utils/registerCommands";
 import { validateEnv } from "./utils/validateEnv";
+import { validateNode } from "./utils/validateNode";
 
 void (async () => {
+
+const validatedNode = validateNode();
+if (!validatedNode.valid) {
+    heptagramLogHandler.log("error", validatedNode.message);
+    process.exit(1);
+} else {
+    heptagramLogHandler.log("debug", validatedNode.message);
+}
+
   const Heptagram = new Client({
     shards: "auto",
     intents: IntentOptions,
