@@ -15,16 +15,17 @@ import { Heptagram } from "../interfaces/Heptagram";
 export const errorEmbedGenerator = (
   Heptagram: Heptagram,
   commandName: string,
-  errorId: Types.ObjectId,
+  errorId: Types.ObjectId
 ): MessageEmbed => {
   const errorEmbed = new MessageEmbed();
   errorEmbed.setColor(Heptagram.colors.error);
   errorEmbed.setTitle("An error has occurred!");
   errorEmbed.setDescription(
-    `Something has gone wrong with the ${commandName} command.`);
+    `Something has gone wrong with the ${commandName} command.`
+  );
   errorEmbed.addField(
     "How to report this error",
-    "To fix this error, please join the support server and provide the error ID from bellow, as well as any other relevant information.",
+    "To fix this error, please join the support server and provide the error ID from bellow, as well as any other relevant information."
   );
   errorEmbed.addField("Error ID:", errorId.toHexString());
   errorEmbed.setTimestamp();

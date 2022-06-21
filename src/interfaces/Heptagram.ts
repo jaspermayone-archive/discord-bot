@@ -15,12 +15,18 @@ export interface Heptagram extends Client {
   configs: {
     nodeEnv: string;
     token: string;
+    ownerId: string;
     whUrl: string;
     mongoUri: string;
     testGuildId: string;
     homeGuildId: string;
-    ownerId: string;
+    heptagramApiToken: string;
     clientId: string;
+    version: string;
+    love: string;
+    yes: string;
+    no: string;
+    think: string;
   };
   colors: {
     default: ColorResolvable;
@@ -29,6 +35,7 @@ export interface Heptagram extends Client {
     error: ColorResolvable;
   };
   commands: Command[];
+  usersToHeart: string[];
   pm2: {
     client: typeof io;
     metrics: {

@@ -13,7 +13,9 @@ import { heptagramErrorHandler } from "./heptagramErrorHandler";
  * @param {Heptagram} Heptagram's Discord instance.
  * @returns {Command[]} Array of Command objects representing the imported commands.
  */
-export const loadCommands = async (Heptagram: Heptagram): Promise<Command[]> => {
+export const loadCommands = async (
+  Heptagram: Heptagram
+): Promise<Command[]> => {
   try {
     const result: Command[] = [];
     const files = await readdir(

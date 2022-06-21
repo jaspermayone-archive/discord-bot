@@ -21,7 +21,9 @@ import { heptagramLogHandler } from "./heptagramLogHandler";
  * @param {Heptagram} Heptagram's Discord instance.
  * @returns {boolean} True if the commands were registered, false on error.
  */
-export const registerCommands = async (Heptagram: Heptagram): Promise<boolean> => {
+export const registerCommands = async (
+  Heptagram: Heptagram
+): Promise<boolean> => {
   try {
     const rest = new REST({ version: "9" }).setToken(Heptagram.configs.token);
 

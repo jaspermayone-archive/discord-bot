@@ -3,7 +3,6 @@ import * as child from "child_process";
 import { Heptagram } from "../interfaces/Heptagram";
 import { heptagramLogHandler } from "./heptagramLogHandler";
 
-
 /**
  * Validates that all expected environment variables are set with *some* value.
  * Does not validate that the values are valid. Constructs a config object and
@@ -16,7 +15,7 @@ import { heptagramLogHandler } from "./heptagramLogHandler";
 export const validateEnv = (
   Heptagram: Heptagram
 ): { valid: boolean; message: string } => {
-    try {
+  try {
     if (!process.env.NODE_ENV) {
       return { valid: false, message: "Missing Node Env" };
     }
@@ -41,35 +40,56 @@ export const validateEnv = (
       return { valid: false, message: "Missing Home Guild ID" };
     }
 
+    if (!process.env.HEPTAGRAM_API_TOKEN) {
+      return { valid: false, message: "Missing Heptagram API Token" };
+    }
+
     if (!process.env.OWNER_ID) {
-      return { valid: false, message: "Missing Owner ID" };
+      return { valid: false, message: "Missing Owner IDS" };
     }
 
     if (!process.env.CLIENT_ID) {
       return { valid: false, message: "Missing Client ID" };
     }
 
-    Heptagram.commitHash = child.execSync("git rev-parse HEAD").toString().trim();
+    if (!process.env.HEPTAGRAM_LOVE) {
+      return { valid: false, message: "Missing Heart Emoji" };
+    }
+
+
+    Heptagram.commitHash = child
+      .execSync("git rev-parse HEAD")
+      .toString()
+      .trim();
 
     const configs: Heptagram["configs"] = {
       nodeEnv: process.env.NODE_ENV,
       token: process.env.DISCORD_TOKEN,
+      ownerId: process.env.OWNER_ID,
       whUrl: process.env.WH_URL,
       mongoUri: process.env.MONGO_URI,
       testGuildId: process.env.TEST_GUILD_ID,
       homeGuildId: process.env.HOME_GUILD_ID,
-      ownerId: process.env.OWNER_ID,
+      heptagramApiToken: process.env.HEPTAGRAM_API_TOKEN,
       clientId: process.env.CLIENT_ID,
+      version: process.env.npm_package_version || "null",
+      love: process.env.HEPTAGRAM_LOVE,
+      yes: "✅",
+      no: "❌",
+      think: "🤔",
     };
 
     Heptagram.colors = {
       default: 0xfff826,
-      success: 0x1f8b4c,
+      success: 0x33b679,
       warning: 0xc27c0e,
       error: 0x992d22,
     };
+    Heptagram.configs = configs;
 
-   Heptagram.configs = configs;
+    Heptagram.usersToHeart = [
+      `${Heptagram.configs.ownerId}`,
+    ];
 
     return { valid: true, message: "Environment variables validated!" };
   } catch (err) {

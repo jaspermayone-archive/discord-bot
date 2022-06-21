@@ -4,5 +4,5 @@ import { Heptagram } from "../Heptagram";
 
 export type ListenerHandler = (
   Heptagram: Heptagram,
-  message: Message,
+  message: Message
 ) => Promise<void | boolean>;

@@ -30,11 +30,16 @@ export const createServer = async (Heptagram: Heptagram): Promise<boolean> => {
     const httpServer = http.createServer(HTTPEndpoint);
 
     httpServer.listen(httpPort, () => {
-      heptagramLogHandler.log("http", `http server is live on port ${httpPort}`);
+      heptagramLogHandler.log(
+        "http",
+        `http server is live on port ${httpPort}`
+      );
     });
 
     if (process.env.NODE_ENV === "development") {
-      HTTPEndpoint.listen(8000, () => console.log("Ping! Express running on port 8000"));
+      HTTPEndpoint.listen(8000, () =>
+        heptagramLogHandler.log("http", "Ping! Express running on port 8000")
+      );
     }
 
     if (process.env.NODE_ENV === "production") {

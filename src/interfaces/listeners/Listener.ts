@@ -8,11 +8,8 @@ export interface Listener {
   /**
    * Handles the logic for a given listener.
    *
-   * @param {Heptagram} Becca Becca's Discord instance.
+   * @param {Heptagram} Heptagram's Discord instance.
    * @param {Message} message The message that triggered the listener.
    */
-  run: (
-    Heptagram: Heptagram,
-    message: Message,
-  ) => Promise<void>;
+  run: (Heptagram: Heptagram, message: Message) => Promise<void>;
 }

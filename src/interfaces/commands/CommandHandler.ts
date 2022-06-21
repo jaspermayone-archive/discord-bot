@@ -10,5 +10,5 @@ import { Heptagram } from "../Heptagram";
  */
 export type CommandHandler = (
   Heptagram: Heptagram,
-  interaction: CommandInteraction,
+  interaction: CommandInteraction
 ) => Promise<void>;

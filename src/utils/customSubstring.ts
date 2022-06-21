@@ -6,6 +6,6 @@
  * @param {number} len The maximum allowed length for the string.
  * @returns {string} The potentially shortened string.
  */
- export const customSubstring = (str: string, len: number): string => {
-    return str.length > len ? str.substring(0, len - 3) + "..." : str;
-  };
+export const customSubstring = (str: string, len: number): string => {
+  return str.length > len ? str.substring(0, len - 3) + "..." : str;
+};
