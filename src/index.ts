@@ -64,7 +64,6 @@ void (async () => {
     return;
   }
 
-
   heptagramLogHandler.log("debug", "Importing commands...");
   const commands = await loadCommands(Heptagram);
   // eslint-disable-next-line require-atomic-updates
@@ -82,7 +81,6 @@ void (async () => {
       return;
     }
   }
-
 
   heptagramLogHandler.log("debug", "Connecting to database...");
   const databaseConnection = await connectDatabase(Heptagram);

@@ -7,10 +7,7 @@ import { heptagramErrorHandler } from "../../../utils/heptagramErrorHandler";
  * Provided the caller has permission, kicks the `target` user from the guild
  * for the given `reason`.
  */
-export const handleKick: CommandHandler = async (
-  Heptagram,
-  interaction,
-) => {
+export const handleKick: CommandHandler = async (Heptagram, interaction) => {
   try {
     const { guild, member } = interaction;
     const target = interaction.options.getUser("target", true);

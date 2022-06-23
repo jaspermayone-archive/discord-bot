@@ -7,10 +7,7 @@ import { heptagramErrorHandler } from "../../../utils/heptagramErrorHandler";
  * Bans the `target` user for the provided `reason`, assuming the caller has permissions.
  * Also deletes the `target`'s messages from the last 24 hours.
  */
-export const handleBan: CommandHandler = async (
-  Heptagram,
-  interaction,
-) => {
+export const handleBan: CommandHandler = async (Heptagram, interaction) => {
   try {
     const { guild, member } = interaction;
     const target = interaction.options.getUser("target", true);

@@ -6,10 +6,7 @@ import { heptagramErrorHandler } from "../../../utils/heptagramErrorHandler";
  * Issues a warning to the `target` user, and adds it to the server's warning count.
  * Logs the `reason`.
  */
-export const handleWarn: CommandHandler = async (
-  Heptagram,
-  interaction
-) => {
+export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
   try {
     const { guild, member } = interaction;
     if (!guild) {

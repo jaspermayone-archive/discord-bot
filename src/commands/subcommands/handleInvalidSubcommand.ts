@@ -6,7 +6,7 @@ import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
  */
 export const handleInvalidSubcommand: CommandHandler = async (
   Heptagram,
-  interaction,
+  interaction
 ) => {
   try {
     await interaction.editReply({

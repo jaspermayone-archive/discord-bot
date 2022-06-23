@@ -7,10 +7,7 @@ import { heptagramErrorHandler } from "../../../utils/heptagramErrorHandler";
  * If the server has configured a muted role, applies that role to the `target`
  * user for the given `reason`.
  */
-export const handleMute: CommandHandler = async (
-  Heptagram,
-  interaction,
-) => {
+export const handleMute: CommandHandler = async (Heptagram, interaction) => {
   try {
     const { guild, member } = interaction;
     const target = interaction.options.getUser("target", true);
