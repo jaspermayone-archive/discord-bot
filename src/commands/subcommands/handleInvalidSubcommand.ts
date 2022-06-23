@@ -1,0 +1,25 @@
+import { CommandHandler } from "../../interfaces/commands/CommandHandler";
+import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
+
+/**
+ * This handles a case where a proper subcommand handler isn't found.
+ */
+export const handleInvalidSubcommand: CommandHandler = async (
+  Heptagram,
+  interaction,
+) => {
+  try {
+    await interaction.editReply({
+      content: "Command Invalid!",
+    });
+  } catch (err) {
+    await heptagramErrorHandler(
+      Heptagram,
+      "invalid subcommand",
+      err,
+      interaction.guild?.name,
+      undefined,
+      interaction
+    );
+  }
+};

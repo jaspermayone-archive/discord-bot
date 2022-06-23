@@ -8,9 +8,9 @@ import { Heptagram } from "./interfaces/Heptagram";
 import { createServer } from "./server/serve";
 import { heptagramErrorHandler } from "./utils/heptagramErrorHandler";
 import { heptagramLogHandler } from "./utils/heptagramLogHandler";
-//import { loadCommands } from "./utils/loadCommands";
+import { loadCommands } from "./utils/loadCommands";
 import { loadPM2 } from "./utils/loadPM2";
-//import { registerCommands } from "./utils/registerCommands";
+import { registerCommands } from "./utils/registerCommands";
 import { validateEnv } from "./utils/validateEnv";
 import { validateNode } from "./utils/validateNode";
 
@@ -64,7 +64,7 @@ void (async () => {
     return;
   }
 
-  /*
+
   heptagramLogHandler.log("debug", "Importing commands...");
   const commands = await loadCommands(Heptagram);
   // eslint-disable-next-line require-atomic-updates
@@ -82,7 +82,7 @@ void (async () => {
       return;
     }
   }
-  */
+
 
   heptagramLogHandler.log("debug", "Connecting to database...");
   const databaseConnection = await connectDatabase(Heptagram);

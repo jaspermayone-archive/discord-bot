@@ -9,6 +9,7 @@ lerna-debug.log*
 ~/.DS_Store
 yarn.lock
 src/data/*
+LICENSE.md
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
