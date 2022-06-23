@@ -2,18 +2,12 @@
 [![Open Source Helpers](https://www.codetriage.com/heptagram-bot-project/discord-bot/badges/users.svg)](https://www.codetriage.com/heptagram-bot-project/discord-bot)
 
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000&style=for-the-badge&logo=github?label=healthinesses" />
+  <img alt="Version" src="https://img.shields.io/badge/version-3.0.0-yellow.svg?cacheSeconds=2592000&style=for-the-badge&logo=github?label=healthinesses" />
   <a href="https://github.com/Heptagram-Bot-Project/bot#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge&logo=github?label=healthinesses" />
   </a>
   <a href="https://github.com/Heptagram-Bot-Project/bot/blob/main/LICENSE" target="_blank">
     <img alt="License:" src="https://img.shields.io/github/license/Heptagram-Bot-Project/bot?style=for-the-badge&logo=github?label=healthinesses" />
-  </a>
-  <a href="https://github.com/Heptagram-Bot-Project/bot/issues">
-    <img alt="Issues" src="https://img.shields.io/github/issues/Heptagram-Bot-Project/bot?style=for-the-badge&logo=github?label=healthinesses" />
-  </a>
-  <a href="https://github.com/Heptagram-Bot-Project/bot/pulls">
-    <img alt="Pull Requests" src="https://img.shields.io/github/issues-pr/Heptagram-Bot-Project/bot?style=for-the-badge&logo=github?label=healthinesses" />
   </a>
   <a href="https://github.com/Heptagram-Bot-Project/bot">
     <img alt="Size" src="https://img.shields.io/github/languages/code-size/Heptagram-Bot-Project/bot?style=for-the-badge&logo=github?label=healthinesses" />
@@ -24,9 +18,6 @@
    <a href="https://github.com/Heptagram-Bot-Project/bot">
     <img alt="Language" src="https://img.shields.io/github/languages/top/Heptagram-Bot-Project/bot?style=for-the-badge&logo=github?label=healthinesses?" />
   </a>
-   <a href="https://discord.gg/yHFQWNtNDt">
-    <img alt="Support Server Link" src="https://img.shields.io/discord/826493837878493204.svg?label=Discord&logo=Discord&colorB=7289da&style=for-the-badge" />
-   </a>
 </p>
 
 <h1 align="center">Welcome to the Heptagram Bot repo! 👋</h1>
