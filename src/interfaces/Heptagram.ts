@@ -1,7 +1,7 @@
 import io from "@pm2/io";
 import Gauge from "@pm2/io/build/main/utils/metrics/gauge";
 import Meter from "@pm2/io/build/main/utils/metrics/meter";
-import { Client, ColorResolvable, WebhookClient } from "discord.js";
+import { Client, ColorResolvable, Snowflake, WebhookClient } from "discord.js";
 
 import { Command } from "./commands/Command";
 
@@ -15,13 +15,13 @@ export interface Heptagram extends Client {
   configs: {
     nodeEnv: string;
     token: string;
+    id: string;
     ownerId: string;
     whUrl: string;
     mongoUri: string;
     testGuildId: string;
     homeGuildId: string;
     heptagramApiToken: string;
-    clientId: string;
     version: string;
     love: string;
     yes: string;

@@ -3,10 +3,10 @@ import {
   RESTPostAPIApplicationCommandsJSONBody,
   RESTPostAPIChatInputApplicationCommandsJSONBody,
   Routes,
+  Snowflake,
 } from "discord-api-types/v9";
 
-import { Heptagram } from "../interfaces/Heptagram";
-
+import Heptagram from "../index";
 import { heptagramErrorHandler } from "./heptagramErrorHandler";
 import { heptagramLogHandler } from "./heptagramLogHandler";
 
@@ -41,14 +41,16 @@ export const registerCommands = async (
     });
     if (process.env.NODE_ENV === "production") {
       heptagramLogHandler.log("debug", "registering commands globally!");
-      await rest.put(Routes.applicationCommands(Heptagram.configs.clientId), {
+
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      await rest.put(Routes.applicationCommands(Heptagram.configs.id), {
         body: commandData,
       });
     } else {
       heptagramLogHandler.log("debug", "registering to home guild only");
       await rest.put(
         Routes.applicationGuildCommands(
-          Heptagram.configs.clientId,
+          Heptagram.configs.id,
           Heptagram.configs.testGuildId
         ),
         { body: commandData }

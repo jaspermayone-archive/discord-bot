@@ -13,10 +13,8 @@ import { handleBan } from "./subcommands/moderation/handleBan";
 import { handleKick } from "./subcommands/moderation/handleKick";
 import { handleMute } from "./subcommands/moderation/handleMute";
 import { handleUnmute } from "./subcommands/moderation/handleUnmute";
-import { handleWarn } from "./subcommands/moderation/handleWarn";
 
 const handlers: { [key: string]: CommandHandler } = {
-  warn: handleWarn,
   mute: handleMute,
   unmute: handleUnmute,
   kick: handleKick,

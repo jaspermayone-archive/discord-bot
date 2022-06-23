@@ -30,9 +30,9 @@ void (async () => {
   }) as Heptagram;
 
   heptagramLogHandler.log("debug", "Validating environment variables...");
-  const validatedEnvironment = validateEnv(Heptagram);
+  const validatedEnvironment = validateEnv(Heptagram, );
   if (!validatedEnvironment.valid) {
-    heptagramLogHandler.log("error", `validatedEnvironment.message`);
+    heptagramLogHandler.log("error", `${validatedEnvironment.message}`);
     return;
   } else {
     heptagramLogHandler.log("debug", "Environment variables validated.");
@@ -101,3 +101,5 @@ void (async () => {
     type: "WATCHING",
   });
 })();
+
+export default Heptagram;

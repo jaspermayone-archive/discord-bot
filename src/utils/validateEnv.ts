@@ -1,4 +1,5 @@
 import * as child from "child_process";
+import { Snowflake } from "discord.js";
 
 import { Heptagram } from "../interfaces/Heptagram";
 import { heptagramLogHandler } from "./heptagramLogHandler";
@@ -48,12 +49,12 @@ export const validateEnv = (
       return { valid: false, message: "Missing Owner IDS" };
     }
 
-    if (!process.env.CLIENT_ID) {
-      return { valid: false, message: "Missing Client ID" };
-    }
-
     if (!process.env.HEPTAGRAM_LOVE) {
       return { valid: false, message: "Missing Heart Emoji" };
+    }
+
+    if (!process.env.CLIENT_ID) {
+      return { valid: false, message: "Missing Client ID" };
     }
 
     Heptagram.commitHash = child
@@ -64,13 +65,13 @@ export const validateEnv = (
     const configs: Heptagram["configs"] = {
       nodeEnv: process.env.NODE_ENV,
       token: process.env.DISCORD_TOKEN,
+      id: process.env.CLIENT_ID,
       ownerId: process.env.OWNER_ID,
       whUrl: process.env.WH_URL,
       mongoUri: process.env.MONGO_URI,
       testGuildId: process.env.TEST_GUILD_ID,
       homeGuildId: process.env.HOME_GUILD_ID,
       heptagramApiToken: process.env.HEPTAGRAM_API_TOKEN,
-      clientId: process.env.CLIENT_ID,
       version: process.env.npm_package_version || "null",
       love: process.env.HEPTAGRAM_LOVE,
       yes: "✅",
