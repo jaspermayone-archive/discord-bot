@@ -23,11 +23,16 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
     uptimeEmbed.setTitle("Uptime:");
     uptimeEmbed.setColor(Heptagram.colors.default);
     uptimeEmbed.setDescription(
-    "Heptagram has been online for:" +
-    "Days:" + days.toString() +
-    "hours:" + hours.toString() +
-    "minutes:" + minutes.toString() +
-    "seconds:" + secondsRemain.toString());
+      "Heptagram has been online for:" +
+        "Days:" +
+        days.toString() +
+        "hours:" +
+        hours.toString() +
+        "minutes:" +
+        minutes.toString() +
+        "seconds:" +
+        secondsRemain.toString()
+    );
     /*
     uptimeEmbed.addField(
       t("commands:becca.uptime.hours"),

@@ -2,7 +2,7 @@ import { MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
-import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler"
+import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
  * Generates an embed containing a link to invite Heptagram. The link is handled
@@ -13,7 +13,9 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
   try {
     const inviteEmbed = new MessageEmbed();
     inviteEmbed.setTitle("Invite Heptagram");
-    inviteEmbed.setDescription("Use the `Invite Heptagram` button to get the invite link");
+    inviteEmbed.setDescription(
+      "Use the `Invite Heptagram` button to get the invite link"
+    );
     inviteEmbed.setColor(Heptagram.colors.default);
     inviteEmbed.setFooter({
       text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
@@ -26,9 +28,7 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
       .setStyle("LINK")
       .setURL("https://invite.heptagrambotproject.com");
 
-    const row = new MessageActionRow().addComponents([
-      inviteButton,
-    ]);
+    const row = new MessageActionRow().addComponents([inviteButton]);
 
     await interaction.editReply({ embeds: [inviteEmbed], components: [row] });
   } catch (err) {

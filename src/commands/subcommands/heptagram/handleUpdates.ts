@@ -1,6 +1,9 @@
 import { MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
 
-import { nextScheduledRelease, updatesSinceLastRelease } from "../../../config/commands/updatesData";
+import {
+  nextScheduledRelease,
+  updatesSinceLastRelease,
+} from "../../../config/commands/updatesData";
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
@@ -15,22 +18,13 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
     const updateEmbed = new MessageEmbed();
     updateEmbed.setTitle("Updates");
     updateEmbed.setDescription("Here are the updates since the last release.");
-    updateEmbed.addField(
-      "Latest Updates:",
-      updatesSinceLastRelease.join("\n")
-    );
+    updateEmbed.addField("Latest Updates:", updatesSinceLastRelease.join("\n"));
     updateEmbed.addField(
       "New version:",
       process.env.npm_package_version || "0.0.0"
     );
-    updateEmbed.addField(
-      "Next release:",
-      nextScheduledRelease
-    );
-    updateEmbed.addField(
-      "Changelog ???",
-      "Chage desctiption here???"
-    );
+    updateEmbed.addField("Next release:", nextScheduledRelease);
+    updateEmbed.addField("Changelog ???", "Chage desctiption here???");
     updateEmbed.addField(
       "Commit hash:",
       `[${hash.slice(
@@ -47,9 +41,7 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
     const button = new MessageButton()
       .setLabel("View Full Changelog")
       .setStyle("LINK")
-      .setURL(
-        "https://github.com/Heptagram-Project/discord-bot/releases"
-      );
+      .setURL("https://github.com/Heptagram-Project/discord-bot/releases");
 
     const row = new MessageActionRow().addComponents([button]);
     await interaction.editReply({ embeds: [updateEmbed], components: [row] });

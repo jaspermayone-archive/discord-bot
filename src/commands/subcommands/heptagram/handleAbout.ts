@@ -14,7 +14,9 @@ export const handleAbout: CommandHandler = async (Heptagram, interaction) => {
     const aboutEmbed = new MessageEmbed();
     aboutEmbed.setColor(Heptagram.colors.default);
     aboutEmbed.setTitle("About Heptagram");
-    aboutEmbed.setDescription("The open-source & multipurpose Discord bot with the goal to be the single needed bot for any server.");
+    aboutEmbed.setDescription(
+      "The open-source & multipurpose Discord bot with the goal to be the single needed bot for any server."
+    );
     aboutEmbed.addField(
       "Version:",
       process.env.npm_package_version || "unknown version",
@@ -22,16 +24,8 @@ export const handleAbout: CommandHandler = async (Heptagram, interaction) => {
     );
     aboutEmbed.addField("Date Created:", "Mar 26, 2021", true);
     aboutEmbed.addField("Number of Guilds:", guilds.toString(), true);
-    aboutEmbed.addField(
-      "Number of Members:",
-      members.toString(),
-      true
-    );
-    aboutEmbed.addField(
-     "Number of Commands:",
-      commands.toString(),
-      true
-    );
+    aboutEmbed.addField("Number of Members:", members.toString(), true);
+    aboutEmbed.addField("Number of Commands:", commands.toString(), true);
     aboutEmbed.setFooter({
       text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,

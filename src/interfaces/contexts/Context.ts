@@ -15,6 +15,6 @@ export interface Context {
    */
   run: (
     Heptagram: Heptagram,
-    interaction: ContextMenuInteraction,
+    interaction: ContextMenuInteraction
   ) => Promise<void>;
 }

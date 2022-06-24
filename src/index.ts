@@ -100,7 +100,6 @@ void (async () => {
   Heptagram.user?.setActivity("over your guild", {
     type: "WATCHING",
   });
-
 })();
 
 export default Heptagram;

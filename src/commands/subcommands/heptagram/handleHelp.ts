@@ -15,20 +15,11 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
     helpEmbed.setDescription("Here are some ways to interact with Heptagram.");
     helpEmbed.addField(
       "Contact the developer team:",
-      "Use the `Support Server` button.",
+      "Use the `Support Server` button."
     );
-    helpEmbed.addField(
-      "Access the Heptagram Docs:",
-      "Use the `Docs` button.",
-    );
-    helpEmbed.addField(
-      "Source Code:",
-      "Use the `Source Code` button.",
-    );
-    helpEmbed.addField(
-      "Report a bug:",
-      "Use the `Report a Bug` button.",
-    );
+    helpEmbed.addField("Access the Heptagram Docs:", "Use the `Docs` button.");
+    helpEmbed.addField("Source Code:", "Use the `Source Code` button.");
+    helpEmbed.addField("Report a bug:", "Use the `Report a Bug` button.");
     helpEmbed.setFooter({
       text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
@@ -49,13 +40,13 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
     const docsButton = new MessageButton()
       .setLabel("Docs")
       .setStyle("LINK")
-      .setURL(
-        "https://docs.heptagrambotproject.com"
-      );
+      .setURL("https://docs.heptagrambotproject.com");
     const bugButton = new MessageButton()
       .setLabel("Report a bug")
       .setStyle("LINK")
-      .setURL("https://github.com/heptagram-bot-project/discord-bot/issues/new/choose");
+      .setURL(
+        "https://github.com/heptagram-bot-project/discord-bot/issues/new/choose"
+      );
 
     const row = new MessageActionRow().addComponents([
       supportServerButton,

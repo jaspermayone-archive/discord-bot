@@ -1,5 +1,5 @@
 export interface HeptagramCounts {
-    commands: number;
-    guilds: number;
-    members: number;
-  }
+  commands: number;
+  guilds: number;
+  members: number;
+}

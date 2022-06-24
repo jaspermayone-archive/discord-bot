@@ -10,7 +10,7 @@ import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
  */
 export const handlePing: CommandHandler = async (
   Heptagram,
-  interaction,
+  interaction
 ): Promise<void> => {
   try {
     const receivedInteraction = Date.now();
@@ -27,23 +27,15 @@ export const handlePing: CommandHandler = async (
 
     const pingEmbed = new MessageEmbed();
     pingEmbed.setTitle("Heptagram's response time");
-    pingEmbed.setDescription("The response time is calculated by the bot's components.");
-    pingEmbed.addField(
-      "Discord:",
-      `${discordLatency} ms`,
-      true
+    pingEmbed.setDescription(
+      "The response time is calculated by the bot's components."
     );
-    pingEmbed.addField(
-      "Websocket:",
-      `${websocketLatency} ms`,
-      true
+    pingEmbed.addField("Discord:", `${discordLatency} ms`, true);
+    pingEmbed.addField("Websocket:", `${websocketLatency} ms`, true);
+    pingEmbed.addField("Database:", `${databaseLatency} ms`, true);
+    pingEmbed.setColor(
+      isSlow ? Heptagram.colors.error : Heptagram.colors.success
     );
-    pingEmbed.addField(
-      "Database:",
-      `${databaseLatency} ms`,
-      true
-    );
-    pingEmbed.setColor(isSlow ? Heptagram.colors.error : Heptagram.colors.success);
 
     await interaction.editReply({ embeds: [pingEmbed] });
   } catch (err) {
