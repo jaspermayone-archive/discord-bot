@@ -57,9 +57,8 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "yarn eslint --fix",
       "yarn prettier --write --color",
-      "yarn alex --ignore-unknown --color --fix './**/*.ts'"
+      "yarn alex --fix"
     ]
   }
 }

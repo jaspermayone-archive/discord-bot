@@ -3,12 +3,12 @@
 Thank you for your interest in contributing to the Heptagram Bot!  We have extensive documentation below to do our best to make your contribution journey as smooth as possible.
 
 # Our Discord Server
- If you ever need support with contributing to the bot, you can alway join our discord server at <https://discord.gg/yHFQWNtNDt>, where we have staff and knowledgeable people to help you out! 
+ If you ever need support with contributing to the bot, you can alway join our discord server at <https://discord.gg/yHFQWNtNDt>, where we have staff and knowledgeable people to help you out!
 
- In this server you can also interact with the main bot, hang out with other Heptagram community members, and use our collection of Heptagram stickers and emojis!
+ In this server you can also interact with the main bot, chat with other Heptagram community members, and use our collection of Heptagram stickers and emojis!
 
- # Special Roles and Contribution Perks
-If you have made a contribution to any of our projects, you quallify for a few special perks.
+ # Awsome Roles and Contribution Perks
+If you have made a contribution to any of our projects, you quallify for a few awsome perks.
 
 *To redeem **ANY** of these perks, you need to be a member of our discord server*
 
@@ -32,7 +32,7 @@ We use Github Issues to plan new features and track bugs. Our Github issues are 
  ## Contributon Workflow
 
 ### Find a feature or bug you want to work on.
-Step 1 is to find an feature or bug [Issues Page](https://github.com/Heptagram-Bot-Project/bot/issues) that you can do, or would like to try (you can always ask for help or to be unassigned). 
+Step 1 is to find an feature or bug [Issues Page](https://github.com/Heptagram-Bot-Project/bot/issues) that you can do, or would like to try (you can always ask for help or to be unassigned).
 
 ### Assign yourself to the issue
 Step 2 is when you have found what you would like to work on. When you have, please comment *.take* on the issue, and it will be automaticly assigned to you by one of our freindly bots.
@@ -43,7 +43,7 @@ Step 2 is when you have found what you would like to work on. When you have, ple
 Step 3 is to create a fork or branch. **All** work should be done on a fork unless you have been added as a contributor. In that case, please use a branch off of main. We update our branches with changes frequently, so make sure to [keep your fork up to date](https://dev.to/giannellitech/keeping-your-fork-up-to-date-klh)
 
 #### Branch naming pattern
-If working on a branch, please name your branch accordingly. 
+If working on a branch, please name your branch accordingly.
 
 For a bug:
 bug/*YourGithubUsername*/*IssueNumberHere*
@@ -52,14 +52,14 @@ For a feature:
 feat/*YourGithubUsername*/*IssueNumberHere*
 
 ### Making changes
-Step 4 is to make the necessary changes then commit your files/changes. 
+Step 4 is to make the necessary changes then commit your files/changes.
 
 *Note: we do not follow a commit naming scheme. You will see commits from J-dogcoder include emojis, but that is entirely optional!*
 
 ### Check README, docs and Package.json
 Step 5 is if you made changes that require updates to the documentation, making sure to update them. Also don't forget to update the version number in the package.json file!
 
-*Need help with what place on to bump on the package.json? When you open a PR, the template will give you guidence. If confused, just check your best guess, and the PR reviewer will fix it if nessisary.*
+*Need help with what place on to bump on the package.json? When you open a PR, the template will give you guidence. If confused, try your best guess, and the PR reviewer will fix it if nessisary.*
 
 **DOCS: our docs don't exist yet, so don't worry about this for now. Interested in spearheading the docs project? Reach out to J-dogcoder via the discord server.**
 
