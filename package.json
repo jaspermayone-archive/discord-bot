@@ -6,10 +6,9 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon --quiet --watch './**/*.ts' --exec 'ts-node' src/index.ts",
-    "lint": "prettier --write --ignore-unknown --color './**/*.ts'",
-    "inclusitivity-lint": "alex --ignore-unknown --color --fix './**/*.ts'",
     "prepare": "husky install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "husky install"
   },
   "repository": "git+https://github.com/Heptagram-Bot/Heptagram.git",
   "author": "Jasper Mayone",
@@ -47,6 +46,7 @@
     "eslint-plugin-jsdoc": "^39.2.9",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.1"
@@ -54,5 +54,12 @@
   "engines": {
     "node": ">=16.10.0",
     "npm": "^8.0.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "yarn eslint --fix",
+      "yarn prettier --write --color",
+      "yarn alex --ignore-unknown --color --fix './**/*.ts'"
+    ]
   }
 }
