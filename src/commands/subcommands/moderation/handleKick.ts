@@ -1,7 +1,7 @@
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { customSubstring } from "../../../utils/customSubstring";
-import { errorEmbedGenerator } from "../../../utils/errorEmbedGenerator";
-import { heptagramErrorHandler } from "../../../utils/heptagramErrorHandler";
+import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
+import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
  * Provided the caller has permission, kicks the `target` user from the guild

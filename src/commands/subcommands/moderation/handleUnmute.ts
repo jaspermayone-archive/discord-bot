@@ -1,6 +1,6 @@
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
-import { errorEmbedGenerator } from "../../../utils/errorEmbedGenerator";
-import { heptagramErrorHandler } from "../../../utils/heptagramErrorHandler";
+import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
+import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
  * If the server has configured a muted role, removes it from the `target` for the

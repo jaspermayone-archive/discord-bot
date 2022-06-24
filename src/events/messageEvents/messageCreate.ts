@@ -4,7 +4,7 @@ import { Heptagram } from "../../interfaces/Heptagram";
 import { automodPhish } from "../../listeners/automod/automodPhish";
 import { automodListener } from "../../listeners/automodListener";
 import { heartsListener } from "../../listeners/heartsListener";
-import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
  * Handles the onMessage event. Validates that the message did not come from

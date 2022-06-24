@@ -6,8 +6,8 @@ import cors from "cors";
 import express from "express";
 
 import { Heptagram } from "../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
-import { heptagramLogHandler } from "../utils/heptagramLogHandler";
+import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
+import { heptagramLogHandler } from "../modules/heptagramLogHandler";
 
 /**
  * Spins up a basic web server for uptime monitoring.

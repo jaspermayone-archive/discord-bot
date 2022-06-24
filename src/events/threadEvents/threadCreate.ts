@@ -1,7 +1,7 @@
 import { ThreadChannel } from "discord.js";
 
 import { Heptagram } from "../../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
  * When a new thread is created, it joins

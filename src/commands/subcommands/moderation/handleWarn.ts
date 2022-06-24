@@ -1,6 +1,6 @@
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
-import { errorEmbedGenerator } from "../../../utils/errorEmbedGenerator";
-import { heptagramErrorHandler } from "../../../utils/heptagramErrorHandler";
+import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
+import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
  * Issues a warning to the `target` user, and adds it to the server's warning count.

@@ -1,8 +1,7 @@
 import * as child from "child_process";
-import { Snowflake } from "discord.js";
 
 import { Heptagram } from "../interfaces/Heptagram";
-import { heptagramLogHandler } from "./heptagramLogHandler";
+import { heptagramLogHandler } from "../modules/heptagramLogHandler";
 
 /**
  * Validates that all expected environment variables are set with *some* value.

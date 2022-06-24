@@ -2,7 +2,7 @@ import { MessageEmbed } from "discord.js";
 import { connect } from "mongoose";
 
 import { Heptagram } from "../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 /**
  * Instantiates the database connection.

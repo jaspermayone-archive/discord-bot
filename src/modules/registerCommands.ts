@@ -3,10 +3,9 @@ import {
   RESTPostAPIApplicationCommandsJSONBody,
   RESTPostAPIChatInputApplicationCommandsJSONBody,
   Routes,
-  Snowflake,
 } from "discord-api-types/v9";
 
-import Heptagram from "../index";
+import { Heptagram } from "../interfaces/Heptagram";
 import { heptagramErrorHandler } from "./heptagramErrorHandler";
 import { heptagramLogHandler } from "./heptagramLogHandler";
 

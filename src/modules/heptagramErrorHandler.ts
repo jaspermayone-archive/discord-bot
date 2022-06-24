@@ -8,7 +8,7 @@ import { Types } from "mongoose";
 
 import { Heptagram } from "../interfaces/Heptagram";
 
-import { customSubstring } from "./customSubstring";
+import { customSubstring } from "../utils/customSubstring";
 import { heptagramLogHandler } from "./heptagramLogHandler";
 
 /**

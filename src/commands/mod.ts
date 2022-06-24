@@ -5,8 +5,8 @@ import {
 
 import { Command } from "../interfaces/commands/Command";
 import { CommandHandler } from "../interfaces/commands/CommandHandler";
-import { errorEmbedGenerator } from "../utils/errorEmbedGenerator";
-import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
+import { errorEmbedGenerator } from "../modules/errorEmbedGenerator";
+import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 import { handleInvalidSubcommand } from "./subcommands/handleInvalidSubcommand";
 import { handleBan } from "./subcommands/moderation/handleBan";

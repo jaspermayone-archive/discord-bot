@@ -1,9 +1,10 @@
 import io from "@pm2/io";
 import Gauge from "@pm2/io/build/main/utils/metrics/gauge";
 import Meter from "@pm2/io/build/main/utils/metrics/meter";
-import { Client, ColorResolvable, Snowflake, WebhookClient } from "discord.js";
+import { Client, ColorResolvable, WebhookClient } from "discord.js";
 
 import { Command } from "./commands/Command";
+import { Context } from "./contexts/Context";
 
 /**
  * Model used to pass around Heptagrams's Discord client instance with additional
@@ -35,6 +36,7 @@ export interface Heptagram extends Client {
     error: ColorResolvable;
   };
   commands: Command[];
+  contexts: Context[];
   usersToHeart: string[];
   pm2: {
     client: typeof io;

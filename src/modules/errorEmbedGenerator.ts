@@ -7,7 +7,7 @@ import { Heptagram } from "../interfaces/Heptagram";
  * Generates an embed containing a unique ID for an error and instructions for
  * joining the support server and requesting assistance.
  *
- * @param {BeccaLyria} Heptagram's Discord instance.
+ * @param {Heptagram} Heptagram's Discord instance.
  * @param {string} commandName The name of the command that generated the error.
  * @param {Types.ObjectId} errorId The unique ID for the error.
  * @returns {MessageEmbed} The Discord embed containing the information.

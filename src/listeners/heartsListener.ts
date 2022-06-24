@@ -1,5 +1,5 @@
 import { Listener } from "../interfaces/listeners/Listener";
-import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 /**
  * Checks the server settings to see if the user that sent the message

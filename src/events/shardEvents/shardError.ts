@@ -1,5 +1,5 @@
 import { Heptagram } from "../../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
  * Passes the shardError event to Heptagram's error handler.

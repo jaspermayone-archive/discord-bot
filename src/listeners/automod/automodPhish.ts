@@ -3,7 +3,7 @@ import axios from "axios";
 import { MessageEmbed } from "discord.js";
 
 import { ListenerHandler } from "../../interfaces/listeners/ListenerHandler";
-import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
  * Handles phishing links.

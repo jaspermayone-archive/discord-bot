@@ -2,7 +2,7 @@ import { CommandInteraction } from "discord.js";
 
 import UsageModel from "../database/models/UsageModel";
 import { Heptagram } from "../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 /**
  * Tracks anonymous slash command usage to see which are popular

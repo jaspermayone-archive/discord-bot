@@ -1,7 +1,7 @@
 import { MessageEmbed } from "discord.js";
 
 import { Heptagram } from "../../interfaces/Heptagram";
-import { heptagramLogHandler } from "../../utils/heptagramLogHandler";
+import { heptagramLogHandler } from "../../modules/heptagramLogHandler";
 
 /**
  * Sends a notification to the debug hook when Heptagram has connected to
@@ -18,7 +18,10 @@ export const ready = async (Heptagram: Heptagram): Promise<void> => {
   );
   readyEmbed.setTimestamp();
   readyEmbed.setColor(Heptagram.colors.success);
-  readyEmbed.setFooter({ text: `Heptagram v${Heptagram.configs.version}` });
+  readyEmbed.setFooter({
+    text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+    iconURL: `${Heptagram.user?.avatarURL()}`,
+  });
 
   await Heptagram.debugHook.send({ embeds: [readyEmbed] });
   heptagramLogHandler.log("debug", "Discord ready!");

@@ -5,12 +5,12 @@ import { IntentOptions, PartialsOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
 import { handleEvents } from "./events/handleEvents";
 import { Heptagram } from "./interfaces/Heptagram";
+import { heptagramErrorHandler } from "./modules/heptagramErrorHandler";
+import { heptagramLogHandler } from "./modules/heptagramLogHandler";
+import { loadCommands } from "./modules/loadCommands";
+import { loadPM2 } from "./modules/loadPM2";
+import { registerCommands } from "./modules/registerCommands";
 import { createServer } from "./server/serve";
-import { heptagramErrorHandler } from "./utils/heptagramErrorHandler";
-import { heptagramLogHandler } from "./utils/heptagramLogHandler";
-import { loadCommands } from "./utils/loadCommands";
-import { loadPM2 } from "./utils/loadPM2";
-import { registerCommands } from "./utils/registerCommands";
 import { validateEnv } from "./utils/validateEnv";
 import { validateNode } from "./utils/validateNode";
 
@@ -30,7 +30,7 @@ void (async () => {
   }) as Heptagram;
 
   heptagramLogHandler.log("debug", "Validating environment variables...");
-  const validatedEnvironment = validateEnv(Heptagram, );
+  const validatedEnvironment = validateEnv(Heptagram);
   if (!validatedEnvironment.valid) {
     heptagramLogHandler.log("error", `${validatedEnvironment.message}`);
     return;
@@ -100,6 +100,7 @@ void (async () => {
   Heptagram.user?.setActivity("over your guild", {
     type: "WATCHING",
   });
+
 })();
 
 export default Heptagram;

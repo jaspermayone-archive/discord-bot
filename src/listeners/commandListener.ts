@@ -3,7 +3,7 @@ import { CommandInteraction } from "discord.js";
 
 import CommandCountModel from "../database/models/CommandCountModel";
 import { Heptagram } from "../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 /**
  * Tracks command usage on a server basis, along with updates

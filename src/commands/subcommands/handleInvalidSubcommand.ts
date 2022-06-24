@@ -1,5 +1,5 @@
 import { CommandHandler } from "../../interfaces/commands/CommandHandler";
-import { heptagramErrorHandler } from "../../utils/heptagramErrorHandler";
+import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
  * This handles a case where a proper subcommand handler isn't found.

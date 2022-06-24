@@ -15,7 +15,7 @@ export interface Command {
   /**
    * Handles the logic for running a given command.
    *
-   * @param {BeccaLyria} Heptagram's Discord instance.
+   * @param {Heptagram} Heptagram's Discord instance.
    * @param {CommandInteraction} interaction The interaction payload from Discord.
    */
   run: (Heptagram: Heptagram, interaction: CommandInteraction) => Promise<void>;

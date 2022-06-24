@@ -1,4 +1,4 @@
-import { heptagramLogHandler } from "./heptagramLogHandler";
+import { heptagramLogHandler } from "../modules/heptagramLogHandler";
 
 /**
  * Validates some important things that the bot needs to be able to run.
