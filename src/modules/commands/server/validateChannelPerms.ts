@@ -29,14 +29,18 @@ export const validateChannelPerms = async (
     const kickMembers = HeptagramBot.permissionsIn(channel.id).has(
       "KICK_MEMBERS"
     );
-    const banMembers = HeptagramBot.permissionsIn(channel.id).has("BAN_MEMBERS");
+    const banMembers = HeptagramBot.permissionsIn(channel.id).has(
+      "BAN_MEMBERS"
+    );
     const sendMessages = HeptagramBot.permissionsIn(channel.id).has(
       "SEND_MESSAGES"
     );
     const manageMessages = HeptagramBot.permissionsIn(channel.id).has(
       "MANAGE_MESSAGES"
     );
-    const embedLinks = HeptagramBot.permissionsIn(channel.id).has("EMBED_LINKS");
+    const embedLinks = HeptagramBot.permissionsIn(channel.id).has(
+      "EMBED_LINKS"
+    );
     const attachFiles = HeptagramBot.permissionsIn(channel.id).has(
       "ATTACH_FILES"
     );
@@ -119,7 +123,7 @@ export const validateChannelPerms = async (
         inline: true,
       },
       {
-        name:  "Add Reactions",
+        name: "Add Reactions",
         value: `${addReactions}`,
         inline: true,
       },
@@ -152,7 +156,7 @@ export const validateChannelPerms = async (
     permissionEmbed.setColor(Heptagram.colors.default);
     permissionEmbed.setTimestamp();
     permissionEmbed.setFooter({
-      text: `ID: ${channel.id}`
+      text: `ID: ${channel.id}`,
     });
 
     await channel.send({ embeds: [permissionEmbed] });
@@ -176,7 +180,11 @@ export const validateChannelPerms = async (
       readMessages
     );
   } catch (err) {
-    await heptagramErrorHandler(Heptagram, "validate channel perms module", err);
+    await heptagramErrorHandler(
+      Heptagram,
+      "validate channel perms module",
+      err
+    );
     return false;
   }
 };

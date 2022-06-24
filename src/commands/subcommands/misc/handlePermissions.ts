@@ -13,7 +13,7 @@ import { getRandomValue } from "../../../utils/getRandomValue";
  */
 export const handlePermissions: CommandHandler = async (
   Heptagram,
-  interaction,
+  interaction
 ) => {
   try {
     const { channel, guild, member } = interaction;
@@ -21,7 +21,8 @@ export const handlePermissions: CommandHandler = async (
     if (!guild || !member || !channel) {
       await interaction.editReply({
         content:
-          "I'm sorry, but I don't know what channel or server you're in. " + "Are you sure you're in a server?",
+          "I'm sorry, but I don't know what channel or server you're in. " +
+          "Are you sure you're in a server?",
       });
       return;
     }
@@ -40,7 +41,8 @@ export const handlePermissions: CommandHandler = async (
 
     if (!HeptagramBot) {
       await interaction.editReply({
-        content: "I am missing permissions in this server. Please contact the server owner.",
+        content:
+          "I am missing permissions in this server. Please contact the server owner.",
       });
       return;
     }
@@ -64,12 +66,12 @@ export const handlePermissions: CommandHandler = async (
 
     const validEmbed = new MessageEmbed();
     validEmbed.setTitle(
-      areValid
-        ? "Permssions are valid."
-        : "Permissions are invalid."
+      areValid ? "Permssions are valid." : "Permissions are invalid."
     );
     validEmbed.setDescription(descriptionString);
-    validEmbed.setColor(areValid ? Heptagram.colors.success : Heptagram.colors.error);
+    validEmbed.setColor(
+      areValid ? Heptagram.colors.success : Heptagram.colors.error
+    );
     validEmbed.setFooter({
       text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,

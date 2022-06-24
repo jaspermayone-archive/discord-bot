@@ -40,7 +40,7 @@ Heptagram has a community Discord server. You can join it at [https://discord.gg
 
 👤 **J-dogcoder**
 
-* GitHub: [@J-dogcoder](https://github.com/J-dogcoder)
+- GitHub: [@J-dogcoder](https://github.com/J-dogcoder)
 
 ## Show your support
 

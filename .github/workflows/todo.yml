@@ -1,10 +1,10 @@
-    name: "To-Do Workflow"
-    on: ["push"]
-    jobs:
-      build:
-        runs-on: "ubuntu-latest"
-        steps:
-          - uses: "actions/checkout@master"
-          - name: "TODO to Issue"
-            uses: "alstr/todo-to-issue-action@v4.6.2"
-            id: "todo"
+name: "To-Do Workflow"
+on: ["push"]
+jobs:
+  build:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@master"
+      - name: "TODO to Issue"
+        uses: "alstr/todo-to-issue-action@v4.6.2"
+        id: "todo"

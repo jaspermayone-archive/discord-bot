@@ -1,7 +1,12 @@
 name: Feature request
 description: Suggest an idea for this project
 title: "[FEAT] - "
-labels:  ["🚦 status: awaiting triage 🚦", "🧹 status: ticket work required 🧹", "✨ Feature Request ✨",]
+labels:
+  [
+    "🚦 status: awaiting triage 🚦",
+    "🧹 status: ticket work required 🧹",
+    "✨ Feature Request ✨",
+  ]
 assignees: "j-dogcoder"
 body:
   - type: markdown

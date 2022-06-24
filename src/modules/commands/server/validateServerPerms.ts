@@ -93,7 +93,7 @@ export const validateServerPerms = async (
         inline: true,
       },
       {
-        name:  "Add Reactions",
+        name: "Add Reactions",
         value: `${addReactions}`,
         inline: true,
       },
@@ -126,7 +126,7 @@ export const validateServerPerms = async (
     permissionEmbed.setColor(Heptagram.colors.default);
     permissionEmbed.setTimestamp();
     permissionEmbed.setFooter({
-      text: `ID: ${channel.id}`
+      text: `ID: ${channel.id}`,
     });
 
     await channel.send({ embeds: [permissionEmbed] });

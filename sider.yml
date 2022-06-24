@@ -5,7 +5,6 @@
 
 # Customize each tool. If analyses fail, try adjusting each option referencing the following example.
 linter:
-
 #   # ESLint example. See https://help.sider.review/tools/javascript/eslint
 #   eslint:
 #     root_dir: project/

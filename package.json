@@ -40,18 +40,23 @@
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
     "alex": "^10.0.0",
-    "eslint": "^8.17.0",
+    "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsdoc": "^39.2.9",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
     "nodemon": "^2.0.16",
-    "prettier": "^2.6.2",
+    "prettier": "2.7.1",
+    "prettier-eslint": "^15.0.1",
     "ts-node": "^10.8.1"
   },
   "engines": {
     "node": ">=16.10.0",
     "npm": "^8.0.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --color --ignore-unknown"
   }
 }

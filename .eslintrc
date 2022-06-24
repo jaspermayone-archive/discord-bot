@@ -8,10 +8,7 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "import"
-  ],
+  "plugins": ["@typescript-eslint", "import"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -22,29 +19,13 @@
   ],
   "rules": {
     "prefer-const": "error",
-    "eqeqeq": [
-      "error",
-      "always"
-    ],
-    "curly": [
-      "error"
-    ],
-    "require-atomic-updates": [
-      "error"
-    ],
-    "no-var": [
-      "error"
-    ],
-    "init-declarations": [
-      "error",
-      "always"
-    ],
-    "require-await": [
-      "error"
-    ],
-    "no-param-reassign": [
-      "error"
-    ],
+    "eqeqeq": ["error", "always"],
+    "curly": ["error"],
+    "require-atomic-updates": ["error"],
+    "no-var": ["error"],
+    "init-declarations": ["error", "always"],
+    "require-await": ["error"],
+    "no-param-reassign": ["error"],
     "import/first": "error",
     "import/exports-last": "error",
     "import/newline-after-import": "error",
