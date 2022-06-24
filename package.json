@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon --quiet --watch './**/*.ts' --exec 'ts-node' src/index.ts",
-    "lint": "prettier --write --ignore-unknown --color './**/*.ts' && git add . && git commit -m '[pre-commit bot] Push Linted!' --no-verify",
+    "lint": "prettier --write --ignore-unknown --color './**/*.ts'",
     "inclusitivity-lint": "alex --ignore-unknown --color --fix './**/*.ts'",
     "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
