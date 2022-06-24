@@ -5,9 +5,9 @@ import {
   Routes,
 } from "discord-api-types/v9";
 
-import { Heptagram } from "../interfaces/Heptagram";
-import { heptagramErrorHandler } from "./heptagramErrorHandler";
-import { heptagramLogHandler } from "./heptagramLogHandler";
+import { Heptagram } from "../../interfaces/Heptagram"
+import { heptagramErrorHandler } from "../heptagramErrorHandler"
+import { heptagramLogHandler } from "../heptagramLogHandler"
 
 /**
  * Takes both the commands and contexts, parses the `data` properties as needed,
