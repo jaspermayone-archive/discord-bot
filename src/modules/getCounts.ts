@@ -30,7 +30,7 @@ export const getCounts = (Heptagram: Heptagram): HeptagramCounts => {
     });
   });
 
-  commandCount += Heptagram.contexts.length;
+  commandCount += Heptagram.commands.length;
 
   return {
     commands: commandCount,
