@@ -1,7 +1,13 @@
 name: Documentation
 description: Request an update to invalid/outdated documentation
 title: "[DOC] - "
-labels:  ["🧹 status: ticket work required 🧹", "priority: medium", " 📖 documentation 📖", 🚦 status: awaiting triage 🚦]
+labels:
+  [
+    "🧹 status: ticket work required 🧹",
+    "priority: medium",
+    " 📖 documentation 📖",
+    🚦 status: awaiting triage 🚦,
+  ]
 assignees: "j-dogcoder"
 body:
   - type: markdown

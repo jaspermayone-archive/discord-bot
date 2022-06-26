@@ -13,12 +13,12 @@
 Closes #XXXXX
 
 ## Version
+
 Did you remember to update the version number in the package.json file?
 
 - [ ] For a nmajor restructuring, or large changes please bump the the major version number. (ex: 1.x.x)
 - [ ] For a minor change, bump the minor version number. (ex: x.1.x)
 - [ ] For a bug fix, bump the patch version number. (ex: x.x.1)
-
 
 ## Documentation
 
