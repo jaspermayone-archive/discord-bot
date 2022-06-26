@@ -4,6 +4,7 @@ import { Heptagram } from "../../interfaces/Heptagram";
 import { automodPhish } from "../../listeners/automod/automodPhish";
 import { automodListener } from "../../listeners/automodListener";
 import { heartsListener } from "../../listeners/heartsListener";
+import { runOwnerCommands } from "../../modules/events/runOwnerCommands";
 import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
@@ -36,6 +37,13 @@ export const messageCreate = async (
 
     await heartsListener.run(Heptagram, message);
     await automodListener.run(Heptagram, message);
+
+    if (
+      message.author.id === Heptagram.configs.ownerId &&
+      message.content.startsWith("OwnerCMD")
+    ) {
+      await runOwnerCommands(Heptagram, message);
+    }
 
     Heptagram.pm2.metrics.events.mark();
   } catch (err) {
