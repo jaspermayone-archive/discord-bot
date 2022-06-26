@@ -12,7 +12,7 @@ export const handleContact: CommandHandler = async (Heptagram, interaction) => {
     const discordButton = new MessageButton()
       .setStyle("LINK")
       .setLabel("Discord")
-      .setURL("https://discord.heptagrambotproject.com");
+      .setURL("https://links.heptagrambotproject.com/discord");
     const githubButton = new MessageButton()
       .setStyle("LINK")
       .setLabel("GitHub")

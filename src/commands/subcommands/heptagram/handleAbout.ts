@@ -34,11 +34,11 @@ export const handleAbout: CommandHandler = async (Heptagram, interaction) => {
     const supportServerButton = new MessageButton()
       .setLabel("Support Server")
       .setStyle("LINK")
-      .setURL("https://discord.heptagrambotproject.com");
+      .setURL("https://links.heptagrambotproject.com/discord");
     const inviteButton = new MessageButton()
       .setLabel("Invite Heptagram")
       .setStyle("LINK")
-      .setURL("https://invite.heptagrambotproject.com");
+      .setURL("https://links.heptagrambotproject.com/invite");
     const codeButton = new MessageButton()
       .setLabel("GitHub Repository")
       .setStyle("LINK")

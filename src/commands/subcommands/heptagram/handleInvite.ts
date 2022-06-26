@@ -26,7 +26,7 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
     const inviteButton = new MessageButton()
       .setLabel("Invite Heptagram")
       .setStyle("LINK")
-      .setURL("https://invite.heptagrambotproject.com");
+      .setURL("https://links.heptagrambotproject.com/invite");
 
     const row = new MessageActionRow().addComponents([inviteButton]);
 
