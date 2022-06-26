@@ -1,11 +1,10 @@
 import { GuildMember, MessageEmbed } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
-import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { validateChannelPerms } from "../../../modules/commands/server/validateChannelPerms";
 import { validateServerPerms } from "../../../modules/commands/server/validateServerPerms";
+import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
-import { getRandomValue } from "../../../utils/getRandomValue";
 
 /**
  * Validates that Heptagram has the correct permissions in the server and the

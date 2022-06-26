@@ -26,7 +26,7 @@ export const handlePing: CommandHandler = async (
       discordLatency > 100 || websocketLatency > 100 || databaseLatency > 100;
 
     const pingEmbed = new MessageEmbed();
-    pingEmbed.setTitle("Heptagram's response time");
+    pingEmbed.setTitle("Heptagram's Response Time:");
     pingEmbed.setDescription(
       "The response time is calculated by the bot's components."
     );

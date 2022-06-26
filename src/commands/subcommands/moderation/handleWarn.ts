@@ -29,7 +29,7 @@ export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
       targetMember.permissions.has("KICK_MEMBERS")
     ) {
       await interaction.editReply({
-        content: "You don't have permission to do that!",
+        content: "You don't have permission to kick that user!",
       });
       return;
     }

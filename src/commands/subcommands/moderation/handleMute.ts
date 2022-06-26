@@ -1,7 +1,7 @@
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
-import { calculateMilliseconds } from "../../../utils/calculateMilliseconds";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
+import { calculateMilliseconds } from "../../../utils/calculateMilliseconds";
 
 /**
  * If the server has configured a muted role, applies that role to the `target`

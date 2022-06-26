@@ -1,3 +1,4 @@
+/* eslint-disable require-atomic-updates */
 import { Client, WebhookClient } from "discord.js";
 import "dotenv/config";
 
@@ -5,17 +6,20 @@ import { IntentOptions, PartialsOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
 import { handleEvents } from "./events/handleEvents";
 import { Heptagram } from "./interfaces/Heptagram";
+import { loadCommands } from "./modules/commands/loadCommands";
+import { loadContexts } from "./modules/commands/loadContexts";
+import { registerCommands } from "./modules/commands/registerCommands";
 import { heptagramErrorHandler } from "./modules/heptagramErrorHandler";
 import { heptagramLogHandler } from "./modules/heptagramLogHandler";
-import { loadCommands } from "./modules/loadCommands";
 import { loadPM2 } from "./modules/loadPM2";
-import { registerCommands } from "./modules/registerCommands";
 import { createServer } from "./server/serve";
 import { validateEnv } from "./utils/validateEnv";
 import { validateNode } from "./utils/validateNode";
 
 void (async () => {
-  const validatedNode = validateNode();
+  heptagramLogHandler.log("debug", "Starting bot...");
+
+  const validatedNode = await validateNode();
   if (!validatedNode.valid) {
     heptagramLogHandler.log("error", validatedNode.message);
     process.exit(1);
@@ -30,7 +34,7 @@ void (async () => {
   }) as Heptagram;
 
   heptagramLogHandler.log("debug", "Validating environment variables...");
-  const validatedEnvironment = validateEnv(Heptagram);
+  const validatedEnvironment = await validateEnv(Heptagram);
   if (!validatedEnvironment.valid) {
     heptagramLogHandler.log("error", `${validatedEnvironment.message}`);
     return;
@@ -39,7 +43,7 @@ void (async () => {
   }
 
   heptagramLogHandler.log("debug", "Loading PM2...");
-  const loadedPM2 = loadPM2(Heptagram);
+  const loadedPM2 = await loadPM2(Heptagram);
   if (!loadedPM2) {
     heptagramLogHandler.log("error", "Unable to load Grafana metrics");
     return;
@@ -51,10 +55,12 @@ void (async () => {
 
   process.on("unhandledRejection", async (error: Error) => {
     await heptagramErrorHandler(Heptagram, "Unhandled Rejection Error", error);
+    await heptagramLogHandler.log("error", error);
   });
 
   process.on("uncaughtException", async (error) => {
     await heptagramErrorHandler(Heptagram, "Uncaught Exception Error", error);
+    await heptagramLogHandler.log("error", error);
   });
 
   heptagramLogHandler.log("debug", "Initialising web server...");
@@ -66,9 +72,10 @@ void (async () => {
 
   heptagramLogHandler.log("debug", "Importing commands...");
   const commands = await loadCommands(Heptagram);
-  // eslint-disable-next-line require-atomic-updates
+  const contexts = await loadContexts(Heptagram);
   Heptagram.commands = commands;
-  if (!commands.length) {
+  Heptagram.contexts = contexts;
+  if (!commands.length /*|| !contexts.length*/) {
     heptagramLogHandler.log("error", "failed to import commands.");
     return;
   }

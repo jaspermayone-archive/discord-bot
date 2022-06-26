@@ -22,34 +22,11 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
     const uptimeEmbed = new MessageEmbed();
     uptimeEmbed.setTitle("Uptime:");
     uptimeEmbed.setColor(Heptagram.colors.default);
-    uptimeEmbed.setDescription(
-      "Heptagram has been online for:" +
-        "Days:" +
-        days.toString() +
-        "hours:" +
-        hours.toString() +
-        "minutes:" +
-        minutes.toString() +
-        "seconds:" +
-        secondsRemain.toString()
-    );
-    /*
-    uptimeEmbed.addField(
-      t("commands:becca.uptime.hours"),
-      hours.toString(),
-      true
-    );
-    uptimeEmbed.addField(
-      t("commands:becca.uptime.minutes"),
-      minutes.toString(),
-      true
-    );
-    uptimeEmbed.addField(
-      t("commands:becca.uptime.seconds"),
-      secondsRemain.toString(),
-      true
-    );
-    */
+    uptimeEmbed.setDescription("Heptagram has been online for:");
+    uptimeEmbed.addField("Days:", days.toString(), true);
+    uptimeEmbed.addField("Hours:", hours.toString(), true);
+    uptimeEmbed.addField("Minutes:", minutes.toString(), true);
+    uptimeEmbed.addField("Seconds:", secondsRemain.toString(), true);
     uptimeEmbed.setTimestamp();
     uptimeEmbed.setFooter({
       text: `Message sent by Heptagram || v${process.env.npm_package_version}`,

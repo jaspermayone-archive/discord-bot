@@ -2,6 +2,7 @@ import { Heptagram } from "../interfaces/Heptagram";
 
 import { disconnect } from "./clientEvents/disconnect";
 import { ready } from "./clientEvents/ready";
+import { interactionCreate } from "./interactionEvents/interactionCreate";
 import { messageCreate } from "./messageEvents/messageCreate";
 import { shardError } from "./shardEvents/shardError";
 import { shardReady } from "./shardEvents/shardReady";
@@ -34,5 +35,9 @@ export const handleEvents = (Heptagram: Heptagram): void => {
 
   Heptagram.on("threadCreate", async (thread) => {
     await threadCreate(Heptagram, thread);
+  });
+
+  Heptagram.on("interactionCreate", async (interaction) => {
+    await interactionCreate(Heptagram, interaction);
   });
 };

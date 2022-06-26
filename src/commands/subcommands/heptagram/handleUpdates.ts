@@ -24,7 +24,6 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
       process.env.npm_package_version || "0.0.0"
     );
     updateEmbed.addField("Next release:", nextScheduledRelease);
-    updateEmbed.addField("Changelog ???", "Chage desctiption here???");
     updateEmbed.addField(
       "Commit hash:",
       `[${hash.slice(
