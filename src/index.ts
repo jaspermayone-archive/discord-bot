@@ -72,9 +72,9 @@ void (async () => {
 
   heptagramLogHandler.log("debug", "Importing commands...");
   const commands = await loadCommands(Heptagram);
-  const contexts = await loadContexts(Heptagram);
+  // const contexts = await loadContexts(Heptagram);
   Heptagram.commands = commands;
-  Heptagram.contexts = contexts;
+  //Heptagram.contexts = contexts;
   if (!commands.length /*|| !contexts.length*/) {
     heptagramLogHandler.log("error", "failed to import commands.");
     return;
