@@ -21,7 +21,7 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
     helpEmbed.addField("Source Code:", "Use the `Source Code` button.");
     helpEmbed.addField("Report a bug:", "Use the `Report a Bug` button.");
     helpEmbed.setFooter({
-      text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 

@@ -5,9 +5,9 @@ import {
   Routes,
 } from "discord-api-types/v9";
 
-import { Heptagram } from "../../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../heptagramErrorHandler";
-import { heptagramLogHandler } from "../heptagramLogHandler";
+import { Heptagram } from "../../../interfaces/Heptagram";
+import { heptagramErrorHandler } from "../../heptagramErrorHandler";
+import { heptagramLogHandler } from "../../heptagramLogHandler";
 
 /**
  * Takes both the commands and contexts, parses the `data` properties as needed,
@@ -38,10 +38,10 @@ export const registerCommands = async (
 
       commandData.push(data);
     });
+
     if (process.env.NODE_ENV === "production") {
       heptagramLogHandler.log("debug", "registering commands globally!");
 
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       await rest.put(Routes.applicationCommands(Heptagram.configs.id), {
         body: commandData,
       });

@@ -19,7 +19,7 @@ export const handleAbout: CommandHandler = async (Heptagram, interaction) => {
     );
     aboutEmbed.addField(
       "Version:",
-      process.env.npm_package_version || "unknown version",
+      Heptagram.version || "unknown version",
       true
     );
     aboutEmbed.addField("Date Created:", "Mar 26, 2021", true);
@@ -27,7 +27,7 @@ export const handleAbout: CommandHandler = async (Heptagram, interaction) => {
     aboutEmbed.addField("Number of Members:", members.toString(), true);
     aboutEmbed.addField("Number of Commands:", commands.toString(), true);
     aboutEmbed.setFooter({
-      text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 

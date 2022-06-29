@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from "axios";
-import { MessageEmbed } from "discord.js";
 
 import { ListenerHandler } from "../../interfaces/listeners/ListenerHandler";
 import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
@@ -28,8 +26,6 @@ export const automodPhish: ListenerHandler = async (Heptagram, message) => {
     }
 
     let scamDetected = false;
-    let scamLink = "";
-    let scamSource = "";
 
     for (const link of blockedLinkList) {
       const encodedLink = encodeURI(
@@ -65,72 +61,6 @@ export const automodPhish: ListenerHandler = async (Heptagram, message) => {
 
       if (checkHeptagramAPI.data.scamDetected) {
         scamDetected = true;
-        scamLink = link;
-        scamSource = "Heptagram";
-        break;
-      }
-
-      const checkWalshyAPI = await axios
-        .post<{
-          badDomain: boolean;
-          detection: "discord" | "community";
-        }>("https://bad-domains.walshy.dev/check", {
-          domain: link,
-        })
-        .catch(async (err) => {
-          await Heptagram.debugHook.send({
-            embeds: [
-              {
-                title: "Walshy Api Error",
-                description: JSON.stringify(err, null, 2),
-                fields: [
-                  {
-                    name: "Link Detected",
-                    value: link,
-                  },
-                ],
-              },
-            ],
-          });
-          return { data: { badDomain: false } };
-        });
-
-      if (checkWalshyAPI.data.badDomain) {
-        scamDetected = true;
-        scamLink = link;
-        scamSource = "walshy";
-        break;
-      }
-
-      const checkSinkingYachtsAPI = await axios
-        .get<boolean>(`https://phish.sinking.yachts/v2/check/${encodedLink}`, {
-          headers: {
-            accept: "application/json",
-            "X-Identity": "Heptagram Bot - built & coded by J-dogcoder",
-          },
-        })
-        .catch(async (err) => {
-          await Heptagram.debugHook.send({
-            embeds: [
-              {
-                title: "Sinking Yachts Api Error",
-                description: JSON.stringify(err, null, 2),
-                fields: [
-                  {
-                    name: "Link Detected",
-                    value: link,
-                  },
-                ],
-              },
-            ],
-          });
-          return { data: false };
-        });
-
-      if (checkSinkingYachtsAPI.data) {
-        scamDetected = true;
-        scamLink = link;
-        scamSource = "sinking yachts";
         break;
       }
     }

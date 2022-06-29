@@ -20,7 +20,9 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
     const secondsRemain = seconds - days * 86400 - hours * 3600 - minutes * 60;
 
     const uptimeEmbed = new MessageEmbed();
-    uptimeEmbed.setTitle("Uptime:");
+    uptimeEmbed.setTitle(
+      "<:status_online:951855000605298708> Uptime: <:status_online:951855000605298708>"
+    );
     uptimeEmbed.setColor(Heptagram.colors.default);
     uptimeEmbed.setDescription("Heptagram has been online for:");
     uptimeEmbed.addField("Days:", days.toString(), true);
@@ -29,7 +31,7 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
     uptimeEmbed.addField("Seconds:", secondsRemain.toString(), true);
     uptimeEmbed.setTimestamp();
     uptimeEmbed.setFooter({
-      text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 

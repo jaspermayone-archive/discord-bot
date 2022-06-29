@@ -19,10 +19,7 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
     updateEmbed.setTitle("Updates");
     updateEmbed.setDescription("Here are the updates since the last release.");
     updateEmbed.addField("Latest Updates:", updatesSinceLastRelease.join("\n"));
-    updateEmbed.addField(
-      "New version:",
-      process.env.npm_package_version || "0.0.0"
-    );
+    updateEmbed.addField("New version:", Heptagram.version || "0.0.0");
     updateEmbed.addField("Next release:", nextScheduledRelease);
     updateEmbed.addField(
       "Commit hash:",
@@ -33,7 +30,7 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
     );
     updateEmbed.setColor(Heptagram.colors.default);
     updateEmbed.setFooter({
-      text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 

@@ -18,7 +18,7 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
     );
     inviteEmbed.setColor(Heptagram.colors.default);
     inviteEmbed.setFooter({
-      text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
     inviteEmbed.setTimestamp();

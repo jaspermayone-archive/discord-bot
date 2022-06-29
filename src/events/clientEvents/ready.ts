@@ -12,14 +12,16 @@ import { heptagramLogHandler } from "../../modules/heptagramLogHandler";
 export const ready = async (Heptagram: Heptagram): Promise<void> => {
   heptagramLogHandler.log("debug", "Fetching reaction role data...");
   const readyEmbed = new MessageEmbed();
-  readyEmbed.setTitle("Heptagram is online");
+  readyEmbed.setTitle(
+    "<:status_online:951855000605298708> Heptagram is online <:status_online:951855000605298708>"
+  );
   readyEmbed.setDescription(
     `${Heptagram.user?.username || "Heptagram"} has come online.`
   );
   readyEmbed.setTimestamp();
   readyEmbed.setColor(Heptagram.colors.success);
   readyEmbed.setFooter({
-    text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+    text: `Message sent by Heptagram || ${Heptagram.version}`,
     iconURL: `${Heptagram.user?.avatarURL()}`,
   });
 

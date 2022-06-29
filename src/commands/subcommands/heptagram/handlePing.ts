@@ -14,28 +14,59 @@ export const handlePing: CommandHandler = async (
 ): Promise<void> => {
   try {
     const receivedInteraction = Date.now();
-    const { createdTimestamp } = interaction;
 
-    const discordLatency = receivedInteraction - createdTimestamp;
-    const websocketLatency = Heptagram.ws.ping;
+    const botLatency =
+      interaction.createdTimestamp - interaction.createdTimestamp;
+    const discordAPILatency = Math.round(interaction.client.ws.ping);
+    const wsLatency = interaction.client.ws.ping;
 
     await connection.db.admin().ping();
     const databaseLatency = Date.now() - receivedInteraction;
 
     const isSlow =
-      discordLatency > 100 || websocketLatency > 100 || databaseLatency > 100;
+      discordAPILatency > 100 || wsLatency > 100 || databaseLatency > 100;
 
     const pingEmbed = new MessageEmbed();
-    pingEmbed.setTitle("Heptagram's Response Time:");
-    pingEmbed.setDescription(
-      "The response time is calculated by the bot's components."
+    pingEmbed.setTitle(
+      isSlow
+        ? "<:status_offline:951855000538206238> Heptagram Pings <:status_offline:951855000538206238>"
+        : "<:status_online:951855000605298708> Heptagram Pings <:status_online:951855000605298708>"
     );
-    pingEmbed.addField("Discord:", `${discordLatency} ms`, true);
-    pingEmbed.addField("Websocket:", `${websocketLatency} ms`, true);
-    pingEmbed.addField("Database:", `${databaseLatency} ms`, true);
+    pingEmbed.addFields(
+      {
+        name: "Heptagram Bot Latency:",
+        value: `🏓 Bot latency is \`${botLatency}ms.\``,
+        inline: false,
+      },
+      {
+        name: "Discord API Latency:",
+        value: `\`${discordAPILatency}ms\``,
+        inline: false,
+      },
+      {
+        name: "Discord Websocket Heartbeat:",
+        value: `\`${wsLatency}ms.\``,
+        inline: false,
+      },
+      {
+        name: "Database Latency:",
+        value: `\`${databaseLatency}ms.\``,
+        inline: false,
+      },
+      {
+        name: "Heptagram API:",
+        value: "Ping coming soon!",
+        inline: false,
+      }
+    );
     pingEmbed.setColor(
       isSlow ? Heptagram.colors.error : Heptagram.colors.success
     );
+    pingEmbed.setTimestamp();
+    pingEmbed.setFooter({
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
+      iconURL: `${Heptagram.user?.avatarURL()}`,
+    });
 
     await interaction.editReply({ embeds: [pingEmbed] });
   } catch (err) {

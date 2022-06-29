@@ -12,6 +12,7 @@ import { Context } from "./contexts/Context";
  */
 export interface Heptagram extends Client {
   commitHash: string;
+  version: string;
   debugHook: WebhookClient;
   configs: {
     nodeEnv: string;

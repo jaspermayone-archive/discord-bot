@@ -72,7 +72,7 @@ export const handlePermissions: CommandHandler = async (
       areValid ? Heptagram.colors.success : Heptagram.colors.error
     );
     validEmbed.setFooter({
-      text: `Message sent by Heptagram || v${process.env.npm_package_version}`,
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 

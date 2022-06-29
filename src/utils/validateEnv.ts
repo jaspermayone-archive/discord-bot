@@ -61,6 +61,8 @@ export const validateEnv = (
       .toString()
       .trim();
 
+    Heptagram.version = `v${process.env.npm_package_version}`;
+
     const configs: Heptagram["configs"] = {
       nodeEnv: process.env.NODE_ENV,
       token: process.env.DISCORD_TOKEN,
@@ -71,7 +73,7 @@ export const validateEnv = (
       testGuildId: process.env.TEST_GUILD_ID,
       homeGuildId: process.env.HOME_GUILD_ID,
       heptagramApiToken: process.env.HEPTAGRAM_API_TOKEN,
-      version: process.env.npm_package_version || "null",
+      version: Heptagram.version || "null",
       love: process.env.HEPTAGRAM_LOVE,
       yes: "✅",
       no: "❌",
