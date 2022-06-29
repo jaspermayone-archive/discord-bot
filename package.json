@@ -44,7 +44,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsdoc": "^39.2.9",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "4.1.0",
     "husky": "^8.0.1",
     "lint-staged": "13.0.3",
     "nodemon": "^2.0.16",
