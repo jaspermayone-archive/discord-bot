@@ -17,53 +17,86 @@ export const validateChannelPerms = async (
   channel: TextBasedChannel
 ): Promise<boolean> => {
   try {
-    const manageServer = HeptagramBot.permissionsIn(channel.id).has(
-      "MANAGE_GUILD"
-    );
-    const manageRoles = HeptagramBot.permissionsIn(channel.id).has(
-      "MANAGE_ROLES"
-    );
-    const manageChannels = HeptagramBot.permissionsIn(channel.id).has(
-      "MANAGE_CHANNELS"
-    );
     const kickMembers = HeptagramBot.permissionsIn(channel.id).has(
       "KICK_MEMBERS"
     );
     const banMembers = HeptagramBot.permissionsIn(channel.id).has(
       "BAN_MEMBERS"
     );
-    const sendMessages = HeptagramBot.permissionsIn(channel.id).has(
-      "SEND_MESSAGES"
-    );
-    const manageMessages = HeptagramBot.permissionsIn(channel.id).has(
-      "MANAGE_MESSAGES"
-    );
-    const embedLinks = HeptagramBot.permissionsIn(channel.id).has(
-      "EMBED_LINKS"
-    );
-    const attachFiles = HeptagramBot.permissionsIn(channel.id).has(
-      "ATTACH_FILES"
-    );
-    const readMessageHistory = HeptagramBot.permissionsIn(channel.id).has(
-      "READ_MESSAGE_HISTORY"
-    );
-    const addReactions = HeptagramBot.permissionsIn(channel.id).has(
-      "ADD_REACTIONS"
-    );
-    const useEmotes = HeptagramBot.permissionsIn(channel.id).has(
-      "USE_EXTERNAL_EMOJIS"
-    );
     const manageNicknames = HeptagramBot.permissionsIn(channel.id).has(
       "MANAGE_NICKNAMES"
     );
+
+    const changeNickname = HeptagramBot.permissionsIn(channel.id).has(
+      "CHANGE_NICKNAME"
+    );
+
+    const viewAuditLog = HeptagramBot.permissionsIn(channel.id).has(
+      "VIEW_AUDIT_LOG"
+    );
+
+    const manageEvents = HeptagramBot.permissionsIn(channel.id).has(
+      "MANAGE_EVENTS"
+    );
+
     const moderateMembers = HeptagramBot.permissionsIn(channel.id).has(
       "MODERATE_MEMBERS"
     );
-    const viewChannel = HeptagramBot.permissionsIn(channel.id).has(
-      "VIEW_CHANNEL"
+
+    const sendMessages = HeptagramBot.permissionsIn(channel.id).has(
+      "SEND_MESSAGES"
     );
-    const readMessages = HeptagramBot.permissionsIn(channel.id).has(
+
+    const sendMessagesInThreads = HeptagramBot.permissionsIn(channel.id).has(
+      "SEND_MESSAGES_IN_THREADS"
+    );
+
+    const createPublicThreads = HeptagramBot.permissionsIn(channel.id).has(
+      "CREATE_PUBLIC_THREADS"
+    );
+
+    const createPrivateThreads = HeptagramBot.permissionsIn(channel.id).has(
+      "CREATE_PRIVATE_THREADS"
+    );
+
+    const manageMessages = HeptagramBot.permissionsIn(channel.id).has(
+      "MANAGE_MESSAGES"
+    );
+
+    const manageThreads = HeptagramBot.permissionsIn(channel.id).has(
+      "MANAGE_THREADS"
+    );
+
+    const embedLinks = HeptagramBot.permissionsIn(channel.id).has(
+      "EMBED_LINKS"
+    );
+
+    const readMessageHistory = HeptagramBot.permissionsIn(channel.id).has(
       "READ_MESSAGE_HISTORY"
+    );
+
+    const addReactions = HeptagramBot.permissionsIn(channel.id).has(
+      "ADD_REACTIONS"
+    );
+
+    const useExternalEmojis = HeptagramBot.permissionsIn(channel.id).has(
+      "USE_EXTERNAL_EMOJIS"
+    );
+
+    const useExternalStickers = HeptagramBot.permissionsIn(channel.id).has(
+      "USE_EXTERNAL_STICKERS"
+    );
+
+    const muteMembers = HeptagramBot.permissionsIn(channel.id).has(
+      "MUTE_MEMBERS"
+    );
+
+    const deafenMembers = HeptagramBot.permissionsIn(channel.id).has(
+      "DEAFEN_MEMBERS"
+    );
+
+    const moveMembers = HeptagramBot.permissionsIn(channel.id).has(
+      "MOVE_MEMBERS"
     );
 
     const permissionEmbed = new MessageEmbed();
@@ -73,83 +106,98 @@ export const validateChannelPerms = async (
     );
     permissionEmbed.addFields([
       {
-        name: "Manage Server",
-        value: `${manageServer}`,
-        inline: true,
-      },
-      {
-        name: "Manage Roles",
-        value: `${manageRoles}`,
-        inline: true,
-      },
-      {
-        name: "Manage Channels",
-        value: `${manageChannels}`,
-        inline: true,
-      },
-      {
-        name: "Kick Members",
+        name: "kickMembers",
         value: `${kickMembers}`,
         inline: true,
       },
       {
-        name: "Ban Members",
-        value: `${banMembers}`,
+        name: "changeNickname",
+        value: `${changeNickname}`,
         inline: true,
       },
       {
-        name: "Send Messages",
-        value: `${sendMessages}`,
+        name: "viewAuditLog",
+        value: `${viewAuditLog}`,
         inline: true,
       },
       {
-        name: "Manage Messages",
-        value: `${manageMessages}`,
+        name: "manageEvents",
+        value: `${manageEvents}`,
         inline: true,
       },
       {
-        name: "Embed Links",
-        value: `${embedLinks}`,
-        inline: true,
-      },
-      {
-        name: "Attach Files",
-        value: `${attachFiles}`,
-        inline: true,
-      },
-      {
-        name: "Read Message History",
-        value: `${readMessageHistory}`,
-        inline: true,
-      },
-      {
-        name: "Add Reactions",
-        value: `${addReactions}`,
-        inline: true,
-      },
-      {
-        name: "Use Emotes",
-        value: `${useEmotes}`,
-        inline: true,
-      },
-      {
-        name: "Manage Nicknames",
-        value: `${manageNicknames}`,
-        inline: true,
-      },
-      {
-        name: "Moderate Members",
+        name: "moderateMembers",
         value: `${moderateMembers}`,
         inline: true,
       },
       {
-        name: "View Channel",
-        value: `${viewChannel}`,
+        name: "sendMessages",
+        value: `${sendMessages}`,
         inline: true,
       },
       {
-        name: "Read Messages",
-        value: `${readMessages}`,
+        name: "sendMessagesInThreads",
+        value: `${sendMessagesInThreads}`,
+        inline: true,
+      },
+      {
+        name: "createPublicThreads",
+        value: `${createPublicThreads}`,
+        inline: true,
+      },
+      {
+        name: "createPrivateThreads",
+        value: `${createPrivateThreads}`,
+        inline: true,
+      },
+      {
+        name: "manageMessages",
+        value: `${manageMessages}`,
+        inline: true,
+      },
+      {
+        name: "manageThreads",
+        value: `${manageThreads}`,
+        inline: true,
+      },
+      {
+        name: "embedLinks",
+        value: `${embedLinks}`,
+        inline: true,
+      },
+      {
+        name: "readMessageHistory",
+        value: `${readMessageHistory}`,
+        inline: true,
+      },
+      {
+        name: "addReactions",
+        value: `${addReactions}`,
+        inline: true,
+      },
+      {
+        name: "useExternalEmojis",
+        value: `${useExternalEmojis}`,
+        inline: true,
+      },
+      {
+        name: "useExternalStickers",
+        value: `${useExternalStickers}`,
+        inline: true,
+      },
+      {
+        name: "muteMembers",
+        value: `${muteMembers}`,
+        inline: true,
+      },
+      {
+        name: "deafenMembers",
+        value: `${deafenMembers}`,
+        inline: true,
+      },
+      {
+        name: "moveMembers",
+        value: `${moveMembers}`,
         inline: true,
       },
     ]);
@@ -162,22 +210,27 @@ export const validateChannelPerms = async (
     await channel.send({ embeds: [permissionEmbed] });
 
     return (
-      manageServer &&
-      manageRoles &&
-      manageChannels &&
       kickMembers &&
       banMembers &&
+      manageNicknames &&
+      changeNickname &&
+      viewAuditLog &&
+      manageEvents &&
+      moderateMembers &&
       sendMessages &&
+      sendMessagesInThreads &&
+      createPublicThreads &&
+      createPrivateThreads &&
       manageMessages &&
+      manageThreads &&
       embedLinks &&
-      attachFiles &&
       readMessageHistory &&
       addReactions &&
-      useEmotes &&
-      manageNicknames &&
-      moderateMembers &&
-      viewChannel &&
-      readMessages
+      useExternalEmojis &&
+      useExternalStickers &&
+      muteMembers &&
+      deafenMembers &&
+      moveMembers
     );
   } catch (err) {
     await heptagramErrorHandler(

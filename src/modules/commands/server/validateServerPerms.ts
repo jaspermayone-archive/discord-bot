@@ -17,24 +17,39 @@ export const validateServerPerms = async (
   channel: TextBasedChannel
 ): Promise<boolean> => {
   try {
-    const manageServer = HeptagramBot.permissions.has("MANAGE_GUILD");
-    const manageRoles = HeptagramBot.permissions.has("MANAGE_ROLES");
-    const manageChannels = HeptagramBot.permissions.has("MANAGE_CHANNELS");
     const kickMembers = HeptagramBot.permissions.has("KICK_MEMBERS");
     const banMembers = HeptagramBot.permissions.has("BAN_MEMBERS");
+    const manageNicknames = HeptagramBot.permissions.has("MANAGE_NICKNAMES");
+    const changeNickname = HeptagramBot.permissions.has("CHANGE_NICKNAME");
+    const viewAuditLog = HeptagramBot.permissions.has("VIEW_AUDIT_LOG");
+    const manageEvents = HeptagramBot.permissions.has("MANAGE_EVENTS");
+    const moderateMembers = HeptagramBot.permissions.has("MODERATE_MEMBERS");
     const sendMessages = HeptagramBot.permissions.has("SEND_MESSAGES");
+    const sendMessagesInThreads = HeptagramBot.permissions.has(
+      "SEND_MESSAGES_IN_THREADS"
+    );
+    const createPublicThreads = HeptagramBot.permissions.has(
+      "CREATE_PUBLIC_THREADS"
+    );
+    const createPrivateThreads = HeptagramBot.permissions.has(
+      "CREATE_PRIVATE_THREADS"
+    );
     const manageMessages = HeptagramBot.permissions.has("MANAGE_MESSAGES");
+    const manageThreads = HeptagramBot.permissions.has("MANAGE_THREADS");
     const embedLinks = HeptagramBot.permissions.has("EMBED_LINKS");
-    const attachFiles = HeptagramBot.permissions.has("ATTACH_FILES");
     const readMessageHistory = HeptagramBot.permissions.has(
       "READ_MESSAGE_HISTORY"
     );
     const addReactions = HeptagramBot.permissions.has("ADD_REACTIONS");
-    const useEmotes = HeptagramBot.permissions.has("USE_EXTERNAL_EMOJIS");
-    const manageNicknames = HeptagramBot.permissions.has("MANAGE_NICKNAMES");
-    const moderateMembers = HeptagramBot.permissions.has("MODERATE_MEMBERS");
-    const viewChannel = HeptagramBot.permissions.has("VIEW_CHANNEL");
-    const readMessages = HeptagramBot.permissions.has("READ_MESSAGE_HISTORY");
+    const useExternalEmojis = HeptagramBot.permissions.has(
+      "USE_EXTERNAL_EMOJIS"
+    );
+    const useExternalStickers = HeptagramBot.permissions.has(
+      "USE_EXTERNAL_STICKERS"
+    );
+    const muteMembers = HeptagramBot.permissions.has("MUTE_MEMBERS");
+    const deafenMembers = HeptagramBot.permissions.has("DEAFEN_MEMBERS");
+    const moveMembers = HeptagramBot.permissions.has("MOVE_MEMBERS");
 
     const permissionEmbed = new MessageEmbed();
     permissionEmbed.setTitle("Server Level Permissions");
@@ -43,111 +58,126 @@ export const validateServerPerms = async (
     );
     permissionEmbed.addFields([
       {
-        name: "Manage Server",
-        value: `${manageServer}`,
-        inline: true,
-      },
-      {
-        name: "Manage Roles",
-        value: `${manageRoles}`,
-        inline: true,
-      },
-      {
-        name: "Manage Channels",
-        value: `${manageChannels}`,
-        inline: true,
-      },
-      {
-        name: "Kick Members",
+        name: "kickMembers",
         value: `${kickMembers}`,
         inline: true,
       },
       {
-        name: "Ban Members",
-        value: `${banMembers}`,
+        name: "changeNickname",
+        value: `${changeNickname}`,
         inline: true,
       },
       {
-        name: "Send Messages",
-        value: `${sendMessages}`,
+        name: "viewAuditLog",
+        value: `${viewAuditLog}`,
         inline: true,
       },
       {
-        name: "Manage Messages",
-        value: `${manageMessages}`,
+        name: "manageEvents",
+        value: `${manageEvents}`,
         inline: true,
       },
       {
-        name: "Embed Links",
-        value: `${embedLinks}`,
-        inline: true,
-      },
-      {
-        name: "Attach Files",
-        value: `${attachFiles}`,
-        inline: true,
-      },
-      {
-        name: "Read Message History",
-        value: `${readMessageHistory}`,
-        inline: true,
-      },
-      {
-        name: "Add Reactions",
-        value: `${addReactions}`,
-        inline: true,
-      },
-      {
-        name: "Use Emotes",
-        value: `${useEmotes}`,
-        inline: true,
-      },
-      {
-        name: "Manage Nicknames",
-        value: `${manageNicknames}`,
-        inline: true,
-      },
-      {
-        name: "Moderate Members",
+        name: "moderateMembers",
         value: `${moderateMembers}`,
         inline: true,
       },
       {
-        name: "View Channel",
-        value: `${viewChannel}`,
+        name: "sendMessages",
+        value: `${sendMessages}`,
         inline: true,
       },
       {
-        name: "Read Messages",
-        value: `${readMessages}`,
+        name: "sendMessagesInThreads",
+        value: `${sendMessagesInThreads}`,
+        inline: true,
+      },
+      {
+        name: "createPublicThreads",
+        value: `${createPublicThreads}`,
+        inline: true,
+      },
+      {
+        name: "createPrivateThreads",
+        value: `${createPrivateThreads}`,
+        inline: true,
+      },
+      {
+        name: "manageMessages",
+        value: `${manageMessages}`,
+        inline: true,
+      },
+      {
+        name: "manageThreads",
+        value: `${manageThreads}`,
+        inline: true,
+      },
+      {
+        name: "embedLinks",
+        value: `${embedLinks}`,
+        inline: true,
+      },
+      {
+        name: "readMessageHistory",
+        value: `${readMessageHistory}`,
+        inline: true,
+      },
+      {
+        name: "addReactions",
+        value: `${addReactions}`,
+        inline: true,
+      },
+      {
+        name: "useExternalEmojis",
+        value: `${useExternalEmojis}`,
+        inline: true,
+      },
+      {
+        name: "useExternalStickers",
+        value: `${useExternalStickers}`,
+        inline: true,
+      },
+      {
+        name: "muteMembers",
+        value: `${muteMembers}`,
+        inline: true,
+      },
+      {
+        name: "deafenMembers",
+        value: `${deafenMembers}`,
+        inline: true,
+      },
+      {
+        name: "moveMembers",
+        value: `${moveMembers}`,
         inline: true,
       },
     ]);
-    permissionEmbed.setColor(Heptagram.colors.default);
-    permissionEmbed.setTimestamp();
-    permissionEmbed.setFooter({
-      text: `ID: ${channel.id}`,
-    });
 
     await channel.send({ embeds: [permissionEmbed] });
 
     return (
-      manageServer &&
-      manageRoles &&
-      manageChannels &&
       kickMembers &&
       banMembers &&
+      manageNicknames &&
+      changeNickname &&
+      viewAuditLog &&
+      manageEvents &&
+      moderateMembers &&
       sendMessages &&
+      sendMessagesInThreads &&
+      createPublicThreads &&
+      createPrivateThreads &&
       manageMessages &&
+      manageThreads &&
       embedLinks &&
-      attachFiles &&
       readMessageHistory &&
       addReactions &&
-      useEmotes &&
-      manageNicknames &&
-      moderateMembers &&
-      viewChannel &&
-      readMessages
+      useExternalEmojis &&
+      useExternalStickers &&
+      muteMembers &&
+      deafenMembers &&
+      moveMembers
     );
   } catch (err) {
     await heptagramErrorHandler(Heptagram, "validate server perms module", err);
