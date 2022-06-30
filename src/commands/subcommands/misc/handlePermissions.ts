@@ -30,7 +30,7 @@ export const handlePermissions: CommandHandler = async (
       !(member as GuildMember).permissions.has("MANAGE_GUILD") &&
       (member as GuildMember).id !== Heptagram.configs.ownerId
     ) {
-      await interaction.reply({
+      await interaction.editReply({
         content: "You don't have permissions here!",
       });
       return;
