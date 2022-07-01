@@ -5,9 +5,9 @@ import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
- * Generates an embed with a random cat image.
+ *
  */
-export const handleCat: CommandHandler = async (
+export const handleJoke: CommandHandler = async (
   Heptagram,
   interaction
 ): Promise<void> => {
@@ -32,14 +32,14 @@ export const handleCat: CommandHandler = async (
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
-      "cat command",
+      "encouragement command",
       err,
       interaction.guild?.name,
       undefined,
       interaction
     );
     await interaction.editReply({
-      embeds: [errorEmbedGenerator(Heptagram, "cat", errorId)],
+      embeds: [errorEmbedGenerator(Heptagram, "encouragement", errorId)],
     });
   }
 };

@@ -45,7 +45,7 @@ export const validateEnv = (
     }
 
     if (!process.env.OWNER_ID) {
-      return { valid: false, message: "Missing Owner IDS" };
+      return { valid: false, message: "Missing Owner ID" };
     }
 
     if (!process.env.HEPTAGRAM_LOVE) {

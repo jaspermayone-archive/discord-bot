@@ -40,7 +40,7 @@ export const messageCreate = async (
 
     if (
       message.author.id === Heptagram.configs.ownerId &&
-      message.content.startsWith("OwnerCMD")
+      message.content.startsWith("OWN")
     ) {
       await runOwnerCommands(Heptagram, message);
     }

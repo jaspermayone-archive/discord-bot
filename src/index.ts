@@ -17,14 +17,14 @@ import { validateEnv } from "./utils/validateEnv";
 import { validateNode } from "./utils/validateNode";
 
 void (async () => {
-  heptagramLogHandler.log("debug", "Starting bot...");
+  heptagramLogHandler.log("info", "Starting bot...");
 
   const validatedNode = await validateNode();
   if (!validatedNode.valid) {
     heptagramLogHandler.log("error", validatedNode.message);
     process.exit(1);
   } else {
-    heptagramLogHandler.log("debug", validatedNode.message);
+    heptagramLogHandler.log("info", validatedNode.message);
   }
 
   const Heptagram = new Client({
@@ -33,22 +33,22 @@ void (async () => {
     partials: PartialsOptions,
   }) as Heptagram;
 
-  heptagramLogHandler.log("debug", "Validating environment variables...");
+  heptagramLogHandler.log("info", "Validating environment variables...");
   const validatedEnvironment = await validateEnv(Heptagram);
   if (!validatedEnvironment.valid) {
     heptagramLogHandler.log("error", `${validatedEnvironment.message}`);
     return;
   } else {
-    heptagramLogHandler.log("debug", "Environment variables validated.");
+    heptagramLogHandler.log("info", "Environment variables validated.");
   }
 
-  heptagramLogHandler.log("debug", "Loading PM2...");
+  heptagramLogHandler.log("info", "Loading PM2...");
   const loadedPM2 = await loadPM2(Heptagram);
   if (!loadedPM2) {
     heptagramLogHandler.log("error", "Unable to load Grafana metrics");
     return;
   } else {
-    heptagramLogHandler.log("debug", "PM2 loaded.");
+    heptagramLogHandler.log("info", "PM2 loaded.");
   }
 
   Heptagram.debugHook = new WebhookClient({ url: Heptagram.configs.whUrl });
@@ -63,14 +63,14 @@ void (async () => {
     await heptagramLogHandler.log("error", error);
   });
 
-  heptagramLogHandler.log("debug", "Initialising web server...");
+  heptagramLogHandler.log("info", "Initialising web server...");
   const server = await createServer(Heptagram);
   if (!server) {
     heptagramLogHandler.log("error", "failed to launch web server.");
     return;
   }
 
-  heptagramLogHandler.log("debug", "Importing commands...");
+  heptagramLogHandler.log("info", "Importing commands...");
   const commands = await loadCommands(Heptagram);
   // const contexts = await loadContexts(Heptagram);
   Heptagram.commands = commands;
@@ -81,7 +81,7 @@ void (async () => {
   }
 
   if (process.env.NODE_ENV !== "production") {
-    heptagramLogHandler.log("debug", "Registering commands in development...");
+    heptagramLogHandler.log("info", "Registering commands in development...");
     const success = await registerCommands(Heptagram);
     if (!success) {
       heptagramLogHandler.log("error", "failed to register commands.");
@@ -89,21 +89,21 @@ void (async () => {
     }
   }
 
-  heptagramLogHandler.log("debug", "Connecting to database...");
+  heptagramLogHandler.log("info", "Connecting to database...");
   const databaseConnection = await connectDatabase(Heptagram);
   if (!databaseConnection) {
     heptagramLogHandler.log("error", "failed to connect to database.");
     return;
   } else {
-    heptagramLogHandler.log("debug", "Database connected.");
+    heptagramLogHandler.log("info", "Database connected.");
   }
 
-  heptagramLogHandler.log("debug", "Attaching event listeners...");
+  heptagramLogHandler.log("info", "Attaching event listeners...");
   handleEvents(Heptagram);
 
-  heptagramLogHandler.log("debug", "Connecting to Discord...");
+  heptagramLogHandler.log("info", "Connecting to Discord...");
   await Heptagram.login(Heptagram.configs.token);
-  heptagramLogHandler.log("debug", "Setting activity...");
+  heptagramLogHandler.log("info", "Setting activity...");
   Heptagram.user?.setActivity("over your guild", {
     type: "WATCHING",
   });

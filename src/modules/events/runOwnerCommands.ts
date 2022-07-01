@@ -2,7 +2,10 @@ import { Message } from "discord.js";
 
 import { Heptagram } from "../../interfaces/Heptagram";
 import { antiPhish } from "../commands/owner/antiPhish";
+import { codeEval } from "../commands/owner/codeEval";
+import { reboot } from "../commands/owner/reboot";
 import { registerCommands } from "../commands/owner/registerCommands";
+import { servers } from "../commands/owner/servers";
 import { unregisterCommand } from "../commands/owner/unregisterCommand";
 import { viewCommands } from "../commands/owner/viewCommands";
 
@@ -33,6 +36,15 @@ export const runOwnerCommands = async (
       break;
     case "phish":
       await antiPhish(Heptagram, message);
+      break;
+    case "servers":
+      await servers(Heptagram, message);
+      break;
+    case "reboot":
+      await reboot(Heptagram, message);
+      break;
+    case "eval":
+      await codeEval(Heptagram, message);
       break;
     default:
       await message.reply("No command found.");

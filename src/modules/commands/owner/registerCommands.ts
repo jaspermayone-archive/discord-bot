@@ -40,13 +40,13 @@ export const registerCommands = async (
     });
 
     if (process.env.NODE_ENV === "production") {
-      heptagramLogHandler.log("debug", "registering commands globally!");
+      heptagramLogHandler.log("info", "registering commands globally!");
 
       await rest.put(Routes.applicationCommands(Heptagram.configs.id), {
         body: commandData,
       });
     } else {
-      heptagramLogHandler.log("debug", "registering to home guild only");
+      heptagramLogHandler.log("info", "registering to home guild only");
       await rest.put(
         Routes.applicationGuildCommands(
           Heptagram.configs.id,

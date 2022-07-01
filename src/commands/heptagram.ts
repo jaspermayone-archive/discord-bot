@@ -14,6 +14,7 @@ import { handleContact } from "./subcommands/heptagram/handleContact";
 import { handleHelp } from "./subcommands/heptagram/handleHelp";
 import { handleInvite } from "./subcommands/heptagram/handleInvite";
 import { handlePing } from "./subcommands/heptagram/handlePing";
+import { handleStats } from "./subcommands/heptagram/handleStats";
 import { handleUpdates } from "./subcommands/heptagram/handleUpdates";
 import { handleUptime } from "./subcommands/heptagram/handleUptime";
 
@@ -25,6 +26,7 @@ const handlers: { [key: string]: CommandHandler } = {
   uptime: handleUptime,
   updates: handleUpdates,
   contact: handleContact,
+  stats: handleStats,
 };
 
 export const heptagram: Command = {
@@ -65,6 +67,11 @@ export const heptagram: Command = {
       new SlashCommandSubcommandBuilder()
         .setName("contact")
         .setDescription("Offers links to contact the development team.")
+    )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("stats")
+        .setDescription("Shows statistics about the bot.")
     ),
   run: async (Heptagram, interaction) => {
     try {

@@ -39,7 +39,7 @@ export const antiPhish = async (Heptagram: Heptagram, message: Message) => {
   } catch (err) {
     await heptagramErrorHandler(
       Heptagram,
-      "naomi antiphish",
+      "OWN antiphish",
       err,
       message.guild?.name,
       message

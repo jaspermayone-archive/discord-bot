@@ -10,7 +10,7 @@ import { heptagramLogHandler } from "../../modules/heptagramLogHandler";
  * @param {Heptagram} Heptagram's Client instance.
  */
 export const ready = async (Heptagram: Heptagram): Promise<void> => {
-  heptagramLogHandler.log("debug", "Fetching reaction role data...");
+  heptagramLogHandler.log("info", "Fetching reaction role data...");
   const readyEmbed = new MessageEmbed();
   readyEmbed.setTitle(
     "<:status_online:951855000605298708> Heptagram is online <:status_online:951855000605298708>"
@@ -26,8 +26,8 @@ export const ready = async (Heptagram: Heptagram): Promise<void> => {
   });
 
   await Heptagram.debugHook.send({ embeds: [readyEmbed] });
-  heptagramLogHandler.log("debug", "Discord ready!");
+  heptagramLogHandler.log("info", "Discord ready!");
 
-  heptagramLogHandler.log("debug", "Loaded PM2 counts!");
+  heptagramLogHandler.log("info", "Loaded PM2 counts!");
   Heptagram.pm2.metrics.events.mark();
 };

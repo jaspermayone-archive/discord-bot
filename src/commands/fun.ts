@@ -10,11 +10,17 @@ import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 import { handleCat } from "./subcommands/fun/handleCat";
 import { handleCoinflip } from "./subcommands/fun/handleCoinflip";
+import { handleEncouragement } from "./subcommands/fun/handleEncouragement";
+import { handleJoke } from "./subcommands/fun/handleJoke";
+import { handleMovieQuote } from "./subcommands/fun/handleMovieQuote";
 import { handleInvalidSubcommand } from "./subcommands/handleInvalidSubcommand";
 
 const handlers: { [key: string]: CommandHandler } = {
   cat: handleCat,
   coinflip: handleCoinflip,
+  moviequote: handleMovieQuote,
+  encouragement: handleEncouragement,
+  joke: handleJoke,
 };
 
 export const fun: Command = {
@@ -30,6 +36,21 @@ export const fun: Command = {
       new SlashCommandSubcommandBuilder()
         .setName("coinflip")
         .setDescription("Flips a coin, and provides the results.")
+    )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("moviequote")
+        .setDescription("Gets a random movie quote.")
+    )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("encouragement")
+        .setDescription("Gets a random encouragement.")
+    )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("joke")
+        .setDescription("Gets a random joke.")
     ),
   run: async (Heptagram, interaction) => {
     try {
