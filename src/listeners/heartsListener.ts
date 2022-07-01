@@ -13,10 +13,11 @@ export const heartsListener: Listener = {
     try {
       const { author } = message;
       const usersToHeart = Heptagram.usersToHeart;
+      const heartReactionEmoji = Heptagram.configs.love;
 
       if (usersToHeart.includes(author.id)) {
         await message
-          .react(Heptagram.configs.love)
+          .react(heartReactionEmoji)
           .catch(async () => await message.react("❌"));
       }
     } catch (err) {

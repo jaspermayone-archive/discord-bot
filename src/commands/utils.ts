@@ -10,9 +10,13 @@ import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 import { handleInvalidSubcommand } from "./subcommands/handleInvalidSubcommand";
 import { handleAvatar } from "./subcommands/utils/handleAvatar";
+import { handleServerInfo } from "./subcommands/utils/handleServerInfo";
+import { handleUser } from "./subcommands/utils/handleUser";
 
 const handlers: { [key: string]: CommandHandler } = {
   avatar: handleAvatar,
+  user: handleUser,
+  serverinfo: handleServerInfo,
 };
 
 export const utils: Command = {
@@ -29,6 +33,22 @@ export const utils: Command = {
             .setDescription("The user to get the avatar of.")
             .setRequired(true)
         )
+    )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("user")
+        .setDescription("Gets information about a user.")
+        .addUserOption((option) =>
+          option
+            .setName("user")
+            .setDescription("The user to get information about.")
+            .setRequired(true)
+        )
+    )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("serverinfo")
+        .setDescription("Gets information about the server.")
     ),
   run: async (Heptagram, interaction) => {
     try {
