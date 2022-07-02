@@ -10,16 +10,14 @@ import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
 import { handleCat } from "./subcommands/fun/handleCat";
 import { handleCoinflip } from "./subcommands/fun/handleCoinflip";
-import { handleEncouragement } from "./subcommands/fun/handleEncouragement";
 import { handleJoke } from "./subcommands/fun/handleJoke";
-import { handleMovieQuote } from "./subcommands/fun/handleMovieQuote";
+import { handleQuote } from "./subcommands/fun/handleQuote";
 import { handleInvalidSubcommand } from "./subcommands/handleInvalidSubcommand";
 
 const handlers: { [key: string]: CommandHandler } = {
   cat: handleCat,
   coinflip: handleCoinflip,
-  moviequote: handleMovieQuote,
-  encouragement: handleEncouragement,
+  quote: handleQuote,
   joke: handleJoke,
 };
 
@@ -39,13 +37,8 @@ export const fun: Command = {
     )
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
-        .setName("moviequote")
-        .setDescription("Gets a random movie quote.")
-    )
-    .addSubcommand(
-      new SlashCommandSubcommandBuilder()
-        .setName("encouragement")
-        .setDescription("Gets a random encouragement.")
+        .setName("quote")
+        .setDescription("Gets a random quote.")
     )
     .addSubcommand(
       new SlashCommandSubcommandBuilder()

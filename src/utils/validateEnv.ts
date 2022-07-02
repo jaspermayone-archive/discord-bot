@@ -44,6 +44,10 @@ export const validateEnv = (
       return { valid: false, message: "Missing Heptagram API Token" };
     }
 
+    if (!process.env.CATS_API_KEY) {
+      return { valid: false, message: "Missing Cats API Key" };
+    }
+
     if (!process.env.OWNER_ID) {
       return { valid: false, message: "Missing Owner ID" };
     }
@@ -72,12 +76,16 @@ export const validateEnv = (
       mongoUri: process.env.MONGO_URI,
       testGuildId: process.env.TEST_GUILD_ID,
       homeGuildId: process.env.HOME_GUILD_ID,
-      heptagramApiToken: process.env.HEPTAGRAM_API_TOKEN,
       version: Heptagram.version || "null",
       love: process.env.HEPTAGRAM_LOVE,
       yes: "✅",
       no: "❌",
       think: "🤔",
+    };
+
+    const tokens: Heptagram["tokens"] = {
+      heptagramApiToken: process.env.HEPTAGRAM_API_TOKEN,
+      catsApiKey: process.env.CATS_API_KEY,
     };
 
     Heptagram.colors = {
@@ -87,6 +95,7 @@ export const validateEnv = (
       error: 0x992d22,
     };
     Heptagram.configs = configs;
+    Heptagram.tokens = tokens;
 
     Heptagram.usersToHeart = [`${Heptagram.configs.ownerId}`];
 

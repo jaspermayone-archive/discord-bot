@@ -37,7 +37,7 @@ export const automodPhish: ListenerHandler = async (Heptagram, message) => {
           {
             // send authentication header
             headers: {
-              Authorization: "Bearer " + Heptagram.configs.heptagramApiToken,
+              Authorization: "Bearer " + Heptagram.tokens.heptagramApiToken,
             },
           }
         )

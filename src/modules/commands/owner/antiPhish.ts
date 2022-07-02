@@ -19,10 +19,10 @@ export const antiPhish = async (Heptagram: Heptagram, message: Message) => {
     }
 
     const heptagramResult = await axios.post<boolean>(
-      `http://api.heptagrambotproject.com/v4/api/scam/link/report?url=${link}`,
+      `http://api.heptagrambotproject.com/v4/scam/link/report?url=${link}`,
       {
         headers: {
-          Authorization: "Bearer " + Heptagram.configs.heptagramApiToken,
+          Authorization: "Bearer " + Heptagram.tokens.heptagramApiToken,
         },
         body: {
           link: link,
