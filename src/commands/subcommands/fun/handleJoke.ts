@@ -1,3 +1,4 @@
+import axios from "axios";
 import { MessageEmbed } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
@@ -12,23 +13,26 @@ export const handleJoke: CommandHandler = async (
   interaction
 ): Promise<void> => {
   try {
-    const apiMigrationEmbed = new MessageEmbed();
-    apiMigrationEmbed.setTitle("API Migration");
-    apiMigrationEmbed.setDescription(
-      `API Migrations are currently in progress to our first party API. Please try again later.`
+    const jokeResponse = await axios.get<string>(
+      `http://api.heptagrambotproject.com/v4/joke`,
+      {
+        headers: {
+          Authorization: "Bearer " + Heptagram.tokens.heptagramApiToken,
+        },
+      }
     );
-    apiMigrationEmbed.addField(
-      "Are you a bot developer or coder? Do you have knowledge about API creation and development? If so, please join the discord server and ask for J-dogcoder",
-      `Run \`/heptagram about\` for a link to join the discord server.`
-    );
-    apiMigrationEmbed.setColor(Heptagram.colors.default);
-    apiMigrationEmbed.setTimestamp();
-    apiMigrationEmbed.setFooter({
-      text: `Message sent by Heptagram || ${Heptagram.version}`,
-      iconURL: `${Heptagram.user?.avatarURL()}`,
-    });
 
-    await interaction.editReply({ embeds: [apiMigrationEmbed] });
+    const embed = new MessageEmbed()
+      .setColor(Heptagram.colors.default)
+      .setTitle("Here is a random joke for you!")
+      .setDescription(jokeResponse.data)
+      .setTimestamp()
+      .setFooter({
+        text: `This command uses our first party API! Find out more about it at https://heptagrambotproject.com/api`,
+        iconURL: `${Heptagram.user?.avatarURL()}`,
+      });
+
+    await interaction.editReply({ embeds: [embed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,

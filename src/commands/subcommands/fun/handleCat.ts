@@ -1,3 +1,4 @@
+import axios from "axios";
 import { MessageEmbed } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
@@ -12,23 +13,28 @@ export const handleCat: CommandHandler = async (
   interaction
 ): Promise<void> => {
   try {
-    const apiMigrationEmbed = new MessageEmbed();
-    apiMigrationEmbed.setTitle("API Migration");
-    apiMigrationEmbed.setDescription(
-      `API Migrations are currently in progress to our first party API. Please try again later.`
+    // x-api-key is required for the cat API
+    const catApiResponse = await axios.get(
+      "https://api.thecatapi.com/v1/images/search",
+      {
+        headers: {
+          "x-api-key": Heptagram.tokens.catsApiKey,
+        },
+      }
     );
-    apiMigrationEmbed.addField(
-      "Are you a bot developer or coder? Do you have knowledge about API creation and development? If so, please join the discord server and ask for J-dogcoder",
-      `Run \`/heptagram about\` for a link to join the discord server.`
-    );
-    apiMigrationEmbed.setColor(Heptagram.colors.default);
-    apiMigrationEmbed.setTimestamp();
-    apiMigrationEmbed.setFooter({
-      text: `Message sent by Heptagram || ${Heptagram.version}`,
-      iconURL: `${Heptagram.user?.avatarURL()}`,
-    });
+    const catUrl = catApiResponse.data[0].url;
 
-    await interaction.editReply({ embeds: [apiMigrationEmbed] });
+    const embed = new MessageEmbed()
+      .setColor(Heptagram.colors.default)
+      .setTitle("Here is a random cat for you!")
+      .setImage(catUrl)
+      .setTimestamp()
+      .setFooter({
+        text: `This message uses an API provided by thecatapi.com`,
+        iconURL: catUrl,
+      });
+
+    await interaction.editReply({ embeds: [embed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,

@@ -23,12 +23,15 @@ export interface Heptagram extends Client {
     mongoUri: string;
     testGuildId: string;
     homeGuildId: string;
-    heptagramApiToken: string;
     version: string;
     love: string;
     yes: string;
     no: string;
     think: string;
+  };
+  tokens: {
+    heptagramApiToken: string;
+    catsApiKey: string;
   };
   colors: {
     default: ColorResolvable;

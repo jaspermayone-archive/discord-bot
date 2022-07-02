@@ -6,15 +6,15 @@ import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
- * Generates an embed with eaither heads or tails
+ * Generates an embed with a random quote
  */
-export const handleCoinflip: CommandHandler = async (
+export const handleQuote: CommandHandler = async (
   Heptagram,
   interaction
 ): Promise<void> => {
   try {
-    const coinflipResult = await axios.get<boolean>(
-      `http://api.heptagrambotproject.com/v4/coinflip`,
+    const quoteResponse = await axios.get<string>(
+      `http://api.heptagrambotproject.com/v4/quote`,
       {
         headers: {
           Authorization: "Bearer " + Heptagram.tokens.heptagramApiToken,
@@ -24,8 +24,8 @@ export const handleCoinflip: CommandHandler = async (
 
     const embed = new MessageEmbed()
       .setColor(Heptagram.colors.default)
-      .setTitle("A coin was flipped..")
-      .setDescription(`The coin landed on \`${coinflipResult.data}\``)
+      .setTitle("Here is a random quote for you!")
+      .setDescription(quoteResponse.data)
       .setTimestamp()
       .setFooter({
         text: `This command uses our first party API! Find out more about it at https://heptagrambotproject.com/api`,
@@ -36,14 +36,14 @@ export const handleCoinflip: CommandHandler = async (
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
-      "coinflip command",
+      "movie quote command",
       err,
       interaction.guild?.name,
       undefined,
       interaction
     );
     await interaction.editReply({
-      embeds: [errorEmbedGenerator(Heptagram, "coinflip", errorId)],
+      embeds: [errorEmbedGenerator(Heptagram, "movie quote", errorId)],
     });
   }
 };
