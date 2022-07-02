@@ -51,7 +51,7 @@
     "nodemon": "2.0.18",
     "prettier": "2.7.1",
     "prettier-eslint": "15.0.1",
-    "ts-node": "10.8.1"
+    "ts-node": "10.8.2"
   },
   "engines": {
     "node": ">=16.10.0",
