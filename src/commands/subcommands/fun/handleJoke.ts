@@ -6,7 +6,7 @@ import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
- *
+ * Generates an embed with a random joke
  */
 export const handleJoke: CommandHandler = async (
   Heptagram,
@@ -36,14 +36,14 @@ export const handleJoke: CommandHandler = async (
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
-      "encouragement command",
+      "joke command",
       err,
       interaction.guild?.name,
       undefined,
       interaction
     );
     await interaction.editReply({
-      embeds: [errorEmbedGenerator(Heptagram, "encouragement", errorId)],
+      embeds: [errorEmbedGenerator(Heptagram, "joke", errorId)],
     });
   }
 };

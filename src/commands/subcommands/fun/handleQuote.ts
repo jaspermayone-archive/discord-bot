@@ -36,14 +36,14 @@ export const handleQuote: CommandHandler = async (
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
-      "movie quote command",
+      "quote command",
       err,
       interaction.guild?.name,
       undefined,
       interaction
     );
     await interaction.editReply({
-      embeds: [errorEmbedGenerator(Heptagram, "movie quote", errorId)],
+      embeds: [errorEmbedGenerator(Heptagram, "quote", errorId)],
     });
   }
 };
