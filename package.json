@@ -1,6 +1,7 @@
 {
   "name": "heptagram",
   "version": "3.0.0",
+  "packageManager": "yarn@3.2.1",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "main": "src/index.ts",
   "scripts": {
