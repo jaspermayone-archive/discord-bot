@@ -19,17 +19,23 @@ export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
     const target = interaction.options.getUser("target", true);
     const reason = interaction.options.getString("reason", true);
 
-    const targetMember = await guild.members.fetch(target.id);
+    const targetMember = await guild.members.fetch(target.id).catch(() => null);
 
     if (
       !member ||
       typeof member.permissions === "string" ||
-      !member.permissions.has("KICK_MEMBERS") ||
-      !targetMember ||
-      targetMember.permissions.has("KICK_MEMBERS")
+      !member.permissions.has("MODERATE_MEMBERS") ||
+      (targetMember && targetMember.permissions.has("MODERATE_MEMBERS"))
     ) {
       await interaction.editReply({
         content: "You don't have permission to kick that user!",
+      });
+      return;
+    }
+
+    if (!targetMember) {
+      await interaction.editReply({
+        content: "That user appears to have left the guild.",
       });
       return;
     }

@@ -18,17 +18,23 @@ export const handleUnmute: CommandHandler = async (Heptagram, interaction) => {
       });
       return;
     }
-    const targetMember = await guild.members.fetch(target.id);
+    const targetMember = await guild.members.fetch(target.id).catch(() => null);
 
     if (
       !member ||
       typeof member.permissions === "string" ||
       !member.permissions.has("MODERATE_MEMBERS") ||
-      !targetMember ||
-      targetMember.permissions.has("MODERATE_MEMBERS")
+      (targetMember && targetMember.permissions.has("MODERATE_MEMBERS"))
     ) {
       await interaction.editReply({
         content: "You don't have permission to do that!",
+      });
+      return;
+    }
+
+    if (!targetMember) {
+      await interaction.editReply({
+        content: "That user appears to have left the guild.",
       });
       return;
     }
