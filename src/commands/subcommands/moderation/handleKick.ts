@@ -1,4 +1,7 @@
+import { Interaction } from "discord.js";
+
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
+import { updateHistory } from "../../../modules/commands/moderation/updateHistory";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 import { customSubstring } from "../../../utils/customSubstring";
@@ -6,6 +9,9 @@ import { customSubstring } from "../../../utils/customSubstring";
 /**
  * Provided the caller has permission, kicks the `target` user from the guild
  * for the given `reason`.
+ *
+ * @param {Heptagram} Heptagram Heptagram's discord instance.
+ * @param {Interaction} interaction The interaction object.
  */
 export const handleKick: CommandHandler = async (Heptagram, interaction) => {
   try {
@@ -60,6 +66,8 @@ export const handleKick: CommandHandler = async (Heptagram, interaction) => {
       });
       return;
     }
+
+    await updateHistory(Heptagram, "kick", target.id, guild.id);
 
     await targetMember.kick(customSubstring(reason, 1000));
 

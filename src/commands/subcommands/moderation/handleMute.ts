@@ -1,4 +1,7 @@
+import { Interaction } from "discord.js";
+
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
+import { updateHistory } from "../../../modules/commands/moderation/updateHistory";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 import { calculateMilliseconds } from "../../../utils/calculateMilliseconds";
@@ -6,6 +9,9 @@ import { calculateMilliseconds } from "../../../utils/calculateMilliseconds";
 /**
  * If the server has configured a muted role, applies that role to the `target`
  * user for the given `reason`.
+ *
+ * @param {Heptagram} Heptagram Heptagram's discord instance.
+ * @param {Interaction} interaction The interaction object.
  */
 export const handleMute: CommandHandler = async (Heptagram, interaction) => {
   try {
@@ -72,6 +78,8 @@ export const handleMute: CommandHandler = async (Heptagram, interaction) => {
     }
 
     const targetUser = await guild.members.fetch(target.id);
+
+    await updateHistory(Heptagram, "mute", target.id, guild.id);
 
     await targetUser.timeout(durationMilliseconds, reason);
 

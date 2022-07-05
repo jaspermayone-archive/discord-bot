@@ -1,10 +1,17 @@
+import { Interaction } from "discord.js";
+
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
+import { Heptagram } from "../../../interfaces/Heptagram";
+import { updateHistory } from "../../../modules/commands/moderation/updateHistory";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
  * Issues a warning to the `target` user, and adds it to the server's warning count.
  * Logs the `reason`.
+ *
+ * @param {Heptagram} Heptagram Heptagram's discord instance.
+ * @param {Interaction} interaction The interaction object.
  */
 export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
   try {
@@ -53,6 +60,8 @@ export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
       });
       return;
     }
+
+    await updateHistory(Heptagram, "warn", target.id, guild.id);
 
     await interaction.editReply({
       content: "Warned " + target.tag + " for " + reason,
