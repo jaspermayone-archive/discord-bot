@@ -2,18 +2,22 @@ import axios from "axios";
 import { MessageEmbed } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
+import { Joke } from "../../../interfaces/commands/fun/Joke";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
- * Generates an embed with a random joke
+ * Generates an embed with a random joke.
+ *
+ * @param Heptagram
+ * @param interaction
  */
 export const handleJoke: CommandHandler = async (
   Heptagram,
   interaction
 ): Promise<void> => {
   try {
-    const jokeResponse = await axios.get<string>(
+    const joke = await axios.get<Joke>(
       `https://api.heptagrambotproject.com/v4/jokes`,
       {
         headers: {
@@ -22,13 +26,20 @@ export const handleJoke: CommandHandler = async (
       }
     );
 
+    if (!joke.data || joke.status !== 200) {
+      await interaction.editReply({
+        content: "Something went wrong while fetching a joke.",
+      });
+      return;
+    }
+
     const embed = new MessageEmbed()
       .setColor(Heptagram.colors.default)
       .setTitle("Here is a random joke for you!")
-      .setDescription(jokeResponse.data)
+      .setDescription(joke.data.joke)
       .setTimestamp()
       .setFooter({
-        text: `This command uses our first party API! Find out more about it at https://heptagrambotproject.com/api`,
+        text: `This command uses our first party API!`,
         iconURL: `${Heptagram.user?.avatarURL()}`,
       });
 

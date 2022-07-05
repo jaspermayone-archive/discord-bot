@@ -1,4 +1,7 @@
+import { Interaction } from "discord.js";
+
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
+import { updateHistory } from "../../../modules/commands/moderation/updateHistory";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 import { customSubstring } from "../../../utils/customSubstring";
@@ -6,6 +9,9 @@ import { customSubstring } from "../../../utils/customSubstring";
 /**
  * Bans the `target` user for the provided `reason`, assuming the caller has permissions.
  * Also deletes the `target`'s messages from the last 24 hours.
+ *
+ * @param {Heptagram} Heptagram Heptagram's discord instance.
+ * @param {Interaction} interaction The interaction object.
  */
 export const handleBan: CommandHandler = async (Heptagram, interaction) => {
   try {
@@ -68,6 +74,8 @@ export const handleBan: CommandHandler = async (Heptagram, interaction) => {
       });
       return;
     }
+
+    await updateHistory(Heptagram, "ban", target.id, guild.id);
 
     await targetMember.ban({
       reason: customSubstring(reason, 1000),

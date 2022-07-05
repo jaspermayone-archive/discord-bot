@@ -16,6 +16,10 @@ import { createServer } from "./server/serve";
 import { validateEnv } from "./utils/validateEnv";
 import { validateNode } from "./utils/validateNode";
 
+/**
+ * This is the entry point for Heptagram's process. This will log the boot process,
+ * call the necessary helpers to prepare Heptagram, and then log in to Discord.
+ */
 void (async () => {
   heptagramLogHandler.log("info", "Starting bot...");
 
@@ -53,6 +57,10 @@ void (async () => {
 
   Heptagram.debugHook = new WebhookClient({ url: Heptagram.configs.whUrl });
 
+  /**
+   * Fallthrough error handlers. These fire in rare cases where something throws
+   * in a way that our standard catch block cannot see it.
+   */
   process.on("unhandledRejection", async (error: Error) => {
     await heptagramErrorHandler(Heptagram, "Unhandled Rejection Error", error);
     await heptagramLogHandler.log("error", error);
