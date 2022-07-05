@@ -2,18 +2,22 @@ import axios from "axios";
 import { MessageEmbed } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
+import { Quote } from "../../../interfaces/commands/fun/Quote";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
 
 /**
- * Generates an embed with a random quote
+ * Generates an embed with a random quote.
+ *
+ * @param Heptagram
+ * @param interaction
  */
 export const handleQuote: CommandHandler = async (
   Heptagram,
   interaction
 ): Promise<void> => {
   try {
-    const quoteResponse = await axios.get<string>(
+    const quote = await axios.get<Quote>(
       `https://api.heptagrambotproject.com/v4/quotes`,
       {
         headers: {
@@ -22,13 +26,20 @@ export const handleQuote: CommandHandler = async (
       }
     );
 
+    if (!quote.data || quote.status !== 200) {
+      await interaction.editReply({
+        content: "Something went wrong while fetching a quote.",
+      });
+      return;
+    }
+
     const embed = new MessageEmbed()
       .setColor(Heptagram.colors.default)
       .setTitle("Here is a random quote for you!")
-      .setDescription(quoteResponse.data)
+      .setDescription(`"${quote.data.quote}"\n-- ${quote.data.author}`)
       .setTimestamp()
       .setFooter({
-        text: `This command uses our first party API! Find out more about it at https://heptagrambotproject.com/api`,
+        text: `This command uses our first party API!`,
         iconURL: `${Heptagram.user?.avatarURL()}`,
       });
 
