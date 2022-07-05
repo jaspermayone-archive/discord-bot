@@ -1,5 +1,8 @@
 import axios from "axios";
 
+/**
+ * Get the latest changelog from the Github repository.
+ */
 export async function getLatestChangelog() {
   const url =
     "https://api.github.com/repos/Heptagram-Bot-Project/discord-bot/releases";
