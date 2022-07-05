@@ -23,7 +23,6 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
     updateEmbed.setDescription("Here are the updates since the last release.");
     updateEmbed.addField("New version:", Heptagram.version || "0.0.0");
     updateEmbed.addField("Next release:", nextScheduledRelease);
-    updateEmbed.addField("Changelog:", changelog);
     updateEmbed.addField(
       "Commit hash:",
       `[${hash.slice(
@@ -37,6 +36,15 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 
+    const changelogEmbed = new MessageEmbed();
+    changelogEmbed.setTitle("Changelog:");
+    changelogEmbed.setDescription(changelog);
+    changelogEmbed.setColor(Heptagram.colors.default);
+    changelogEmbed.setFooter({
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
+      iconURL: `${Heptagram.user?.avatarURL()}`,
+    });
+
     const button = new MessageButton()
       .setLabel("View Full Changelog")
       .setStyle("LINK")
@@ -44,7 +52,7 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
 
     const row = new MessageActionRow().addComponents([button]);
     await interaction.editReply({
-      embeds: [updateEmbed, changelog],
+      embeds: [updateEmbed, changelogEmbed],
       components: [row],
     });
   } catch (err) {
