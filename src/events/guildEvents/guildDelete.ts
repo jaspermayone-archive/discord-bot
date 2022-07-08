@@ -29,7 +29,7 @@ export const guildDelete = async (
     guild.ownerId || "No owner data available",
     true
   );
-  guildDeleteEmbed.setColor(Heptagram.colors.warning);
+  guildDeleteEmbed.setColor(Heptagram.colors.error);
   guildDeleteEmbed.setTimestamp();
 
   await Heptagram.debugHook.send({ embeds: [guildDeleteEmbed] });

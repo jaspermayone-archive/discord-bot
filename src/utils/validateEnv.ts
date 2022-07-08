@@ -90,9 +90,9 @@ export const validateEnv = (
 
     Heptagram.colors = {
       default: 0xfff826,
-      success: 0x33b679,
-      warning: 0xc27c0e,
-      error: 0x992d22,
+      success: 0x019e6c,
+      warning: 0xff7557,
+      error: 0xd12630,
     };
     Heptagram.configs = configs;
     Heptagram.tokens = tokens;
