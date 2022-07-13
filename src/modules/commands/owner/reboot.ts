@@ -1,3 +1,5 @@
+import * as child from "child_process";
+
 import { Message, MessageEmbed } from "discord.js";
 import moment from "moment";
 
@@ -5,39 +7,61 @@ import { Heptagram } from "../../../interfaces/Heptagram";
 import { heptagramErrorHandler } from "../../heptagramErrorHandler";
 import { heptagramLogHandler } from "../../heptagramLogHandler";
 
-/**
+/**s
  * Reloads and restarts the bot.
  * @param {Heptagram} Heptagram's Discord instance.
  * @returns {boolean} True if the commands were registered, false on error.
  */
 export const reboot = async (Heptagram: Heptagram, message: Message) => {
+  // set time to current time in unix
+  const time = moment().unix();
+
+  const embed = new MessageEmbed()
+    .setColor(Heptagram.colors.error)
+    .setTitle(
+      `<:status_offline:951855000538206238> **Bot Restarting...** <:status_offline:951855000538206238>`
+    )
+    .setDescription(
+      `The bot has been qued to restart by ${message.author.username} on <t:${time}>.`
+    )
+    .setTimestamp()
+    .setFooter({
+      text: `Message sent by Heptagram || ${Heptagram.version}`,
+      iconURL: `${Heptagram.user?.avatarURL()}`,
+    });
+
   try {
-    heptagramLogHandler.log(
-      `info`,
-      `${message.author.username} has rebooted the bot.`
+    message.reply(
+      "The bot will now reboot or shutdown.\n" +
+        "Please confirm by responding with `yes`, or deny with `no`."
     );
 
-    // set time to current time in unix
-    const time = moment().unix();
+    message.channel
+      .awaitMessages({
+        filter: (m) => m.author.id === message.author.id,
+        max: 1,
+        time: 20000,
+      })
+      .then(async (collected) => {
+        if (collected.first()?.content.toLowerCase() === "yes") {
+          heptagramLogHandler.log(
+            `info`,
+            `${message.author.username} has rebooted the bot.`
+          );
+          (await Heptagram.debugHook.send({ embeds: [embed] })) &&
+            message.reply({ embeds: [embed] }).then(() => {
+              Heptagram.destroy();
+              child.exec("pm2 restart discord-bot");
+              process.exit();
+            });
+        }
 
-    const embed = new MessageEmbed()
-      .setColor(Heptagram.colors.error)
-      .setTitle(
-        `<:status_offline:951855000538206238> **Bot Restarting...** <:status_offline:951855000538206238>`
-      )
-      .setDescription(
-        `The bot has been qued to restart by ${message.author.username} on <t:${time}>.`
-      )
-      .setTimestamp()
-      .setFooter({
-        text: `Message sent by Heptagram || ${Heptagram.version}`,
-        iconURL: `${Heptagram.user?.avatarURL()}`,
-      });
-
-    (await Heptagram.debugHook.send({ embeds: [embed] })) &&
-      message.reply({ embeds: [embed] }).then(() => {
-        Heptagram.destroy();
-        process.exit();
+        if (collected.first()?.content.toLowerCase() === "no") {
+          message.reply("The bot will not reboot.");
+        }
+      })
+      .catch(() => {
+        message.reply("No answer after q0 seconds, operation canceled.");
       });
   } catch (err) {
     await heptagramErrorHandler(
