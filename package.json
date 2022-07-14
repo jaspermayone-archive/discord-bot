@@ -7,7 +7,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon --quiet --watch './**/*.ts' --exec 'ts-node' src/index.ts",
-    "lint": "yarn prettier --write --color",
+    "lint": "yarn prettier --write --color './**/*.ts'",
     "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
