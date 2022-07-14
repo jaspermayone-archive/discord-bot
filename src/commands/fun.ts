@@ -25,6 +25,7 @@ export const fun: Command = {
   data: new SlashCommandBuilder()
     .setName("fun")
     .setDescription("Fun commands")
+    .setDMPermission(false)
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
         .setName("cat")

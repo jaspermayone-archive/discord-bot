@@ -25,6 +25,7 @@ export const mod: Command = {
   data: new SlashCommandBuilder()
     .setName("mod")
     .setDescription("Moderation actions")
+    .setDMPermission(false)
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
         .setName("warn")

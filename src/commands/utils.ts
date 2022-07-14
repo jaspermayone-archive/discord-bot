@@ -23,6 +23,7 @@ export const utils: Command = {
   data: new SlashCommandBuilder()
     .setName("utils")
     .setDescription("Utilities")
+    .setDMPermission(false)
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
         .setName("avatar")
