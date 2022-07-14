@@ -11,7 +11,6 @@ import { Heptagram } from "../Heptagram";
  */
 export interface Command {
   data: SlashCommandBuilder | SlashCommandSubcommandsOnlyBuilder;
-
   /**
    * Handles the logic for running a given command.
    *

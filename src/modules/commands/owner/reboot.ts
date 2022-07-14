@@ -1,5 +1,3 @@
-import * as child from "child_process";
-
 import { Message, MessageEmbed } from "discord.js";
 import moment from "moment";
 
