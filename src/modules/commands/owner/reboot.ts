@@ -40,7 +40,7 @@ export const reboot = async (Heptagram: Heptagram, message: Message) => {
       .awaitMessages({
         filter: (m) => m.author.id === message.author.id,
         max: 1,
-        time: 20000,
+        time: 30000,
       })
       .then(async (collected) => {
         if (collected.first()?.content.toLowerCase() === "yes") {
@@ -50,8 +50,6 @@ export const reboot = async (Heptagram: Heptagram, message: Message) => {
           );
           (await Heptagram.debugHook.send({ embeds: [embed] })) &&
             message.reply({ embeds: [embed] }).then(() => {
-              Heptagram.destroy();
-              child.exec("pm2 restart discord-bot");
               process.exit();
             });
         }
@@ -61,7 +59,7 @@ export const reboot = async (Heptagram: Heptagram, message: Message) => {
         }
       })
       .catch(() => {
-        message.reply("No answer after q0 seconds, operation canceled.");
+        message.reply("No answer after 30 seconds, operation canceled.");
       });
   } catch (err) {
     await heptagramErrorHandler(

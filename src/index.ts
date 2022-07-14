@@ -57,6 +57,13 @@ void (async () => {
 
   Heptagram.debugHook = new WebhookClient({ url: Heptagram.configs.whUrl });
 
+  /* This catches when the process is about to exit
+and destroys the discord.js client in order to allow for a graceful shutdown. */
+  process.on("exit", () => {
+    heptagramLogHandler.log("info", "Shutting down gracefully...");
+    Heptagram.destroy();
+  });
+
   /**
    * Fallthrough error handlers. These fire in rare cases where something throws
    * in a way that our standard catch block cannot see it.
