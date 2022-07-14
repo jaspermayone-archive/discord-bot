@@ -3,12 +3,14 @@ import {
   ContextMenuInteraction,
   Message,
   MessageEmbed,
+  version as libraryVersion,
 } from "discord.js";
 import { Types } from "mongoose";
+import { version as tsVersion } from "typescript";
 
 import { Heptagram } from "../interfaces/Heptagram";
-
 import { customSubstring } from "../utils/customSubstring";
+
 import { heptagramLogHandler } from "./heptagramLogHandler";
 
 /**
@@ -54,7 +56,13 @@ export const heptagramErrorHandler = async (
     `\`\`\`\n${customSubstring(error.stack || "null", 1000)}\n\`\`\``
   );
   errorEmbed.addField("Error ID", errorId.toHexString());
-  errorEmbed.setTimestamp();
+  errorEmbed.addFields(
+    { name: "Debug information:", value: "\u200B" },
+    { name: "Bot Version", value: Heptagram.version, inline: true },
+    { name: "TypeScript Version", value: `v${tsVersion}`, inline: true },
+    { name: "discord.js Version", value: `v${libraryVersion}`, inline: true }
+  ),
+    errorEmbed.setTimestamp();
   if (message) {
     errorEmbed.addField(
       "Message Content:",

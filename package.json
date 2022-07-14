@@ -25,6 +25,7 @@
     "@sapphire/time-utilities": "^1.7.4",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
+    "dayjs": "^1.11.3",
     "discord-api-types": "^0.36.0",
     "discord.js": "^13.8.0",
     "enmap": "^5.9.0",
