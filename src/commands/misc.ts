@@ -19,6 +19,7 @@ export const misc: Command = {
   data: new SlashCommandBuilder()
     .setName("misc")
     .setDescription("Miscellaneous commands that do not fit other categories")
+    .setDMPermission(false)
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
         .setName("permissions")
