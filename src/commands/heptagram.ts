@@ -33,6 +33,7 @@ export const heptagram: Command = {
   data: new SlashCommandBuilder()
     .setName("heptagram")
     .setDescription("Returns the uptime of the bot.")
+    .setDMPermission(false)
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
         .setName("ping")
