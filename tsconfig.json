@@ -3,11 +3,13 @@
     "target": "ES6",
     "module": "CommonJS",
     "rootDir": "./src",
+    "outDir": "./prod",
     "strictNullChecks": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./src/typings"]
-  }
+  },
+  "exclude": ["./test"]
 }
