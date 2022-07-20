@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import moment from "moment";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
@@ -25,7 +25,7 @@ export const handleServerInfo: CommandHandler = async (
     const emojis = interaction.guild.emojis.cache;
     const owner = await interaction.guild.fetchOwner();
 
-    const generalEmbed = new MessageEmbed()
+    const generalEmbed = new EmbedBuilder()
       .setColor(Heptagram.colors.default)
       .setThumbnail(`${interaction?.guild?.iconURL()}`)
       .addFields([

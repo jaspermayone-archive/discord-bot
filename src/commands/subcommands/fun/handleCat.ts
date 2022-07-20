@@ -1,5 +1,5 @@
 import axios from "axios";
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
@@ -24,7 +24,7 @@ export const handleCat: CommandHandler = async (
     );
     const catUrl = catApiResponse.data[0].url;
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setColor(Heptagram.colors.default)
       .setTitle("Here is a random cat for you!")
       .setImage(catUrl)

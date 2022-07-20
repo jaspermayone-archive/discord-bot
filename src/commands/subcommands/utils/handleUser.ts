@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import moment from "moment";
 
 import { UserFlagMap } from "../../../config/commands/userInfo";
@@ -30,7 +30,7 @@ export const handleUser: CommandHandler = async (
     const flagBits = await target.user.fetchFlags();
     const flags = flagBits.toArray();
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setColor(Heptagram.colors.default)
       // set thumnail to target user's avatar
       .setThumbnail(target.displayAvatarURL())

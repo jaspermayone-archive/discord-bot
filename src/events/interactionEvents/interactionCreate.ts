@@ -1,4 +1,4 @@
-import { Interaction, Message } from "discord.js";
+import { Interaction } from "discord.js";
 
 import { Heptagram } from "../../interfaces/Heptagram";
 import { commandListener } from "../../listeners/commandListener";
@@ -18,7 +18,7 @@ export const interactionCreate = async (
   try {
     Heptagram.pm2.metrics.events.mark();
 
-    if (interaction.isCommand()) {
+    if (interaction.isChatInputCommand()) {
       const target = Heptagram.commands.find(
         (el) => el.data.name === interaction.commandName
       );

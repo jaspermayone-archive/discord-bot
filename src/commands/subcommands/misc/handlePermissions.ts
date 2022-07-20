@@ -1,4 +1,4 @@
-import { GuildMember, MessageEmbed } from "discord.js";
+import { GuildMember, EmbedBuilder } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { validateChannelPerms } from "../../../modules/commands/server/validateChannelPerms";
@@ -63,7 +63,7 @@ export const handlePermissions: CommandHandler = async (
       ? "I have the correct permissions in this server and channel."
       : "I do not have the correct permissions in this server and channel.";
 
-    const validEmbed = new MessageEmbed();
+    const validEmbed = new EmbedBuilder();
     validEmbed.setTitle(
       areValid ? "Permssions are valid." : "Permissions are invalid."
     );
