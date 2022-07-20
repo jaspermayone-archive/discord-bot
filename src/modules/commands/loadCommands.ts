@@ -3,7 +3,6 @@ import { join } from "path";
 
 import { Command } from "../../interfaces/commands/Command";
 import { Heptagram } from "../../interfaces/Heptagram";
-
 import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
@@ -19,16 +18,16 @@ export const loadCommands = async (
   try {
     const result: Command[] = [];
     const files = await readdir(
-      join(process.cwd(), "src", "commands"),
+      join(process.cwd(), "prod", "commands"),
       "utf-8"
     );
     for (const file of files) {
-      const status = await stat(join(process.cwd(), "src", "commands", file));
+      const status = await stat(join(process.cwd(), "prod", "commands", file));
       if (status.isDirectory()) {
         continue;
       }
       const name = file.split(".")[0];
-      const mod = await import(join(process.cwd(), "src", "commands", file));
+      const mod = await import(join(process.cwd(), "prod", "commands", file));
       result.push(mod[name] as Command);
     }
     return result;
