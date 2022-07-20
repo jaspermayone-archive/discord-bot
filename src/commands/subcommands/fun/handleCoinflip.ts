@@ -32,7 +32,7 @@ export const handleCoinflip: CommandHandler = async (
         iconURL: `${Heptagram.user?.avatarURL()}`,
       });
 
-    await interaction.editReply({ embeds: [embed] });
+    await interaction.reply({ embeds: [embed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -42,7 +42,7 @@ export const handleCoinflip: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "coinflip", errorId)],
     });
   }

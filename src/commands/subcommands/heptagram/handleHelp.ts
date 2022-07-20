@@ -72,7 +72,7 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
       bugButton,
     ]);
 
-    await interaction.editReply({ embeds: [helpEmbed], components: [row] });
+    await interaction.reply({ embeds: [helpEmbed], components: [row] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -82,7 +82,7 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "help", errorId)],
     });
   }

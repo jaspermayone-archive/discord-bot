@@ -30,7 +30,7 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
 
     const row = new ActionRowBuilder().addComponents([inviteButton]);
 
-    await interaction.editReply({ embeds: [inviteEmbed], components: [row] });
+    await interaction.reply({ embeds: [inviteEmbed], components: [row] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -40,7 +40,7 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "invite", errorId)],
     });
   }

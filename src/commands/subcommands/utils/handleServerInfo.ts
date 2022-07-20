@@ -91,7 +91,7 @@ export const handleServerInfo: CommandHandler = async (
         iconURL: `${Heptagram.user?.avatarURL()}`,
       });
 
-    interaction.editReply({ embeds: [generalEmbed] });
+    interaction.reply({ embeds: [generalEmbed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -101,7 +101,7 @@ export const handleServerInfo: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "serverinfo", errorId)],
     });
   }

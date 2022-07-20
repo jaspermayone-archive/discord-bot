@@ -57,7 +57,7 @@ export const handleAbout: CommandHandler = async (Heptagram, interaction) => {
       codeButton,
     ]);
 
-    await interaction.editReply({ embeds: [aboutEmbed], components: [row] });
+    await interaction.reply({ embeds: [aboutEmbed], components: [row] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -67,7 +67,7 @@ export const handleAbout: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "about", errorId)],
     });
   }

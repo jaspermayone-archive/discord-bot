@@ -68,7 +68,7 @@ export const handlePing: CommandHandler = async (
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 
-    await interaction.editReply({ embeds: [pingEmbed] });
+    await interaction.reply({ embeds: [pingEmbed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -78,7 +78,7 @@ export const handlePing: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "ping", errorId)],
     });
   }

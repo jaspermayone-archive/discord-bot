@@ -18,7 +18,7 @@ export const handleUser: CommandHandler = async (
     const { user, guild } = interaction;
 
     if (!guild) {
-      await interaction.editReply({
+      await interaction.reply({
         content: "This command can only be used in a guild.",
       });
       return;
@@ -78,7 +78,7 @@ export const handleUser: CommandHandler = async (
         iconURL: `${Heptagram.user?.avatarURL()}`,
       });
 
-    await interaction.editReply({ embeds: [embed] });
+    await interaction.reply({ embeds: [embed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -88,7 +88,7 @@ export const handleUser: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "user", errorId)],
     });
   }

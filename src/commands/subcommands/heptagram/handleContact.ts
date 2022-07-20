@@ -22,7 +22,7 @@ export const handleContact: CommandHandler = async (Heptagram, interaction) => {
       discordButton,
       githubButton,
     ]);
-    await interaction.editReply({
+    await interaction.reply({
       content: "Contact the developer team.",
       components: [row],
     });
@@ -33,7 +33,7 @@ export const handleContact: CommandHandler = async (Heptagram, interaction) => {
       err,
       interaction.guild?.name
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "contact", errorId)],
     });
   }

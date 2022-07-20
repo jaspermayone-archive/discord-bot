@@ -1,4 +1,10 @@
-import { MessageActionRow, MessageButton, EmbedBuilder } from "discord.js";
+import {
+  ActionRow,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  EmbedBuilder,
+} from "discord.js";
 
 import { nextScheduledRelease } from "../../../config/commands/updatesData";
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
@@ -51,7 +57,7 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
       .setURL(changelogLink);
 
     const row = new ActionRowBuilder().addComponents([button]);
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [updateEmbed, changelogEmbed],
       components: [row],
     });
@@ -64,7 +70,7 @@ export const handleUpdates: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "updates", errorId)],
     });
   }

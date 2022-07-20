@@ -35,7 +35,7 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 
-    await interaction.editReply({ embeds: [uptimeEmbed] });
+    await interaction.reply({ embeds: [uptimeEmbed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -45,7 +45,7 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "uptime", errorId)],
     });
   }

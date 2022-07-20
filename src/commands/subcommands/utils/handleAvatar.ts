@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { MessageEmbed } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
@@ -15,7 +15,7 @@ export const handleAvatar: CommandHandler = async (
     const target = interaction.options.getUser("user", true);
     const targetName = target.username;
 
-    const avatarEmbed = new EmbedBuilder();
+    const avatarEmbed = new MessageEmbed();
     avatarEmbed.setColor(Heptagram.colors.default);
     avatarEmbed.setTitle(`${targetName}'s Avatar:`);
     avatarEmbed.setImage(
@@ -27,7 +27,7 @@ export const handleAvatar: CommandHandler = async (
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 
-    await interaction.editReply({ embeds: [avatarEmbed] });
+    await interaction.reply({ embeds: [avatarEmbed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -37,7 +37,7 @@ export const handleAvatar: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.editReply({
+    await interaction.reply({
       embeds: [errorEmbedGenerator(Heptagram, "avatar", errorId)],
     });
   }
