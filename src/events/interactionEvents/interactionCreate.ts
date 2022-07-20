@@ -23,7 +23,7 @@ export const interactionCreate = async (
         (el) => el.data.name === interaction.commandName
       );
       if (!target) {
-        interaction.editReply({
+        interaction.reply({
           content: "Command not found.",
         });
         return;
