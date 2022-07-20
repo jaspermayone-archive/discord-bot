@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rm -rf ./prod",
     "build": "tsc",
-    "lint": "npm prettier --write --color './**/*.ts'",
+    "lint": "prettier --write --color './**/*.ts'",
     "start": "node -r dotenv/config ./prod/index.js",
     "dev": "nodemon --quiet --watch './**/*.ts' --exec 'ts-node' src/index.ts",
     "test": "ts-mocha -u tdd --file test/root.ts test/**/*.spec.ts --recursive --exit",
