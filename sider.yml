@@ -1,7 +1,0 @@
-# This is a configuration file to customize code analysis by Sider.
-#
-# For more information, see the documentation:
-# https://help.sider.review/getting-started/custom-configuration
-
-# Customize each tool. If analyses fail, try adjusting each option referencing the following example.
-linter:

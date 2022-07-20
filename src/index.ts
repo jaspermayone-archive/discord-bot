@@ -7,7 +7,6 @@ import { connectDatabase } from "./database/connectDatabase";
 import { handleEvents } from "./events/handleEvents";
 import { Heptagram } from "./interfaces/Heptagram";
 import { loadCommands } from "./modules/commands/loadCommands";
-// import { loadContexts } from "./modules/commands/loadContexts";
 import { registerCommands } from "./modules/commands/owner/registerCommands";
 import { heptagramErrorHandler } from "./modules/heptagramErrorHandler";
 import { heptagramLogHandler } from "./modules/heptagramLogHandler";
