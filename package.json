@@ -7,7 +7,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon --quiet --watch './**/*.ts' --exec 'ts-node' src/index.ts",
-    "lint": "yarn prettier --write --color './**/*.ts'",
+    "lint": "npm run prettier --write --color './**/*.ts'",
     "prepare": "husky install",
     "test": "ts-mocha -u tdd --file test/root.ts test/**/*.spec.ts --recursive --exit"
   },
