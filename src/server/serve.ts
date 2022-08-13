@@ -25,7 +25,7 @@ export const createServer = async (Heptagram: Heptagram): Promise<boolean> => {
       res.status(200).send("Ping!");
     });
 
-    const httpPort = 1080;
+    const httpPort = 8000;
 
     const httpServer = http.createServer(HTTPEndpoint);
 

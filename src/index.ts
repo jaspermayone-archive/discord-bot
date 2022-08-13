@@ -7,7 +7,6 @@ import { connectDatabase } from "./database/connectDatabase";
 import { handleEvents } from "./events/handleEvents";
 import { Heptagram } from "./interfaces/Heptagram";
 import { loadCommands } from "./modules/commands/loadCommands";
-// import { loadContexts } from "./modules/commands/loadContexts";
 import { registerCommands } from "./modules/commands/owner/registerCommands";
 import { heptagramErrorHandler } from "./modules/heptagramErrorHandler";
 import { heptagramLogHandler } from "./modules/heptagramLogHandler";
@@ -87,10 +86,8 @@ and destroys the discord.js client in order to allow for a graceful shutdown. */
 
   heptagramLogHandler.log("info", "Importing commands...");
   const commands = await loadCommands(Heptagram);
-  // const contexts = await loadContexts(Heptagram);
   Heptagram.commands = commands;
-  //Heptagram.contexts = contexts;
-  if (!commands.length /*|| !contexts.length*/) {
+  if (!commands.length) {
     heptagramLogHandler.log("error", "failed to import commands.");
     return;
   }
