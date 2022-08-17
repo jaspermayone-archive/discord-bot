@@ -44,7 +44,7 @@
     "@typescript-eslint/parser": "^5.30.6",
     "alex": "10.0.0",
     "dotenv": "^16.0.1",
-    "eslint": "^8.20.0",
+    "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsdoc": "39.3.6",
