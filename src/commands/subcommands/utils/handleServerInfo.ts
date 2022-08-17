@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { ChannelType, EmbedBuilder } from "discord.js";
 import moment from "moment";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
@@ -25,7 +25,7 @@ export const handleServerInfo: CommandHandler = async (
     const emojis = interaction.guild.emojis.cache;
     const owner = await interaction.guild.fetchOwner();
 
-    const generalEmbed = new MessageEmbed()
+    const generalEmbed = new EmbedBuilder()
       .setColor(Heptagram.colors.default)
       .setThumbnail(`${interaction?.guild?.iconURL()}`)
       .addFields([
@@ -71,16 +71,20 @@ export const handleServerInfo: CommandHandler = async (
         {
           name: "**Text Channels:**",
           value: `${
-            channels.filter((channel) => channel.type === "GUILD_TEXT").size
+            channels.filter((channel) => channel.type === ChannelType.GuildText)
+              .size
           }`,
           inline: true,
         },
         {
           name: "**Voice Channels:**",
           value: `${
-            channels.filter((channel) => channel.type === "GUILD_VOICE").size +
-            channels.filter((channel) => channel.type === "GUILD_STAGE_VOICE")
-              .size
+            channels.filter(
+              (channel) => channel.type === ChannelType.GuildVoice
+            ).size +
+            channels.filter(
+              (channel) => channel.type === ChannelType.GuildStageVoice
+            ).size
           }`,
           inline: true,
         },

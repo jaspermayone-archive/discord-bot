@@ -3,7 +3,7 @@ import { join } from "path";
 
 import { Command } from "../../interfaces/commands/Command";
 import { Heptagram } from "../../interfaces/Heptagram";
-import { heptagramErrorHandler } from "../heptagramErrorHandler";
+import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
 
 /**
  * Reads the `/commands` directory and dynamically imports the files,

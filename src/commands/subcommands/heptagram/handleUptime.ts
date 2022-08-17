@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
@@ -19,16 +19,34 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
         : 0;
     const secondsRemain = seconds - days * 86400 - hours * 3600 - minutes * 60;
 
-    const uptimeEmbed = new MessageEmbed();
+    const uptimeEmbed = new EmbedBuilder();
     uptimeEmbed.setTitle(
       "<:status_online:951855000605298708> Uptime: <:status_online:951855000605298708>"
     );
     uptimeEmbed.setColor(Heptagram.colors.default);
     uptimeEmbed.setDescription("Heptagram has been online for:");
-    uptimeEmbed.addField("Days:", days.toString(), true);
-    uptimeEmbed.addField("Hours:", hours.toString(), true);
-    uptimeEmbed.addField("Minutes:", minutes.toString(), true);
-    uptimeEmbed.addField("Seconds:", secondsRemain.toString(), true);
+    uptimeEmbed.addFields(
+      {
+        name: "Days",
+        value: days.toString(),
+        inline: true,
+      },
+      {
+        name: "Hours",
+        value: hours.toString(),
+        inline: true,
+      },
+      {
+        name: "Minutes",
+        value: minutes.toString(),
+        inline: true,
+      },
+      {
+        name: "Seconds",
+        value: secondsRemain.toString(),
+        inline: true,
+      }
+    );
     uptimeEmbed.setTimestamp();
     uptimeEmbed.setFooter({
       text: `Message sent by Heptagram || ${Heptagram.version}`,

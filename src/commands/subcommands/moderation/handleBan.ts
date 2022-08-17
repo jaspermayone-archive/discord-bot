@@ -1,4 +1,4 @@
-import { Interaction } from "discord.js";
+import { PermissionFlagsBits } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { updateHistory } from "../../../modules/commands/moderation/updateHistory";
@@ -32,8 +32,9 @@ export const handleBan: CommandHandler = async (Heptagram, interaction) => {
     if (
       !member ||
       typeof member.permissions === "string" ||
-      !member.permissions.has("BAN_MEMBERS") ||
-      (targetMember && targetMember.permissions.has("BAN_MEMBERS"))
+      !member.permissions.has(PermissionFlagsBits.BanMembers) ||
+      (targetMember &&
+        targetMember.permissions.has(PermissionFlagsBits.BanMembers))
     ) {
       await interaction.editReply({
         content: "You don't have permission to do that!",
@@ -79,7 +80,7 @@ export const handleBan: CommandHandler = async (Heptagram, interaction) => {
 
     await targetMember.ban({
       reason: customSubstring(reason, 1000),
-      days: prune,
+      deleteMessageDays: prune,
     });
 
     await interaction.editReply({

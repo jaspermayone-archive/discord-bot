@@ -1,5 +1,5 @@
 import axios from "axios";
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { Quote } from "../../../interfaces/commands/fun/Quote";
@@ -33,7 +33,7 @@ export const handleQuote: CommandHandler = async (
       return;
     }
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setColor(Heptagram.colors.default)
       .setTitle("Here is a random quote for you!")
       .setDescription(`"${quote.data.quote}"\n-- ${quote.data.author}`)

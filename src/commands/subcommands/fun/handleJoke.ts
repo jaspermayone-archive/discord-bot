@@ -1,5 +1,5 @@
 import axios from "axios";
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { Joke } from "../../../interfaces/commands/fun/Joke";
@@ -33,7 +33,7 @@ export const handleJoke: CommandHandler = async (
       return;
     }
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setColor(Heptagram.colors.default)
       .setTitle("Here is a random joke for you!")
       .setDescription(joke.data.joke)

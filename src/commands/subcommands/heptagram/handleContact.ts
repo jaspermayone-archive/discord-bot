@@ -1,4 +1,4 @@
-import { MessageActionRow, MessageButton } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
@@ -9,16 +9,16 @@ import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
  */
 export const handleContact: CommandHandler = async (Heptagram, interaction) => {
   try {
-    const discordButton = new MessageButton()
-      .setStyle("LINK")
+    const discordButton = new ButtonBuilder()
+      .setStyle(ButtonStyle.Link)
       .setLabel("Discord")
       .setURL("https://links.heptagrambotproject.com/discord");
-    const githubButton = new MessageButton()
-      .setStyle("LINK")
+    const githubButton = new ButtonBuilder()
+      .setStyle(ButtonStyle.Link)
       .setLabel("GitHub")
       .setURL("https://github.com/heptagram-bot-project/discord-bot");
 
-    const row = new MessageActionRow().addComponents([
+    const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
       discordButton,
       githubButton,
     ]);

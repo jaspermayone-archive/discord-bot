@@ -5,7 +5,6 @@ import {
   contentFilterMap,
 } from "../../src/config/commands/serverInfo";
 import { nextScheduledRelease } from "../../src/config/commands/updatesData";
-import { UserFlagMap } from "../../src/config/commands/userInfo";
 
 suite("serverInfo", () => {
   test("is defined", () => {
@@ -32,12 +31,5 @@ suite("updatesData", () => {
       nextScheduledRelease,
       "nextScheduledRelease is not a string"
     );
-  });
-});
-
-suite("userInfo", () => {
-  test("is defined", () => {
-    assert.isDefined(UserFlagMap, "UserFlagMap is not defined");
-    assert.isObject(UserFlagMap, "UserFlagMap is not an object");
   });
 });
