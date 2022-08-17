@@ -23,13 +23,13 @@ export const interactionCreate = async (
         (el) => el.data.name === interaction.commandName
       );
       if (!target) {
-        interaction.reply({
+        interaction.editReply({
           content: "Command not found.",
         });
         return;
       }
       if (!interaction.guildId || !interaction.guild) {
-        await interaction.reply({
+        await interaction.editReply({
           content: "You must be in a server to use this command.",
         });
         return;

@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { ChannelType, EmbedBuilder } from "discord.js";
 import moment from "moment";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
@@ -71,16 +71,20 @@ export const handleServerInfo: CommandHandler = async (
         {
           name: "**Text Channels:**",
           value: `${
-            channels.filter((channel) => channel.type === "GUILD_TEXT").size
+            channels.filter((channel) => channel.type === ChannelType.GuildText)
+              .size
           }`,
           inline: true,
         },
         {
           name: "**Voice Channels:**",
           value: `${
-            channels.filter((channel) => channel.type === "GUILD_VOICE").size +
-            channels.filter((channel) => channel.type === "GUILD_STAGE_VOICE")
-              .size
+            channels.filter(
+              (channel) => channel.type === ChannelType.GuildVoice
+            ).size +
+            channels.filter(
+              (channel) => channel.type === ChannelType.GuildStageVoice
+            ).size
           }`,
           inline: true,
         },
@@ -91,7 +95,7 @@ export const handleServerInfo: CommandHandler = async (
         iconURL: `${Heptagram.user?.avatarURL()}`,
       });
 
-    interaction.reply({ embeds: [generalEmbed] });
+    interaction.editReply({ embeds: [generalEmbed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -101,7 +105,7 @@ export const handleServerInfo: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "serverinfo", errorId)],
     });
   }

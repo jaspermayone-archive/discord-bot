@@ -1,3 +1,5 @@
+import { PermissionFlagsBits } from "discord.js";
+
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { updateHistory } from "../../../modules/commands/moderation/updateHistory";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
@@ -14,7 +16,7 @@ export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
   try {
     const { guild, member } = interaction;
     if (!guild) {
-      await interaction.reply({
+      await interaction.editReply({
         content: "Missing Guild!!",
       });
       return;
@@ -28,31 +30,32 @@ export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
     if (
       !member ||
       typeof member.permissions === "string" ||
-      !member.permissions.has("MODERATE_MEMBERS") ||
-      (targetMember && targetMember.permissions.has("MODERATE_MEMBERS"))
+      !member.permissions.has(PermissionFlagsBits.ModerateMembers) ||
+      !targetMember ||
+      targetMember.permissions.has(PermissionFlagsBits.ModerateMembers)
     ) {
-      await interaction.reply({
+      await interaction.editReply({
         content: "You don't have permission to kick that user!",
       });
       return;
     }
 
     if (!targetMember) {
-      await interaction.reply({
+      await interaction.editReply({
         content: "That user appears to have left the guild.",
       });
       return;
     }
 
     if (target.id === member.user.id) {
-      await interaction.reply({
+      await interaction.editReply({
         content: "You can't warn yourself!",
       });
       return;
     }
 
     if (target.id === Heptagram.user?.id) {
-      await interaction.reply({
+      await interaction.editReply({
         content: "You can't warn me!",
       });
       return;
@@ -60,7 +63,7 @@ export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
 
     await updateHistory(Heptagram, "warn", target.id, guild.id);
 
-    await interaction.reply({
+    await interaction.editReply({
       content: "Warned " + target.tag + " for " + reason,
     });
   } catch (err) {
@@ -72,7 +75,7 @@ export const handleWarn: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "warn", errorId)],
     });
   }

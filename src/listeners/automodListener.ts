@@ -1,3 +1,5 @@
+import { PermissionFlagsBits } from "discord.js";
+
 import { Listener } from "../interfaces/listeners/Listener";
 import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 
@@ -12,7 +14,7 @@ export const automodListener: Listener = {
   description: "Handles the automod logic",
   run: async (Heptagram, message) => {
     try {
-      if (message.member?.permissions.has("ManageMessages")) {
+      if (message.member?.permissions.has(PermissionFlagsBits.ManageMessages)) {
         return;
       }
     } catch (error) {

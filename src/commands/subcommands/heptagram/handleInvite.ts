@@ -1,4 +1,9 @@
-import { MessageActionRow, MessageButton, EmbedBuilder } from "discord.js";
+import {
+  EmbedBuilder,
+  ButtonBuilder,
+  ActionRowBuilder,
+  ButtonStyle,
+} from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
@@ -28,9 +33,11 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
       .setStyle(ButtonStyle.Link)
       .setURL("https://links.heptagrambotproject.com/invite");
 
-    const row = new ActionRowBuilder().addComponents([inviteButton]);
+    const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
+      inviteButton,
+    ]);
 
-    await interaction.reply({ embeds: [inviteEmbed], components: [row] });
+    await interaction.editReply({ embeds: [inviteEmbed], components: [row] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -40,7 +47,7 @@ export const handleInvite: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "invite", errorId)],
     });
   }

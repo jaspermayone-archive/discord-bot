@@ -62,7 +62,7 @@ export const fun: Command = {
         undefined,
         interaction
       );
-      await interaction.reply({
+      await interaction.editReply({
         embeds: [errorEmbedGenerator(Heptagram, "fun group", errorId)],
       });
     }

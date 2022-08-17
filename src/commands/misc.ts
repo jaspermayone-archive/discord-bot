@@ -44,7 +44,7 @@ export const misc: Command = {
         undefined,
         interaction
       );
-      await interaction.reply({
+      await interaction.editReply({
         embeds: [errorEmbedGenerator(Heptagram, "misc group", errorId)],
       });
     }

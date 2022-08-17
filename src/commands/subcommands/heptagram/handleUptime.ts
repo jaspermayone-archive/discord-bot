@@ -25,17 +25,35 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
     );
     uptimeEmbed.setColor(Heptagram.colors.default);
     uptimeEmbed.setDescription("Heptagram has been online for:");
-    uptimeEmbed.addField("Days:", days.toString(), true);
-    uptimeEmbed.addField("Hours:", hours.toString(), true);
-    uptimeEmbed.addField("Minutes:", minutes.toString(), true);
-    uptimeEmbed.addField("Seconds:", secondsRemain.toString(), true);
+    uptimeEmbed.addFields(
+      {
+        name: "Days",
+        value: days.toString(),
+        inline: true,
+      },
+      {
+        name: "Hours",
+        value: hours.toString(),
+        inline: true,
+      },
+      {
+        name: "Minutes",
+        value: minutes.toString(),
+        inline: true,
+      },
+      {
+        name: "Seconds",
+        value: secondsRemain.toString(),
+        inline: true,
+      }
+    );
     uptimeEmbed.setTimestamp();
     uptimeEmbed.setFooter({
       text: `Message sent by Heptagram || ${Heptagram.version}`,
       iconURL: `${Heptagram.user?.avatarURL()}`,
     });
 
-    await interaction.reply({ embeds: [uptimeEmbed] });
+    await interaction.editReply({ embeds: [uptimeEmbed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -45,7 +63,7 @@ export const handleUptime: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "uptime", errorId)],
     });
   }

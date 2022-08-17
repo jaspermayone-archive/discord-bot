@@ -117,8 +117,10 @@ and destroys the discord.js client in order to allow for a graceful shutdown. */
   await Heptagram.login(Heptagram.configs.token);
   heptagramLogHandler.log("info", "Setting activity...");
 
-  // TODO: SET CUSTOM ACTIVITY
-  Heptagram.user?.setActivity("discord.js", { type: ActivityType.Watching });
+  Heptagram.user?.setActivity({
+    name: `over ${Heptagram.guilds.cache.size} guilds`,
+    type: ActivityType.Watching,
+  });
 })();
 
 export default Heptagram;

@@ -64,7 +64,7 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
         "https://github.com/heptagram-bot-project/discord-bot/issues/new/choose"
       );
 
-    const row = new ActionRowBuilder().addComponents([
+    const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
       supportServerButton,
       inviteButton,
       codeButton,
@@ -72,7 +72,7 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
       bugButton,
     ]);
 
-    await interaction.reply({ embeds: [helpEmbed], components: [row] });
+    await interaction.editReply({ embeds: [helpEmbed], components: [row] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -82,7 +82,7 @@ export const handleHelp: CommandHandler = async (Heptagram, interaction) => {
       undefined,
       interaction
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "help", errorId)],
     });
   }

@@ -1,4 +1,4 @@
-import { MessageActionRow, MessageButton } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
@@ -18,11 +18,11 @@ export const handleContact: CommandHandler = async (Heptagram, interaction) => {
       .setLabel("GitHub")
       .setURL("https://github.com/heptagram-bot-project/discord-bot");
 
-    const row = new ActionRowBuilder().addComponents([
+    const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
       discordButton,
       githubButton,
     ]);
-    await interaction.reply({
+    await interaction.editReply({
       content: "Contact the developer team.",
       components: [row],
     });
@@ -33,7 +33,7 @@ export const handleContact: CommandHandler = async (Heptagram, interaction) => {
       err,
       interaction.guild?.name
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "contact", errorId)],
     });
   }

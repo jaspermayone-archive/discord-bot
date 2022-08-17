@@ -3,7 +3,7 @@ import {
   RESTPostAPIApplicationCommandsJSONBody,
   RESTPostAPIChatInputApplicationCommandsJSONBody,
   Routes,
-} from "discord-api-types/v9";
+} from "discord-api-types/v10";
 
 import { Heptagram } from "../../../interfaces/Heptagram";
 import { heptagramErrorHandler } from "../../heptagramErrorHandler";

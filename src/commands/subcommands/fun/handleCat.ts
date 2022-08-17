@@ -34,7 +34,7 @@ export const handleCat: CommandHandler = async (
         iconURL: catUrl,
       });
 
-    await interaction.reply({ embeds: [embed] });
+    await interaction.editReply({ embeds: [embed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -44,7 +44,7 @@ export const handleCat: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "cat", errorId)],
     });
   }

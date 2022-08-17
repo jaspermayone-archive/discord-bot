@@ -1,7 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 import moment from "moment";
 
-import { UserFlagMap } from "../../../config/commands/userInfo";
 import { CommandHandler } from "../../../interfaces/commands/CommandHandler";
 import { errorEmbedGenerator } from "../../../modules/errorEmbedGenerator";
 import { heptagramErrorHandler } from "../../../modules/heptagramErrorHandler";
@@ -18,7 +17,7 @@ export const handleUser: CommandHandler = async (
     const { user, guild } = interaction;
 
     if (!guild) {
-      await interaction.reply({
+      await interaction.editReply({
         content: "This command can only be used in a guild.",
       });
       return;
@@ -34,43 +33,50 @@ export const handleUser: CommandHandler = async (
       .setColor(Heptagram.colors.default)
       // set thumnail to target user's avatar
       .setThumbnail(target.displayAvatarURL())
-      .addField(`Username:`, `${target.user}`, true)
-      .addField(`Nickname:`, `${target.displayName}`, true)
-      .addField("ID:", `${target.id}`, true)
-      .addField("In Server", `${interaction.guild?.name}`, true)
-      .addField(
-        "Joined The Server On:",
-        `${moment(target.joinedTimestamp).format("MMMM Do YYYY, h:mm:ss a")}`,
-        true
-      )
-      .addField(
-        "Account Created On:",
-        `${moment
-          .utc(target.user.createdTimestamp)
-          .format("dddd, MMMM Do YYYY")}`,
-        true
-      )
-      .addField(
-        "Roles:",
-        customSubstring(
-          target.roles.cache.map((role) => `<@&${role.id}>`).join(" "),
-          1000
-        ),
-        false
-      )
-      .addField("Display Color:", target.displayHexColor, true)
-      .addField(
-        "Nitro:",
-        target.premiumSinceTimestamp
-          ? `Since ${new Date(
-              target.premiumSinceTimestamp
-            ).toLocaleDateString()}`
-          : "No.",
-        true
-      )
-      .addField(
-        "User Badges",
-        flags.map((el) => UserFlagMap[el]).join(", ") || "None"
+      .addFields(
+        { name: `Username:`, value: `${target.user}`, inline: true },
+        { name: "Nickname", value: `${target.displayName}`, inline: true },
+        { name: "ID", value: `${target.id}`, inline: true },
+        {
+          name: "In Server",
+          value: `${interaction.guild?.name}`,
+          inline: true,
+        },
+        {
+          name: "Joined Server On",
+          value: `${moment(target.joinedAt).format("LLL")}`,
+          inline: true,
+        },
+        {
+          name: "Account Created On",
+          value: `${moment(target.user.createdAt).format("LLL")}`,
+          inline: true,
+        },
+        {
+          name: "Role(s)",
+          value: customSubstring(
+            target.roles.cache
+              .filter((role) => role.id !== guild.id)
+              .map((role) => `<@&${role.id}>`)
+              .join(" "),
+            1000
+          ),
+          inline: false,
+        },
+        {
+          name: "Display Color",
+          value: `${target.displayHexColor}`,
+          inline: true,
+        },
+        {
+          name: "Nitro:",
+          value: target.premiumSinceTimestamp
+            ? `Since ${new Date(
+                target.premiumSinceTimestamp
+              ).toLocaleDateString()}`
+            : "No.",
+          inline: true,
+        }
       )
       .setTimestamp()
       .setFooter({
@@ -78,7 +84,7 @@ export const handleUser: CommandHandler = async (
         iconURL: `${Heptagram.user?.avatarURL()}`,
       });
 
-    await interaction.reply({ embeds: [embed] });
+    await interaction.editReply({ embeds: [embed] });
   } catch (err) {
     const errorId = await heptagramErrorHandler(
       Heptagram,
@@ -88,7 +94,7 @@ export const handleUser: CommandHandler = async (
       undefined,
       interaction
     );
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [errorEmbedGenerator(Heptagram, "user", errorId)],
     });
   }
