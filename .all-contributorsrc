@@ -1,0 +1,14 @@
+{
+  "projectName": "discord-bot",
+  "projectOwner": "Heptagram Bot Project",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [],
+  "contributorsPerLine": 7
+}

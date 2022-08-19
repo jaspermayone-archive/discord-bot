@@ -43,7 +43,12 @@
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "alex": "10.0.0",
+<<<<<<< HEAD
     "dotenv": "16.0.1",
+=======
+    "all-contributors-cli": "^6.20.0",
+    "dotenv": "^16.0.1",
+>>>>>>> a5a5131 (:memo: docs work)
     "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
