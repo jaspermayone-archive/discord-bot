@@ -11,7 +11,6 @@ import { registerCommands } from "./modules/commands/owner/registerCommands";
 import { heptagramErrorHandler } from "./modules/heptagramErrorHandler";
 import { heptagramLogHandler } from "./modules/heptagramLogHandler";
 import { loadPM2 } from "./modules/loadPM2";
-import { createServer } from "./server/serve";
 import { validateEnv } from "./utils/validateEnv";
 import { validateNode } from "./utils/validateNode";
 
@@ -76,13 +75,6 @@ and destroys the discord.js client in order to allow for a graceful shutdown. */
     await heptagramErrorHandler(Heptagram, "Uncaught Exception Error", error);
     await heptagramLogHandler.log("error", error);
   });
-
-  heptagramLogHandler.log("info", "Initialising web server...");
-  const server = await createServer(Heptagram);
-  if (!server) {
-    heptagramLogHandler.log("error", "failed to launch web server.");
-    return;
-  }
 
   heptagramLogHandler.log("info", "Importing commands...");
   const commands = await loadCommands(Heptagram);
