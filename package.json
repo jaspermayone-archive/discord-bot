@@ -1,6 +1,6 @@
 {
   "name": "heptagram",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "main": "./prod/src/main.js",
   "scripts": {
@@ -43,8 +43,8 @@
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "alex": "10.0.0",
-    "dotenv": "16.0.1",
     "all-contributors-cli": "^6.20.0",
+    "dotenv": "16.0.1",
     "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",

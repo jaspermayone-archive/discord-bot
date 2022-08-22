@@ -2,7 +2,7 @@
 import { ActivityType, Client, WebhookClient } from "discord.js";
 import "dotenv/config";
 
-import { IntentOptions, PartialsOptions } from "./config/IntentOptions";
+import { IntentOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
 import { handleEvents } from "./events/handleEvents";
 import { Heptagram } from "./interfaces/Heptagram";
@@ -32,7 +32,6 @@ void (async () => {
   const Heptagram = new Client({
     shards: "auto",
     intents: IntentOptions,
-    partials: PartialsOptions,
   }) as Heptagram;
 
   heptagramLogHandler.log("info", "Validating environment variables...");
