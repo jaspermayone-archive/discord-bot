@@ -1,4 +1,3 @@
-/* eslint-disable require-atomic-updates */
 import { ActivityType, Client, WebhookClient } from "discord.js";
 import "dotenv/config";
 
@@ -77,6 +76,7 @@ and destroys the discord.js client in order to allow for a graceful shutdown. */
 
   heptagramLogHandler.log("info", "Importing commands...");
   const commands = await loadCommands(Heptagram);
+  // eslint-disable-next-line require-atomic-updates
   Heptagram.commands = commands;
   if (!commands.length) {
     heptagramLogHandler.log("error", "failed to import commands.");
