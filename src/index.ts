@@ -31,6 +31,7 @@ void (async () => {
   const Heptagram = new Client({
     shards: "auto",
     intents: IntentOptions,
+    allowedMentions: { parse: ["users", "roles"], repliedUser: true },
   }) as Heptagram;
 
   heptagramLogHandler.log("info", "Validating environment variables...");

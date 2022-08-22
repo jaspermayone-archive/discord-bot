@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "discord.js";
-import { connect } from "mongoose";
+import mongoose from "mongoose";
 
 import { Heptagram } from "../interfaces/Heptagram";
 import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
@@ -14,7 +14,21 @@ export const connectDatabase = async (
   Heptagram: Heptagram
 ): Promise<boolean> => {
   try {
-    await connect(Heptagram.configs.mongoUri);
+    const dbOptions = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      autoIndex: false,
+      reconnectTries: 5,
+      reconnectInterval: 1000,
+      poolSize: 5,
+      connectTimeoutMS: 10000,
+      family: 4,
+      useFindAndModify: false,
+    };
+
+    await mongoose.connect(Heptagram.configs.mongoUri, dbOptions);
+    // eslint-disable-next-line require-atomic-updates
+    mongoose.Promise = global.Promise;
 
     const databaseEmbed = new EmbedBuilder();
     databaseEmbed.setTitle("Database connected!");
