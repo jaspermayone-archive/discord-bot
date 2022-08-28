@@ -1,7 +1,7 @@
 import * as child from "child_process";
 
 import { Heptagram } from "../interfaces/Heptagram";
-import { heptagramLogHandler } from "../modules/heptagramLogHandler";
+import * as logger from "../modules/heptagramLogger";
 
 /**
  * Validates that all expected environment variables are set with *some* value.
@@ -101,7 +101,7 @@ export const validateEnv = (
 
     return { valid: true, message: "Environment variables validated!" };
   } catch (err) {
-    heptagramLogHandler.log("error", err);
+    logger.error(`${err}`);
     return {
       valid: false,
       message: "Unknown error when validating environment",

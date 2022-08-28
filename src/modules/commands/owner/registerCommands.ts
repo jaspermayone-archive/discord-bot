@@ -7,7 +7,7 @@ import {
 
 import { Heptagram } from "../../../interfaces/Heptagram";
 import { heptagramErrorHandler } from "../../heptagramErrorHandler";
-import { heptagramLogHandler } from "../../heptagramLogHandler";
+import * as logger from "../../heptagramLogger";
 
 /**
  * Takes both the commands and contexts, parses the `data` properties as needed,
@@ -40,13 +40,13 @@ export const registerCommands = async (
     });
 
     if (process.env.NODE_ENV === "production") {
-      heptagramLogHandler.log("info", "registering commands globally!");
+      logger.info("registering commands globally!");
 
       await rest.put(Routes.applicationCommands(Heptagram.configs.id), {
         body: commandData,
       });
     } else {
-      heptagramLogHandler.log("info", "registering to home guild only");
+      logger.info("registering to home guild only");
       await rest.put(
         Routes.applicationGuildCommands(
           Heptagram.configs.id,
