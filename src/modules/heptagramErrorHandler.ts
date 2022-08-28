@@ -8,9 +8,8 @@ import { Types } from "mongoose";
 import { version as tsVersion } from "typescript";
 
 import { Heptagram } from "../interfaces/Heptagram";
+import * as logger from "../modules/heptagramLogger";
 import { customSubstring } from "../utils/customSubstring";
-
-import { heptagramLogHandler } from "./heptagramLogHandler";
 
 /**
  * Takes the error object generated within the code, logs the
@@ -37,12 +36,10 @@ export const heptagramErrorHandler = async (
     Heptagram.pm2.metrics.errors.mark();
   }
   const error = err as Error;
-  heptagramLogHandler.log("error", `There was an error in the ${context}:`);
-  heptagramLogHandler.log(
-    "error",
+  logger.error(`There was an error in the ${context}:`);
+  logger.error(
     JSON.stringify({ errorMessage: error.message, errorStack: error.stack })
   );
-
   const errorId = new Types.ObjectId();
   const errorEmbed = new EmbedBuilder();
   errorEmbed.setTitle(

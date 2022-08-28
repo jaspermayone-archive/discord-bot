@@ -1,4 +1,4 @@
-import { heptagramLogHandler } from "../modules/heptagramLogHandler";
+import * as logger from "../modules/heptagramLogger";
 
 /**
  * Validates some important things that the bot needs to be able to run.
@@ -18,7 +18,7 @@ export const validateNode = (): { valid: boolean; message: string } => {
 
     return { valid: true, message: "Node ENV ok!" };
   } catch (err) {
-    heptagramLogHandler.log("error", err);
+    logger.error(`${err}`);
     return {
       valid: false,
       message: "Unknown error when validating environment",

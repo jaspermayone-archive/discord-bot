@@ -1,7 +1,7 @@
 import { EmbedBuilder } from "discord.js";
 
 import { Heptagram } from "../../interfaces/Heptagram";
-import { heptagramLogHandler } from "../../modules/heptagramLogHandler";
+import * as logger from "../../mo../../modules/heptagramLogger";
 
 /**
  * Sends a notification to the debug hook when Heptagram has connected to
@@ -10,7 +10,7 @@ import { heptagramLogHandler } from "../../modules/heptagramLogHandler";
  * @param {Heptagram} Heptagram's Client instance.
  */
 export const ready = async (Heptagram: Heptagram): Promise<void> => {
-  heptagramLogHandler.log("info", "Fetching reaction role data...");
+  logger.info("Fetching reaction role data...");
   const readyEmbed = new EmbedBuilder();
   readyEmbed.setTitle(
     "<:status_online:951855000605298708> Heptagram is online <:status_online:951855000605298708>"
@@ -26,8 +26,8 @@ export const ready = async (Heptagram: Heptagram): Promise<void> => {
   });
 
   await Heptagram.debugHook.send({ embeds: [readyEmbed] });
-  heptagramLogHandler.log("info", "Discord ready!");
+  logger.info("Discord ready!");
 
-  heptagramLogHandler.log("info", "Loaded PM2 counts!");
+  logger.info("Loaded PM2 counts!");
   Heptagram.pm2.metrics.events.mark();
 };

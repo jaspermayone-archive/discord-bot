@@ -3,7 +3,7 @@ import moment from "moment";
 
 import { Heptagram } from "../../../interfaces/Heptagram";
 import { heptagramErrorHandler } from "../../heptagramErrorHandler";
-import { heptagramLogHandler } from "../../heptagramLogHandler";
+import * as logger from "../../heptagramLogger";
 
 /**s
  * Reloads and restarts the bot.
@@ -42,10 +42,7 @@ export const reboot = async (Heptagram: Heptagram, message: Message) => {
       })
       .then(async (collected) => {
         if (collected.first()?.content.toLowerCase() === "yes") {
-          heptagramLogHandler.log(
-            `info`,
-            `${message.author.username} has rebooted the bot.`
-          );
+          logger.info(`${message.author.username} has rebooted the bot.`);
           (await Heptagram.debugHook.send({ embeds: [embed] })) &&
             message.reply({ embeds: [embed] }).then(() => {
               process.exit();
