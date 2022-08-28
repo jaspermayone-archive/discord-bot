@@ -1,6 +1,6 @@
 {
   "name": "heptagram",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "description": "The open-source multipurpose discord bot with the goal to be the single needed bot for any server.",
   "main": "./prod/src/main.js",
   "scripts": {
