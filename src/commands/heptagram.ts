@@ -11,6 +11,7 @@ import { heptagramErrorHandler } from "../modules/heptagramErrorHandler";
 import { handleInvalidSubcommand } from "./subcommands/handleInvalidSubcommand";
 import { handleAbout } from "./subcommands/heptagram/handleAbout";
 import { handleContact } from "./subcommands/heptagram/handleContact";
+import { handleFeedback } from "./subcommands/heptagram/handleFeedback";
 import { handleHelp } from "./subcommands/heptagram/handleHelp";
 import { handleInvite } from "./subcommands/heptagram/handleInvite";
 import { handlePing } from "./subcommands/heptagram/handlePing";
@@ -27,6 +28,7 @@ const handlers: { [key: string]: CommandHandler } = {
   updates: handleUpdates,
   contact: handleContact,
   stats: handleStats,
+  feedback: handleFeedback,
 };
 
 export const heptagram: Command = {
@@ -73,12 +75,22 @@ export const heptagram: Command = {
       new SlashCommandSubcommandBuilder()
         .setName("stats")
         .setDescription("Shows statistics about the bot.")
+    )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("feedback")
+        .setDescription(
+          "Use this to provide feedback, request features, and share bugs!"
+        )
     ),
   run: async (Heptagram, interaction) => {
     try {
-      await interaction.deferReply();
-
       const subCommand = interaction.options.getSubcommand();
+
+      if (subCommand !== "feedback") {
+        await interaction.deferReply();
+      }
+
       const handler = handlers[subCommand] || handleInvalidSubcommand;
       await handler(Heptagram, interaction);
       Heptagram.pm2.metrics.commands.mark();

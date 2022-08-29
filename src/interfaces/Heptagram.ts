@@ -13,12 +13,14 @@ export interface Heptagram extends Client {
   commitHash: string;
   version: string;
   debugHook: WebhookClient;
+  feedbackHook: WebhookClient;
   configs: {
     nodeEnv: string;
     token: string;
     id: string;
     ownerId: string;
-    whUrl: string;
+    logsWH: string;
+    feedbackWH: string;
     mongoUri: string;
     testGuildId: string;
     homeGuildId: string;

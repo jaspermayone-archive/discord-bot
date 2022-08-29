@@ -52,7 +52,10 @@ void (async () => {
     logger.info("PM2 loaded.");
   }
 
-  Heptagram.debugHook = new WebhookClient({ url: Heptagram.configs.whUrl });
+  Heptagram.debugHook = new WebhookClient({ url: Heptagram.configs.logsWH });
+  Heptagram.feedbackHook = new WebhookClient({
+    url: Heptagram.configs.feadbackWH,
+  });
 
   /* This catches when the process is about to exit
 and destroys the discord.js client in order to allow for a graceful shutdown. */

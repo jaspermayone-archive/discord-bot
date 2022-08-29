@@ -24,8 +24,12 @@ export const validateEnv = (
       return { valid: false, message: "Missing Discord Token" };
     }
 
-    if (!process.env.WH_URL) {
-      return { valid: false, message: "Missing Discord webhook URL" };
+    if (!process.env.LOGS_WH) {
+      return { valid: false, message: "Missing LOGS Discord Webhook URL" };
+    }
+
+    if (!process.env.FEEDBACK_WH) {
+      return { valid: false, message: "Missing FEEDBACK Discord Webhook URL" };
     }
 
     if (!process.env.MONGO_URI) {
@@ -72,7 +76,8 @@ export const validateEnv = (
       token: process.env.DISCORD_TOKEN,
       id: process.env.CLIENT_ID,
       ownerId: process.env.OWNER_ID,
-      whUrl: process.env.WH_URL,
+      logsWH: process.env.LOGS_WH,
+      feedbackWH: process.env.FEEDBACK_WH,
       mongoUri: process.env.MONGO_URI,
       testGuildId: process.env.TEST_GUILD_ID,
       homeGuildId: process.env.HOME_GUILD_ID,
