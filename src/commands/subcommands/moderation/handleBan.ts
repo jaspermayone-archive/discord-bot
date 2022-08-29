@@ -43,8 +43,9 @@ export const handleBan: CommandHandler = async (Heptagram, interaction) => {
     }
 
     if (!targetMember) {
+      await guild.bans.create(target.id);
       await interaction.editReply({
-        content: "That user appears to have left the guild.",
+        content: `Hackbaned ${target.tag}`,
       });
       return;
     }
