@@ -2,7 +2,7 @@ import io from "@pm2/io";
 
 import { Heptagram } from "../interfaces/Heptagram";
 
-import * as logger from "./modules/heptagramLogger";
+import * as logger from "./heptagramLogger";
 
 /**
  * Module to load the PM2 config and attach it to Heptagram.

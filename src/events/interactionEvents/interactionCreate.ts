@@ -1,4 +1,4 @@
-import { Interaction, InteractionType, Message } from "discord.js";
+import { Interaction, InteractionType } from "discord.js";
 
 import { handleFeedbackModal } from "../../commands/subcommands/heptagram/handleFeedbackModal";
 import { Heptagram } from "../../interfaces/Heptagram";
