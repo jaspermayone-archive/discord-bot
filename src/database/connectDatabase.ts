@@ -18,12 +18,7 @@ export const connectDatabase = async (
       useNewUrlParser: true,
       useUnifiedTopology: true,
       autoIndex: false,
-      reconnectTries: 5,
-      reconnectInterval: 1000,
-      poolSize: 5,
-      connectTimeoutMS: 10000,
       family: 4,
-      useFindAndModify: false,
     };
 
     await mongoose.connect(Heptagram.configs.mongoUri, dbOptions);
