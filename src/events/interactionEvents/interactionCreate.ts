@@ -1,6 +1,5 @@
-import { Interaction, InteractionType } from "discord.js";
+import { Interaction } from "discord.js";
 
-import { handleFeedbackModal } from "../../commands/subcommands/heptagram/handleFeedbackModal";
 import { Heptagram } from "../../interfaces/Heptagram";
 import { commandListener } from "../../listeners/commandListener";
 import { usageListener } from "../../listeners/usageListener";
@@ -39,11 +38,6 @@ export const interactionCreate = async (
       await commandListener.run(Heptagram, interaction);
       await target.run(Heptagram, interaction);
       await usageListener.run(Heptagram, interaction);
-    }
-    if (interaction.type === InteractionType.ModalSubmit) {
-      if (interaction.customId === "feedback-modal") {
-        await handleFeedbackModal(Heptagram, interaction);
-      }
     }
   } catch (err) {
     await heptagramErrorHandler(Heptagram, "interaction create event", err);
