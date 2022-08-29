@@ -54,7 +54,7 @@ void (async () => {
 
   Heptagram.debugHook = new WebhookClient({ url: Heptagram.configs.logsWH });
   Heptagram.feedbackHook = new WebhookClient({
-    url: Heptagram.configs.feadbackWH,
+    url: Heptagram.configs.feedbackWH,
   });
 
   /* This catches when the process is about to exit
