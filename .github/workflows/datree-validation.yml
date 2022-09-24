@@ -24,7 +24,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v19
+        uses: tj-actions/changed-files@v30
         with:
           files: |
             *.yaml
