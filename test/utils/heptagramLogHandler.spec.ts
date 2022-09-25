@@ -1,18 +1,15 @@
 import { assert } from "chai";
 
-import { heptagramLogHandler } from "../../src/modules/heptagramLogHandler";
+import * as logger from "../../src/modules/heptagramLogger";
 
 suite("heptagramLogHandler", () => {
   test("is defined", () => {
-    assert.isDefined(heptagramLogHandler, "heptagramLogHandler is not defined");
-    assert.isObject(
-      heptagramLogHandler,
-      "heptagramLogHandler is not an object"
-    );
+    assert.isDefined(logger, "heptagramLogHandler is not defined");
+    assert.isObject(logger, "heptagramLogHandler is not an object");
   });
 
   test("has log function", () => {
-    assert.isDefined(heptagramLogHandler.log, "log is not defined");
-    assert.isFunction(heptagramLogHandler.log, "log is not a function");
+    assert.isDefined(logger.log, "log is not defined");
+    assert.isFunction(logger.log, "log is not a function");
   });
 });
