@@ -61,10 +61,16 @@
     "ts-node": "10.9.1"
   },
   "engines": {
-    "node": ">=16.10.0",
+    "node": "^16.10.0",
     "npm": "^8.0.0"
   },
   "lint-staged": {
     "**/*": "prettier --write --color --ignore-unknown"
-  }
+  },
+  "keywords": [
+    "DiscordJS",
+    "Discord",
+    "bot",
+    "discord-bot"
+  ]
 }

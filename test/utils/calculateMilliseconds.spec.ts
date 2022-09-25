@@ -41,6 +41,6 @@ suite("calculateMilliseconds", () => {
 
   test("handles invalid units", () => {
     assert.equal(calculateMilliseconds(1, "years"), 0);
-    assert.equal(calculateMilliseconds(1500, "beccas"), 0);
+    assert.equal(calculateMilliseconds(1500, "heptagrams"), 0);
   });
 });
