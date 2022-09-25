@@ -6,6 +6,7 @@ import { automodListener } from "../../listeners/automodListener";
 import { heartsListener } from "../../listeners/heartsListener";
 import { runOwnerCommands } from "../../modules/events/runOwnerCommands";
 import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
+import { getSettings } from "../../modules/settings/getSettings";
 
 /**
  * Handles the onMessage event. Validates that the message did not come from
@@ -29,14 +30,20 @@ export const messageCreate = async (
       return;
     }
 
-    const isScam = await automodPhish(Heptagram, message);
+    const serverConfig = await getSettings(Heptagram, guild.id, guild.name);
+
+    if (!serverConfig) {
+      return;
+    }
+
+    const isScam = await automodPhish(Heptagram, message, serverConfig);
 
     if (isScam) {
       return;
     }
 
-    await heartsListener.run(Heptagram, message);
-    await automodListener.run(Heptagram, message);
+    await heartsListener.run(Heptagram, message, serverConfig);
+    await automodListener.run(Heptagram, message, serverConfig);
 
     if (
       message.author.id === Heptagram.configs.ownerId &&
@@ -44,7 +51,6 @@ export const messageCreate = async (
     ) {
       await runOwnerCommands(Heptagram, message);
     }
-
     Heptagram.pm2.metrics.events.mark();
   } catch (err) {
     await heptagramErrorHandler(

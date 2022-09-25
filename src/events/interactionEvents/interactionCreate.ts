@@ -4,6 +4,7 @@ import { Heptagram } from "../../interfaces/Heptagram";
 import { commandListener } from "../../listeners/commandListener";
 import { usageListener } from "../../listeners/usageListener";
 import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
+import { getSettings } from "../../modules/settings/getSettings";
 
 /**
  * Processes logic when a new interaction is created.
@@ -23,8 +24,8 @@ export const interactionCreate = async (
         (el) => el.data.name === interaction.commandName
       );
       if (!target) {
-        interaction.editReply({
-          content: "Command not found.",
+        interaction.reply({
+          content: `Command not found. ${interaction.commandName}`,
         });
         return;
       }
@@ -34,9 +35,21 @@ export const interactionCreate = async (
         });
         return;
       }
+      const config = await getSettings(
+        Heptagram,
+        interaction.guildId,
+        interaction.guild.name
+      );
+
+      if (!config) {
+        await interaction.reply({
+          content: "There was an error getting the server settings.",
+        });
+        return;
+      }
 
       await commandListener.run(Heptagram, interaction);
-      await target.run(Heptagram, interaction);
+      await target.run(Heptagram, interaction, config);
       await usageListener.run(Heptagram, interaction);
     }
   } catch (err) {

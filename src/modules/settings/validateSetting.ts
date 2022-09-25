@@ -28,6 +28,11 @@ export const validateSetting = async (
     const parsedValue = BigInt(value.replace(/\D/g, ""));
     switch (setting) {
       case "links":
+        if (parsedValue < 0) {
+          return false;
+        } else {
+          return true;
+        }
       case "blocked":
         return (
           !!parsedValue &&
@@ -43,10 +48,35 @@ export const validateSetting = async (
             config[setting].includes(`${parsedValue}`))
         );
       case "automod_channels":
+        return (
+          !!parsedValue &&
+          (!!(await guild.channels.fetch(`${parsedValue}`)) ||
+            config[setting].includes(`${parsedValue}`))
+        );
       case "no_automod_channels":
+        return (
+          !!parsedValue &&
+          (!!(await guild.channels.fetch(`${parsedValue}`)) ||
+            config[setting].includes(`${parsedValue}`))
+        );
       case "allowed_links":
+        return (
+          !!parsedValue &&
+          (!!(await guild.channels.fetch(`${parsedValue}`)) ||
+            config[setting].includes(`${parsedValue}`))
+        );
       case "antiphish":
+        return (
+          !!parsedValue &&
+          (!!(await guild.channels.fetch(`${parsedValue}`)) ||
+            config[setting].includes(`${parsedValue}`))
+        );
       case "link_message":
+        return (
+          !!parsedValue &&
+          (!!(await guild.channels.fetch(`${parsedValue}`)) ||
+            config[setting].includes(`${parsedValue}`))
+        );
       default:
         return false;
     }

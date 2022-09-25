@@ -4,6 +4,7 @@ import {
 } from "@discordjs/builders";
 import { ChatInputCommandInteraction } from "discord.js";
 
+import { ServerConfig } from "../database/ServerConfig";
 import { Heptagram } from "../Heptagram";
 
 /**
@@ -18,9 +19,11 @@ export interface Command {
    *
    * @param {Heptagram} Heptagram's Discord instance.
    * @param { ChatInputCommandInteraction} interaction The interaction payload from Discord.
+   * @param {ServerConfig} config The server configuration from the database.
    */
   run: (
     Heptagram: Heptagram,
-    interaction: ChatInputCommandInteraction
+    interaction: ChatInputCommandInteraction,
+    config: ServerConfig
   ) => Promise<void>;
 }

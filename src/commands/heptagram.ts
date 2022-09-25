@@ -74,12 +74,12 @@ export const heptagram: Command = {
         .setName("stats")
         .setDescription("Shows statistics about the bot.")
     ),
-  run: async (Heptagram, interaction) => {
+  run: async (Heptagram, interaction, config) => {
     try {
       await interaction.deferReply();
       const subCommand = interaction.options.getSubcommand();
       const handler = handlers[subCommand] || handleInvalidSubcommand;
-      await handler(Heptagram, interaction);
+      await handler(Heptagram, interaction, config);
       Heptagram.pm2.metrics.commands.mark();
     } catch (err) {
       const errorId = await heptagramErrorHandler(

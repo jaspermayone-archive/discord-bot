@@ -8,8 +8,20 @@ import { heptagramErrorHandler } from "../../modules/heptagramErrorHandler";
  *
  * @returns {boolean} If a scam link was detected.
  */
-export const automodPhish: ListenerHandler = async (Heptagram, message) => {
+export const automodPhish: ListenerHandler = async (
+  Heptagram,
+  message,
+  config
+) => {
   try {
+    if (
+      !config.antiphish ||
+      config.antiphish === "none" ||
+      !message.member ||
+      !message.guild
+    ) {
+      return false;
+    }
     const contentWithoutCode = message.content.replace(
       /`{3}([\S]+)?\n((?!`{3})((?!```)[\s\S])+)\n`{3}/gi,
       ""
@@ -26,6 +38,8 @@ export const automodPhish: ListenerHandler = async (Heptagram, message) => {
     }
 
     let scamDetected = false;
+    let scamLink = "";
+    let scamSource = "";
 
     for (const link of blockedLinkList) {
       const encodedLink = encodeURI(
@@ -61,16 +75,33 @@ export const automodPhish: ListenerHandler = async (Heptagram, message) => {
 
       if (checkHeptagramAPI.data.scamDetected) {
         scamDetected = true;
+        scamLink = link;
+        scamSource = "Heptagram";
         break;
       }
+
+      if (!scamDetected) {
+        return false;
+      }
+
+      await message.delete();
+
+      const reason = `Automod: Phishing Link Detected (${scamSource}, ${scamLink})`;
+
+      switch (config.antiphish) {
+        case "mute":
+          await message.member.timeout(86400000, reason);
+          break;
+        case "kick":
+          await message.member.kick(reason);
+          break;
+        case "ban":
+          await message.member.ban({ reason });
+          break;
+        default:
+          break;
+      }
     }
-
-    if (!scamDetected) {
-      return false;
-    }
-
-    await message.delete();
-
     return true;
   } catch (err) {
     await heptagramErrorHandler(

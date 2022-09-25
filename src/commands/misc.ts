@@ -27,13 +27,13 @@ export const misc: Command = {
           "Confirms the bot has the correct permissions in the channel and guild."
         )
     ),
-  run: async (Heptagram, interaction) => {
+  run: async (Heptagram, interaction, config) => {
     try {
       await interaction.deferReply();
 
       const subCommand = interaction.options.getSubcommand();
       const handler = handlers[subCommand] || handleInvalidSubcommand;
-      await handler(Heptagram, interaction);
+      await handler(Heptagram, interaction, config);
       Heptagram.pm2.metrics.commands.mark();
     } catch (err) {
       const errorId = await heptagramErrorHandler(

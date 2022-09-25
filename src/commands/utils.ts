@@ -51,12 +51,12 @@ export const utils: Command = {
         .setName("serverinfo")
         .setDescription("Gets information about the server.")
     ),
-  run: async (Heptagram, interaction) => {
+  run: async (Heptagram, interaction, config) => {
     try {
       await interaction.deferReply();
       const subcommand = interaction.options.getSubcommand();
       const handler = handlers[subcommand] || handleInvalidSubcommand;
-      await handler(Heptagram, interaction);
+      await handler(Heptagram, interaction, config);
       Heptagram.pm2.metrics.commands.mark();
     } catch (err) {
       const errorId = await heptagramErrorHandler(
