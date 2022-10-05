@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "5.35.1",
     "@typescript-eslint/parser": "5.35.1",
     "alex": "10.0.0",
-    "all-contributors-cli": "6.20.0",
+    "all-contributors-cli": "6.23.0",
     "dotenv": "16.0.3",
     "eslint": "8.24.0",
     "eslint-config-prettier": "8.5.0",
