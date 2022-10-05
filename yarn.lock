@@ -694,17 +694,17 @@ alex@10.0.0:
     vfile-reporter "^7.0.0"
     vfile-sort "^3.0.0"
 
-all-contributors-cli@6.20.0:
-  version "6.20.0"
-  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-6.20.0.tgz#9bc98dda38cb29cfe8afc8a78c004e14af25d2f6"
-  integrity sha512-trEQlL1s1u8FSWSwY2w9uL4GCG7Fo9HIW5rm5LtlE0SQHSolfXQBzJib07Qes5j52/t72wjuE6sEKkuRrwiuuQ==
+all-contributors-cli@6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-6.23.0.tgz#b048efb8b126375a67d4d56bdc3733a53b1310b8"
+  integrity sha512-myfnxTFLJ1hL5wA705QYkLm08iney2J+A1DC3m2fAe+oyFoXH03u2oK+G7B/cvgrbVl5eWw8yELKmtR6iAtoCw==
   dependencies:
     "@babel/runtime" "^7.7.6"
-    async "^3.0.1"
+    async "^3.1.0"
     chalk "^4.0.0"
     didyoumean "^1.2.1"
-    inquirer "^7.0.4"
-    json-fixer "^1.5.1"
+    inquirer "^7.3.3"
+    json-fixer "^1.6.8"
     lodash "^4.11.2"
     node-fetch "^2.6.0"
     pify "^5.0.0"
@@ -850,7 +850,7 @@ async-listener@^0.6.0:
     semver "^5.3.0"
     shimmer "^1.1.0"
 
-async@^3.0.1, async@^3.2.3:
+async@^3.1.0, async@^3.2.3:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.4.tgz#2d22e00f8cddeb5fde5dd33522b56d1cf569a81c"
   integrity sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==
@@ -2719,7 +2719,7 @@ ini@^1.3.5, ini@~1.3.0:
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
 
-inquirer@^7.0.4:
+inquirer@^7.3.3:
   version "7.3.3"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-7.3.3.tgz#04d176b2af04afc157a83fd7c100e98ee0aad003"
   integrity sha512-JG3eIAj5V9CwcGvuOmoo6LB9kbAYT8HXffUl6memuszlwDC/qvFAJw49XJ5NROSFNPxp3iQg1GqkFhaY/CR0IA==
@@ -3028,7 +3028,7 @@ json-buffer@3.0.0:
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.0.tgz#5b1f397afc75d677bde8bcfc0e47e1f9a3d9a898"
   integrity sha512-CuUqjv0FUZIdXkHPI8MezCnFCdaTAacej1TZYulLoAg1h/PhwkdXFN4V/gzY4g+fMBCOV2xF+rp7t2XD2ns/NQ==
 
-json-fixer@^1.5.1:
+json-fixer@^1.6.8:
   version "1.6.15"
   resolved "https://registry.yarnpkg.com/json-fixer/-/json-fixer-1.6.15.tgz#f1f03b6771fcb383695d458c53e50b10999fba7f"
   integrity sha512-TuDuZ5KrgyjoCIppdPXBMqiGfota55+odM+j2cQ5rt/XKyKmqGB3Whz1F8SN8+60yYGy/Nu5lbRZ+rx8kBIvBw==
