@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
     "target": "ES6",
     "module": "CommonJS",
     "rootDir": "./src",
@@ -9,8 +8,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "types": ["bun-types"]
+    "resolveJsonModule": true
   },
   "exclude": ["./test"]
 }
