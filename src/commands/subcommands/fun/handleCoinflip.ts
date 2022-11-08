@@ -14,7 +14,7 @@ export const handleCoinflip: CommandHandler = async (
 ): Promise<void> => {
   try {
     const coinflipResult = await axios.get<boolean>(
-      `https://api.heptagrambotproject.com/v4/coinflip`,
+      `https://api.heptagrambotproject.com/coinflip`,
       {
         headers: {
           Authorization: "Bearer " + Heptagram.tokens.heptagramApiToken,

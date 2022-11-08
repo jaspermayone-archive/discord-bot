@@ -18,7 +18,7 @@ export const handleQuote: CommandHandler = async (
 ): Promise<void> => {
   try {
     const quote = await axios.get<Quote>(
-      `https://api.heptagrambotproject.com/v4/quotes`,
+      `https://api.heptagrambotproject.com/quotes`,
       {
         headers: {
           Authorization: "Bearer " + Heptagram.tokens.heptagramApiToken,
